@@ -8,7 +8,7 @@ import SinglePackage from "./Core/SinglePackageScreen";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{width: "100%", overflowX: "hidden"}}>
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />
