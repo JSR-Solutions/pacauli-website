@@ -28,26 +28,26 @@
 }
 
 .item-one {
-    background-image: url(../Assets/Landing/p1.jpg);
+    background: linear-gradient(45deg, rgba(44, 44, 44, 0.45), rgba(44, 44, 44, 0.45)), url(../Assets/Landing/p1.jpg);
     background-size: cover;
     background-position: right;
     /* opacity: 0.85; */
 }
 .item-two {
-    background-image: url(../Assets/Landing/p2.jpg);
+    background:linear-gradient(45deg, rgba(44, 44, 44, 0.45), rgba(44, 44, 44, 0.45)), url(../Assets/Landing/p2.jpg);
     background-size: cover;
     background-position: center;
     /* opacity: 0.85; */
 }
 
 .item-three {
-    background-image: url(../Assets/Landing/p3.jpg);
+    background:linear-gradient(45deg, rgba(44, 44, 44, 0.45), rgba(44, 44, 44, 0.45)), url(../Assets/Landing/p3.jpg);
     background-size: cover;
     background-position: left;
     /* opacity: 0.85; */
 }
 .item-four {
-    background-image: url(../Assets/Landing/p4.jpg);
+    background:linear-gradient(45deg, rgba(44, 44, 44, 0.45), rgba(44, 44, 44, 0.45)), url(../Assets/Landing/p4.jpg);
     background-size: cover;
     background-position: left;
     /* opacity: 0.85; */

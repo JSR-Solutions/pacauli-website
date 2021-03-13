@@ -12,13 +12,11 @@ import AllPackages from "./Admin/AllPacakges";
 import AddPackage from "./Admin/AddPackage";
 import AllEnquiries from "./Admin/AllEnquiries";
 import CustomPackageRequests from "./Admin/CustomPackage";
-import Header from './Components/Header'
 
 function App() {
   return (
     <div className="App" style={{ width: "100%", overflowX: "hidden" }}>
       <Router>
-      <Header />
         <Switch>
           {/* Normal Routes */}
           <Route path="/" exact component={Home} />
