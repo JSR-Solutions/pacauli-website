@@ -9,7 +9,7 @@ import Header from './Components/Header'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{width: "100%", overflowX: "hidden"}}>
       <Router>
       <Header />
         <Switch>

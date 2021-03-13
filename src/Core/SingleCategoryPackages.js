@@ -7,5 +7,4 @@ const SingleCategoryPackages = () => {
         </div>
     );
 };
-
 export default SingleCategoryPackages;
