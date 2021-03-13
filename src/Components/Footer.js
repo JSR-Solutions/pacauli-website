@@ -24,11 +24,7 @@ function Footer() {
                   mollit ex esse exercitation amet. Nisi anim cupidatat
                   excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem
                   est aliquip amet voluptate voluptate dolor minim nulla est
-                  proident. Nostrud officia pariatur ut officia. Sit irure elit
-                  esse ea nulla sunt ex occaecat reprehenderit commodo officia
-                  dolor Lorem duis laboris cupidatat officia voluptate. Culpa
-                  proident adipisicing id nulla nisi laboris ex in Lorem sunt
-                  duis officia eiusmod.
+                  proident.
                 </p>
               </div>
             </div>
@@ -49,12 +45,7 @@ function Footer() {
                 <a href="">
                   <p className="footer-section-content">Contact Us</p>
                 </a>
-                <a href="">
-                  <p className="footer-section-content">Our Packages</p>
-                </a>
-                <a href="">
-                  <p className="footer-section-content">Contact Us</p>
-                </a>
+                
               </div>
             </div>
           </Col>
@@ -74,12 +65,7 @@ function Footer() {
                 <a href="">
                   <p className="footer-section-content">That Package</p>
                 </a>
-                <a href="">
-                  <p className="footer-section-content">This Package</p>
-                </a>
-                <a href="">
-                  <p className="footer-section-content">That Package</p>
-                </a>
+                
               </div>
             </div>
           </Col>
