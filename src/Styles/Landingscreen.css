@@ -74,7 +74,8 @@
 .landing-bottom-part{
     /* background-color: cyan; */
     position: relative;
-    top: -150px;
+    /* top: -150px; */
+    padding: 40px 0px;
 }
 .landing-carousel{
     margin: auto;
