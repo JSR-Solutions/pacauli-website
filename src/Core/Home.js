@@ -1,7 +1,7 @@
 import React from "react";
 import Landingscreen from "../Components/Laningscreen";
 import Footer from "../Components/Footer";
-import Socials from "../Components/Socials";
+import Hometext from "../Components/Hometext";
 const Home = () => {
   return (
     <div>
