@@ -40,9 +40,9 @@
 }
 
 .footer-social-icon {
-    color: var(--white);
-    font-size: 30px;
-    margin: 0px 16px;
+    color: var(--primary-black);
+    font-size: 25px;
+    /* margin: 0px 16px; */
 }
 
 .footer-copyright-content {

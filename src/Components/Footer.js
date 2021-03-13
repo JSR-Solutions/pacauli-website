@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import "../Styles/Footer.css";
+import Socials from "../Components/Socials";
 import {
   AiFillInstagram,
   AiFillFacebook,
@@ -107,12 +108,14 @@ function Footer() {
           </Col>
         </Row>
         <hr className="footer-divider" />
-        <div className="footer-socials">
+        {/* <div className="footer-socials">
           <AiFillInstagram className="footer-social-icon" />
           <AiFillFacebook className="footer-social-icon" />
           <AiOutlineMail className="footer-social-icon" />
           <AiFillGoogleCircle className="footer-social-icon" />
-        </div>
+          
+        </div> */}
+        <Socials />
         <div>
           <p className="footer-copyright-content">Copyright © 2021 PacAuli. All Rights Reserved.</p>
         </div>
