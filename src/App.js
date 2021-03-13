@@ -5,12 +5,20 @@ import ContactUs from "./Core/ContactUs";
 import Categroies from "./Core/Categories";
 import SingleCategory from "./Core/SingleCategoryPackages";
 import SinglePackage from "./Core/SinglePackageScreen";
+import PrivateRoute from "./Admin/PrivateRoute";
+import AdminLogin from "./Admin/AdminLogin";
+import AdminDashboard from "./Admin/AdminDashboard";
+import AllPackages from "./Admin/AllPacakges";
+import AddPackage from "./Admin/AddPackage";
+import AllEnquiries from "./Admin/AllEnquiries";
+import CustomPackageRequests from "./Admin/CustomPackage";
 
 function App() {
   return (
-    <div className="App" style={{width: "100%", overflowX: "hidden"}}>
+    <div className="App" style={{ width: "100%", overflowX: "hidden" }}>
       <Router>
         <Switch>
+          {/* Normal Routes */}
           <Route path="/" exact component={Home} />
           <Route path="/contactus" exact component={ContactUs} />
           <Route path="/categories" exact component={Categroies} />
@@ -23,6 +31,34 @@ function App() {
             path="/categories/:categoryName/:packageId"
             exact
             component={SinglePackage}
+          />
+
+          {/* Admin Routes */}
+          <Route path="/admin/login" exact component={AdminLogin} />
+          <PrivateRoute
+            path="/admin/dashboard"
+            exact
+            component={AdminDashboard}
+          />
+          <PrivateRoute
+            path="/admin/allpackages"
+            exact
+            component={AllPackages}
+          />
+          <PrivateRoute
+            path="/admin/addpackage"
+            exact
+            component={AddPackage}
+          />
+          <PrivateRoute
+            path="/admin/customrequests"
+            exact
+            component={CustomPackageRequests}
+          />
+          <PrivateRoute
+            path="/admin/allenquiries"
+            exact
+            component={AllEnquiries}
           />
         </Switch>
       </Router>

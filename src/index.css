@@ -17,8 +17,12 @@ code {
   --cursive: 'Redressed', cursive;
   --sans-serif: 'Work Sans', sans-serif;
   --primary: #7868e6;
-  --secondary: #796cce;
+  --secondary: #524891;
   --white: #fff;
   --primary-black: #222222;
   --primary-black-text: #3d3c3c;
+}
+
+*{
+  font-family: var(--sans-serif);
 }

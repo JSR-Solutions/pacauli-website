@@ -23,10 +23,12 @@
     "react-icons": "^4.2.0",
     "react-image-gallery": "^1.0.9",
     "react-multi-carousel": "^2.6.2",
+    "react-pro-sidebar": "^0.6.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-toastify": "^7.0.3",
     "reactjs-localstorage": "^1.0.1",
+    "sass": "^1.32.8",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
