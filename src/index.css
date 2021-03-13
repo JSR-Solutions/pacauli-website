@@ -16,9 +16,14 @@ code {
   --serif: 'Lora', serif;
   --cursive: 'Redressed', cursive;
   --sans-serif: 'Work Sans', sans-serif;
+  --primary: #7868e6;
+  --secondary: #524891;
   --primary: #7868e6 !important;
-  --secondary: #796cce;
   --white: #fff;
   --primary-black: #222222;
   --primary-black-text: #3d3c3c;
+}
+
+*{
+  font-family: var(--sans-serif);
 }
