@@ -1,10 +1,16 @@
-import React from 'react'
-import Footer from "../Components/Footer"
+import React from "react";
+import Landingscreen from "../Components/Laningscreen";
+import Footer from "../Components/Footer";
+import Hometext from "../Components/Hometext";
+const Home = () => {
+  return (
+    <div>
+      <Landingscreen />
+      
 
-function Home() {
-    return (
-        <Footer />
-    )
-}
+      <Footer />
+    </div>
+  );
+};
 
-export default Home
+export default Home;

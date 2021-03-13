@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-function SingleCategoryPackages() {
+const SingleCategoryPackages = () => {
     return (
-        <div></div>
-    )
-}
-
-export default SingleCategoryPackages
+        <div>
+            
+        </div>
+    );
+};
+export default SingleCategoryPackages;
