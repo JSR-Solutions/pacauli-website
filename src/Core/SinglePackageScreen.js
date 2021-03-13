@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-function SinglePackageScreen() {
+const SinglePackageScreen = () => {
     return (
-        
-    )
-}
+        <div>
+            
+        </div>
+    );
+};
 
-export default SinglePackageScreen
+export default SinglePackageScreen;
