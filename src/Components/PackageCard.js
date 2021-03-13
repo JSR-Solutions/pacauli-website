@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-function PackageCard() {
+const PackageCard = () => {
     return (
-        
-    )
-}
+        <div>
+            
+        </div>
+    );
+};
 
-export default PackageCard
+export default PackageCard;

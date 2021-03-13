@@ -1,8 +1,29 @@
 import React from 'react';
 import '../Styles/Landingscreen.css'
-import { Carousel } from 'react-bootstrap'
+import { Carousel, Container, Row, Col } from 'react-bootstrap'
+import Landingcard from './Landingcard'
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 const Laningscreen = () => {
+
+    const arr = [1, 2, 5, 5, 3, 7, 9, 5]
+    const responsive = {
+        0: { items: 1 },
+        650: { items: 2 },
+        767: { items: 1 },
+        860: { items: 2 },
+        1218: { items: 2 },
+        1220: { items: 3 },
+        1400: { items: 3 }
+    };
+
+    const trekItems = arr.map((e, r) => {
+        return (
+            <Landingcard />
+        );
+    });
+
     return (
         <div className="home-carousel">
             <Carousel>
@@ -32,11 +53,48 @@ const Laningscreen = () => {
                 </Carousel.Item>
             </Carousel>
 
-            <div>
-            fytfyfguyguy
+            <div className='landing-bottom-part'>
+                <Container fluid>
+                    <Row>
+                        <Col md={3} xs={12}>
+                            <div className='landing-bottom-left'>
+                                <h5>Top Of The Last Week</h5>
+                                <p>Treding package of the last week</p>
+                            </div>
+                        </Col>
+                        <Col md={9} xs={12}>
+                        <div className='landing-carousel'>
+                            <AliceCarousel
+                                responsive={responsive}
+                                items={trekItems}
+                                fadeOutAnimation={true}
+                                disableDotsControls={true}
+                                infinite={true}
+                                autoPlayInterval={2500}
+                                autoPlayControls={false}
+                                autoPlayStrategy={"all"}
+                                autoPlay={true}
+                            />
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
             </div>
-        </div>
+        </div >
     );
 };
 
 export default Laningscreen;
+
+
+
+
+// <Row>
+// {
+//     arr.map((n, m) =>
+//         <Col md={4}>
+//             <Landingcard />
+//         </Col>
+//     )
+// }
+// </Row>

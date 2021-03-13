@@ -1,12 +1,12 @@
 .footer-main-div {
     background-color: var(--primary-black);
-    padding: 60px;
+    padding: 20px 60px 10px 60px;
 }
 
 .footer-section-title {
     color: var(--white);
     font-family: var(--sans-serif);
-    font-size: 28px;
+    font-size: 24px;
     text-align: left;
 }
 
@@ -20,9 +20,9 @@
 .footer-section-content-div {
     color: var(--white);
     font-family: var(--sans-serif);
-    font-size: 16px;
+    font-size: 14px;
     text-align: left;
-    margin-top: 36px;
+    margin-top: 30px;
 }
 
 .footer-section-content-div a{

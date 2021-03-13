@@ -116,7 +116,7 @@ function Footer() {
           
         </div> */}
         <Socials />
-        <div>
+        <div className="footer-last">
           <p className="footer-copyright-content">Copyright © 2021 PacAuli. All Rights Reserved.</p>
         </div>
       </div>

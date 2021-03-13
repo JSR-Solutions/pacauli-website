@@ -16,6 +16,7 @@
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "react": "^17.0.1",
+    "react-alice-carousel": "^2.4.0",
     "react-bootstrap": "^1.5.2",
     "react-collapsible": "^2.8.3",
     "react-countup": "^4.3.3",
@@ -23,10 +24,12 @@
     "react-icons": "^4.2.0",
     "react-image-gallery": "^1.0.9",
     "react-multi-carousel": "^2.6.2",
+    "react-pro-sidebar": "^0.6.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-toastify": "^7.0.3",
     "reactjs-localstorage": "^1.0.1",
+    "sass": "^1.32.8",
     "web-vitals": "^1.1.0"
   },
   "scripts": {

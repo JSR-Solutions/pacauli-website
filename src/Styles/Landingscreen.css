@@ -28,26 +28,26 @@
 }
 
 .item-one {
-    background-image: url(../Assets/Landing/p1.jpg);
+    background: linear-gradient(45deg, rgba(44, 44, 44, 0.45), rgba(44, 44, 44, 0.45)), url(../Assets/Landing/p1.jpg);
     background-size: cover;
     background-position: right;
     /* opacity: 0.85; */
 }
 .item-two {
-    background-image: url(../Assets/Landing/p2.jpg);
+    background:linear-gradient(45deg, rgba(44, 44, 44, 0.45), rgba(44, 44, 44, 0.45)), url(../Assets/Landing/p2.jpg);
     background-size: cover;
     background-position: center;
     /* opacity: 0.85; */
 }
 
 .item-three {
-    background-image: url(../Assets/Landing/p3.jpg);
+    background:linear-gradient(45deg, rgba(44, 44, 44, 0.45), rgba(44, 44, 44, 0.45)), url(../Assets/Landing/p3.jpg);
     background-size: cover;
     background-position: left;
     /* opacity: 0.85; */
 }
 .item-four {
-    background-image: url(../Assets/Landing/p4.jpg);
+    background:linear-gradient(45deg, rgba(44, 44, 44, 0.45), rgba(44, 44, 44, 0.45)), url(../Assets/Landing/p4.jpg);
     background-size: cover;
     background-position: left;
     /* opacity: 0.85; */
@@ -67,4 +67,57 @@
         font-size: 24px !important;
         opacity: 0;
     }
+}
+
+
+
+.landing-bottom-part{
+    /* background-color: cyan; */
+    position: relative;
+    top: -150px;
+}
+.landing-carousel{
+    margin: auto;
+    height: 250px;
+}
+.landing-bottom-left{
+    background-color: rgba(0, 0, 0, 0.466);
+    color: white;
+    height: 125px;
+    padding-top: 30px;
+}
+.alice-carousel__prev-btn{
+    background-color: var(--primary) !important;
+    width: fit-content !important;
+    margin-top: -155px !important;
+    position: absolute !important;
+    left: 0% !important;
+    z-index: 99;
+}
+.alice-carousel__prev-btn-item{
+    background-color: var(--primary) !important;
+    color: var(--white) !important;
+    font-weight: bolder !important;
+    z-index: 99;
+}
+
+.alice-carousel__next-btn{
+    background-color: var(--primary) !important;
+    width: fit-content !important;
+    position: absolute !important;
+    right: 0 !important;
+    margin-top: -155px !important;
+    z-index: 99;
+}
+.alice-carousel__next-btn-item{
+    background-color: var(--primary) !important;
+    color: var(--white) !important;
+    font-weight: bolder !important;
+    z-index: 99;
+}
+@media screen and (max-width: 767px){
+    .landing-bottom-part{
+        position: relative;
+        top: 0px;
+    }   
 }
