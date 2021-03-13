@@ -5,11 +5,13 @@ import ContactUs from "./Core/ContactUs";
 import Categroies from "./Core/Categories";
 import SingleCategory from "./Core/SingleCategoryPackages";
 import SinglePackage from "./Core/SinglePackageScreen";
+import Header from './Components/Header'
 
 function App() {
   return (
     <div className="App" style={{width: "100%", overflowX: "hidden"}}>
       <Router>
+      <Header />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/contactus" exact component={ContactUs} />
