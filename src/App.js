@@ -12,6 +12,7 @@ import AllPackages from "./Admin/AllPacakges";
 import AddPackage from "./Admin/AddPackage";
 import AllEnquiries from "./Admin/AllEnquiries";
 import CustomPackageRequests from "./Admin/CustomPackage";
+import CustomPackage from "./Core/CustomPackage"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/contactus" exact component={ContactUs} />
           <Route path="/categories" exact component={Categroies} />
+          <Route path="/custompackage" exact component={CustomPackage} />
           <Route
             path="/categories/:categoryName"
             exact
