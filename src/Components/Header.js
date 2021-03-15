@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import {
-    IoLogoFacebook,
-    IoLogoTwitter,
-    IoLogoWhatsapp,
-    IoMdMail,
-    IoIosPeople
+  IoLogoFacebook,
+  IoLogoTwitter,
+  IoLogoWhatsapp,
+  IoMdMail,
+  IoIosPeople,
 } from "react-icons/io";
 import {
     AiFillInstagram,
@@ -21,6 +21,7 @@ import { Link, withRouter } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import emailjs from "emailjs-com";
+import firebase from "firebase";
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
@@ -128,6 +129,8 @@ const Header = ({ history }) => {
                 }
             );
     }
+  const db = firebase.firestore();
+
 
     return (
         <div className="header-main-main">
