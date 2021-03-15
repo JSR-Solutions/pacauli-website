@@ -5,15 +5,14 @@ const Categorycards = () => {
   return (
     <div>
       <div className="team-section">
-        {/* <div class="headings-aks">
-          <h1 class="soul regaltos">
-            <span>All Categories</span>
+      <div className="headd">
+          <h1>
+            <span>WHAT DO WE HAVE?</span>
           </h1>
-        </div> */}
+        </div>
         <Row className="team-cards-aks">
           <Col>
             <div class="container-team">
-              <center>
                 <div class="post">
                   <div class="header_post">
                     <img
@@ -32,13 +31,11 @@ const Categorycards = () => {
                     </div>
                   </div>
                 </div>
-              </center>
             </div>
           </Col>
 
           <Col>
             <div class="container-team">
-              <center>
                 <div class="post">
                   <div class="header_post">
                     <img
@@ -56,13 +53,11 @@ const Categorycards = () => {
                     </div>
                   </div>
                 </div>
-              </center>
             </div>
           </Col>
 
           <Col>
             <div class="container-team">
-              <center>
                 <div class="post">
                   <div class="header_post">
                     <img
@@ -80,13 +75,11 @@ const Categorycards = () => {
                     </div>
                   </div>
                 </div>
-              </center>
             </div>
           </Col>
 
           <Col>
             <div class="container-team">
-              <center>
                 <div class="post">
                   <div class="header_post">
                     <img
@@ -105,13 +98,11 @@ const Categorycards = () => {
                     </div>
                   </div>
                 </div>
-              </center>
             </div>
           </Col>
 
           <Col>
             <div class="container-team">
-              <center>
                 <div class="post">
                   <div class="header_post">
                     <img
@@ -130,7 +121,6 @@ const Categorycards = () => {
                     </div>
                   </div>
                 </div>
-              </center>
             </div>
           </Col>
         </Row>

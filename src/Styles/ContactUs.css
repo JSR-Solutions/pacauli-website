@@ -94,7 +94,7 @@
 
 .circle {
   border-radius: 50%;
-  background: linear-gradient(135deg, transparent 20%, #149279);
+  background: linear-gradient(135deg, transparent 20%, var(--secondary));
   position: absolute;
 }
 
@@ -299,7 +299,7 @@ textarea.contact-input {
   width: 35px;
   height: 35px;
   border-radius: 5px;
-  background: linear-gradient(45deg, var(--primary), #149279);
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
   text-align: center;
   line-height: 35px;
   color: #fff;
@@ -309,6 +309,10 @@ textarea.contact-input {
 
 .social-icons a:hover {
   transform: scale(1.05);
+}
+
+.contact-info {
+  text-align: left;
 }
 
 .contact-info:before {
@@ -328,7 +332,7 @@ textarea.contact-input {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: linear-gradient(to bottom, var(--primary), #159b80);
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
   bottom: 50%;
   right: 50%;
   transform: translate(-40%, 38%);

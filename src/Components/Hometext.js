@@ -1,32 +1,62 @@
 import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { propTypes } from "react-bootstrap/esm/Image";
+import "../Styles/Hometext.css";
 
 const Hometext = (props) => {
   return (
     <div className="hometext-god">
       <Container>
+        <div className="headd">
+          <h1>
+            <span>CYCLING</span>
+          </h1>
+        </div>
+        <br />
+        <br />
         <Row>
-          <Col>
+          <Col sm={12} lg={6} xs={12}>
             <Row>
-              <img src={props.src1} />
+              <div className="headings-aks">
+                {" "}
+                <div className="photuu">
+                  <img src={props.src1} />
+                </div>
+              </div>
             </Row>
             <Row>
-              <div className="heading">{props.heading1}</div>
+              <div className="headings-aks">
+                <h1 class="soul regaltos">
+                  <span>{props.heading1}</span>
+                </h1>
+              </div>
             </Row>
+
             <Row>
-              <div className="caption">{props.caption1}</div>
+              <div className="headings-aks">
+                <div className="caption">{props.caption1}</div>
+              </div>
             </Row>
           </Col>
-          <Col>
+          <Col sm={12} lg={6} xs={12}>
             <Row>
-              <div className="heading">{props.heading2}</div>
+              <div className="headings-aks">
+                <h1 class="soul regaltos">
+                  <span>{props.heading2}</span>
+                </h1>
+              </div>
             </Row>
             <Row>
-              <div className="caption">{props.caption2}</div>
+              <div className="headings-aks">
+                <div className="caption">{props.caption2}</div>
+              </div>
             </Row>
             <Row>
-              <img src={props.src2} />
+              <div className="headings-aks">
+                <div className="photuu">
+                  <img src={props.src2} />
+                </div>
+              </div>
             </Row>
           </Col>
         </Row>
