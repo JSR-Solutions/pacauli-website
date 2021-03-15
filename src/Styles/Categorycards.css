@@ -1,5 +1,5 @@
 .team-section {
-  padding-top: 100px;
+  padding-top: 300px;
   padding-bottom: 100px;
   padding-left: 40px;
   padding-right: 40px;
@@ -7,7 +7,7 @@
 
 .team-cards-aks {
   padding-top: 80px;
-  padding-bottom: 35px !important;
+  padding-bottom: 35px;
 }
 
 .container-team .post {
