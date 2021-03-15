@@ -15,6 +15,7 @@ import { RiCustomerService2Fill } from "react-icons/ri";
 import {AiFillFileAdd} from "react-icons/ai";
 import "../Styles/Sidebar.scss";
 import {GoPackage} from 'react-icons/go';
+import {FiPhoneCall} from "react-icons/fi";
 
 function Sidebar() {
   return (
@@ -46,6 +47,12 @@ function Sidebar() {
             className="sidebar-menu-item"
           >
             <Link to="/admin/allenquiries">All Enquiries</Link>{" "}
+          </MenuItem>
+          <MenuItem
+            icon={<FiPhoneCall />}
+            className="sidebar-menu-item"
+          >
+            <Link to="/admin/contactrequests">Contact Requests</Link>{" "}
           </MenuItem>
         </Menu>
         <SidebarFooter className="admin-dashboard-sidebar-footer">
