@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import "../Styles/ContactUs.css";
@@ -6,8 +6,17 @@ import email from "../Assets/email.png";
 import location from "../Assets/location.png";
 import phone from "../Assets/phone.png";
 import shape from "../Assets/shape.png";
+import firebase from "firebase";
+import { ToastContainer, toast } from "react-toastify";
 
 const ContactUs = () => {
+  const [enquiry, setEnquiry] = useState({
+    name: "",
+    phNo: "",
+    email: "",
+    message: "",
+  });
+
   useEffect(() => {
     const inputs = document.querySelectorAll(".contact-input");
 
@@ -27,9 +36,39 @@ const ContactUs = () => {
     }
   }, []);
 
+  const db = firebase.firestore();
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setEnquiry((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+
+  const addEnquiry = (e) => {
+    e.preventDefault();
+    db.collection("Enquiries")
+      .add( enquiry )
+      .then((docRef) => {
+        db.collection("Enquiries")
+          .doc(docRef.id)
+          .update({ id: docRef.id })
+          .then(() => {
+            toast.success("Your enquiry has reached us. We will get in touch with you shortly.");
+            setEnquiry({
+              name: "",
+              phNo: "",
+              email: "",
+              message: "",
+            });
+          });
+      });
+  };
+
   return (
     <div>
       <Header />
+      <ToastContainer />
       <div className="contact-us-main">
         <div className="heading-contact">
           <p>&nbsp;&nbsp;Contact Us&nbsp;&nbsp;</p>
@@ -100,36 +139,37 @@ const ContactUs = () => {
               <form className="contact-us-main-form" action="">
                 <h3 className="contact-form-title">Contact Us</h3>
                 <div className="contact-form-input-container">
-                  <input type="text" name="name" className="contact-input" />
+                  <input type="text" name="name" className="contact-input" value={enquiry.name} onChange={handleChange}/>
                   <label className="contact-form-label" for="">
                     Name
                   </label>
                   <span>Name</span>
                 </div>
                 <div className="contact-form-input-container">
-                  <input type="text" name="phone" className="contact-input" />
+                  <input type="text" name="phNo" className="contact-input" value={enquiry.phNo} onChange={handleChange} />
                   <label className="contact-form-label" for="">
                     Phone Number
                   </label>
                   <span>Phone Number</span>
                 </div>
                 <div className="contact-form-input-container">
-                  <input type="email" name="email" className="contact-input" />
+                  <input type="email" name="email" className="contact-input"  value={enquiry.email} onChange={handleChange}/>
                   <label className="contact-form-label" for="">
                     Email
                   </label>
                   <span>Email</span>
                 </div>
                 <div className="contact-form-input-container contact-textarea">
-                  <textarea name="" cols="" rows="" className="contact-input" />
+                  <textarea name="message" value={enquiry.message} onChange={handleChange} cols="" rows="" className="contact-input" />
                   <label className="contact-form-label" for="">
                     Message
                   </label>
                   <span>Message</span>
                 </div>
                 <input
-                  type="submit"
+                  type="button"
                   value="Submit"
+                  onClick={addEnquiry}
                   className="contact-button"
                 ></input>
               </form>

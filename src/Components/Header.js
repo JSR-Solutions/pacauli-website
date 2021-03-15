@@ -5,7 +5,6 @@ import {
   IoLogoWhatsapp,
   IoMdMail,
   IoIosPeople,
-  IoCash,
 } from "react-icons/io";
 import {
   AiFillInstagram,
@@ -22,6 +21,7 @@ import { Link, withRouter } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import emailjs from "emailjs-com";
+import firebase from "firebase";
 
 const isActive = (history, path) => {
   if (history.location.pathname === path) {
@@ -95,35 +95,45 @@ const Header = ({ history }) => {
     });
   }
 
+  const db = firebase.firestore();
+
   function sendEmail() {
-    emailjs
-      .send(
-        "service_wmmn1mc",
-        "template_hi5n6h4",
-        quickEnquiry,
-        "user_kOM812vqGT0AINxPmaGol"
-      )
-      .then(
-        function (response) {
-          console.log("SUCCESS!", response.status, response.text);
-          toast.success("Mail Sent");
-          setQuickEnquiry({
-            fullName: "",
-            email: "",
-            phNo: "",
-            destination: "",
-            requirements: "",
-            budget: "",
-            noOfPeople: "",
+    db.collection("QuickEnquiries")
+      .add(quickEnquiry)
+      .then((docRef) => {
+        db.collection("QuickEnquiries").doc(docRef.id)
+          .update({ id: docRef.id })
+          .then(() => {
+            emailjs
+              .send(
+                "service_wmmn1mc",
+                "template_hi5n6h4",
+                quickEnquiry,
+                "user_kOM8f12vqGT0AINxPmaGol"
+              )
+              .then(
+                function (response) {
+                  console.log("SUCCESS!", response.status, response.text);
+                  toast.success("Mail Sent");
+                  setQuickEnquiry({
+                    fullName: "",
+                    email: "",
+                    phNo: "",
+                    destination: "",
+                    requirements: "",
+                    budget: "",
+                    noOfPeople: "",
+                  });
+                },
+                function (err) {
+                  console.log("FAILED...", err);
+                  toast.error(
+                    "There is an issue sending your request. Please try again later."
+                  );
+                }
+              );
           });
-        },
-        function (err) {
-          console.log("FAILED...", err);
-          toast.error(
-            "There is an issue sending your request. Please try again later."
-          );
-        }
-      );
+      });
   }
 
   return (
