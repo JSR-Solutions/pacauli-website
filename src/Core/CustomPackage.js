@@ -8,7 +8,6 @@ import phone from "../Assets/phone.png";
 import shape from "../Assets/shape.png";
 import custi from "../Assets/custompackage.png";
 
-
 const ContactUs = () => {
   useEffect(() => {
     const inputs = document.querySelectorAll(".contact-input");
@@ -33,24 +32,32 @@ const ContactUs = () => {
     <div>
       <Header />
       <div className="contact-us-main">
-      <div className="heading-custom">
-      <p>&nbsp;&nbsp;Custom Package&nbsp;&nbsp;</p>
+        <div className="heading-custom">
+          <p>&nbsp;&nbsp;Custom Package&nbsp;&nbsp;</p>
         </div>
         <div className="contact-us-container">
           <span className="big-circle"></span>
           <img src={shape} className="square" alt=""></img>
           <div className="contact-us-form">
             <div className="contact-info">
-              <div className = "funi">
-              <h3>Where ever you wanna go tell us we will make it possible fo you </h3>
+              <div className="funi">
+                <h3 className="contact-info-title">Request A Custom Package</h3>
+                <p className="contact-info-text">
+                  Lorem ipsum dolor sit amet, officia excepteur ex fugiat
+                  reprehenderit enim labore culpa sint ad nisi Lorem pariatur
+                  mollit ex esse exercitation amet. Nisi anim cupidatat
+                  excepteur officia.
+                </p>
               </div>
-              <img id = "yuiop" src = {custi}></img>
+              <img id="yuiop" src={custi}></img>
             </div>
             <div className="contact-form">
               <span className="circle one"></span>
               <span className="circle two"></span>
               <form className="contact-us-main-form" action="">
-                <h3 className="contact-form-title">Let us know what you need...</h3>
+                <h3 className="contact-form-title">
+                  Let us know what you need...
+                </h3>
                 <div className="contact-form-input-container">
                   <input type="text" name="name" className="contact-input" />
                   <label className="contact-form-label" for="">
@@ -73,7 +80,11 @@ const ContactUs = () => {
                   <span>Email</span>
                 </div>
                 <div className="contact-form-input-container">
-                  <input type="text" name="destination" className="contact-input" />
+                  <input
+                    type="text"
+                    name="destination"
+                    className="contact-input"
+                  />
                   <label className="contact-form-label" for="">
                     Destination
                   </label>
@@ -86,7 +97,7 @@ const ContactUs = () => {
                   </label>
                   <span>Budget</span>
                 </div>
-                
+
                 <div className="contact-form-input-container contact-textarea">
                   <textarea name="" cols="" rows="" className="contact-input" />
                   <label className="contact-form-label" for="">

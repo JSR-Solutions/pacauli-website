@@ -252,6 +252,11 @@
   
   
   
+.contact-info-text {
+  color: var(--primary-black);
+  margin: 1.5rem 0 2rem 0;
+  font-size: 1rem !important;
+}
   .big-circle {
     position: absolute;
     width: 500px;
@@ -345,6 +350,10 @@
     .social-media p {
       font-size: 0.8rem;
     }
+    
+  .contact-info-text {
+    margin: 1rem 0 1.5rem 0;
+  }
   
     .contact-form-title {
       font-size: 1.15rem;
