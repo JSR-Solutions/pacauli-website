@@ -13,7 +13,6 @@ const Categorycards = () => {
         <Row className="team-cards-aks">
           <Col>
             <div class="container-team">
-              <center>
                 <div class="post">
                   <div class="header_post">
                     <img
@@ -32,13 +31,11 @@ const Categorycards = () => {
                     </div>
                   </div>
                 </div>
-              </center>
             </div>
           </Col>
 
           <Col>
             <div class="container-team">
-              <center>
                 <div class="post">
                   <div class="header_post">
                     <img
@@ -56,13 +53,11 @@ const Categorycards = () => {
                     </div>
                   </div>
                 </div>
-              </center>
             </div>
           </Col>
 
           <Col>
             <div class="container-team">
-              <center>
                 <div class="post">
                   <div class="header_post">
                     <img
@@ -80,13 +75,11 @@ const Categorycards = () => {
                     </div>
                   </div>
                 </div>
-              </center>
             </div>
           </Col>
 
           <Col>
             <div class="container-team">
-              <center>
                 <div class="post">
                   <div class="header_post">
                     <img
@@ -105,13 +98,11 @@ const Categorycards = () => {
                     </div>
                   </div>
                 </div>
-              </center>
             </div>
           </Col>
 
           <Col>
             <div class="container-team">
-              <center>
                 <div class="post">
                   <div class="header_post">
                     <img
@@ -130,7 +121,6 @@ const Categorycards = () => {
                     </div>
                   </div>
                 </div>
-              </center>
             </div>
           </Col>
         </Row>
