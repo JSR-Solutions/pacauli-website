@@ -9,8 +9,9 @@
     top: 0;
     width: 100%;
     left: 0;
-    box-shadow: 4px 0 15px rgb(151, 151, 151);
+    /* box-shadow: 4px 0 15px rgb(151, 151, 151); */
     z-index: 99;
+    border-bottom: 1px solid white;
 }
 
 /*Scroll event styling*/
@@ -21,7 +22,7 @@
 /*Header 1st row*/
 .header-main2{
     /* height: 46px; */
-    height: 30px;
+    height: 10px;
     background-color: var(--primary);
     transition: all 0.4s ease;
     opacity: 0;
@@ -59,7 +60,7 @@
 /*Header 2nd row*/
 .header-main3{
     height: 86px;
-    background-color: var(--white);
+    background-color: transparent;
 }
 .header-main31{
     display: flex;

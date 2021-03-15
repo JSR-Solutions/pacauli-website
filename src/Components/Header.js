@@ -17,7 +17,7 @@ const isActive = (history, path) => {
 
     }
     else {
-        return { color: "var(--primary-black)" };
+        return { color: "var(--white)" };
     }
 }
 
