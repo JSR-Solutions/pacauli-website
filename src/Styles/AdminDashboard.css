@@ -1,5 +1,30 @@
 .admin-dashboard-content {
-    text-align: left;
-    padding-left: 40px !important;
+    padding-left: 80px !important;
     padding-top: 20px;
+}
+
+.admin-dashboard-title {
+    text-align: center;
+    font-size: 50px;
+    margin-top: 20px;
+}
+
+.admin-dashboard-cards-row {
+    margin-top: 100px;
+}
+
+.admin-dashboard-card, .admin-dashboard-card-body {
+    background-color: var(--primary) !important;
+    width: 80%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--white);
+    border-radius: 8px !important;
+}
+
+.admin-dashboard-link {
+    text-decoration: none !important;
 }

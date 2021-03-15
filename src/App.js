@@ -13,6 +13,7 @@ import AddPackage from "./Admin/AddPackage";
 import AllEnquiries from "./Admin/AllEnquiries";
 import CustomPackageRequests from "./Admin/CustomPackage";
 import CustomPackage from "./Core/CustomPackage"
+import ContactRequests from "./Admin/ContactRequests";
 
 function App() {
   return (
@@ -61,6 +62,11 @@ function App() {
             path="/admin/allenquiries"
             exact
             component={AllEnquiries}
+          />
+          <PrivateRoute
+            path="/admin/contactrequests"
+            exact
+            component={ContactRequests}
           />
         </Switch>
       </Router>
