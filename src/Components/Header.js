@@ -28,19 +28,23 @@ const Header = ({ history }) => {
             const navlink = document.querySelector('.header-main2')
             const navlinkss = document.querySelector('.hamburger')
             const navlinks = document.querySelector('.header-main')
+            const seconddiv = document.querySelector('.header-main3')
             if (navlinks && navlinkss && navlink) {
                 navlinks.classList.add('header-main-exit')
                 navlinkss.classList.add('hamburger-exit')
                 navlink.classList.add("header-main2-exit");
+                seconddiv.classList.add('header-main3-exit')
             }
         } if (window.scrollY <= 110) {
             const navlinkss = document.querySelector('.hamburger')
             const navlinks = document.querySelector('.header-main')
             const navlink = document.querySelector('.header-main2')
+            const seconddiv = document.querySelector('.header-main3')
             if (navlink && navlinks && navlinkss) {
                 navlink.classList.remove("header-main2-exit");
                 navlinks.classList.remove("header-main-exit");
                 navlinkss.classList.remove('hamburger-exit')
+                seconddiv.classList.remove('header-main3-exit')
             }
         }
     }
