@@ -132,7 +132,7 @@ const Header = ({ history }) => {
                                 <ul>
                                     <Link className='deconone' to='/' style={isActive(history, '/')} onClick={changeScreen}><li>Home</li></Link>
                                     <Link className='deconone' to='/musafirrana/packages' style={isActive(history, '/musafirrana/packages')} onClick={changeScreen}><li>Packages</li></Link>
-                                    <Link className='deconone' to='/custom-package' style={isActive(history, '/custom-package')} onClick={changeScreen}><li>Custom Package</li></Link>
+                                    <Link className='deconone' to='/custompackage' style={isActive(history, '/custom-package')} onClick={changeScreen}><li>Custom Package</li></Link>
                                     <Link className='deconone' to='/about-us' style={isActive(history, '/about-us')} onClick={changeScreen}><li>About Us</li></Link>
                                     <Link className='deconone' to='/contactus' style={isActive(history, '/contact-us')} onClick={changeScreen}><li>Contact Us</li></Link>
                                 </ul>

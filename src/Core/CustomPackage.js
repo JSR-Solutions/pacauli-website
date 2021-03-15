@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import "../Styles/Contactus.css";
+import "../Styles/CustomPackage.css";
 import email from "../Assets/email.png";
 import location from "../Assets/location.png";
 import phone from "../Assets/phone.png";
 import shape from "../Assets/shape.png";
+import custi from "../Assets/custompackage.png";
+
 
 const ContactUs = () => {
   useEffect(() => {
@@ -31,74 +33,24 @@ const ContactUs = () => {
     <div>
       <Header />
       <div className="contact-us-main">
-        <div className="heading-contact">
-          <p>&nbsp;&nbsp;Contact Us&nbsp;&nbsp;</p>
+      <div className="heading-custom">
+      <p>&nbsp;&nbsp;Custom Package&nbsp;&nbsp;</p>
         </div>
         <div className="contact-us-container">
           <span className="big-circle"></span>
           <img src={shape} className="square" alt=""></img>
           <div className="contact-us-form">
             <div className="contact-info">
-              <h3 className="contact-info-title">Let's get in touch</h3>
-              <p className="contact-info-text">
-                Lorem ipsum dolor sit amet, officia excepteur ex fugiat
-                reprehenderit enim labore culpa sint ad nisi Lorem pariatur
-                mollit ex esse exercitation amet. Nisi anim cupidatat excepteur
-                officia.
-              </p>
-              <div className="info">
-                <div className="information">
-                  <img
-                    src={location}
-                    alt="Location"
-                    className="contact-info-icon"
-                  />
-                  <p>Lorem ipsum dolor sit amet, officia excepteur.</p>
-                </div>
+              <div className = "funi">
+              <h3>Where ever you wanna go tell us we will make it possible fo you </h3>
               </div>
-              <div className="info">
-                <div className="information">
-                  <img
-                    src={email}
-                    alt="Location"
-                    className="contact-info-icon"
-                  />
-                  <p>lorem@ipsum.com</p>
-                </div>
-              </div>
-              <div className="info">
-                <div className="information">
-                  <img
-                    src={phone}
-                    alt="Location"
-                    className="contact-info-icon"
-                  />
-                  <p>+91-987-654-3210</p>
-                </div>
-              </div>
-              <div className="social-media">
-                <p>Connect with us:</p>
-                <div className="social-icons">
-                  <a href="www.facebook.com">
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                  <a href="www.twitter.com">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                  <a href="www.instagram.com">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                  <a href="www.linkedin.com">
-                    <i className="fab fa-linkedin-in"></i>
-                  </a>
-                </div>
-              </div>
+              <img id = "yuiop" src = {custi}></img>
             </div>
             <div className="contact-form">
               <span className="circle one"></span>
               <span className="circle two"></span>
               <form className="contact-us-main-form" action="">
-                <h3 className="contact-form-title">Contact Us</h3>
+                <h3 className="contact-form-title">Let us know what you need...</h3>
                 <div className="contact-form-input-container">
                   <input type="text" name="name" className="contact-input" />
                   <label className="contact-form-label" for="">
@@ -120,6 +72,21 @@ const ContactUs = () => {
                   </label>
                   <span>Email</span>
                 </div>
+                <div className="contact-form-input-container">
+                  <input type="text" name="destination" className="contact-input" />
+                  <label className="contact-form-label" for="">
+                    Destination
+                  </label>
+                  <span>Destination</span>
+                </div>
+                <div className="contact-form-input-container">
+                  <input type="text" name="budget" className="contact-input" />
+                  <label className="contact-form-label" for="">
+                    Budget
+                  </label>
+                  <span>Budget</span>
+                </div>
+                
                 <div className="contact-form-input-container contact-textarea">
                   <textarea name="" cols="" rows="" className="contact-input" />
                   <label className="contact-form-label" for="">
