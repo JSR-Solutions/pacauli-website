@@ -42,6 +42,7 @@
   
   .regaltos {
     font-size: 1.375rem;
+    color: white;
   }
   
   .regaltos::before {
@@ -93,4 +94,7 @@
   }
   .headdd h1:hover span {
     background-size: 100%;
+  }
+  .caption{
+    color: white;
   }
