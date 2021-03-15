@@ -94,7 +94,7 @@
   
   .circle {
     border-radius: 50%;
-    background: linear-gradient(135deg, transparent 20%, #149279);
+    background: linear-gradient(135deg, transparent 20%, var(--secondary));
     position: absolute;
   }
   
@@ -257,7 +257,7 @@
     width: 500px;
     height: 500px;
     border-radius: 50%;
-    background: linear-gradient(to bottom, var(--primary), #159b80);
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
     bottom: 50%;
     right: 50%;
     transform: translate(-40%, 38%);
