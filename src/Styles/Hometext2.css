@@ -69,21 +69,21 @@
       width: 550px;
   }
 
-  .headd {
+  .headdd {
     display: grid;
     place-content: center;
     height: auto;
-    background: white;
+    background: #222222;
     font-family: "Red Hat Display", sans-serif;
   }
   
-  .headd h1 {
+  .headdd h1 {
     font-size: 5vw;
     max-width: 75vw;
-    color: black;
+    color: white;
     transition: all .4s ease;
   }
-  .headd h1 span {
+  .headdd h1 span {
     background-image: linear-gradient(transparent calc(75% - 10px), grey 5px);
     background-size: 0;
     background-repeat: no-repeat;
@@ -91,6 +91,6 @@
     transition: 0.5s ease;
     transition: all .4s ease;
   }
-  .headd h1:hover span {
+  .headdd h1:hover span {
     background-size: 100%;
   }

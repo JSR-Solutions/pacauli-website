@@ -13,11 +13,12 @@
 
 .container-team {
   margin-bottom: 25px;
+  display: flex;
 }
 
 .container-team .post {
   width: 250px;
-  height: 400px;
+  height: 300px;
   display: flex;
   overflow: hidden;
   flex-direction: column;
@@ -53,7 +54,7 @@
 
 .container-team .post .header_post img {
   width: 100% !important;
-  height: 51vh !important;
+  height: 55vh !important;
   object-fit: fill;
   transition: ease-in-out 600ms;
 }
@@ -128,7 +129,7 @@
 
   .container-team .post .header_post img {
     width: 100% !important;
-    height: 51vh !important;
+    height: 56vh !important;
     object-fit: fill;
     transition: ease-in-out 600ms;
   }
