@@ -59,7 +59,7 @@
 
 /*Header 2nd row*/
 .header-main3{
-    height: 86px;
+    height: 66px;
     background-color: transparent;
 }
 .header-main31{
@@ -74,14 +74,14 @@
     width: fit-content;
 }
 .header-main32 h3{
-    padding-top: 14px;
+    padding-top: 0px;
     margin-top: 0px;
     font-family: var(--cursive);
     position: relative;
     z-index: 110;
     font-weight: bolder;
     font-size: 28px;
-    color: black;
+    color: var(--white);
 }
 .header-main32 p{
     margin-top: -12px !important;
@@ -90,17 +90,17 @@
     z-index: 110;
     font-weight: bold;
     font-size: 18px;
-    color: black;
+    color: var(--white);
 }
 .header-main32 span{
-    color: black !important;
+    color: var(--white) !important;
 }
 
 
 
 .header-main33{
     background-color: transparent;
-    line-height: 86px;
+    line-height: 66px;
 }
 .header-main33 ul{
     display: flex;
