@@ -25,7 +25,7 @@ const ValidateForm=empData=>{
   if(!empData.phNo){
     errors.phNo = 'Please Enter Your Phone number';
   }
-  else if(!/^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/.test(empData.phNo)){
+  else if(!/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(empData.phNo)){
     errors.phNo = 'Phone Number you entered is invalid'
   }
 
@@ -96,7 +96,7 @@ const ContactUs = () => {
   const addEnquiry = (e) => {
     e.preventDefault();
     db.collection("Enquiries")
-      .add( enquiry )
+      .add(formik.values)
       .then((docRef) => {
         db.collection("Enquiries")
           .doc(docRef.id)

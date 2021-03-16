@@ -21,7 +21,7 @@ const ValidateForm=empData=>{
   if(!empData.phNo){
     errors.phNo = 'Please Enter Your Phone number';
   }
-  else if(!/^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/.test(empData.phNo)){
+  else if(!/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(empData.phNo)){
     errors.phNo = 'Phone Number You Entered is invalid'
   }
 
@@ -102,8 +102,9 @@ const ContactUs = () => {
   const addRequest = (e) => {
     e.preventDefault();
     db.collection("CustomPackages")
-      .add(customPackage )
+      .add(formik.values )
       .then((docRef) => {
+        console.log(formik.values)
         toast.success(
           "Your request has been successfully submitted, we will contact you shortly."
         );
@@ -151,7 +152,7 @@ const ContactUs = () => {
               <span className="circle one"></span>
               <span className="circle two"></span>
 
-              <form className="contact-us-main-form" onSubmit = {formik.handleSubmit}>
+              <form className="contact-us-main-form" >
                 <h3 className="contact-form-title">Let us know what you need...</h3>
                 <div className="contact-form-input-container" style = {formik.errors.name ? {marginBottom: "0"} : null} >
                   <input type="text" name="name" className="contact-input" onChange = {formik.handleChange} onBlur = {formik.handleBlur}  value = {formik.values.name} />
