@@ -26,7 +26,7 @@ const Hometext = (props) => {
             </Row>
             <Row>
               <div className="headings-aks">
-                <h1 class="soul regaltos">
+                <h1 class="soul regaltoss">
                   <span>{props.heading1}</span>
                 </h1>
               </div>
@@ -34,21 +34,21 @@ const Hometext = (props) => {
 
             <Row>
               <div className="headings-aks">
-                <div className="caption">{props.caption1}</div>
+                <div className="captionn">{props.caption1}</div>
               </div>
             </Row>
           </Col>
           <Col sm={12} lg={6} xs={12}>
             <Row>
               <div className="headings-aks">
-                <h1 class="soul regaltos">
+                <h1 class="soul regaltoss">
                   <span>{props.heading2}</span>
                 </h1>
               </div>
             </Row>
             <Row>
               <div className="headings-aks">
-                <div className="caption">{props.caption2}</div>
+                <div className="captionn">{props.caption2}</div>
               </div>
             </Row>
             <Row>
