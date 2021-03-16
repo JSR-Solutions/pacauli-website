@@ -13,7 +13,6 @@
     left: 0;
     /* box-shadow: 4px 0 15px rgb(151, 151, 151); */
     z-index: 99;
-    border-bottom: 1px solid white;
 }
 
 /*Scroll event styling*/
@@ -48,14 +47,14 @@
 }
 
 .header-main22 {
-    color: black;
+    color: #222222;
     font-size: 12px;
     letter-spacing: 0.2px;
     font-family: 'Poppins', sans-serif;
 }
 
 .header-main23 {
-    color: black;
+    color: #222222;
     font-size: 12px;
     letter-spacing: 0.2px;
     font-family: 'Poppins', sans-serif;
@@ -69,7 +68,7 @@
 }
 .header-main3-exit{
     height: 66px;
-    background-color: black;
+    background-color: #222222;
 }
 .header-main31{
     display: flex;
@@ -150,7 +149,7 @@
     background-color: white;
     position: absolute;
     margin-left: -23px;
-    color: black;
+    color: #222222;
     padding: 15px 20px !important;
     text-align: left !important;
     margin-top: 0px !important;
@@ -209,7 +208,7 @@
         padding-left: 0px !important;
         z-index: 1000;
         line-height: 75px;
-        background-color: black !important;
+        background-color: #222222 !important;
     }
 
     .header-main33 ul {
@@ -296,7 +295,7 @@
     writing-mode: vertical-rl;
     text-orientation: mixed;
     line-height: 40px;
-    color: black;
+    color: #222222;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     margin-top: 6px;
