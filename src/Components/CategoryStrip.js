@@ -1,5 +1,4 @@
 import React from "react";
-import "../Styles/catStrip.css"
 
 function catStrip(props){
     let catStripCss={
