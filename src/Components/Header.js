@@ -187,7 +187,7 @@ const Header = ({ history }) => {
                         <div className="header-main31">
                             <div className="header-main32">
                                 <Link to="/" style={isActive(history, "/")}>
-                                    <h3>Pangarchulla Adventure & Camps</h3>
+                                    <h3>PACAULI</h3>
                                 </Link>
                             </div>
                             <div className="hamburger">
