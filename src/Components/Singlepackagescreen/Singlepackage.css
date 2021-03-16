@@ -1,0 +1,42 @@
+.single-package-main{
+    background-color: rgb(241, 241, 241);
+    width: 100%;
+    overflow: hidden;    
+}
+.single-package-upper img{
+    width: 100%;
+    height: 70vh;
+}
+.single-package-lower{
+    background-color: rgb(241, 241, 241);
+}
+.sngl-pack-row{
+    background-color: yellow;
+    margin-top: 30px;
+}
+
+.singel-pack-name{
+    padding: 12px 20px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.single-package-navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: sticky !important;
+    position: -webkit-sticky !important;
+    top: 0 !important;
+    background-color: white;
+    z-index: 5;
+}
+
+
+
+
+
+/* .single-package-right{
+    background-color: white; 
+} */

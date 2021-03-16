@@ -20,6 +20,8 @@ import Aboutus from "./Core/Aboutus";
 import PackageGalleryImages from "./Admin/PackageGalleryImages";
 import EditPackage from "./Admin/EditPackage";
 
+import Singlepackage from "./Components/Singlepackagescreen/Singlepackage";
+
 
 function App() {
   return (
@@ -42,6 +44,7 @@ function App() {
             exact
             component={SinglePackage}
           />
+          <Route path='/singlepeg' exact component={Singlepackage}/>
 
           {/* Admin Routes */}
           <Route path="/admin/login" exact component={AdminLogin} />
