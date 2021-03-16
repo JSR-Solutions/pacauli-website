@@ -198,7 +198,7 @@ const ContactUs = () => {
                   <span>Name</span>
                 </div>
 
-                {formik.touched.name && formik.errors.name ? <p style = {{color: "red"}}>{formik.errors.name}</p> : null}
+                {formik.touched.name && formik.errors.name ? <p className = "errt" >{formik.errors.name}</p> : null}
                 <div className="contact-form-input-container" style = {formik.errors.phNo  ? {marginBottom: "0"} : null}>
                   <input type="text" name="phNo" className="contact-input" onBlur = {formik.handleBlur}  onChange = {formik.handleChange} value = {formik.values.phNo}/>
 
@@ -208,7 +208,7 @@ const ContactUs = () => {
                   <span>Phone Number</span>
                 </div>
 
-                {formik.touched.phNo && formik.errors.phNo ? <p style = {{color: "red"}}>{formik.errors.phNo}</p> : null}
+                {formik.touched.phNo && formik.errors.phNo ? <p className = "errt">{formik.errors.phNo}</p> : null}
                 
                 <div className="contact-form-input-container" style = {formik.errors.email ? {marginBottom: "0"} : null}>
                   <input id = "Email" type="email" name="email" className="contact-input" onBlur = {formik.handleBlur} onChange = {formik.handleChange} value = {formik.values.email} />
@@ -219,7 +219,7 @@ const ContactUs = () => {
                   <span>Email</span>
                 </div>
 
-                {formik.touched.email && formik.errors.email ? <p style = {{color: "red"}}>{formik.errors.email}</p> : null}
+                {formik.touched.email && formik.errors.email ? <p className = "errt">{formik.errors.email}</p> : null}
                 
                 <div className="contact-form-input-container contact-textarea" style = {formik.errors.message ? {marginBottom: "0"} : null}>
                   <textarea  name="message" cols="" rows="" className="contact-input" onBlur = {formik.handleBlur} onChange = {formik.handleChange} value = {formik.values.message} />
@@ -229,7 +229,7 @@ const ContactUs = () => {
                   </label>
                   <span>Message</span>
                 </div>
-                {formik.touched.message && formik.errors.message ? <p style = {{color: "red"}}>{formik.errors.message}</p> : null}
+                {formik.touched.message && formik.errors.message ? <p className = "errt">{formik.errors.message}</p> : null}
                 
                 <input
                   type="button"
