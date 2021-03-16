@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import Sidebar from "./Sidebar";
 import "../Styles/AdminDashboard.css";
 import firebase from "firebase";
 import { Redirect } from "react-router-dom";
 
-function AddPackage() {
+function EditPackage(props) {
   const [overviews, setOverviews] = useState([""]);
   const [histories, setHistories] = useState([""]);
   const [inclusions, setInclusions] = useState([""]);
@@ -32,10 +32,44 @@ function AddPackage() {
   const types = ["image/png", "image/jpeg", "image/jpg"];
   const [packageType, setPackageType] = useState("Skiing");
   const [added, setAdded] = useState(false);
-  const [docId, setDocId] = useState("xyz");
+  const packageId = props.match.params.packageId;
 
   const db = firebase.firestore();
   const storage = firebase.storage();
+
+  useEffect(() => {
+    getPackage();
+  });
+
+  const getPackage = () => {
+    setPackageType(props.match.params.packageType);
+    db.collection(props.match.params.packageType)
+      .doc(packageId)
+      .get()
+      .then((snapshot) => {
+        if (snapshot) {
+          setOverviews(snapshot.data().overviews);
+          setHistories(snapshot.data().histories);
+          setInclusions(snapshot.data().inclusions);
+          setExclusions(snapshot.data().exclusions);
+          setCancellation(snapshot.data().cancellation);
+          setExclusions(snapshot.data().exclusions);
+          setCancellation(snapshot.data().cancellation);
+          setMap(snapshot.data().map);
+          setgrade(snapshot.data().grade);
+          setName(snapshot.data().name);
+          setMap(snapshot.data().map);
+          setRegion(snapshot.data().region);
+          setDuration(snapshot.data().duration);
+          setMaxAltitude(snapshot.data().maxAltitude);
+          setTrekDistance(snapshot.data().trekDistance);
+          setBriefItinerary(snapshot.data().briefItinerary);
+          setDetailedItinerary(snapshot.data().detailedItinerary);
+          setPricing(snapshot.data().pricing);
+          setReviews(snapshot.data().reviews);
+        }
+      });
+  };
 
   //Basic handle change function
   const handleChange = (e) => {
@@ -311,7 +345,7 @@ function AddPackage() {
   };
 
   //Add Package Function
-  const addPackage = (e) => {
+  const updatePackage = (e) => {
     e.preventDefault();
     const uploadTask = storage
       .ref(packageType + "/" + packageImage.name)
@@ -334,7 +368,8 @@ function AddPackage() {
           .getDownloadURL()
           .then((packageImageUrl) => {
             db.collection(packageType)
-              .add({
+              .doc(packageId)
+              .update({
                 overviews: overviews,
                 histories: histories,
                 inclusions: inclusions,
@@ -355,30 +390,32 @@ function AddPackage() {
                 packageType: packageType,
               })
               .then((docRef) => {
-                db.collection(packageType)
-                  .doc(docRef.id)
-                  .update({ packageId: docRef.id })
-                  .then(() => {
-                    setDocId(docRef.id);
-                    setAdded(true);
-                  });
+                setAdded(true);
               });
           });
       }
     );
   };
 
+  const deletePackage = (e) => {
+    e.preventDefault();
+    db.collection(packageType)
+      .doc(packageId)
+      .delete()
+      .then(() => {
+        setAdded(true);
+      });
+  };
+
   return (
     <div>
-      {added ? (
-        <Redirect to={`/admin/package/${packageType}/${docId}`} />
-      ) : null}
+      {added ? <Redirect to={`/admin/dashboard`} /> : null}
       <Row>
         <Col className="admin-dashboard-sidebar" lg={2} md={6}>
           <Sidebar />
         </Col>
         <Col className="admin-dashboard-content" lg={10} md={6}>
-          <h3 className="admin-dashboard-title">Add Package</h3>
+          <h3 className="admin-dashboard-title">Edit Package</h3>
           <Form className="admin-dashboard-form">
             <h5 className="form-admin-title">Package Name</h5>
             <Row>
@@ -988,8 +1025,18 @@ function AddPackage() {
               </Col>
             </Row>
             <hr />
-            <Button onClick={addPackage} className="admin-add-package-button">
-              Add Package
+            <Button
+              onClick={updatePackage}
+              className="admin-add-package-button"
+            >
+              Update Package
+            </Button>
+            <hr />
+            <Button
+              onClick={deletePackage}
+              className="admin-add-package-button"
+            >
+              Delete Package
             </Button>
           </Form>
         </Col>
@@ -998,4 +1045,4 @@ function AddPackage() {
   );
 }
 
-export default AddPackage;
+export default EditPackage;

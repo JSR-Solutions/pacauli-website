@@ -112,7 +112,9 @@
     color: var(--white) !important;
 }
 
-
+.header-main32 a {
+    text-decoration: none !important;
+}
 
 .header-main33 {
     background-color: transparent;
