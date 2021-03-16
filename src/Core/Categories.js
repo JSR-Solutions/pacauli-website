@@ -51,7 +51,7 @@ const Categories = () => {
       quote: "“Life is either a daring adventure or nothing.”",
     },
     {
-      Name: "CharDham",
+      Name: "Char Dham",
       img: Chardham,
       quote: "“Chardham yatra washes away all sins and opens doors for Moksha”",
     },
