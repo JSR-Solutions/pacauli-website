@@ -21,7 +21,6 @@ import a8 from "../Assets/8.jpg";
 import a9 from "../Assets/9.jpg";
 import a10 from "../Assets/10.jpg";
 
-
 const Home = () => {
   return (
     <div>

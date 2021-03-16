@@ -38,7 +38,14 @@
     border-radius: 40px;
     background: linear-gradient(90deg, var(--primary), var(--secondary));
     /* border: none; */
-    border: none !important;
+    border: 1px solid var(--white) !important;
+    transition: 0.5s ease-in-out;
+}
+
+.landing-div button:hover {
+    background: none !important;
+    background-color: transparent !important;
+    border: 1px solid var(--white) !important;
 }
 
 .item-one {
