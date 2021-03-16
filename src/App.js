@@ -15,6 +15,8 @@ import CustomPackageRequests from "./Admin/CustomPackage";
 import CustomPackage from "./Core/CustomPackage"
 import ContactRequests from "./Admin/ContactRequests";
 
+import Singlepackage from "./Components/Singlepackagescreen/Singlepackage";
+
 function App() {
   return (
     <div className="App" style={{ width: "100%", overflowX: "hidden" }}>
@@ -35,6 +37,7 @@ function App() {
             exact
             component={SinglePackage}
           />
+          <Route path='/singlepeg' exact component={Singlepackage}/>
 
           {/* Admin Routes */}
           <Route path="/admin/login" exact component={AdminLogin} />
