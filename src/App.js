@@ -14,8 +14,14 @@ import AllEnquiries from "./Admin/AllEnquiries";
 import CustomPackageRequests from "./Admin/CustomPackage";
 import CustomPackage from "./Core/CustomPackage"
 import ContactRequests from "./Admin/ContactRequests";
+
+import Aboutus from "./Core/Aboutus";
+
 import PackageGalleryImages from "./Admin/PackageGalleryImages";
 import EditPackage from "./Admin/EditPackage";
+
+import Singlepackage from "./Components/Singlepackagescreen/Singlepackage";
+
 
 function App() {
   return (
@@ -26,6 +32,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/contactus" exact component={ContactUs} />
           <Route path="/categories" exact component={Categroies} />
+          <Route path="/aboutus" exact component={Aboutus} />
           <Route path="/custompackage" exact component={CustomPackage} />
           <Route
             path="/categories/:categoryName"
@@ -37,6 +44,7 @@ function App() {
             exact
             component={SinglePackage}
           />
+          <Route path='/singlepeg' exact component={Singlepackage}/>
 
           {/* Admin Routes */}
           <Route path="/admin/login" exact component={AdminLogin} />

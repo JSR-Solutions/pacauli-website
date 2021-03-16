@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import {
-  IoLogoFacebook,
-  IoLogoTwitter,
-  IoLogoWhatsapp,
-  IoMdMail,
-  IoIosPeople,
+    IoLogoFacebook,
+    IoLogoTwitter,
+    IoLogoWhatsapp,
+    IoMdMail,
+    IoIosPeople,
 } from "react-icons/io";
 import {
     AiFillInstagram,
@@ -26,7 +26,7 @@ import {useFormik} from "formik"
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
-        return { color: `var(--primary)` };
+        return { color: `yellow` };
     } else {
         return { color: "var(--white)" };
     }
@@ -71,7 +71,7 @@ const ValidateForm=empData=>{
   }
 
 const Header = ({ history }) => {
-   
+
     const changebackgroundd = () => {
         if (window.scrollY > 110) {
             const navlink = document.querySelector('.header-main2')
@@ -186,8 +186,6 @@ const Header = ({ history }) => {
                 }
             );
     }
-  const db = firebase.firestore();
-
 
     return (
         <div className="header-main-main">
@@ -196,46 +194,6 @@ const Header = ({ history }) => {
                     <div className="header-main2">
                         <div className="header-main21">
                             <div className="header-main23">
-                                <AiFillPhone
-                                    style={{ fontSize: "17px", margin: "-3.5px 0px 0 1px" }}
-                                />{" "}
-                                <a
-                                    href="tel:8800488956"
-                                    style={{ color: "black", marginRight: "6px" }}
-                                >
-                                    +91-8800488956
-                </a>{" "}
-                |
-                <IoMdMail
-                                    style={{ fontSize: "17px", margin: "-3.5px 1px 0 9.5px" }}
-                                />{" "}
-                                <a
-                                    href="mailto:musafirranatravels@gmail.com"
-                                    style={{ color: "black" }}
-                                >
-                                    musafirranatravels@gmail.com
-                </a>
-                            </div>
-                            <div className="header-main22">
-                                Follow Us |
-                <IoLogoFacebook
-                                    style={{ fontSize: "18px", margin: "-3px 4px 0 8px" }}
-                                />
-                                <AiFillInstagram
-                                    style={{ fontSize: "18px", margin: "-3px 4px 0 4px" }}
-                                />
-                                <IoLogoTwitter
-                                    style={{ fontSize: "18px", margin: "-3px 4px 0 4px" }}
-                                />
-                                <a
-                                    style={{ color: "black" }}
-                                    href="https://api.whatsapp.com/send?phone=9868472340&text=I'm%20interested%20in%20your%20tourism%20package"
-                                    target="_blank"
-                                >
-                                    <IoLogoWhatsapp
-                                        style={{ fontSize: "18px", margin: "-3px 4px 0 4px" }}
-                                    />
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -262,18 +220,32 @@ const Header = ({ history }) => {
                                     >
                                         <li>Home</li>
                                     </Link>
-                                    <Link
-                                        className="deconone"
-                                        to="/categories"
-                                        style={isActive(history, "/musafirrana/packages")}
-                                        onClick={changeScreen}
-                                    >
-                                        <li>Categories</li>
-                                    </Link>
+
+                                    <div className='dropdown-iinit'>
+                                        <Link
+                                            className="deconone"
+                                            to="/categories"
+                                            style={isActive(history, "/categories")}
+                                            onClick={changeScreen}
+                                        >
+                                            <li>Categories</li>
+                                        </Link>
+                                        <div className='cat-dropdown'>
+                                            <div className='cat-dropdown-child'>Sking</div>
+                                            <div className='cat-dropdown-child'>Trekking</div>
+                                            <div className='cat-dropdown-child'>Expedition</div>
+                                            <div className='cat-dropdown-child'>Rock Climbing</div>
+                                            <div className='cat-dropdown-child'>Camping</div>
+                                            <div className='cat-dropdown-child'>Cycling</div>
+                                            <div className='cat-dropdown-child'>Rafting</div>
+                                            <div className='cat-dropdown-child'>Chardham</div>
+                                        </div>
+                                    </div>
+
                                     <Link
                                         className="deconone"
                                         to="/custompackage"
-                                        style={isActive(history, "/custom-package")}
+                                        style={isActive(history, "/custompackage")}
                                         onClick={changeScreen}
                                     >
                                         <li>Custom Package</li>
@@ -281,10 +253,18 @@ const Header = ({ history }) => {
                                     <Link
                                         className="deconone"
                                         to="/contactus"
-                                        style={isActive(history, "/contact-us")}
+                                        style={isActive(history, "/contactus")}
                                         onClick={changeScreen}
                                     >
                                         <li>Contact Us</li>
+                                    </Link>
+                                    <Link
+                                        className="deconone"
+                                        to="/aboutus"
+                                        style={isActive(history, "/aboutus")}
+                                        onClick={changeScreen}
+                                    >
+                                        <li>About Us</li>
                                     </Link>
                                 </ul>
                             </div>
