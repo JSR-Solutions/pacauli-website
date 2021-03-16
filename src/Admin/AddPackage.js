@@ -388,6 +388,7 @@ function AddPackage() {
                     className="admin-dashboard-form-input"
                     type="text"
                     name="name"
+                    required
                     value={name}
                     placeholder={"Package Name"}
                     onChange={(event) => {
@@ -407,6 +408,7 @@ function AddPackage() {
                     className="add-package-form-input"
                     as="select"
                     name="package-type"
+                    required
                     value={packageType}
                   >
                     <option>Skiing</option>
@@ -429,6 +431,7 @@ function AddPackage() {
                   <Form.Control
                     className="admin-dashboard-form-input"
                     type="text"
+                    required
                     name="duration"
                     value={duration}
                     placeholder={"Package Duration"}
@@ -448,6 +451,7 @@ function AddPackage() {
                   <Form.Control
                     className="admin-dashboard-form-input"
                     type="text"
+                    required
                     name="region"
                     value={region}
                     placeholder={"Package Region"}
@@ -467,6 +471,7 @@ function AddPackage() {
                   <Form.Control
                     className="admin-dashboard-form-input"
                     type="text"
+                    required
                     name="grade"
                     value={grade}
                     placeholder={"Package Grade"}
@@ -485,6 +490,7 @@ function AddPackage() {
                   <Form.Control
                     className="admin-dashboard-form-input"
                     type="text"
+                    required
                     name="maxAltitude"
                     value={maxAltitude}
                     placeholder={"Package Max Altitude"}
@@ -503,6 +509,7 @@ function AddPackage() {
                   <Form.Control
                     className="admin-dashboard-form-input"
                     type="text"
+                    required
                     name="trekDistance"
                     value={trekDistance}
                     placeholder={"Package Trekking Distance"}
@@ -525,6 +532,7 @@ function AddPackage() {
                         <Form.Control
                           className="admin-dashboard-form-input"
                           as="textarea"
+                          required
                           name="overview"
                           value={overview}
                           placeholder={"Overview paragraph " + (index + 1)}
