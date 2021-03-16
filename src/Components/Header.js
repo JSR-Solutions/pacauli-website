@@ -22,6 +22,7 @@ import { Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import emailjs from "emailjs-com";
 import firebase from "firebase";
+import {useFormik} from "formik"
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
@@ -30,6 +31,44 @@ const isActive = (history, path) => {
         return { color: "var(--white)" };
     }
 };
+const ValidateForm=empData=>{
+    const errors = {};
+  
+    if(!empData.fullName){
+      errors.fullName = 'Please Enter Your Name';
+    }
+    else if(empData.fullName.length > 20){
+      errors.fullName = 'Name Should Not Exeed 20 Characters'
+    }
+  
+    if(!empData.phNo){
+      errors.phNo = 'Please Enter Your Phone number';
+    }
+    else if(!/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(empData.phNo)){
+      errors.phNo = 'Phone Number You Entered is invalid'
+    }
+  
+    if(!empData.email){
+      errors.email = 'Please Enter Your Email Adress';
+    }
+    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(empData.email)) {
+      errors.email = 'Email address you entered in invalid';
+    }
+    if(!empData.destination){
+      errors.destination = "Please Enter your Destination"
+    }
+    if(!empData.budget){
+      errors.budget = "Please Enter your Budget"
+    }
+    if(!empData.requirements){
+      errors.requirements = "Please Enter your Requiremets"
+    }
+    if(!empData.noOfPeople){
+        errors.noOfPeople = "Please Enter The number of people"
+      }
+      
+    return errors;
+  }
 
 const Header = ({ history }) => {
 
@@ -91,6 +130,24 @@ const Header = ({ history }) => {
         noOfPeople: "",
         destination: "",
     });
+
+    const formik = useFormik({
+        initialValues: {
+          fullName: '',
+          phNo: '',
+          email: '',
+          requirements: '',
+          budget: '',
+          noOfPeople: '',
+          destination: ''
+        },
+        validate: ValidateForm,
+        onSubmit: values => {
+          alert(JSON.stringify(values))
+        },
+     
+       });
+     
 
     function handlechange(event) {
         const { name, value } = event.target;
@@ -221,48 +278,56 @@ const Header = ({ history }) => {
             Quick Enquiry
           </div>
                 </div>
-                <div className="quick-inq2">
+                <div className="quick-inq2" style = {formik.errors.fullName ? {height: "570px"}: null}>
                     <div className="form-mainss">
                         <div className="form-mainss1">
                             <Form.Group>
                                 <AiOutlineUserAdd className="icone-form" />
                                 <Form.Control
                                     type="text"
-                                    onChange={handlechange}
+                                    onChange={formik.handleChange}
                                     name="fullName"
-                                    value={quickEnquiry.fullName}
+                                    value={formik.values.fullName}
                                     placeholder="Name"
+                                    onBlur = {formik.handleBlur}
                                 />
+                                {formik.touched.fullName && formik.errors.fullName ? <p className = "erryu">{formik.errors.fullName}</p>: null}
                             </Form.Group>
                             <Form.Group>
                                 <AiOutlineMail className="icone-form" />
                                 <Form.Control
                                     type="Email"
-                                    onChange={handlechange}
+                                    onChange={formik.handleChange}
                                     name="email"
-                                    value={quickEnquiry.email}
+                                    value={formik.values.email}
                                     placeholder="Email"
+                                    onBlur = {formik.handleBlur}
                                 />
+                                {formik.touched.email && formik.errors.email ? <p className = "erryu">{formik.errors.email}</p>: null}
                             </Form.Group>
                             <Form.Group>
                                 <AiOutlinePhone className="icone-form" />
                                 <Form.Control
                                     type="number"
-                                    onChange={handlechange}
+                                    onChange={formik.handleChange}
                                     name="phNo"
-                                    value={quickEnquiry.phNo}
+                                    value={formik.values.phNo}
                                     placeholder="Contact Number"
+                                    onBlur = {formik.handleBlur}
                                 />
+                                {formik.touched.phNo && formik.errors.phNo ? <p className = "erryu">{formik.errors.phNo}</p>: null}
                             </Form.Group>
                             <Form.Group>
                                 <IoLocationOutline className="icone-form" />
                                 <Form.Control
                                     type="text"
-                                    onChange={handlechange}
+                                    onChange={formik.handleChange}
                                     name="destination"
-                                    value={quickEnquiry.destination}
+                                    value={formik.values.destination}
                                     placeholder="Destination"
+                                    onBlur = {formik.handleBlur}
                                 />
+                                {formik.touched.destination && formik.errors.destination ? <p className = "erryu">{formik.errors.destination}</p>: null}
                             </Form.Group>
                             <Form.Group>
                                 <VscDebugRestartFrame className="icone-form" />
@@ -270,34 +335,40 @@ const Header = ({ history }) => {
                                     as="textarea"
                                     placeholder="Requirement"
                                     rows={3}
-                                    onChange={handlechange}
+                                    onChange={formik.handleChange}
                                     name="requirements"
-                                    value={quickEnquiry.requirements}
+                                    value={formik.values.requirements}
                                     className="nobb-form"
+                                    onBlur = {formik.handleBlur}
                                 />
+                                {formik.touched.requirements && formik.errors.requirements ? <p className = "erryu">{formik.errors.requirements}</p>: null}
                             </Form.Group>
                             <Form.Group>
                                 <IoCashOutline className="icone-form" />
                                 <Form.Control
                                     type="text"
                                     placeholder="Budget"
-                                    onChange={handlechange}
+                                    onChange={formik.handleChange}
                                     name="budget"
-                                    value={quickEnquiry.budget}
+                                    value={formik.values.budget}
+                                    onBlur = {formik.handleBlur}
                                 />
+                                {formik.touched.budget && formik.errors.budget ? <p className = "erryu">{formik.errors.budget}</p>: null}
                             </Form.Group>
                             <Form.Group>
                                 <IoIosPeople className="icone-form" />
                                 <Form.Control
                                     type="text"
                                     placeholder="No of People"
-                                    onChange={handlechange}
+                                    onChange={formik.handleChange}
                                     name="noOfPeople"
-                                    value={quickEnquiry.noOfPeople}
+                                    value={formik.values.noOfPeople}
+                                    onBlur = {formik.handleBlur}
                                 />
+                                {formik.touched.noOfPeople && formik.errors.noOfPeople ? <p className = "erryu">{formik.errors.noOfPeople}</p>: null}
                             </Form.Group>
                         </div>
-                        <button onClick={sendEmail}>GET IN TOUCH</button>
+                        <button type = "submit" onSubmit={formik.handleSubmit} onClick={sendEmail}>GET IN TOUCH</button>
                     </div>
                 </div>
             </div>
