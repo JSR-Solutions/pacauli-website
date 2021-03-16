@@ -102,7 +102,7 @@ const ContactUs = () => {
   const addRequest = (e) => {
     e.preventDefault();
     db.collection("CustomPackages")
-      .add(customPackage )
+      .add(customPackage)
       .then((docRef) => {
         toast.success(
           "Your request has been successfully submitted, we will contact you shortly."
