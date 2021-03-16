@@ -10,6 +10,17 @@ import Categorycards from "../Components/Categorycards";
 import Horizontalscroll from "../Components/Horizontalscroll";
 import Quote from "../Components/Quote";
 import Parralax1 from "../Components/Parralax1";
+import a1 from "../Assets/1.jpeg";
+import a2 from "../Assets/2.jpeg";
+import a3 from "../Assets/3.jpeg";
+import a4 from "../Assets/4.jpeg";
+import a5 from "../Assets/5.jpg";
+import a6 from "../Assets/6.jpg";
+import a7 from "../Assets/7.jpg";
+import a8 from "../Assets/8.jpg";
+import a9 from "../Assets/9.jpg";
+import a10 from "../Assets/10.jpg";
+
 
 const Home = () => {
   return (
@@ -18,7 +29,7 @@ const Home = () => {
       <Header />
       <Categorycards />
       <Quote />
-  
+
       <br />
       <br />
       <br />
@@ -26,13 +37,13 @@ const Home = () => {
       <br />
       <div class="curved-div1">
         <Hometext
-          src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading1="xyz"
-          caption1="abc"
-          src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading2="xyz"
-          caption2="abc"
-          mainheading="TREKKING"
+          src1={a1}
+          heading1="Be Part of our Family"
+          caption1="PAC Auli is a family thing it will be our pleasure to join the community and be a proud PACian. Our camps are on the prime location of Auli.From where you will be seeing a paranomic view of Nanda Devi,Brahmal,Nar Narayan and Sleeping beauty with a blessed location of a Apple orchid Farm."
+          src2={a2}
+          heading2="What's Special about auli?"
+          caption2="Auli is the best winter ski destination in India and hub for Trekking activities located at 9800 ft above sea level. It offers a variety of activities and mesmerising himalayan panorama view. When you visit Auli, Uttarakhand it will a lifelong memory as the things you see here will be cherished by you."
+          mainheading="SWISS CAMPS & MUD HUTS"
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -44,12 +55,12 @@ const Home = () => {
       </div>
       <div class="curved-div2">
         <Hometext2
-          src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading1="xyz"
-          caption1="abc"
-          src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading2="xyz"
-          caption2="abc"
+          src1={a3}
+          heading1="Auli the Trekking Hub"
+          caption1="Auli /Joshimath is starting of many breathtaking and India’s best treks.Local people are passionate about exploring the mountains here they have been doing this work for past 60-70 years now ,as decades before there ancestors where all shepherds roaming and exploring the mountains with their livestock. With that connection to past and culture it gives Auli a boost."
+          src2={a4}
+          heading2="Exploring the Mountains"
+          caption2="Trekking and exploring the mountain is the procress of healing yourself and learning the peaceful way of life. When you trek a mountain you learn many life lessons"
           mainheading="TREKKING"
         />
       </div>
@@ -80,13 +91,13 @@ const Home = () => {
       </div>
       <div class="curved-div2">
         <Hometext2
-          src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading1="xyz"
-          caption1="abc"
-          src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading2="xyz"
-          caption2="abc"
-          mainheading="TREKKING"
+          src1={a5}
+          heading1="Overview"
+          caption1="Cycling is always more than a adventure as you all know two wheels move the soul.We are offering you the best trails in the valley with the view and track you will never forget.This experience of yours will always live with you with flashbacks of you gliding and enjoying cycling in the Himalayas."
+          src2={a6}
+          heading2="It is a fresh start"
+          caption2="We are only company in the valley that Provide these cycling facilities as it takes a lot courage to start something new ,so join us and explore the unseen."
+          mainheading="CYCLING"
         />
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -98,13 +109,13 @@ const Home = () => {
       </svg>
       <div class="curved-div1">
         <Hometext
-          src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading1="xyz"
-          caption1="abc"
-          src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading2="xyz"
-          caption2="abc"
-          mainheading="TREKKING"
+          src1={a9}
+          heading1="What will you learn from it ?"
+          caption1="You will be learning not to give up, stand up again and achieve your target. After climbing the top you will experience the feeling of Completion."
+          src2={a10}
+          heading2="Himalaya Climbing"
+          caption2="Rock climbing is a physically and mentally demanding sport, one that often tests a climber's strength, endurance, agility and balance along with mental control. Rockclimbing in the Himalayas is a lifetime experience as you will be Raiding the mighty Himalayas."
+          mainheading="ROCK CLIMBING"
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path

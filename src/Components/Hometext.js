@@ -9,7 +9,7 @@ const Hometext = (props) => {
       <Container>
         <div className="headd">
           <h1>
-            <span>CYCLING</span>
+            <span>{props.mainheading}</span>
           </h1>
         </div>
         <br />
