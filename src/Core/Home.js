@@ -9,6 +9,7 @@ import Collapsiblecard from "../Components/Collapsiblecard";
 import Categorycards from "../Components/Categorycards";
 import Horizontalscroll from "../Components/Horizontalscroll";
 import Quote from "../Components/Quote";
+import Parralax1 from "../Components/Parralax1";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Header />
       <Categorycards />
       <Quote />
+  
       <br />
       <br />
       <br />
