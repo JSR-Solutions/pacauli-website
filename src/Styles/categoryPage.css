@@ -12,7 +12,10 @@
 }
 
 .categoryCard{
-   background-image: url("../Assets/cardBack.jpg");
+   background-color: rgb(255, 255, 255, .10);
+   box-shadow: 0 8px 32px 0 rgba(39, 48, 161, 0.37);
+backdrop-filter: blur( 8.0px );
+-webkit-backdrop-filter: blur( 8.0px );
    background-repeat: no-repeat;
    background-position:center;
    background-size: cover;
@@ -21,7 +24,7 @@
     width:340px;
     
     padding: 40px 20px;
-    background-blend-mode: hard-light;
+    
     transition: all 0.4s ease-out;
     overflow:hidden;
     display: relative;
@@ -54,9 +57,21 @@
     font-weight: bolder!important;
 
 }
+.categoryCard p{
+    transition: all 0.4s ease-out;
+    transform:translateY(150%);
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder!important;
+}
 .categoryCard:hover h1{
     transition: all 0.4s ease-out;
     
-    transform:translateY(-150%);
+    transform:translateY(-170%);
+
+}
+.categoryCard:hover p{
+    transition: all 0.4s ease-out;
+    
+    transform:translateY(-190%);
 
 }
