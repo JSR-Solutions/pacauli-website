@@ -41,6 +41,7 @@ const category=[{Name: "Skiing", img:Skiing},
             })
         }
         </div>
+        <Footer/>
             
 </div>
 
