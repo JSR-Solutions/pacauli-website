@@ -1,0 +1,49 @@
+.aboutus-god {
+  
+}
+.main-heading {
+  background: #e4c435;
+}
+
+.main-heading h1 {
+  position: relative;
+  padding: 200px;
+  
+  font-size: 120px;
+  letter-spacing: 0.1em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 8px 8px var(--primary), 20px 20px #000000;
+}
+
+.hheadd {
+    height: auto;
+    background: white;
+    font-family: "Red Hat Display", sans-serif;
+    padding-top: 100px;
+  }
+  
+  .hheadd h1 {
+    font-size: 5vw;
+    max-width: 75vw;
+    color: black;
+    transition: all .4s ease;
+  }
+  .hheadd h1 span {
+    background-image: linear-gradient(transparent calc(75% - 10px), grey 5px);
+    background-size: 0;
+    background-repeat: no-repeat;
+    display: inline;
+    transition: 0.5s ease;
+    transition: all .4s ease;
+  }
+  .hheadd h1:hover span {
+    background-size: 100%;
+  }
+
+
+
+
+
+
