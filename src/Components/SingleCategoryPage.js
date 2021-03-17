@@ -32,25 +32,25 @@ function SingleCatScreen(props) {
       <div className="h_cardDiv">
         <Row>
           <Col>
-            <Card />
+            <Card packageName = "KEDARNATH TREK JAI BHOLENATH" duration = "4D|3N" costing = "8,500" imageUrl = "https://firebasestorage.googleapis.com/v0/b/pacauli.appspot.com/o/kedarnath.jpg?alt=media&token=fea5604c-b305-4a02-a174-96505dd53cc9" rating = "4.3"/>
           </Col>
           <Col>
-            <Card />
+            <Card packageName = "KEDARNATH TREK JAI BHOLENATH" duration = "4D|3N" costing = "8,500" imageUrl = "https://firebasestorage.googleapis.com/v0/b/pacauli.appspot.com/o/kedarnath.jpg?alt=media&token=fea5604c-b305-4a02-a174-96505dd53cc9" rating = "4.3"/>
           </Col>
           <Col>
-            <Card />
+            <Card packageName = "KEDARNATH TREK JAI BHOLENATH" duration = "4D|3N" costing = "8,500" imageUrl = "https://firebasestorage.googleapis.com/v0/b/pacauli.appspot.com/o/kedarnath.jpg?alt=media&token=fea5604c-b305-4a02-a174-96505dd53cc9" rating = "4.3"/>
           </Col>
           <Col>
-            <Card />
+            <Card packageName = "KEDARNATH TREK JAI BHOLENATH" duration = "4D|3N" costing = "8,500" imageUrl = "https://firebasestorage.googleapis.com/v0/b/pacauli.appspot.com/o/kedarnath.jpg?alt=media&token=fea5604c-b305-4a02-a174-96505dd53cc9" rating = "4.3"/>
           </Col>
           <Col>
-            <Card />
+            <Card packageName = "KEDARNATH TREK JAI BHOLENATH" duration = "4D|3N" costing = "8,500" imageUrl = "https://firebasestorage.googleapis.com/v0/b/pacauli.appspot.com/o/kedarnath.jpg?alt=media&token=fea5604c-b305-4a02-a174-96505dd53cc9" rating = "4.3"/>
           </Col>
           <Col>
-            <Card />
+            <Card packageName = "KEDARNATH TREK JAI BHOLENATH" duration = "4D|3N" costing = "8,500" imageUrl = "https://firebasestorage.googleapis.com/v0/b/pacauli.appspot.com/o/kedarnath.jpg?alt=media&token=fea5604c-b305-4a02-a174-96505dd53cc9" rating = "4.3"/>
           </Col>
           <Col>
-            <Card />
+            <Card packageName = "KEDARNATH TREK JAI BHOLENATH" duration = "4D|3N" costing = "8,500" imageUrl = "https://firebasestorage.googleapis.com/v0/b/pacauli.appspot.com/o/kedarnath.jpg?alt=media&token=fea5604c-b305-4a02-a174-96505dd53cc9" rating = "4.3"/>
           </Col>
         </Row>
       </div>

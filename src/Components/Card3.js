@@ -5,13 +5,14 @@ import { AiFillStar, AiFillClockCircle } from "react-icons/ai";
 import { BiRupee } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
-function Card3() {
+function Card3(props) {
   return (
     <div className="parent-card3">
       <Link to="/singlepackage">
         <div className="card3">
           <div
             className="card3-image"
+            style = {{backgroundImage : `url(${props.imageUrl})`}}
             
           ></div>
           <div className="card3-text">
@@ -20,16 +21,16 @@ function Card3() {
             </div>
             <h4>
               <MdLocationOn className="loci" />
-              Pangarchulla Adventure & Camps
+              {props.packageName}
             </h4>
             <h6>
               <AiFillClockCircle id="clocki" />
-              5N|6D <BiRupee id="rpe" />
-              5000/-
+              {props.duration} <BiRupee id="rpe" />
+              {props.costing}
             </h6>
             <p className="rev-card3">
               <AiFillStar style={{ color: "gold" }} />{" "}
-              4.3 (20 reviews)
+              {props.rating} (20 reviews)
             </p>
           </div>
         </div>
