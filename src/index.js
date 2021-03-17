@@ -5,6 +5,8 @@ import App from './App';
 import firebase from "firebase";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const firebaseConfig = {
   apiKey: "AIzaSyApHvFt9EwcSYzHRXU7JavdsH3o3_KVGrQ",
@@ -19,6 +21,8 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+
+AOS.init({duration: 1500});
 
 ReactDOM.render(
     <App />,

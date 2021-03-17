@@ -13,7 +13,7 @@ const Categorycards = () => {
             <span>WHAT DO WE HAVE?</span>
           </h1>
         </div>
-        <Row className="team-cards-aks">
+        <Row data-aos="fade-up" className="team-cards-aks">
           {category.map((cat, index) => {
             return (
               <Col className="category-card-col" lg={3} md={6} sm={12}>
