@@ -153,6 +153,17 @@ const Singlepackage = (props) => {
                                     <div className='sngl-pack-short-itn'>
                                         <div className='single-pck-2-row'>
                                             <div className='single-pack-side-design'></div>
+                                            <h4>Location</h4>
+                                            <hr />
+                                            {pack &&
+                                                <iframe src= {pack.map} width="100%" height="450" frameborder="0" allowfullscreen></iframe>
+
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='sngl-pack-short-itn'>
+                                        <div className='single-pck-2-row'>
+                                            <div className='single-pack-side-design'></div>
                                             <h4>Cancellation</h4>
                                             <hr />
                                             {pack && pack.cancellation.map((l, k) =>
