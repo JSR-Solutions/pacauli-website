@@ -43,6 +43,7 @@ const Singlepackage = (props) => {
                         <Row className='sngl-pack-row'>
                             <Col md={8}>
                                 <div className='single-package-left'>
+
                                     <div className='singel-pack-name'>
                                         <div className='single-pck-1-row'>
                                             <div className='single-pack-side-design'></div>
@@ -84,9 +85,9 @@ const Singlepackage = (props) => {
                                             <h4>Itinerary</h4>
                                             <hr />
                                             {pack && pack.detailedItinerary.map((l, k) =>
-                                                <div key={k}>
+                                                <div key={k} className='single-pack-itn'>
                                                     <h5>{l.day}</h5>
-                                                    <h6>{l.title}</h6>
+                                                    <h6><IoLocateSharp className='single-pck-2-row-icon' />{l.title}</h6>
                                                     <p>{l.desc}</p>
                                                 </div>
                                             )}
@@ -134,11 +135,12 @@ const Singlepackage = (props) => {
                                         <div><p>Policies</p></div>
                                         <div><p>overview</p></div>
                                     </div>
+
                                 </div>
                             </Col>
                             <Col md={4}>
                                 <div className='single-package-right'>
-                                    <Pricecard price={pack.pricing}/>
+                                    <Pricecard price={pack.pricing} />
                                     <Formcomp />
                                 </div>
                             </Col>

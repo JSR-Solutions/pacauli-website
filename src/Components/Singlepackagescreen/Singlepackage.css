@@ -64,6 +64,23 @@
     margin: 0 !important;
 }
 
+.single-pack-itn{
+    margin: 10px 0;
+}
+.single-pack-itn h5{
+    border: 1px solid gray;
+    width: fit-content;
+    padding: 6px 10px;
+    border-radius: 7px;
+    margin: 20px 0;
+}
+.single-pack-itn h6{
+    width: fit-content;
+    font-weight: 600;
+}
+.single-pack-itn p{
+    padding-left: 24px !important;
+}
 
 .single-package-navbar{
     display: flex;
