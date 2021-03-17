@@ -4,7 +4,6 @@ import Home from "./Core/Home";
 import ContactUs from "./Core/ContactUs";
 import Categroies from "./Core/Categories";
 import SingleCategory from "./Core/SingleCategoryPackages";
-import SinglePackage from "./Core/SinglePackageScreen";
 import PrivateRoute from "./Admin/PrivateRoute";
 import AdminLogin from "./Admin/AdminLogin";
 import AdminDashboard from "./Admin/AdminDashboard";
@@ -43,12 +42,10 @@ function App() {
             component={SingleCategory}
           />
           <Route
-            path="/categories/:categoryName/:packageId"
+            path="/package/:categoryName/:packageId"
             exact
-            component={SinglePackage}
+            component={Singlepackage}
           />
-          <Route path='/singlepeg' exact component={Singlepackage}/>
-
           {/* Admin Routes */}
           <Route path="/admin/login" exact component={AdminLogin} />
           <PrivateRoute

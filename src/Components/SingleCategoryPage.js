@@ -7,9 +7,8 @@ import firebase from "firebase";
 
 function SingleCatScreen(props) {
   const headingStyle = {
-    background: `linear-gradient(45deg, rgba(44, 44, 44, 0.25), rgba(44, 44, 44, 0.25)),url(${
-      category[props.index].img
-    })`,
+    background: `linear-gradient(45deg, rgba(44, 44, 44, 0.25), rgba(44, 44, 44, 0.25)),url(${category[props.index].img
+      })`,
     height: "600px",
     width: "100%",
     backgroundPosition: "center",
@@ -67,6 +66,8 @@ function SingleCatScreen(props) {
                     duration={pckg.duration}
                     costing={pckg.pricing[0].cost}
                     imageUrl={pckg.imageUrl}
+                    package={pckg}
+                    categoryName={category[props.index].Name}
                   />
                 </Col>
               );
