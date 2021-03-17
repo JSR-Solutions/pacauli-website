@@ -23,6 +23,7 @@ import EditPackage from "./Admin/EditPackage";
 
 import Singlepackage from "./Components/Singlepackagescreen/Singlepackage";
 import SinglePackageDashboard from "./Admin/SinglePackageDashboard";
+import UpdateGalleryImages from "./Admin/UpdateGalleryImages";
 
 
 function App() {
@@ -95,6 +96,12 @@ function App() {
             exact
             component={EditPackage}
           />
+          <PrivateRoute
+            path="/admin/editpackage/updategallery/:packageType/:packageId"
+            exact
+            component={UpdateGalleryImages}
+          />
+
         </Switch>
       </Router>
     </div>
