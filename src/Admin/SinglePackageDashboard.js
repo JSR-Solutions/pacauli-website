@@ -5,6 +5,7 @@ import {useState,useEffect} from "react";
 import firebase from "firebase";
 import {Link,Redirect} from "react-router-dom";
 
+
 function SinglePackageDashboard(props) {
     const [packageType,setPackageType]= useState(props.match.params.packageType);
     const [docId,setDocId] =useState(props.match.params.packageId);
@@ -68,7 +69,7 @@ console.log(name);
                 
               </Col>
               <Col lg={4} md={6} sm={12}>
-                <Link className="admin-dashboard-link" to={`/admin/package/${packageType}/${docId}`}>
+                <Link className="admin-dashboard-link" to={`/admin/editpackage/updategallery/${packageType}/${docId}`}>
                   <Card className="admin-dashboard-card">
                     <Card.Body className="admin-dashboard-card-body">
                       <h3>Edit Gallery Images </h3>
