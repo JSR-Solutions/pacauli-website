@@ -59,7 +59,7 @@
   .regaltos span {
     display: inline-block;
     transition: transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
-    padding:20px;
+    
   }
   
   .regaltos:hover span {
@@ -102,4 +102,10 @@
     padding-top: 2px;
     padding-right: 10px;
     padding-left: 10px;
+  }
+
+  @media screen and (max-width: 576px){
+    .regaltos span{
+      font-size: 20px;
+    }
   }
