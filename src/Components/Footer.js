@@ -94,13 +94,7 @@ function Footer() {
           </Col>
         </Row>
         <hr className="footer-divider" />
-        {/* <div className="footer-socials">
-          <AiFillInstagram className="footer-social-icon" />
-          <AiFillFacebook className="footer-social-icon" />
-          <AiOutlineMail className="footer-social-icon" />
-          <AiFillGoogleCircle className="footer-social-icon" />
-          
-        </div> */}
+        
         <Socials />
         <div className="footer-last">
           <p className="footer-copyright-content">Copyright © 2021 PacAuli. All Rights Reserved.</p>
