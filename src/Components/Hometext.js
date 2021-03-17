@@ -32,7 +32,7 @@ const Hometext = (props) => {
               </div>
             </Row>
 
-            <Row data-aos="fade-left">
+            <Row>
               <div className="headings-aks">
                 <div className="caption">{props.caption1}</div>
               </div>
@@ -46,7 +46,7 @@ const Hometext = (props) => {
                 </h1>
               </div>
             </Row>
-            <Row data-aos="fade-right">
+            <Row>
               <div className="headings-aks">
                 <div className="caption">{props.caption2}</div>
               </div>
