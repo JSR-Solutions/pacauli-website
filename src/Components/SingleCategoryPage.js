@@ -68,6 +68,7 @@ function SingleCatScreen(props) {
                     imageUrl={pckg.imageUrl}
                     package={pckg}
                     categoryName={category[props.index].Name}
+                    rating={pckg.rating}
                   />
                 </Col>
               );
