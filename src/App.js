@@ -15,12 +15,14 @@ import CustomPackageRequests from "./Admin/CustomPackage";
 import CustomPackage from "./Core/CustomPackage"
 import ContactRequests from "./Admin/ContactRequests";
 
+
 import Aboutus from "./Core/Aboutus";
 
 import PackageGalleryImages from "./Admin/PackageGalleryImages";
 import EditPackage from "./Admin/EditPackage";
 
 import Singlepackage from "./Components/Singlepackagescreen/Singlepackage";
+import SinglePackageDashboard from "./Admin/SinglePackageDashboard";
 
 
 function App() {
@@ -52,6 +54,11 @@ function App() {
             path="/admin/dashboard"
             exact
             component={AdminDashboard}
+          />
+          <PrivateRoute 
+          path="/single/:packageType/:packageId"
+          exact 
+          component={SinglePackageDashboard}
           />
           <PrivateRoute
             path="/admin/allpackages"

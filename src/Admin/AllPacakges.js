@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 import "../Styles/AdminDashboard.css";
 import firebase from "firebase";
 import { DataGrid } from "@material-ui/data-grid";
+import { Redirect } from "react-router";
 
 function AllPacakges() {
   const [packages, setPackages] = useState([]);
@@ -85,6 +86,7 @@ function AllPacakges() {
   });
   return (
     <div>
+      {redirect?<Redirect to={redirectPath} />: null}
       <Row>
         <Col className="admin-dashboard-sidebar" lg={2} md={6}>
           <Sidebar />
