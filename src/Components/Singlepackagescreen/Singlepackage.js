@@ -71,6 +71,25 @@ const Singlepackage = (props) => {
                                     <div className='sngl-pack-short-itn'>
                                         <div className='single-pck-2-row'>
                                             <div className='single-pack-side-design'></div>
+                                            <h4>Package Options</h4>
+                                            <hr />
+                                            {pack && pack.pricing.map((l, k) =>
+                                                <div key={k} className='sng-prc-tag'>
+                                                    <div className='sng-prc-tag1'>
+                                                        <h5>{k + 1}<sup>st</sup> Option</h5>
+                                                        <h6><AiOutlineFieldTime style={{ fontSize: '21px' }} /> {pack.duration}</h6>
+                                                    </div>
+                                                    <div className='sng-prc-tag2'>
+                                                        <h6>Rs {parseInt(l.cost) + 1000}</h6>
+                                                        <h5>Rs {l.cost} <span>{l.type}</span></h5></div>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div className='sngl-pack-short-itn'>
+                                        <div className='single-pck-2-row'>
+                                            <div className='single-pack-side-design'></div>
                                             <h4>Overviews</h4>
                                             <hr />
                                             {pack && pack.overviews.map((l, k) =>
@@ -115,6 +134,21 @@ const Singlepackage = (props) => {
                                             )}
                                         </div>
                                     </div>
+
+                                    <div className='sngl-pack-short-itn'>
+                                        <div className='single-pck-2-row'>
+                                            <div className='single-pack-side-design'></div>
+                                            <h4>Reviews</h4>
+                                            <hr />
+                                            {pack && pack.reviews.map((l, k) =>
+                                                <div key={k}>
+                                                    <h5>{l.customerName}</h5>
+                                                    <h6>{l.customerReview}</h6>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+
 
                                     <div className='sngl-pack-short-itn'>
                                         <div className='single-pck-2-row'>
