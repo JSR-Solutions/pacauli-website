@@ -17,6 +17,8 @@
   
   .headings-aks h1 {
     font-size: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
   
   .soul {
@@ -97,4 +99,8 @@
   }
   .captionn{
     color: white;
+    padding-bottom: 20px;
+    padding-top: 2px;
+    padding-right: 10px;
+    padding-left: 10px;
   }
