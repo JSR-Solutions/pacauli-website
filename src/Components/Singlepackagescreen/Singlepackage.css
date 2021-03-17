@@ -11,16 +11,59 @@
     background-color: rgb(241, 241, 241);
 }
 .sngl-pack-row{
-    background-color: yellow;
+    /* background-color: yellow; */
     margin-top: 30px;
 }
 
 .singel-pack-name{
-    padding: 12px 20px;
+    padding: 24px 20px;
     margin-bottom: 30px;
     border-radius: 6px;
     background-color: white;
 }
+.single-pack-side-design{
+    height: 40px;
+    background-color: var(--primary);
+    width: 5px;
+    position: absolute;
+    margin-left: -20px;
+    margin-top: -4px;
+}
+.single-pck-1-row{
+    text-align: left;
+}
+.single-pck-1-row-icon{
+    color: var(--primary);
+    margin-right: 10px;
+    font-size: 23px;
+}
+.single-pck-1-row h3{
+    color: var(--black);
+}
+.single-pck-1-row h5{
+    color: rgb(65, 64, 64);
+    font-size: 18.5px;
+}
+
+
+.sngl-pack-short-itn{
+    padding: 24px 20px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    background-color: white;
+}
+.single-pck-2-row{
+    text-align: left;
+}
+.single-pck-2-row-icon{
+    color: var(--primary);
+    margin-right: 8px;
+}
+.single-pck-2-row p{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
 
 .single-package-navbar{
     display: flex;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../Styles/Card3.css";
 import { MdLocationOn } from "react-icons/md";
 import { AiFillStar, AiFillClockCircle } from "react-icons/ai";
@@ -6,14 +6,15 @@ import { BiRupee } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 function Card3(props) {
+
   return (
     <div className="parent-card3">
-      <Link to="/singlepackage">
+      <Link to={`/package/${props.categoryName}/${props.package.packageId}`}>
         <div className="card3">
           <div
             className="card3-image"
-            style = {{backgroundImage : `url(${props.imageUrl})`}}
-            
+            style={{ backgroundImage: `url(${props.imageUrl})` }}
+
           ></div>
           <div className="card3-text">
             <div className="tagyu">
