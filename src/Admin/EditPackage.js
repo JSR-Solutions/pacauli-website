@@ -39,7 +39,7 @@ function EditPackage(props) {
 
   useEffect(() => {
     getPackage();
-  });
+  }, []);
 
   const getPackage = () => {
     setPackageType(props.match.params.packageType);
@@ -73,6 +73,7 @@ function EditPackage(props) {
 
   //Basic handle change function
   const handleChange = (e) => {
+    console.log("Inside handle change");
     e.preventDefault();
     const { name, value } = e.target;
     if (name === "name") {
@@ -428,9 +429,7 @@ function EditPackage(props) {
                     required
                     value={name}
                     placeholder={"Package Name"}
-                    onChange={(event) => {
-                      handleChange(event);
-                    }}
+                    onChange={handleChange}
                   />
                 </Form.Group>
               </Col>
@@ -488,7 +487,6 @@ function EditPackage(props) {
                   <Form.Control
                     className="admin-dashboard-form-input"
                     type="text"
-                    required
                     name="region"
                     value={region}
                     placeholder={"Package Region"}
@@ -651,7 +649,7 @@ function EditPackage(props) {
                     <Col lg={10}>
                       <Form.Group>
                         <Form.Control
-                        required
+                          required
                           className="admin-dashboard-form-input"
                           type="text"
                           name="day"
@@ -787,7 +785,7 @@ function EditPackage(props) {
                     <Col lg={10}>
                       <Form.Group>
                         <Form.Control
-                        required
+                          required
                           className="admin-dashboard-form-input"
                           type="text"
                           name="type"
