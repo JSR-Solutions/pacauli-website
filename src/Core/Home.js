@@ -54,6 +54,7 @@ const Home = () => {
       </div>
       <div class="curved-div2">
         <Hometext2
+          data-aos="fade-left"
           src1={a3}
           heading1="Auli the Trekking Hub"
           caption1="Auli /Joshimath is starting of many breathtaking and India’s best treks.Local people are passionate about exploring the mountains here they have been doing this work for past 60-70 years now ,as decades before there ancestors where all shepherds roaming and exploring the mountains with their livestock. With that connection to past and culture it gives Auli a boost."

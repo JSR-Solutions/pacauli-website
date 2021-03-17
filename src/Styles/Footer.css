@@ -42,7 +42,6 @@
 .footer-social-icon {
     color: var(--primary-black);
     font-size: 25px;
-    /* margin: 0px 16px; */
 }
 
 .footer-copyright-content {
@@ -51,3 +50,11 @@
     font-size: 16px;
     margin-top: 18px;
 }
+
+@media screen and (max-width: 576px){
+    .footer-social-icon {
+        color: white;
+        font-size: 35px;
+    }
+    
+  }

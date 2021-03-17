@@ -188,7 +188,7 @@ const Header = ({ history }) => {
     }
 
     return (
-        <div className="header-main-main">
+        <div style={{ width: "100%", overflowX: "hidden" }} className="header-main-main">
             <div className="header-main">
                 <div className="header-main1">
                     <div className="header-main2">
@@ -278,7 +278,7 @@ const Header = ({ history }) => {
             Quick Enquiry
           </div>
                 </div>
-                <div className="quick-inq2" style = {formik.errors.fullName ? {height: "570px"}: null}>
+                <div className="quick-inq2" style = {formik.errors.email || formik.errors.fullName || formik.errors.phNo || formik.errors.requirements || formik.errors.budget || formik.errors.destination  ? {height: "570px"}: null}>
                     <div className="form-mainss">
                         <div className="form-mainss1">
                             <Form.Group>

@@ -52,3 +52,16 @@
     color: white;
     font-size: 30pt;
   }
+
+  
+  @media screen and (max-width: 576px){
+    .button-block {
+      width: 100px;
+      margin: 50px auto;
+    }
+    .social-god {
+      background: var(--primary-black);
+      display: none;
+    }
+    
+  }

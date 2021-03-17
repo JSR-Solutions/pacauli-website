@@ -39,7 +39,7 @@ function EditPackage(props) {
 
   useEffect(() => {
     getPackage();
-  });
+  }, []);
 
   const getPackage = () => {
     setPackageType(props.match.params.packageType);
@@ -73,6 +73,7 @@ function EditPackage(props) {
 
   //Basic handle change function
   const handleChange = (e) => {
+    console.log("Inside handle change");
     e.preventDefault();
     const { name, value } = e.target;
     if (name === "name") {
@@ -425,11 +426,10 @@ function EditPackage(props) {
                     className="admin-dashboard-form-input"
                     type="text"
                     name="name"
+                    required
                     value={name}
                     placeholder={"Package Name"}
-                    onChange={(event) => {
-                      handleChange(event);
-                    }}
+                    onChange={handleChange}
                   />
                 </Form.Group>
               </Col>
@@ -443,6 +443,7 @@ function EditPackage(props) {
                     onChange={handleTypeChange}
                     className="add-package-form-input"
                     as="select"
+                    required
                     name="package-type"
                     value={packageType}
                   >
@@ -466,6 +467,7 @@ function EditPackage(props) {
                   <Form.Control
                     className="admin-dashboard-form-input"
                     type="text"
+                    required
                     name="duration"
                     value={duration}
                     placeholder={"Package Duration"}
@@ -504,6 +506,7 @@ function EditPackage(props) {
                   <Form.Control
                     className="admin-dashboard-form-input"
                     type="text"
+                    required
                     name="grade"
                     value={grade}
                     placeholder={"Package Grade"}
@@ -522,6 +525,7 @@ function EditPackage(props) {
                   <Form.Control
                     className="admin-dashboard-form-input"
                     type="text"
+                    required
                     name="maxAltitude"
                     value={maxAltitude}
                     placeholder={"Package Max Altitude"}
@@ -540,6 +544,7 @@ function EditPackage(props) {
                   <Form.Control
                     className="admin-dashboard-form-input"
                     type="text"
+                    required
                     name="trekDistance"
                     value={trekDistance}
                     placeholder={"Package Trekking Distance"}
@@ -562,6 +567,7 @@ function EditPackage(props) {
                         <Form.Control
                           className="admin-dashboard-form-input"
                           as="textarea"
+                          required
                           name="overview"
                           value={overview}
                           placeholder={"Overview paragraph " + (index + 1)}
@@ -603,6 +609,7 @@ function EditPackage(props) {
                         <Form.Control
                           className="admin-dashboard-form-input"
                           as="textarea"
+                          required
                           name="history"
                           value={history}
                           placeholder={"History paragraph " + (index + 1)}
@@ -642,6 +649,7 @@ function EditPackage(props) {
                     <Col lg={10}>
                       <Form.Group>
                         <Form.Control
+                          required
                           className="admin-dashboard-form-input"
                           type="text"
                           name="day"
@@ -656,6 +664,7 @@ function EditPackage(props) {
                         <Form.Control
                           className="admin-dashboard-form-input"
                           type="text"
+                          required
                           name="title"
                           value={brief.title}
                           placeholder={"Title " + (index + 1)}
@@ -668,6 +677,7 @@ function EditPackage(props) {
                         <Form.Control
                           className="admin-dashboard-form-input"
                           type="text"
+                          required
                           name="desc"
                           value={brief.desc}
                           placeholder={"Description " + (index + 1)}
@@ -709,6 +719,7 @@ function EditPackage(props) {
                         <Form.Control
                           className="admin-dashboard-form-input"
                           type="text"
+                          required
                           name="day"
                           value={detailed.day}
                           placeholder={"Day " + (index + 1)}
@@ -722,6 +733,7 @@ function EditPackage(props) {
                           className="admin-dashboard-form-input"
                           type="text"
                           name="title"
+                          required
                           value={detailed.title}
                           placeholder={"Title " + (index + 1)}
                           onChange={(event) => {
@@ -733,6 +745,7 @@ function EditPackage(props) {
                         <Form.Control
                           className="admin-dashboard-form-input"
                           as="textarea"
+                          required
                           name="desc"
                           value={detailed.desc}
                           placeholder={"Description " + (index + 1)}
@@ -772,6 +785,7 @@ function EditPackage(props) {
                     <Col lg={10}>
                       <Form.Group>
                         <Form.Control
+                          required
                           className="admin-dashboard-form-input"
                           type="text"
                           name="type"
@@ -786,6 +800,7 @@ function EditPackage(props) {
                         <Form.Control
                           className="admin-dashboard-form-input"
                           type="number"
+                          required
                           name="cost"
                           value={price.cost}
                           placeholder={"Cost " + (index + 1)}
@@ -827,6 +842,7 @@ function EditPackage(props) {
                         <Form.Control
                           className="admin-dashboard-form-input"
                           type="text"
+                          required
                           name="inclusion"
                           value={inclusion}
                           placeholder={"Inclusion " + (index + 1)}
@@ -868,6 +884,7 @@ function EditPackage(props) {
                         <Form.Control
                           className="admin-dashboard-form-input"
                           type="text"
+                          required
                           name="exclusion"
                           value={exclusion}
                           placeholder={"Exclusion " + (index + 1)}
@@ -909,6 +926,7 @@ function EditPackage(props) {
                         <Form.Control
                           className="admin-dashboard-form-input"
                           type="text"
+                          required
                           name="cancellation"
                           value={canc}
                           placeholder={"Cancellation Term " + (index + 1)}
@@ -950,6 +968,7 @@ function EditPackage(props) {
                         <Form.Control
                           className="admin-dashboard-form-input"
                           type="text"
+                          required
                           name="customerName"
                           value={review.customerName}
                           placeholder={"Customer Name"}
@@ -962,6 +981,7 @@ function EditPackage(props) {
                         <Form.Control
                           className="admin-dashboard-form-input"
                           type="text"
+                          required
                           name="customerReview"
                           value={review.customerReview}
                           placeholder={"Customer Review"}
@@ -1001,6 +1021,7 @@ function EditPackage(props) {
                     className="admin-dashboard-form-input"
                     type="text"
                     name="map"
+                    required
                     value={map}
                     placeholder={"Map Location"}
                     onChange={(event) => {
@@ -1020,6 +1041,7 @@ function EditPackage(props) {
                     id="form-image"
                     name="packageImage"
                     onChange={handleImageChange}
+                    required
                   />
                 </Form.Group>
               </Col>

@@ -16,7 +16,7 @@ const Hometext = (props) => {
         <br />
         <Row>
           <Col sm={12} lg={6} xs={12}>
-            <Row>
+            <Row data-aos="fade-left">
               <div className="headings-aks">
                 {" "}
                 <div className="photuu">
@@ -51,7 +51,7 @@ const Hometext = (props) => {
                 <div className="captionn">{props.caption2}</div>
               </div>
             </Row>
-            <Row>
+            <Row data-aos="fade-right">
               <div className="headings-aks">
                 <div className="photuu">
                   <img src={props.src2} />
