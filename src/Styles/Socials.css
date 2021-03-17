@@ -59,5 +59,9 @@
       width: 100px;
       margin: 50px auto;
     }
+    .social-god {
+      background: var(--primary-black);
+      display: none;
+    }
     
   }

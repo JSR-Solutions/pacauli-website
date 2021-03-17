@@ -50,3 +50,11 @@
     font-size: 16px;
     margin-top: 18px;
 }
+
+@media screen and (max-width: 576px){
+    .footer-social-icon {
+        color: white;
+        font-size: 35px;
+    }
+    
+  }
