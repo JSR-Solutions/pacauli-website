@@ -9,7 +9,7 @@ const Categories = () => {
 
 
   return (
-    <div>
+    <div style={{width: "100%", overflowX: "none"}}>
       <Header />
       <div className="heading-categories">
         <p>&nbsp;&nbsp;Categories&nbsp;&nbsp;</p>
