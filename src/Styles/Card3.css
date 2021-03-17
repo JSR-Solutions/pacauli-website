@@ -21,6 +21,7 @@
     cursor: pointer;
     margin-top: 20px;
     margin-bottom: 35px;
+    height: 400px;
 }
 
 .card3-image {
@@ -29,7 +30,7 @@
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    background: url(../Assets/Landing/p4.jpg);
+    
     background-size: cover;
     height: 350px;
 }
