@@ -2,21 +2,29 @@ import React from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import "../Styles/categoryPage.css";
-import category from "../helper/categoryData"
+import category from "../helper/categoryData";
 import CatStrip from "../Components/CategoryStrip";
 
 const Categories = () => {
-
-
   return (
-    <div style={{width: "100%", overflowX: "none"}}>
+    <div style={{ width: "100%", overflowX: "hidden" }}>
       <Header />
-      <div className="heading-categories">
+      <div
+        style={{ width: "100%", overflowX: "hidden" }}
+        className="heading-categories"
+      >
         <p>&nbsp;&nbsp;Categories&nbsp;&nbsp;</p>
       </div>
       <div className="catt">
-        {category.map((cat,index) => {
-          return <CatStrip Name={cat.Name} img={cat.img} quote={cat.quote} index={index} />;
+        {category.map((cat, index) => {
+          return (
+            <CatStrip
+              Name={cat.Name}
+              img={cat.img}
+              quote={cat.quote}
+              index={index}
+            />
+          );
         })}
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

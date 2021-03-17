@@ -188,7 +188,7 @@ const Header = ({ history }) => {
     }
 
     return (
-        <div className="header-main-main">
+        <div style={{ width: "100%", overflowX: "hidden" }} className="header-main-main">
             <div className="header-main">
                 <div className="header-main1">
                     <div className="header-main2">
