@@ -114,19 +114,51 @@
 
 .single-package-navbar{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: sticky !important;
-    position: -webkit-sticky !important;
-    top: 0 !important;
+    /* justify-content: space-around; */
     background-color: white;
     z-index: 5;
+    border: 1.5px solid rgb(209, 209, 209);
+    margin-bottom: 30px;
+    overflow-x: scroll;
+    width: 100%;
+    height: 50px;
 }
+.single-package-navbar::-webkit-scrollbar{
+    height: 4px !important;
+  }
+  /* Track */
+  .single-package-navbar::-webkit-scrollbar-track {
+    background: #ffffff; 
+  }
+   
+  /* Handle */
+  .single-package-navbar::-webkit-scrollbar-thumb {
+    background: rgb(218, 218, 218); 
+  }
+  
+  /* Handle on hover */
+  .single-package-navbar::-webkit-scrollbar-thumb:hover {
+    background: var(--primary); 
+  }
 
-
+.single-pack-nav-item{
+    padding: 11px 19.3px 0px 19.3px;
+    border-left: 1px solid rgb(201, 201, 201) ;
+}
+.single-pack-nav-item a{
+    color: black;
+}
+.nav-time-active a{
+    margin-bottom: 50px;
+    border-bottom: 2px solid gray;
+    color: var(--primary);
+}
 
 
 
 /* .single-package-right{
     background-color: white; 
 } */
+.sksks{
+    height: 300vh !important;
+}
