@@ -3,10 +3,38 @@
     width: 100%;
     overflow: hidden;    
 }
+
+.img-carou{
+    display: flex;
+}
+
+.single-package-upper{
+    width: 60%;
+    margin-right: auto;
+}
 .single-package-upper img{
     width: 100%;
-    height: 70vh;
 }
+.img-carou1{
+    width: 20%;
+}
+.img-carou1 img{
+    width: 100%;
+    padding: 10px;
+    height: 34.9vh;
+}
+.img-carou2{
+    width: 20%;
+}
+.img-carou2 img{
+    width: 100%;
+    padding: 10px;
+    height: 34.9vh;
+}
+
+
+
+
 .single-package-lower{
     background-color: rgb(241, 241, 241);
 }
@@ -161,4 +189,10 @@
 } */
 .sksks{
     height: 300vh !important;
+}
+
+@media screen and (max-width: 767px){
+    .skska{
+        display: none;
+    }
 }

@@ -48,13 +48,36 @@ const Singlepackage = (props) => {
     return (
         <div className='single-package-main'>
             <Header />
-            <div className='single-package-upper'>
-                <Container>
-                    <Row>
-                        <img src={Ima} alt='image' />
-                    </Row>
-                </Container>
+
+            <div className='img-carou'>
+                <div className='single-package-upper'>
+                    {
+                        pack && pack.imgUrl && pack.imgUrl[0] &&
+                        <img src={pack.imgUrl[4]} alt='sk' />
+                    }
+                </div>
+                <div className='img-carou1'>
+                {
+                    pack && pack.imgUrl && pack.imgUrl[0] &&
+                    <img src={pack.imgUrl[0]} alt='sk' />
+                }
+                {
+                    pack && pack.imgUrl && pack.imgUrl[0] &&
+                    <img src={pack.imgUrl[1]} alt='sk' />
+                }
+                </div>
+                <div className='img-carou2'>
+                {
+                    pack && pack.imgUrl && pack.imgUrl[0] &&
+                    <img src={pack.imgUrl[2]} alt='sk' />
+                }
+                {
+                    pack && pack.imgUrl && pack.imgUrl[0] &&
+                    <img src={pack.imgUrl[5]} alt='sk' />
+                }
+                </div>
             </div>
+
             <div className='single-package-lower'>
                 {pack &&
                     <Container>
@@ -213,18 +236,20 @@ const Singlepackage = (props) => {
                                 <div className='single-package-right'>
                                     <Pricecard price={pack.pricing} />
                                     <Formcomp />
-                                    <StickyContainer>
-                                    <Sticky topOffset={50}>
-                                            {({ style, isSticky }) => (
-                                                <div style={{ ...style, marginTop: isSticky ? '66px' : '0px', }}>
-                                                   <Pricecard price={pack.pricing}/>
-                                                </div>
-                                            )}
-                                        </Sticky>
-                                        <div className='sksks'>
-                                        
-                                        </div>
-                                    </StickyContainer>
+                                    <div className='skska'>
+                                        <StickyContainer>
+                                            <Sticky topOffset={50}>
+                                                {({ style, isSticky }) => (
+                                                    <div style={{ ...style, marginTop: isSticky ? '66px' : '0px', }}>
+                                                        <Pricecard price={pack.pricing} />
+                                                    </div>
+                                                )}
+                                            </Sticky>
+                                            <div className='sksks'>
+
+                                            </div>
+                                        </StickyContainer>
+                                    </div>
                                 </div>
                             </Col>
                         </Row>
@@ -232,6 +257,7 @@ const Singlepackage = (props) => {
                     </Container>
                 }
             </div>
+
             <Footer />
         </div>
     );
