@@ -43,12 +43,7 @@ const ValidateForm=empData=>{
 
 
 const ContactUs = () => {
-  const [enquiry, setEnquiry] = useState({
-    name: "",
-    phNo: "",
-    email: "",
-    message: "",
-  });
+  
 
   useEffect(() => {
     const inputs = document.querySelectorAll(".contact-input");
@@ -78,38 +73,23 @@ const ContactUs = () => {
      message: ''
    },
    validate: ValidateForm,
-   onSubmit: values => {
-     alert(JSON.stringify(values))
+   onSubmit: (values,{resetForm}) => {
+     resetForm()
    },
 
   });
 
   const db = firebase.firestore();
-  const handleChange = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target;
-    setEnquiry((prev) => {
-      return { ...prev, [name]: value };
-    });
-  };
+  
 
   const addEnquiry = (e) => {
     e.preventDefault();
     db.collection("Enquiries")
       .add(formik.values)
       .then((docRef) => {
-        db.collection("Enquiries")
-          .doc(docRef.id)
-          .update({ id: docRef.id })
-          .then(() => {
+        
             toast.success("Your enquiry has reached us. We will get in touch with you shortly.");
-            setEnquiry({
-              name: "",
-              phNo: "",
-              email: "",
-              message: "",
-            });
-          });
+            formik.handleSubmit()
       });
   };
 
@@ -185,7 +165,7 @@ const ContactUs = () => {
             <div className="contact-form">
               <span className="circle one"></span>
               <span className="circle two"></span>
-              <form className="contact-us-main-form" onSubmit = {formik.handleSubmit}>
+              <form className="contact-us-main-form">
                 <h3 className="contact-form-title">Contact Us</h3>
 
                 <div className="contact-form-input-container" style = {formik.errors.name ? {marginBottom: "0"} : null}>
@@ -234,7 +214,7 @@ const ContactUs = () => {
                 <input
                   type="button"
                   value="Submit"
-                  onClick={addEnquiry}
+                  onClick={formik.isValid ? addEnquiry: null}
                   className="contact-button"
                   style = {formik.errors.message ? {marginTop: "0"} : null}
                 ></input>

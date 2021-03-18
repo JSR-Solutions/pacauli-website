@@ -81,18 +81,12 @@ const ContactUs = () => {
       message: "",
     },
     validate: ValidateForm,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values));
-    },
+    onSubmit: (values,{resetForm}) => {
+           resetForm()
+          },
   });
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target;
-    setCustomPackage((prev) => {
-      return { ...prev, [name]: value };
-    });
-  };
+  
 
   const addRequest = (e) => {
     e.preventDefault();
@@ -105,19 +99,7 @@ const ContactUs = () => {
         toast.success(
           "Your request has been successfully submitted, we will contact you shortly."
         );
-        db.collection("CustomPackages")
-          .doc(docRef.id)
-          .update({ id: docRef.id })
-          .then(() => {
-            setCustomPackage({
-              name: "",
-              phNo: "",
-              email: "",
-              destination: "",
-              budget: "",
-              message: "",
-            });
-          });
+        formik.handleSubmit()
       });
   };
 
@@ -149,7 +131,7 @@ const ContactUs = () => {
               <span className="circle one"></span>
               <span className="circle two"></span>
 
-              <form className="contact-us-main-form">
+              <form className="contact-us-main-form" >
                 <h3 className="contact-form-title">
                   Let us know what you need...
                 </h3>
@@ -290,7 +272,7 @@ const ContactUs = () => {
                 <input
                   type="button"
                   value="Submit"
-                  onClick={addRequest}
+                  onClick={formik.isValid ? addRequest : null}
                   className="contact-button"
                   style={formik.errors.message ? { marginTop: "0" } : null}
                 ></input>

@@ -1,66 +1,119 @@
 import React, { useEffect, useState } from 'react';
 import { HiCheckCircle, HiPhone, HiCheck } from 'react-icons/hi'
+import {useFormik} from "formik"
+import firebase from "firebase";
+import { ToastContainer, toast } from "react-toastify";
+
+
+const ValidateForm = (empData) => {
+    const errors = {};
+  
+    if (!empData.name) {
+      errors.name = "Please Enter Your Name";
+    } else if (empData.name.length > 20) {
+      errors.name = "Name Should Not Exeed 20 Characters";
+    }
+  
+    if (!empData.phNo) {
+      errors.phNo = "Please Enter Your Phone number";
+    } else if (
+      !/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(empData.phNo)
+    ) {
+      errors.phNo = "Phone Number You Entered is invalid";
+    }
+  
+    if (!empData.email) {
+      errors.email = "Please Enter Your Email Adress";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(empData.email)) {
+      errors.email = "Email address you entered in invalid";
+    }
+    if (!empData.Date) {
+        errors.Date = "Please Enter the Date";
+      }
+    if (!empData.message) {
+      errors.message = "Please Enter your Message";
+    }
+    if (!empData.noOfPeople) {
+        errors.noOfPeople = "Please Enter the number of people";
+      }
+    return errors;
+  };
+  
+
 
 const Form = () => {
+    
 
-    const [customPackage, setCustomPackage] = useState({
-        name: "",
-        phNo: "",
-        email: "",
-        destination: "",
-        budget: "",
-        message: "",
-    });
+    
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            phNo: "",
+            email: "",
+            Date: "",
+            noOfPeople: "",
+            message: "",
+        },
+        validate: ValidateForm,
+        onSubmit:(values, {resetForm}) => {
+                 resetForm()
+          }
+      });
+      const db = firebase.firestore();
+      
 
-    useEffect(() => {
-        const inputs = document.querySelectorAll(".contact-input");
+    
 
-        if (inputs) {
-            inputs.forEach((input) => {
-                input.addEventListener("focus", () => {
-                    input.parentNode.classList.add("focus");
-                    console.log("Adding focus");
-                });
-                input.addEventListener("blur", () => {
-                    if (input.value === "") {
-                        input.parentNode.classList.remove("focus");
-                        console.log("Removing focus");
-                    }
-                });
-            });
-        }
-    }, []);
-
-    const handleChange = (e) => {
+    const getInTouch = (e) => {
         e.preventDefault();
-        const { name, value } = e.target;
-        setCustomPackage((prev) => {
-            return { ...prev, [name]: value };
-        });
-    };
+        db.collection("GetInTouch")
+    
+          .add(formik.values)
+    
+          .then((docRef) => {
+           
+            toast.success(
+              "Your query has been submitted succesfully , Our team will get in touch shortly"
+              
+            );
+            formik.handleSubmit()
+           
+          });
+      };
+
+    
 
     return (
         <div>
+        <ToastContainer />
             <div className='form-main-ak'>
                 <div className='form-main-ak1'>
                     <h6>Get in touch with our travel expert</h6>
                     <div className='form-main-form-akk'>
-                        <form >
-                            <input type='text' name='name' placeholder='Your Name' />
-                            <input type='email' name='email' placeholder='Your Email' />
-                            <input type='number' name='phone' id='phone' placeholder='Phone Number' />
-                            <input type='date' name='Date' placeholder='Date' />
-                            <input type='number' placeholder='No Of People' />
-                            <textarea className='akk-txtar' rows="4" name="Message" placeholder='Message' />
+                        <form onSubmit = {formik.handleSubmit}>
+                            <input type='text' name='name' placeholder='Your Name' onBlur = {formik.handleBlur} onChange = {formik.handleChange} value = {formik.values.name}/>
+                            {formik.touched.name && formik.errors.name ? <p className = "rtyui">{formik.errors.name}</p> : null}
+                            <input type='email' name='email' placeholder='Your Email' onBlur = {formik.handleBlur} onChange = {formik.handleChange} value = {formik.values.email} />
+                            {formik.touched.email && formik.errors.email ? <p className = "rtyui">{formik.errors.email}</p> : null}
+                            <input type='number' name='phNo' id='phone' placeholder='Phone Number' onBlur = {formik.handleBlur} onChange = {formik.handleChange} value = {formik.values.phNo} />
+                            {formik.touched.phNo && formik.errors.phNo ? <p className = "rtyui">{formik.errors.phNo}</p> : null}
+                            <input type='date' name='Date' placeholder='Date' onBlur = {formik.handleBlur} onChange = {formik.handleChange} value = {formik.values.Date} />
+                            {formik.touched.Date && formik.errors.Date ? <p className = "rtyui">{formik.errors.Date}</p> : null}
+                            <input type='number' name = 'noOfPeople' placeholder='No Of People' onBlur = {formik.handleBlur} onChange = {formik.handleChange} value = {formik.values.noOfPeople} />
+                            {formik.touched.noOfPeople && formik.errors.noOfPeople ? <p className = "rtyui">{formik.errors.noOfPeople}</p> : null}
+                            <textarea className='akk-txtar' rows="4" name="message" placeholder='Message' onBlur = {formik.handleBlur} onChange = {formik.handleChange} value = {formik.values.message} />
+                            {formik.touched.message && formik.errors.message ? <p className = "rtyui">{formik.errors.message}</p> : null} 
+                                           
                         </form>
-                    </div>
-                    <div className='form-main-ass-ak'>
+                        <div className='form-main-ass-ak'>
                         <p><HiCheckCircle style={{ color: 'green', fontSize: '18px' }} /> We assure the privacy of your contact data.</p>
                         <p><HiCheckCircle style={{ color: 'green', fontSize: '18px' }} /> This data will only be used by our team to contact you and no other purposes.</p>
                     </div>
                     <div className='form-main-btn-ak'>
-                        <button>Send Enquiry</button>
+                        <button type = "submit" onClick = {formik.isValid ? getInTouch : null}>Send Enquiry</button>
+                    </div>        
                     </div>
+                    
                 </div>
             </div>
 
