@@ -13,6 +13,7 @@ import AllEnquiries from "./Admin/AllEnquiries";
 import CustomPackageRequests from "./Admin/CustomPackage";
 import CustomPackage from "./Core/CustomPackage"
 import ContactRequests from "./Admin/ContactRequests";
+import GetInTouch from "./Admin/GetInTouch"
 
 
 import Aboutus from "./Core/Aboutus";
@@ -82,6 +83,11 @@ function App() {
             path="/admin/contactrequests"
             exact
             component={ContactRequests}
+          />
+          <PrivateRoute
+            path="/admin/getintouch"
+            exact
+            component={GetInTouch}
           />
           <PrivateRoute
             path="/admin/package/:packageType/:packageId"

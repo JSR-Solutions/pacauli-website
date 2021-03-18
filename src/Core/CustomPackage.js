@@ -43,14 +43,7 @@ const ValidateForm = (empData) => {
 };
 
 const ContactUs = () => {
-  const [customPackage, setCustomPackage] = useState({
-    name: "",
-    phNo: "",
-    email: "",
-    destination: "",
-    budget: "",
-    message: "",
-  });
+  
   const db = firebase.firestore();
 
   useEffect(() => {
@@ -95,11 +88,14 @@ const ContactUs = () => {
       .add(formik.values)
 
       .then((docRef) => {
-        console.log(formik.values);
+        formik.handleSubmit()
         toast.success(
           "Your request has been successfully submitted, we will contact you shortly."
         );
-        formik.handleSubmit()
+        db.collection("CustomPackages")
+          .doc(docRef.id)
+          .update({ id: docRef.id })
+          
       });
   };
 
@@ -131,7 +127,7 @@ const ContactUs = () => {
               <span className="circle one"></span>
               <span className="circle two"></span>
 
-              <form className="contact-us-main-form" >
+              <form className="contact-us-main-form" onSubmit = {formik.handleSubmit}>
                 <h3 className="contact-form-title">
                   Let us know what you need...
                 </h3>

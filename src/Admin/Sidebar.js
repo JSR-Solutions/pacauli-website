@@ -9,7 +9,7 @@ import {
 import "react-pro-sidebar/dist/css/styles.css";
 import { Link } from "react-router-dom";
 import "../Styles/Sidebar.css";
-import { MdDashboard } from "react-icons/md";
+import { MdDashboard, MdTouchApp} from "react-icons/md";
 import { VscPackage} from "react-icons/vsc";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import {AiFillFileAdd} from "react-icons/ai";
@@ -53,6 +53,12 @@ function Sidebar() {
             className="sidebar-menu-item"
           >
             <Link to="/admin/contactrequests">Contact Requests</Link>{" "}
+          </MenuItem>
+          <MenuItem
+            icon={<MdTouchApp />}
+            className="sidebar-menu-item"
+          >
+            <Link to="/admin/getintouch">Get In Touch Requests</Link>{" "}
           </MenuItem>
         </Menu>
         <SidebarFooter className="admin-dashboard-sidebar-footer">
