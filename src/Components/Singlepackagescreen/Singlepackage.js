@@ -29,6 +29,22 @@ const Singlepackage = (props) => {
             })
     }, [])
 
+    useEffect(() => {
+        var header = document.getElementById("sing-pack-nav");
+        if (header) {
+            var btns = header.getElementsByClassName("single-pack-nav-item");
+            if (btns) {
+                for (var i = 0; i < btns.length; i++) {
+                    btns[i].addEventListener("click", function () {
+                        var current = document.getElementsByClassName("nav-time-active");
+                        current[0].className = current[0].className.replace(" nav-time-active", "");
+                        this.className += " nav-time-active";
+                    });
+                }
+            }
+        }
+    }, [])
+
     return (
         <div className='single-package-main'>
             <Header />
@@ -42,49 +58,50 @@ const Singlepackage = (props) => {
             <div className='single-package-lower'>
                 {pack &&
                     <Container>
-                        
-                            <Row className='sngl-pack-row'>
-                                <Col md={8}>
-                                    <div className='single-package-left'>
 
-                                        <div className='singel-pack-name'>
-                                            <div className='single-pck-1-row'>
-                                                <div className='single-pack-side-design'></div>
-                                                <h3>{pack.name}</h3>
-                                                <hr />
-                                                <h5><GiNetworkBars className='single-pck-1-row-icon' />Level - {pack.grade}</h5>
-                                                <h5><RiPinDistanceFill className='single-pck-1-row-icon' />Distance - {pack.trekDistance} km</h5>
-                                                <h5><AiOutlineSafetyCertificate className='single-pck-1-row-icon' />Package Type - {pack.packageType}</h5>
-                                                <h5><AiOutlineFieldTime className='single-pck-1-row-icon' />Duration - {pack.duration}</h5>
-                                                <hr />
-                                            </div>
+                        <Row className='sngl-pack-row'>
+                            <Col md={8}>
+                                <div className='single-package-left'>
+
+                                    <div className='singel-pack-name'>
+                                        <div className='single-pck-1-row'>
+                                            <div className='single-pack-side-design'></div>
+                                            <h3>{pack.name}</h3>
+                                            <hr />
+                                            <h5><GiNetworkBars className='single-pck-1-row-icon' />Level - {pack.grade}</h5>
+                                            <h5><RiPinDistanceFill className='single-pck-1-row-icon' />Distance - {pack.trekDistance} km</h5>
+                                            <h5><AiOutlineSafetyCertificate className='single-pck-1-row-icon' />Package Type - {pack.packageType}</h5>
+                                            <h5><AiOutlineFieldTime className='single-pck-1-row-icon' />Duration - {pack.duration}</h5>
+                                            <hr />
                                         </div>
+                                    </div>
 
-                                        <div className='sngl-pack-short-itn'>
-                                            <div className='single-pck-2-row'>
-                                                <div className='single-pack-side-design'></div>
-                                                <h4>Histories</h4>
-                                                <hr />
-                                                {pack && pack.histories.map((l, k) =>
-                                                    <p key={k}><IoLocateSharp className='single-pck-2-row-icon' />{l}</p>
-                                                )}
-                                            </div>
+                                    <div className='sngl-pack-short-itn'>
+                                        <div className='single-pck-2-row'>
+                                            <div className='single-pack-side-design'></div>
+                                            <h4>Histories</h4>
+                                            <hr />
+                                            {pack && pack.histories.map((l, k) =>
+                                                <p key={k}><IoLocateSharp className='single-pck-2-row-icon' />{l}</p>
+                                            )}
                                         </div>
+                                    </div>
 
-                                        <StickyContainer>
+                                    <StickyContainer>
                                         <Sticky topOffset={50}>
                                             {({ style, isSticky }) => (
-                                                <div style={{ ...style, marginTop: isSticky ? '66px' : '0px' }} className='single-package-navbar'>
-                                                    <div><p>Itinerary</p></div>
-                                                    <div><p>Package Options</p></div>
-                                                    <div><p>Map</p></div>
-                                                    <div><p>Reviews</p></div>
-                                                    <div><p>Policies</p></div>
-                                                    <div><p>overview</p></div>
+                                                <div style={{ ...style, marginTop: isSticky ? '66px' : '0px', }} className='single-package-navbar' id='sing-pack-nav'>
+                                                    <div className='single-pack-nav-item nav-time-active'><a href='#itinerary'><p>Itinerary</p></a></div>
+                                                    <div className='single-pack-nav-item'><a href='#inclusion'><p>Inculsions</p></a></div>
+                                                    <div className='single-pack-nav-item '><a href='#exclusion'><p>Exclusions</p></a></div>
+                                                    <div className='single-pack-nav-item'><a href='#map'><p>Map</p></a></div>
+                                                    <div className='single-pack-nav-item'><a href='#reviews'><p>Reviews</p></a></div>
+                                                    <div className='single-pack-nav-item'><a href='#cancellation'><p>Policies</p></a></div>
+                                                    <div className='single-pack-nav-item'><a href='#overview'><p>overview</p></a></div>
                                                 </div>
                                             )}
                                         </Sticky>
-                                        
+
                                         <div className='sngl-pack-short-itn'>
                                             <div className='single-pck-2-row'>
                                                 <div className='single-pack-side-design'></div>
@@ -104,7 +121,7 @@ const Singlepackage = (props) => {
                                             </div>
                                         </div>
 
-                                        <div className='sngl-pack-short-itn'>
+                                        <div className='sngl-pack-short-itn' id='overview'>
                                             <div className='single-pck-2-row'>
                                                 <div className='single-pack-side-design'></div>
                                                 <h4>Overviews</h4>
@@ -115,7 +132,7 @@ const Singlepackage = (props) => {
                                             </div>
                                         </div>
 
-                                        <div className='sngl-pack-short-itn'>
+                                        <div className='sngl-pack-short-itn' id='itinerary'>
                                             <div className='single-pck-2-row'>
                                                 <div className='single-pack-side-design'></div>
                                                 <h4>Itinerary</h4>
@@ -130,7 +147,7 @@ const Singlepackage = (props) => {
                                             </div>
                                         </div>
 
-                                        <div className='sngl-pack-short-itn'>
+                                        <div className='sngl-pack-short-itn' id='inclusion'>
                                             <div className='single-pck-2-row'>
                                                 <div className='single-pack-side-design'></div>
                                                 <h4>Inclusions</h4>
@@ -141,7 +158,7 @@ const Singlepackage = (props) => {
                                             </div>
                                         </div>
 
-                                        <div className='sngl-pack-short-itn'>
+                                        <div className='sngl-pack-short-itn' id='exclusion'>
                                             <div className='single-pck-2-row'>
                                                 <div className='single-pack-side-design'></div>
                                                 <h4>Exclusions</h4>
@@ -152,7 +169,7 @@ const Singlepackage = (props) => {
                                             </div>
                                         </div>
 
-                                        <div className='sngl-pack-short-itn'>
+                                        <div className='sngl-pack-short-itn' id='reviews'>
                                             <div className='single-pck-2-row'>
                                                 <div className='single-pack-side-design'></div>
                                                 <h4>Reviews</h4>
@@ -166,7 +183,19 @@ const Singlepackage = (props) => {
                                             </div>
                                         </div>
 
-                                        <div className='sngl-pack-short-itn'>
+                                        <div className='sngl-pack-short-itn' id='map'>
+                                            <div className='single-pck-2-row'>
+                                                <div className='single-pack-side-design'></div>
+                                                <h4>Location</h4>
+                                                <hr />
+                                                {pack &&
+                                                    <iframe src={pack.map} width="100%" height="450" frameborder="0" allowfullscreen></iframe>
+
+                                                }
+                                            </div>
+                                        </div>
+
+                                        <div className='sngl-pack-short-itn' id='cancellation'>
                                             <div className='single-pck-2-row'>
                                                 <div className='single-pack-side-design'></div>
                                                 <h4>Cancellation</h4>
@@ -176,18 +205,30 @@ const Singlepackage = (props) => {
                                                 )}
                                             </div>
                                         </div>
+
+                                    </StickyContainer>
+                                </div>
+                            </Col>
+                            <Col md={4}>
+                                <div className='single-package-right'>
+                                    <Pricecard price={pack.pricing} />
+                                    <Formcomp />
+                                    <StickyContainer>
+                                    <Sticky topOffset={50}>
+                                            {({ style, isSticky }) => (
+                                                <div style={{ ...style, marginTop: isSticky ? '66px' : '0px', }}>
+                                                   <Pricecard price={pack.pricing}/>
+                                                </div>
+                                            )}
+                                        </Sticky>
+                                        <div className='sksks'>
                                         
-                                        </StickyContainer>
-                                    </div>
-                                </Col>
-                                <Col md={4}>
-                                    <div className='single-package-right'>
-                                        <Pricecard price={pack.pricing} />
-                                        <Formcomp />
-                                    </div>
-                                </Col>
-                            </Row>
-                        
+                                        </div>
+                                    </StickyContainer>
+                                </div>
+                            </Col>
+                        </Row>
+
                     </Container>
                 }
             </div>
