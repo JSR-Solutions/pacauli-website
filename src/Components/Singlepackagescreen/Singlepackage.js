@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Container } from 'react-bootstrap'
 import './Singlepackage.css'
-import Ima from '../../Assets/Landing/p2.jpg'
 import Pricecard from './Pricecard'
 import Formcomp from './Form'
 import { GiNetworkBars } from 'react-icons/gi'
@@ -12,6 +11,7 @@ import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import firebase from 'firebase'
 import { StickyContainer, Sticky } from "react-sticky";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 
 const Singlepackage = (props) => {
@@ -51,30 +51,10 @@ const Singlepackage = (props) => {
 
             <div className='img-carou'>
                 <div className='single-package-upper'>
-                    {
-                        pack && pack.imgUrl && pack.imgUrl[0] &&
-                        <img src={pack.imgUrl[4]} alt='sk' />
-                    }
-                </div>
-                <div className='img-carou1'>
-                {
-                    pack && pack.imgUrl && pack.imgUrl[0] &&
-                    <img src={pack.imgUrl[0]} alt='sk' />
-                }
-                {
-                    pack && pack.imgUrl && pack.imgUrl[0] &&
-                    <img src={pack.imgUrl[1]} alt='sk' />
-                }
-                </div>
-                <div className='img-carou2'>
-                {
-                    pack && pack.imgUrl && pack.imgUrl[0] &&
-                    <img src={pack.imgUrl[2]} alt='sk' />
-                }
-                {
-                    pack && pack.imgUrl && pack.imgUrl[0] &&
-                    <img src={pack.imgUrl[5]} alt='sk' />
-                }
+                   {
+                       pack &&
+                       <img src={pack.imageUrl} alt='sk' />
+                   }
                 </div>
             </div>
 
@@ -197,12 +177,19 @@ const Singlepackage = (props) => {
                                                 <div className='single-pack-side-design'></div>
                                                 <h4>Reviews</h4>
                                                 <hr />
-                                                {pack && pack.reviews.map((l, k) =>
-                                                    <div key={k}>
-                                                        <h5>{l.customerName}</h5>
-                                                        <h6>{l.customerReview}</h6>
-                                                    </div>
-                                                )}
+                                                <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                                                    {pack && pack.reviews.map((l, k) =>
+                                                        <div key={k} className='sng-pack-review'>
+                                                            <div className='sng-pack-review-img'>
+                                                                <div><h1>{l.customerName.substring(0, 1)}</h1></div>
+                                                            </div>
+                                                            <div className='sng-pack-review-cnt'>
+                                                                <h5>{l.customerName}</h5>
+                                                                <h6>{l.customerReview.substring(0, 163)}...</h6>
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                </div>
                                             </div>
                                         </div>
 
@@ -269,3 +256,35 @@ export default Singlepackage;
 
 // <h5><AiOutlineFieldTime className='single-pck-1-row-icon' />Max Altitude - {pack.maxAltitude} km</h5>
 // <h5><AiOutlineFieldTime className='single-pck-1-row-icon' />Region - {pack.region}</h5>
+
+
+
+
+// <div className='img-carou'>
+// <div className='single-package-upper'>
+//     {
+//         pack && pack.imgUrl && pack.imgUrl[0] &&
+//         <img src={pack.imgUrl[4]} alt='sk' />
+//     }
+// </div>
+// <div className='img-carou1'>
+//     {
+//         pack && pack.imgUrl && pack.imgUrl[0] &&
+//         <img src={pack.imgUrl[0]} alt='sk' />
+//     }
+//     {
+//         pack && pack.imgUrl && pack.imgUrl[0] &&
+//         <img src={pack.imgUrl[1]} alt='sk' />
+//     }
+// </div>
+// <div className='img-carou2'>
+//     {
+//         pack && pack.imgUrl && pack.imgUrl[0] &&
+//         <img src={pack.imgUrl[2]} alt='sk' />
+//     }
+//     {
+//         pack && pack.imgUrl && pack.imgUrl[0] &&
+//         <img src={pack.imgUrl[5]} alt='sk' />
+//     }
+// </div>
+// </div>
