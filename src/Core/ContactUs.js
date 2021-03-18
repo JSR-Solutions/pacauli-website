@@ -90,6 +90,9 @@ const ContactUs = () => {
         
             toast.success("Your enquiry has reached us. We will get in touch with you shortly.");
             formik.handleSubmit()
+            db.collection("Enquiries")
+          .doc(docRef.id)
+          .update({ id: docRef.id })
       });
   };
 

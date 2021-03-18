@@ -77,6 +77,9 @@ const Form = () => {
               
             );
             formik.handleSubmit()
+            db.collection("GetInTouch")
+          .doc(docRef.id)
+          .update({ id: docRef.id })
            
           });
       };
