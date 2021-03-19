@@ -4,7 +4,7 @@ import Sidebar from "../Admin/Sidebar";
 import "../Styles/updategallery.css"
 import firebase from "firebase";
 import { Link } from "react-router-dom";
-import { Button } from "bootstrap";
+import { Button } from "react-bootstrap";
 import "../Styles/AdminDashboard.css";
 
 function UpdateGalleryImages(props) {
@@ -68,13 +68,13 @@ function UpdateGalleryImages(props) {
                     <Col sm={12} md={6} lg={4}>
                       <div>
                         <img className="gallery-images" src={img} alt="image" />
-                        <button
+                        <Button
                           onClick={() => {
                             deleteImage(img);
-                          }} style={{marginBottom:"20px"}}
+                          }} style={{marginBottom:"20px", backgroundColor: "var(--primary)"}}
                         >
                           Delete this image
-                        </button>
+                        </Button>
                       </div>
                     </Col>
                   );
