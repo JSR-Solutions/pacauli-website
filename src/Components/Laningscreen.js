@@ -51,6 +51,61 @@ const Laningscreen = () => {
             </Link>{" "}
           </div>
         </Carousel.Item>
+        <Carousel.Item className="container-fluid carousel-item item-five">
+          <div className="landing-div">
+            <h1 className="carousel-title">What's life without travelling?</h1>
+            <h4 className="carousel-subtitle">
+              Don't spend your entire life in the place you were born
+            </h4>
+            <Link to="/categories">
+              <button>Explore</button>
+            </Link>{" "}
+          </div>
+        </Carousel.Item>
+        <Carousel.Item className="container-fluid carousel-item item-six">
+          <div className="landing-div">
+            <h1 className="carousel-title">What's life without travelling?</h1>
+            <h4 className="carousel-subtitle">
+              Don't spend your entire life in the place you were born
+            </h4>
+            <Link to="/categories">
+              <button>Explore</button>
+            </Link>{" "}
+          </div>
+        </Carousel.Item>
+        <Carousel.Item className="container-fluid carousel-item item-seven">
+          <div className="landing-div">
+            <h1 className="carousel-title">What's life without travelling?</h1>
+            <h4 className="carousel-subtitle">
+              Don't spend your entire life in the place you were born
+            </h4>
+            <Link to="/categories">
+              <button>Explore</button>
+            </Link>{" "}
+          </div>
+        </Carousel.Item>
+        <Carousel.Item className="container-fluid carousel-item item-eight">
+          <div className="landing-div">
+            <h1 className="carousel-title">What's life without travelling?</h1>
+            <h4 className="carousel-subtitle">
+              Don't spend your entire life in the place you were born
+            </h4>
+            <Link to="/categories">
+              <button>Explore</button>
+            </Link>{" "}
+          </div>
+        </Carousel.Item>
+        <Carousel.Item className="container-fluid carousel-item item-nine">
+          <div className="landing-div">
+            <h1 className="carousel-title">What's life without travelling?</h1>
+            <h4 className="carousel-subtitle">
+              Don't spend your entire life in the place you were born
+            </h4>
+            <Link to="/categories">
+              <button>Explore</button>
+            </Link>{" "}
+          </div>
+        </Carousel.Item>
       </Carousel>
     </div>
   );

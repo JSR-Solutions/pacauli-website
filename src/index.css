@@ -16,9 +16,9 @@ code {
   --serif: 'Lora', serif;
   --cursive: 'Redressed', cursive;
   --sans-serif: 'Work Sans', sans-serif;
-  --primary: #7868e6;
-  --secondary: #42397e !important;
-  --primary: #7868e6 !important;
+  --primary: #29bb89;
+  --secondary: #289672 !important;
+  --primary: #29bb89 !important;
   --white: #fff;
   --primary-black: #222222;
   --primary-black-text: #3d3c3c;
