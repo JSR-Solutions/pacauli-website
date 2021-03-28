@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Carousel } from "react-bootstrap";
 import "./Singlepackage.css";
 import Pricecard from "./Pricecard";
 import Formcomp from "./Form";
@@ -12,9 +12,11 @@ import Footer from "../../Components/Footer";
 import firebase from "firebase";
 import { StickyContainer, Sticky } from "react-sticky";
 import "react-alice-carousel/lib/alice-carousel.css";
+import Imagess from "./imageGallery";
 
 const Singlepackage = (props) => {
   const [pack, setpack] = useState();
+ 
   const db = firebase.firestore();
 
   useEffect(() => {
@@ -25,6 +27,7 @@ const Singlepackage = (props) => {
         console.log(res.data());
         if (res.data()) {
           setpack(res.data());
+        
         }
       });
   }, []);
@@ -47,6 +50,9 @@ const Singlepackage = (props) => {
       }
     }
   }, []);
+  
+
+  
 
   return (
     <div className="single-package-main">
@@ -54,7 +60,16 @@ const Singlepackage = (props) => {
 
       <div className="img-carou">
         <div className="single-package-upper">
-          {pack && <img src={pack.imageUrl} alt="sk" />}
+          <Carousel>
+          {pack && 
+            pack.imgUrl.map((l,k)=>(
+              <Carousel.Item>
+              <img style={{height:"700px"}} src={l} alt="sk" />
+              </Carousel.Item>
+            ))
+            
+            }
+            </Carousel>
         </div>
       </div>
 
@@ -303,6 +318,18 @@ const Singlepackage = (props) => {
                         </div>
                       </div>
                     </div>
+                    <div className="sngl-pack-short-itn" id="gallery">
+                      <div className="single-pck-2-row">
+                        <div className="single-pack-side-design"></div>
+                        <h4>Gallery</h4>
+                        <hr />
+                        
+                        {pack && pack.imgUrl && <Imagess imgUrl={pack.imgUrl}/>}
+                            
+                        
+                      </div>
+                    </div>
+                    
 
                     <div className="sngl-pack-short-itn" id="map">
                       <div className="single-pck-2-row">

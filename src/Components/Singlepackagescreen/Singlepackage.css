@@ -3,6 +3,10 @@
     width: 100%;
     overflow: hidden;    
 }
+.imagegalleryy{
+    width:100%;
+    background-color: rgb(241, 241, 241);
+}
 
 /* .img-carou{
     display: flex;
