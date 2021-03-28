@@ -99,9 +99,7 @@ function Footer() {
           <AiFillFacebook className="footer-social-icon" />
           <AiOutlineMail className="footer-social-icon" />
           <AiFillGoogleCircle className="footer-social-icon" />
-          
         </div>
-        <Socials />
         <div className="footer-last">
           <p className="footer-copyright-content">Copyright © 2021 PacAuli. All Rights Reserved.</p>
         </div>

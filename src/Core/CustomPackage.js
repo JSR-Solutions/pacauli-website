@@ -3,7 +3,7 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import "../Styles/CustomPackage.css";
 import shape from "../Assets/shape.png";
-import custi from "../Assets/custompackage.png";
+import custi from "../Assets/custompackage.svg";
 import firebase from "firebase";
 import { ToastContainer, toast } from "react-toastify";
 import { useFormik } from "formik";
