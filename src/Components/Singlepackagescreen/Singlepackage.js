@@ -32,6 +32,7 @@ const Singlepackage = (props) => {
       });
   }, []);
 
+
   useEffect(() => {
     var header = document.getElementById("sing-pack-nav");
     if (header) {
@@ -336,7 +337,7 @@ const Singlepackage = (props) => {
                         <div className="single-pack-side-design"></div>
                         <h4>Location</h4>
                         <hr />
-                        {pack && (
+                        {pack && pack.map && (
                           <iframe
                             src={pack.map}
                             width="100%"
@@ -379,7 +380,7 @@ const Singlepackage = (props) => {
                               marginTop: isSticky ? "66px" : "0px",
                             }}
                           >
-                            <Pricecard price={pack.pricing} />
+                            <Pricecard price={pack.pricing}/>
                           </div>
                         )}
                       </Sticky>
