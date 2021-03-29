@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { HiCheckCircle, HiPhone, HiCheck } from 'react-icons/hi'
 import {useFormik} from "formik"
 import firebase from "firebase";
