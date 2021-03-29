@@ -12,25 +12,25 @@ const Socials = () => {
     <div className = "social-god">
       <div class="button-block">
         <div class="social">
-          <a href="#">
+          <a href="/">
             {" "}
             <AiFillInstagram className="footer-social-icon" />
           </a>
         </div>
         <div class="social">
-          <a href="#">
+          <a href="/">
             {" "}
             <AiFillFacebook className="footer-social-icon" />
           </a>
         </div>
         <div class="social">
-          <a href="#">
+          <a href="/">
             {" "}
             <AiOutlineMail className="footer-social-icon" />
           </a>
         </div>
         <div class="social">
-          <a href="#">
+          <a href="/">
             {" "}
             <AiFillGoogleCircle className="footer-social-icon" />
           </a>

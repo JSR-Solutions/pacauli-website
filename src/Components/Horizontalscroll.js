@@ -1,6 +1,5 @@
 import React from "react";
 import "../Styles/Horizontalscroll.css";
-import { Row, Col, Container } from "react-bootstrap";
 
 const Horizontalscroll = () => {
   return (
