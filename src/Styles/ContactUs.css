@@ -11,7 +11,7 @@
 .heading-contact {
 
   background: linear-gradient(45deg, rgba(44, 44, 44, 0.25), rgba(44, 44, 44, 0.25)), url(../Assets/bg-contactus.jpg);
-  height: 600px;
+  height: 100vh;
   width: 100%;
   background-position: center;
   background-size: cover;

@@ -231,14 +231,14 @@ const Header = ({ history }) => {
                                             <li>Categories</li>
                                         </Link>
                                         <div className='cat-dropdown'>
-                                            <div className='cat-dropdown-child'>Sking</div>
-                                            <div className='cat-dropdown-child'>Trekking</div>
-                                            <div className='cat-dropdown-child'>Expedition</div>
-                                            <div className='cat-dropdown-child'>Rock Climbing</div>
-                                            <div className='cat-dropdown-child'>Camping</div>
-                                            <div className='cat-dropdown-child'>Cycling</div>
-                                            <div className='cat-dropdown-child'>Rafting</div>
-                                            <div className='cat-dropdown-child'>Chardham</div>
+                                            <Link to={`/categories/0`} className="header-dropdown-link"><div className='cat-dropdown-child'>Sking</div></Link>
+                                            <Link to={`/categories/1`} className="header-dropdown-link"><div className='cat-dropdown-child'>Trekking</div></Link>
+                                            <Link to={`/categories/6`} className="header-dropdown-link"><div className='cat-dropdown-child'>Expedition</div></Link>
+                                            <Link to={`/categories/2`} className="header-dropdown-link"><div className='cat-dropdown-child'>Rock Climbing</div></Link>
+                                            <Link to={`/categories/4`} className="header-dropdown-link"><div className='cat-dropdown-child'>Camping</div></Link>
+                                            <Link to={`/categories/3`} className="header-dropdown-link"><div className='cat-dropdown-child'>Cycling</div></Link>
+                                            <Link to={`/categories/5`} className="header-dropdown-link"><div className='cat-dropdown-child'>Rafting</div></Link>
+                                            <Link to={`/categories/7`} className="header-dropdown-link"><div className='cat-dropdown-child'>Chardham</div></Link>
                                         </div>
                                     </div>
 
