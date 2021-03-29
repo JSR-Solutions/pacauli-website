@@ -13,10 +13,18 @@ import firebase from "firebase";
 import { StickyContainer, Sticky } from "react-sticky";
 import "react-alice-carousel/lib/alice-carousel.css";
 import Imagess from "./imageGallery";
+import $ from "jquery";
 
 const Singlepackage = (props) => {
   const [pack, setpack] = useState();
  
+  useEffect(() => {
+    $(document).ready(function () {
+      $(this).scrollTop(0);
+    });
+  }, []);
+  
+
   const db = firebase.firestore();
 
   useEffect(() => {

@@ -9,7 +9,7 @@ import shape from "../Assets/shape.png";
 import firebase from "firebase";
 import { ToastContainer, toast } from "react-toastify";
 
-
+import $ from "jquery"
 import {useFormik} from "formik"
 
 const ValidateForm=empData=>{
@@ -44,6 +44,12 @@ const ValidateForm=empData=>{
 
 const ContactUs = () => {
   
+
+  useEffect(() => {
+    $(document).ready(function () {
+      $(this).scrollTop(0);
+    });
+  }, []);
 
   useEffect(() => {
     const inputs = document.querySelectorAll(".contact-input");

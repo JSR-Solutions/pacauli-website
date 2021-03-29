@@ -1,27 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../Styles/Home.css";
 import Landingscreen from "../Components/Laningscreen";
 import Footer from "../Components/Footer";
 import Hometext from "../Components/Hometext";
 import Hometext2 from "../Components/Hometext2";
 import Header from "../Components/Header";
-import Collapsiblecard from "../Components/Collapsiblecard";
 import Categorycards from "../Components/Categorycards";
-import Horizontalscroll from "../Components/Horizontalscroll";
 import Quote from "../Components/Quote";
-import Parralax1 from "../Components/Parralax1";
 import a1 from "../Assets/1.jpeg";
 import a2 from "../Assets/2.jpeg";
 import a3 from "../Assets/3.jpeg";
 import a4 from "../Assets/4.jpeg";
 import a5 from "../Assets/5.jpg";
 import a6 from "../Assets/6.jpg";
-import a7 from "../Assets/7.jpg";
-import a8 from "../Assets/8.jpg";
 import a9 from "../Assets/9.jpg";
 import a10 from "../Assets/10.jpg";
+import $ from "jquery";
 
 const Home = () => {
+  useEffect(() => {
+    $(document).ready(function () {
+      $(this).scrollTop(0);
+    });
+  }, []);
   return (
     <div>
       <Landingscreen />
