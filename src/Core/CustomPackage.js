@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import "../Styles/CustomPackage.css";
@@ -7,6 +7,7 @@ import custi from "../Assets/custompackage.svg";
 import firebase from "firebase";
 import { ToastContainer, toast } from "react-toastify";
 import { useFormik } from "formik";
+import $ from "jquery"
 
 const ValidateForm = (empData) => {
   const errors = {};
@@ -43,7 +44,6 @@ const ValidateForm = (empData) => {
 };
 
 const ContactUs = () => {
-  
   const db = firebase.firestore();
 
   useEffect(() => {
@@ -74,12 +74,10 @@ const ContactUs = () => {
       message: "",
     },
     validate: ValidateForm,
-    onSubmit: (values,{resetForm}) => {
-           resetForm()
-          },
+    onSubmit: (values, { resetForm }) => {
+      resetForm();
+    },
   });
-
-  
 
   const addRequest = (e) => {
     e.preventDefault();
@@ -88,16 +86,21 @@ const ContactUs = () => {
       .add(formik.values)
 
       .then((docRef) => {
-        formik.handleSubmit()
+        formik.handleSubmit();
         toast.success(
           "Your request has been successfully submitted, we will contact you shortly."
         );
         db.collection("CustomPackages")
           .doc(docRef.id)
-          .update({ id: docRef.id })
-          
+          .update({ id: docRef.id });
       });
   };
+
+  useEffect(() => {
+    $(document).ready(function () {
+      $(this).scrollTop(0);
+    });
+  }, []);
 
   return (
     <div>
@@ -127,7 +130,10 @@ const ContactUs = () => {
               <span className="circle one"></span>
               <span className="circle two"></span>
 
-              <form className="contact-us-main-form" onSubmit = {formik.handleSubmit}>
+              <form
+                className="contact-us-main-form"
+                onSubmit={formik.handleSubmit}
+              >
                 <h3 className="contact-form-title">
                   Let us know what you need...
                 </h3>

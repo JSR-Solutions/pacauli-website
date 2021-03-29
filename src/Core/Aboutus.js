@@ -1,13 +1,20 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "../Styles/Aboutus.css";
 import { Row, Col, Container } from "react-bootstrap";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import Iconholder from "../Components/Iconholder";
-
+import $ from "jquery";
 
 
 const Aboutus = () => {
+  
+  useEffect(() => {
+    $(document).ready(function () {
+      $(this).scrollTop(0);
+    });
+  }, []);
+  
   return (
     <div className="aboutus-god">
       <Header />

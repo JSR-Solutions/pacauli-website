@@ -1,11 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import "../Styles/categoryPage.css";
 import category from "../helper/categoryData";
 import CatStrip from "../Components/CategoryStrip";
-
+import $ from "jquery"
 const Categories = () => {
+  
+  useEffect(() => {
+    $(document).ready(function () {
+      $(this).scrollTop(0);
+    });
+  }, []);
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>
       <Header />
