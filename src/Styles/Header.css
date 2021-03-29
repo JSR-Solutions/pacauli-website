@@ -202,10 +202,11 @@
         flex-direction: column !important;
         align-items: start !important;
         justify-content: start !important;
+        text-align: left !important;
         padding-top: 60px !important;
         transform: translateX(-275px);
         transition: all 0.4s ease-out;
-        padding-left: 0px !important;
+        padding-left: 20px !important;
         z-index: 1000;
         line-height: 75px;
         background-color: #222222 !important;
@@ -260,10 +261,19 @@
     top: 13px !important;
 }
 
+.header-dropdown-link {
+    text-decoration: none !important;
+    transition: 0.25s ease;
+}
+
+.header-dropdown-link:hover {
+    color: var(--primary) !important;
+}
+
 @media screen and (max-width: 550px) {
     .header-main21 {
         display: flex;
-        text-align: center !important;
+        text-align: left !important;
         flex-direction: column-reverse;
     }
 

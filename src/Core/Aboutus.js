@@ -15,7 +15,7 @@ const Aboutus = () => {
         <h1>Heading</h1>
       </div> */}
 
-      <div className="heading-custom">
+      <div className="heading-about">
           <p>&nbsp;&nbsp;About Us&nbsp;&nbsp;</p>
         </div>
       <Container>
