@@ -9,7 +9,7 @@ function SingleCatScreen(props) {
   const headingStyle = {
     background: `linear-gradient(45deg, rgba(44, 44, 44, 0.25), rgba(44, 44, 44, 0.25)),url(${category[props.index].img
       })`,
-    height: "600px",
+    height: "100vh",
     width: "100%",
     backgroundPosition: "center",
     backgroundSize: "cover",
