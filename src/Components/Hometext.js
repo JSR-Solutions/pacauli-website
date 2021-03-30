@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { propTypes } from "react-bootstrap/esm/Image";
 import "../Styles/Hometext.css";
+import {Link} from "react-router-dom";
 
 const Hometext = (props) => {
   return (
@@ -52,7 +53,7 @@ const Hometext = (props) => {
                 <div className="caption">{props.caption2}</div>
               </div>
             </Row>
-            <Row className="explore-btn"><a class="horizontal"><span class="text">Explore More</span></a></Row>
+            <Row className="explore-btn"><Link to={props.link} class="horizontal"><span class="text">Explore More</span></Link></Row>
             
             {/* <Row data-aos="fade-left">
               <div className="headings-aks">
