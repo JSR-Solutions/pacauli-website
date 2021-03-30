@@ -63,6 +63,7 @@ const Home = () => {
           heading2="Exploring the Mountains"
           caption2="Trekking and exploring the mountain is the procress of healing yourself and learning the peaceful way of life. When you trek a mountain you learn many life lessons"
           mainheading="TREKKING"
+          link={`/categories/1`}
         />
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -80,7 +81,8 @@ const Home = () => {
           src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
           heading2="xyz"
           caption2="abc"
-          mainheading="TREKKING"
+          mainheading="CAMPING"
+          link={`/categories/4`}
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -99,6 +101,7 @@ const Home = () => {
           heading2="It is a fresh start"
           caption2="We are only company in the valley that Provide these cycling facilities as it takes a lot courage to start something new ,so join us and explore the unseen."
           mainheading="CYCLING"
+          link={`/categories/3`}
         />
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -117,6 +120,7 @@ const Home = () => {
           heading2="Himalaya Climbing"
           caption2="Rock climbing is a physically and mentally demanding sport, one that often tests a climber's strength, endurance, agility and balance along with mental control. Rockclimbing in the Himalayas is a lifetime experience as you will be Raiding the mighty Himalayas."
           mainheading="ROCK CLIMBING"
+          link={`/categories/2`}
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -135,7 +139,8 @@ const Home = () => {
           src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
           heading2="xyz"
           caption2="abc"
-          mainheading="TREKKING"
+          mainheading="SKIING"
+          link={`/categories/0`}
         />
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -154,7 +159,8 @@ const Home = () => {
           src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
           heading2="xyz"
           caption2="abc"
-          mainheading="TREKKING"
+          mainheading="RAFTING"
+          link={`/categories/5`}
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -173,7 +179,8 @@ const Home = () => {
           src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
           heading2="xyz"
           caption2="abc"
-          mainheading="TREKKING"
+          mainheading="EXPEDITIONS"
+          link={`/categories/6`}
         />
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -192,7 +199,8 @@ const Home = () => {
           src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
           heading2="xyz"
           caption2="abc"
-          mainheading="TREKKING"
+          mainheading="CHAR DHAM"
+          link={`/categories/7`}
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path

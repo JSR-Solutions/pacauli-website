@@ -132,6 +132,7 @@
     border: 1px solid black;
     font-size: 1rem;
     cursor: pointer;
+    text-decoration: none !important;
   }
   .horizontal > .text {
     position: relative;
