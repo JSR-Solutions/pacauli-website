@@ -1,25 +1,23 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import "../Styles/Aboutus.css";
 import { Row, Col, Container } from "react-bootstrap";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import Shiningstars from "../Components/Shiningstars";
 import Iconholder from "../Components/Iconholder";
 import $ from "jquery";
-import staff from '../Assets/employees.png'
-import price from '../Assets/dollar.png'
-import placeholder from '../Assets/placeholder.png'
-import experience from '../Assets/experience.png'
-import a9 from "../Assets/9.jpg";
-
+import staff from "../Assets/employees.png";
+import price from "../Assets/dollar.png";
+import placeholder from "../Assets/placeholder.png";
+import experience from "../Assets/experience.png";
 
 const Aboutus = () => {
-  
   useEffect(() => {
     $(document).ready(function () {
       $(this).scrollTop(0);
     });
   }, []);
-  
+
   return (
     <div className="aboutus-god">
       <Header />
@@ -28,8 +26,8 @@ const Aboutus = () => {
       </div> */}
 
       <div className="heading-about">
-          <p>&nbsp;&nbsp;About Us&nbsp;&nbsp;</p>
-        </div>
+        <p>&nbsp;&nbsp;About Us&nbsp;&nbsp;</p>
+      </div>
       <Container>
         <Row>
           <div className="hheadd">
@@ -64,64 +62,78 @@ const Aboutus = () => {
           </Col>
         </Row>
         <div className="heyy">
-        <Row>
-          <div className="hheadd">
-            <h1>
-              <span>WHY ARE WE SPECIAL?</span>
-            </h1>
-          </div>
-        </Row>
-        <Row>
-          <Col className="sec1">
-            The trekking scenario has changed over the years. It has affected
-            the ethos of nature. The corporate and biggies have taken over, but
-            we are still out here standing with this work's actual value and
-            tradition. The rawness and ethereal beauty of trekking are lost. The
-            original and traditional trekking culture is endangered now. We at
-            Pac Auli can get you where you want to go and give our assurance and
-            standard trips. Since its inception, trekking has been a family
-            thing for us. Our company aims to discover uncharted routes ,
-            unmapped trails and harbor traditional trekking values. Our local
-            knowledge ensures quality work and gives a touch of personal
-            connection. Pac Auli is one of the oldest trekking companies aims to
-            give a real Himalayan experience in terms of quality and services.
-          </Col>
-        </Row>
-        <Row>
-          <Col className="sec1">
-            The Himalayas have an intriguing history dated back thousands of
-            years ago. Each pass is unique and has some fascinating stories
-            related to Indian Philosophy and Mahabharata. Our ancestors and
-            descendants of Garhwali Shepherds have explored these Himalayan and
-            Tibetan mountain passes.
-          </Col>
-        </Row>
-        <Row>
-          <Col className="sec1">
-            Trained mountain staff, the technical and medical team holds a vital
-            backbone of our company. Our team consists of well-experienced local
-            Pahari guides who have done their basic and advanced mountaineering
-            courses from India's best mountaineering institution, Skiers,
-            snowboarders, kayakers, rafters, and paragliders, where you get to
-            encounter the genuine Himalayan adventure better than anyone else.
-            Our company is affiliated with the Uttrakhand Tourism and adventure
-            association of Joshimath Garhwal.
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12} md={6} lg={3}>
-            <Iconholder icon = {staff} title = "EXPERT LOCAL KNOWLEDGE"/>
-          </Col>
-          <Col xs={12} md={6} lg={3}>
-            <Iconholder icon = {price} title = "VALUE FOR MONEY"/>
-          </Col>
-          <Col xs={12} md={6} lg={3}>
-            <Iconholder icon = {placeholder} title = "PRIME LOCATIONS"/>
-          </Col>
-          <Col xs={12} md={6} lg={3}>
-            <Iconholder icon = {experience} title = "EXPERIENCED STAFF"/>
-          </Col>
-        </Row>
+          <Row>
+            <div className="hheadd">
+              <h1>
+                <span>WHY ARE WE SPECIAL?</span>
+              </h1>
+            </div>
+          </Row>
+          <Row>
+            <Col className="sec1">
+              The trekking scenario has changed over the years. It has affected
+              the ethos of nature. The corporate and biggies have taken over,
+              but we are still out here standing with this work's actual value
+              and tradition. The rawness and ethereal beauty of trekking are
+              lost. The original and traditional trekking culture is endangered
+              now. We at Pac Auli can get you where you want to go and give our
+              assurance and standard trips. Since its inception, trekking has
+              been a family thing for us. Our company aims to discover uncharted
+              routes , unmapped trails and harbor traditional trekking values.
+              Our local knowledge ensures quality work and gives a touch of
+              personal connection. Pac Auli is one of the oldest trekking
+              companies aims to give a real Himalayan experience in terms of
+              quality and services.
+            </Col>
+          </Row>
+          <Row>
+            <Col className="sec1">
+              The Himalayas have an intriguing history dated back thousands of
+              years ago. Each pass is unique and has some fascinating stories
+              related to Indian Philosophy and Mahabharata. Our ancestors and
+              descendants of Garhwali Shepherds have explored these Himalayan
+              and Tibetan mountain passes.
+            </Col>
+          </Row>
+          <Row>
+            <Col className="sec1">
+              Trained mountain staff, the technical and medical team holds a
+              vital backbone of our company. Our team consists of
+              well-experienced local Pahari guides who have done their basic and
+              advanced mountaineering courses from India's best mountaineering
+              institution, Skiers, snowboarders, kayakers, rafters, and
+              paragliders, where you get to encounter the genuine Himalayan
+              adventure better than anyone else. Our company is affiliated with
+              the Uttrakhand Tourism and adventure association of Joshimath
+              Garhwal.
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={6} lg={3}>
+              <Iconholder icon={staff} title="EXPERT LOCAL KNOWLEDGE" />
+            </Col>
+            <Col xs={12} md={6} lg={3}>
+              <Iconholder icon={price} title="VALUE FOR MONEY" />
+            </Col>
+            <Col xs={12} md={6} lg={3}>
+              <Iconholder icon={placeholder} title="PRIME LOCATIONS" />
+            </Col>
+            <Col xs={12} md={6} lg={3}>
+              <Iconholder icon={experience} title="EXPERIENCED STAFF" />
+            </Col>
+          </Row>
+          <Row>
+            <div className="hheadd">
+              <h1>
+                <span>OUR SHINING STARS!</span>
+              </h1>
+            </div>
+          </Row>
+          <br />
+          <br />
+          <Row>
+            <Shiningstars />
+          </Row>
         </div>
       </Container>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
