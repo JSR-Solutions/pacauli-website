@@ -4,7 +4,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import ss1 from "../Assets/ss1.jpeg";
 const Shiningstars = () => {
   return (
-    <div>
+    <div className="shiningstars-main">
       <Container>
         <div className="headings-aks">
           <h1 class="soul regaltos">
@@ -30,14 +30,18 @@ const Shiningstars = () => {
            <h2><b>Achievements:</b></h2> 
             <br />
             <br />
+            <div className="achievement-list-div">
             <ul>
               <li>
               <b><i>SKIING</i></b>
+                <div>
                 <ul>
+                  <div className="achievement-listitem-div">
                   <li>
                     1996 Second Position in Auli National Winter Games Open
                     Skiing Championship 1997{" "}
                   </li>
+                  </div>
                   <li>1997 Third Position in National Winter Games </li>
                   <li>
                     1998 Third Position in National Open Skiing Championship{" "}
@@ -45,6 +49,7 @@ const Shiningstars = () => {
                   <li>1999 First Position in Winter Sports Championship </li>
                   <li>2000-2004 Participate in National Winter Games</li>
                 </ul>
+                </div>
               </li>
               <br />
               <br />
@@ -72,7 +77,7 @@ const Shiningstars = () => {
                 </ul>
               </li>
             </ul>
-          </Col>
+          </div></Col>
           <Col xs={12} md={6}>
            <div className="ssimg"><img src={ss1}></img></div>
             
