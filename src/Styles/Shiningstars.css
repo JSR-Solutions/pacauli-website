@@ -19,6 +19,7 @@
     height: 400px;
     width: 400px;
     object-fit: cover;
+    transition: 0.55s ease;
 }
 
 .member-row {
@@ -30,10 +31,15 @@
     font-weight: 500;
     color: rgb(187, 187, 187);
     margin-bottom: 40px;
+    transition: 0.55s ease;
 }
 
 .member-active {
     color: #000;
+}
+
+.member-details {
+    transition: 0.55s ease;
 }
 
 .member-list {

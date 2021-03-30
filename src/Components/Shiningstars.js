@@ -71,7 +71,7 @@ const Shiningstars = () => {
         </Col>
         <Col lg={6}>
           <div>
-            <Row>
+            <Row className="member-details">
               <Col>
                 <div>
                   <p className="member-name member-active">
