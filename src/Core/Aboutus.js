@@ -5,6 +5,11 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import Iconholder from "../Components/Iconholder";
 import $ from "jquery";
+import staff from '../Assets/employees.png'
+import price from '../Assets/dollar.png'
+import placeholder from '../Assets/placeholder.png'
+import experience from '../Assets/experience.png'
+import a9 from "../Assets/9.jpg";
 
 
 const Aboutus = () => {
@@ -105,16 +110,16 @@ const Aboutus = () => {
         </Row>
         <Row>
           <Col xs={12} md={6} lg={3}>
-            <Iconholder />
+            <Iconholder icon = {staff} title = "EXPERT LOCAL KNOWLEDGE"/>
           </Col>
           <Col xs={12} md={6} lg={3}>
-            <Iconholder />
+            <Iconholder icon = {price} title = "VALUE FOR MONEY"/>
           </Col>
           <Col xs={12} md={6} lg={3}>
-            <Iconholder />
+            <Iconholder icon = {placeholder} title = "PRIME LOCATIONS"/>
           </Col>
           <Col xs={12} md={6} lg={3}>
-            <Iconholder />
+            <Iconholder icon = {experience} title = "EXPERIENCED STAFF"/>
           </Col>
         </Row>
         </div>
