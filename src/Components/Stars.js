@@ -1,11 +1,11 @@
 import React from "react";
 import "../Styles/Stars.css";
-import t3 from "../Assets/Team/t3.jpeg";
+
 const Stars = () => {
   return (
     <div>
       <div className="page-content">
-        <div className="card">
+        <div className="card-aks">
           <div className="content">
             <h2 className="title">Anshuman Bisht</h2>
             <p className="copy">

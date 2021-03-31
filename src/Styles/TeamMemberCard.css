@@ -18,11 +18,11 @@
       0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1),
       0 16px 16px rgba(0, 0, 0, 0.1);
   }
-  @media (min-width: 600px) {
+  /* @media (min-width: 600px) {
     .card {
       height: 350px;
     }
-  }
+  } */
   
   .team-member-card:nth-child(1):before {
     background-image: url("../Assets/Team/t1.jpeg") !important;
@@ -79,7 +79,7 @@
     transition: transform calc(var(--d) * 2) var(--e);
   }
   
-  .content {
+  .contentt {
     text-align: left !important;
     position: relative;
     display: flex;
@@ -91,39 +91,39 @@
     transition: transform var(--d) var(--e);
     z-index: 1;
   }
-  .content > * + * {
+  .contentt > * + * {
     margin-top: 1rem;
   }
   
-  .title {
+  .titlee {
     font-size: 1.5rem;
     font-weight: bold;
   }
   
-  .title-alt {
+  .titlee-alt {
     font-size: 1rem;
     font-weight: bold;
   }
   
-  .copy {
+  .copyy {
     font-size: 1rem;
     font-style: italic;
   }
   
-  .copy-alt {
+  .copyy-alt {
     font-size: 1rem;
     margin-left: 0 !important;
   }
   
   @media (hover: hover) and (min-width: 600px) {
-    .card:after {
+    .team-member-card:after {
       transform: translateY(0);
     }
   
-    .content {
+    .contentt {
       transform: translateY(calc(100% - 4.5rem));
     }
-    .content > *:not(.title) {
+    .contentt > *:not(.titlee) {
       opacity: 0;
       transform: translateY(1rem);
       transition: transform var(--d) var(--e), opacity var(--d) var(--e);
@@ -141,12 +141,12 @@
     .team-member-card:focus-within:after {
       transform: translateY(-50%);
     }
-    .team-member-card:hover .content,
-    .team-member-card:focus-within .content {
+    .team-member-card:hover .contentt,
+    .team-member-card:focus-within .contentt {
       transform: translateY(0);
     }
-    .team-member-card:hover .content > *:not(.title),
-    .team-member-card:focus-within .content > *:not(.title) {
+    .team-member-card:hover .contentt > *:not(.title),
+    .team-member-card:focus-within .contentt > *:not(.title) {
       opacity: 1;
       transform: translateY(0);
       transition-delay: calc(var(--d) / 8);
@@ -154,18 +154,18 @@
   
     .team-member-card:focus-within:before,
     .team-member-card:focus-within:after,
-    .team-member-card:focus-within .content,
-    .team-member-card:focus-within .content > *:not(.title) {
+    .team-member-card:focus-within .contentt,
+    .team-member-card:focus-within .contentt > *:not(.title) {
       transition-duration: 0s;
     }
   }
   
-  .achi-list-founder {
+  .achi-list-founderr {
     list-style: none !important;
     margin-left: 0 !important;
     margin-right: 40px !important;
   }
   
-  .achi-list-founder li {
+  .achi-list-founderr li {
       margin-bottom: 12px;
   }
