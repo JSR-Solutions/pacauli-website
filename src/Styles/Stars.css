@@ -25,6 +25,7 @@
 
 .card:nth-child(1):before {
   background-image: url("../Assets/Team/t4.jpeg");
+  background-size: cover;
 }
 .card:before {
   content: "";
