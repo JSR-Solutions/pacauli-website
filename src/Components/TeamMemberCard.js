@@ -8,17 +8,17 @@ const TeamMemberCard1 = () => {
     <div>
       <div className="page-content team-card">
         <div className="team-member-card">
-          <div className="content">
-            <h2 className="title">Vivek Panwar</h2>
+          <div className="contentt">
+            <h2 className="titlee">Vivek Panwar</h2>
             {/* <p className="copy">
               The ‘Young Gun’ ,he is counted amoung one of the best freestyle
               skier and snowboarder amoung his age and famous for his speed and
               unique technique.He started sking at the age of 8 now holds the
               experience of more than a decade.
             </p> */}
-            <h2 className="title-alt">Achievements:</h2>
-            <p className="copy-alt">
-              <ul className="achi-list-founder">
+            <h2 className="titlee-alt">Achievements:</h2>
+            <p className="copyy-alt">
+              <ul className="achi-list-founderr">
                 <li>
                 1996 Second Position in Auli National Winter Games Open Skiing Championship
                 </li>
