@@ -65,6 +65,27 @@ const Aboutus = () => {
                 our family.
               </Col>
             </Row>
+
+            <Row>
+              <div className="hheadd">
+                <h1>
+                  <span>ABOUT THE FOUNDER!</span>
+                </h1>
+              </div>
+            </Row>
+            <Row style={{marginTop : "20px"}}>
+              <Stars/>
+            </Row>
+            <Row>
+              <div className="hheadd">
+                <h1>
+                  <span>OUR SHINING STARS!</span>
+                </h1>
+              </div>
+            </Row>
+            <Row style={{marginTop: "20px"}}>
+              <Shiningstars />
+            </Row>
             <div className="heyy">
               <Row>
                 <div className="hheadd">
@@ -127,33 +148,6 @@ const Aboutus = () => {
                   <Iconholder icon={experience} title="EXPERIENCED STAFF" />
                 </Col>
               </Row>
-              <Row>
-                <div className="hheadd">
-                  <h1>
-                    <span>OUR SHINING STARS!</span>
-                  </h1>
-                </div>
-              </Row>
-              <br />
-              <br />
-              <Row>
-                <Shiningstars />
-              </Row>
-              <Row>
-                <div className="hheadd">
-                  <h1>
-                    <span>ABOUT THE FOUNDER!</span>
-                  </h1>
-                </div>
-              </Row>
-              <br />
-              <br />
-              <br />
-              <Row>
-                <Stars />
-              </Row>
-              <br />
-              <br />
             </div>
           </div>
         </Container>
