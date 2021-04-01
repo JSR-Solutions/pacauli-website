@@ -14,6 +14,7 @@ import CustomPackageRequests from "./Admin/CustomPackage";
 import CustomPackage from "./Core/CustomPackage";
 import ContactRequests from "./Admin/ContactRequests";
 import GetInTouch from "./Admin/GetInTouch";
+import EditUser from "./Auth/editUserDetails"
 
 import Aboutus from "./Core/Aboutus";
 
@@ -57,6 +58,7 @@ function App() {
           <Route path="/signup" exact component={SignUp} />
           <Route path="/user/register" exact component={UserRegistration} />
           <Route path="/userDashboard" exact component={UserDashboard} />
+          <Route path="/edituserdetails" exact component={EditUser} />
           <PrivateRoute
             path="/admin/dashboard"
             exact
