@@ -6,8 +6,7 @@ function Images(props) {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    console.log("IMAGES : ");
-    console.log(props.imgUrl);
+    
     createImages();
   });
 
