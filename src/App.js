@@ -11,10 +11,9 @@ import AllPackages from "./Admin/AllPacakges";
 import AddPackage from "./Admin/AddPackage";
 import AllEnquiries from "./Admin/AllEnquiries";
 import CustomPackageRequests from "./Admin/CustomPackage";
-import CustomPackage from "./Core/CustomPackage"
+import CustomPackage from "./Core/CustomPackage";
 import ContactRequests from "./Admin/ContactRequests";
-import GetInTouch from "./Admin/GetInTouch"
-
+import GetInTouch from "./Admin/GetInTouch";
 
 import Aboutus from "./Core/Aboutus";
 
@@ -25,6 +24,10 @@ import Singlepackage from "./Components/Singlepackagescreen/Singlepackage";
 import SinglePackageDashboard from "./Admin/SinglePackageDashboard";
 import UpdateGalleryImages from "./Admin/UpdateGalleryImages";
 
+//User Auth Pages
+import Login from "./Auth/Login";
+import SignUp from "./Auth/SignUp";
+import UserRegistration from "./Auth/UserRegistration";
 
 function App() {
   return (
@@ -49,26 +52,25 @@ function App() {
           />
           {/* Admin Routes */}
           <Route path="/admin/login" exact component={AdminLogin} />
+          <Route path="/signin" exact component={Login} />
+          <Route path="/signup" exact component={SignUp} />
+          <Route path="/user/register" exact component={UserRegistration} />
           <PrivateRoute
             path="/admin/dashboard"
             exact
             component={AdminDashboard}
           />
-          <PrivateRoute 
-          path="/single/:packageType/:packageId"
-          exact 
-          component={SinglePackageDashboard}
+          <PrivateRoute
+            path="/single/:packageType/:packageId"
+            exact
+            component={SinglePackageDashboard}
           />
           <PrivateRoute
             path="/admin/allpackages"
             exact
             component={AllPackages}
           />
-          <PrivateRoute
-            path="/admin/addpackage"
-            exact
-            component={AddPackage}
-          />
+          <PrivateRoute path="/admin/addpackage" exact component={AddPackage} />
           <PrivateRoute
             path="/admin/customrequests"
             exact
@@ -84,11 +86,7 @@ function App() {
             exact
             component={ContactRequests}
           />
-          <PrivateRoute
-            path="/admin/getintouch"
-            exact
-            component={GetInTouch}
-          />
+          <PrivateRoute path="/admin/getintouch" exact component={GetInTouch} />
           <PrivateRoute
             path="/admin/package/:packageType/:packageId"
             exact
@@ -104,7 +102,6 @@ function App() {
             exact
             component={UpdateGalleryImages}
           />
-
         </Switch>
       </Router>
     </div>
