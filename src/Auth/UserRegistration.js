@@ -62,7 +62,7 @@ function UserRegistration() {
                 .set({
                   name: userDetails.name,
                   phone: userDetails.phone,
-                  city: userDetails.phone,
+                  city: userDetails.city,
                   email: userDetails.email,
                   imageUrl: imageUrl,
                 })

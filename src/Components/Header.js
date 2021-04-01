@@ -71,6 +71,8 @@ const ValidateForm=empData=>{
   }
 
 const Header = ({ history }) => {
+    const auth = firebase.auth();
+  const [isLoggedIn, setLoggedIn] = useState(false);
 
     const changebackgroundd = () => {
         if (window.scrollY > 110) {
@@ -101,6 +103,7 @@ const Header = ({ history }) => {
     window.addEventListener("scroll", changebackgroundd);
 
     useEffect(() => {
+        isSignedIn();
         const hamburger = document.querySelector(".hamburger");
         const navlinks = document.querySelector(".header-main33");
 
@@ -186,6 +189,16 @@ const Header = ({ history }) => {
                 }
             );
     }
+    function isSignedIn() {
+        auth.onAuthStateChanged((user) => {
+          const uid = user.uid;
+          if (uid) {
+            setLoggedIn(true);
+          } else {
+            setLoggedIn(false);
+          }
+        });
+      }
 
     return (
         <div style={{ width: "100%", overflowX: "hidden" }} className="header-main-main">
@@ -266,6 +279,23 @@ const Header = ({ history }) => {
                                     >
                                         <li>About Us</li>
                                     </Link>
+                                    {isLoggedIn ? (
+                                        
+                                          <Link
+                                          className="deconone"
+                                          to="/userdashboard"
+                                          style={isActive(history, "/userdashboard")}
+                                          onClick={changeScreen}
+                                          ><li>My Account</li></Link>
+                                    
+                                      ) : (
+                                        <Link
+                                          className="deconone"
+                                          to="/signup"
+                                          style={isActive(history, "/signup")}
+                                          onClick={changeScreen}
+                                          ><li>Register</li></Link>
+                                      )}
                                 </ul>
                             </div>
                         </div>

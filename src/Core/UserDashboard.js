@@ -41,8 +41,8 @@ function UserDashboard() {
           const userData = doc.data();
           if (userData) {
             setName(userData.name);
-            setAddress(userData.address);
-            setPhoneNo(userData.phoneNumber);
+            setAddress(userData.city);
+            setPhoneNo(userData.phone);
             setEmail(userData.email);
             setImgUrl(userData.imageUrl);
             setUser((prev) => {
@@ -80,7 +80,7 @@ function UserDashboard() {
               <br></br>
               <br></br>
               <h3 className="contact-info-title-h3">
-                Address: &nbsp; {Address}
+                City: &nbsp; {Address}
               </h3>
               <br></br>
               <br></br>
