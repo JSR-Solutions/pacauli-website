@@ -23,6 +23,7 @@ import EditPackage from "./Admin/EditPackage";
 import Singlepackage from "./Components/Singlepackagescreen/Singlepackage";
 import SinglePackageDashboard from "./Admin/SinglePackageDashboard";
 import UpdateGalleryImages from "./Admin/UpdateGalleryImages";
+import UserDashboard from "./Core/UserDashboard"
 
 //User Auth Pages
 import Login from "./Auth/Login";
@@ -55,6 +56,7 @@ function App() {
           <Route path="/signin" exact component={Login} />
           <Route path="/signup" exact component={SignUp} />
           <Route path="/user/register" exact component={UserRegistration} />
+          <Route path="/userDashboard" exact component={UserDashboard} />
           <PrivateRoute
             path="/admin/dashboard"
             exact
