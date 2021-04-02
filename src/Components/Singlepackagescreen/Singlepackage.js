@@ -16,6 +16,7 @@ import Imagess from "./imageGallery";
 import $ from "jquery";
 import SingleReview from "../SingleReview";
 import { Button, Form } from "react-bootstrap";
+import { Redirect } from "react-router-dom";
 
 const Singlepackage = (props) => {
   const [pack, setpack] = useState();
@@ -23,6 +24,7 @@ const Singlepackage = (props) => {
   const [reviews, setReviews] = useState([]);
   const [newreview, setNewreview] = React.useState("");
   const [reviewsFetched, setReviewsFetched] = useState(false);
+  const [redirectLogin, setRedirectLogin] = useState(false);
 
   useEffect(() => {
     $(document).ready(function () {
@@ -118,25 +120,30 @@ const Singlepackage = (props) => {
   function addNewreview(event) {
     event.preventDefault();
     auth.onAuthStateChanged((user) => {
-      const uid = user.uid;
-      if (uid) {
-        db.collection(props.match.params.categoryName)
-          .doc(props.match.params.packageId)
-          .collection("Reviews")
-          .add({
-            userId: uid,
-            review: newreview,
-          })
-          .then(() => {
-            setNewreview("");
-            getReviews();
-          });
+      if (user) {
+        const uid = user.uid;
+        if (uid) {
+          db.collection(props.match.params.categoryName)
+            .doc(props.match.params.packageId)
+            .collection("Reviews")
+            .add({
+              userId: uid,
+              review: newreview,
+            })
+            .then(() => {
+              setNewreview("");
+              getReviews();
+            });
+        }
+      } else {
+        setRedirectLogin(true);
       }
     });
   }
 
   return (
     <div className="single-package-main">
+    {redirectLogin && <Redirect to="/signin" />}
       <Header />
 
       <div className="img-carou">
