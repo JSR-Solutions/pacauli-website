@@ -107,6 +107,7 @@ function UserDashboard() {
               <span className="circle two"></span>
               <div className="user_image_div">
                 <img className="user_image" src={imgUrl} alt={Name}/>
+                
               </div>
               <br></br>
               <div className="user_buttons1">
