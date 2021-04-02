@@ -37,6 +37,7 @@ function SinglePackageDashboard(props) {
       .delete()
       .then(() => {
         setDeleted(true);
+        
       });
   };
 
