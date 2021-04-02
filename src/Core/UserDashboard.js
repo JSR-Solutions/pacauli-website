@@ -8,11 +8,8 @@ import phone from "../Assets/phone.png";
 import shape from "../Assets/shape.png";
 import "../Styles/userDashboard.css";
 
-import {Row,Col,Button} from "react-bootstrap"
-import { Redirect,Link } from "react-router-dom";
-
-
-
+import { Row, Col, Button } from "react-bootstrap";
+import { Redirect, Link } from "react-router-dom";
 
 function UserDashboard() {
   const auth = firebase.auth();
@@ -21,12 +18,11 @@ function UserDashboard() {
   const [user, setUser] = useState({});
   const [Name, setName] = useState("");
 
-    
-    const [PhoneNo, setPhoneNo] = useState("");
-    const [Address, setAddress] = useState("");
-    const [Email, setEmail] = useState("");
-    const [imgUrl,setImgUrl]=useState("");
-    const [loggedOut,setLoggedOut]=useState(false);
+  const [PhoneNo, setPhoneNo] = useState("");
+  const [Address, setAddress] = useState("");
+  const [Email, setEmail] = useState("");
+  const [imgUrl, setImgUrl] = useState("");
+  const [loggedOut, setLoggedOut] = useState(false);
 
   useEffect(() => {
     getUser();
@@ -53,17 +49,18 @@ function UserDashboard() {
     });
   }
   const signouttt = () => {
-    firebase.auth().signOut().then(()=>{
-      setLoggedOut(true);
-    });
-        
-    
-}
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        setLoggedOut(true);
+      });
+  };
 
-
-  return <div>
-  {loggedOut ? <Redirect to="/" /> : null}
-    <Header />
+  return (
+    <div>
+      {loggedOut ? <Redirect to="/" /> : null}
+      <Header />
 
       <div className="contact-us-main">
         <div className="heading-contact">
@@ -79,9 +76,7 @@ function UserDashboard() {
               <h3 className="contact-info-title-h3 ">Name:&nbsp; {Name}</h3>
               <br></br>
               <br></br>
-              <h3 className="contact-info-title-h3">
-                City: &nbsp; {Address}
-              </h3>
+              <h3 className="contact-info-title-h3">City: &nbsp; {Address}</h3>
               <br></br>
               <br></br>
               <h3 className="contact-info-title-h3">Email: &nbsp; {Email}</h3>
@@ -92,40 +87,46 @@ function UserDashboard() {
               </h3>
               <br></br> <br></br>
               <div className="user_buttons">
-
-              <Row>
-              <Col>
-              <Link to="/edituserdetails"> <Button className="user_button">Edit Details</Button></Link>
-              </Col>
-              <Col>
-              <Button onClick={signouttt} className="user_button">Sign Out</Button>
-              </Col>
-              </Row>
-              </div>         
-
+                <Row>
+                  <Col>
+                    <Link to="/edituserdetails">
+                      {" "}
+                      <Button className="user_button">Edit Details</Button>
+                    </Link>
+                  </Col>
+                  <Col>
+                    <Button onClick={signouttt} className="user_button">
+                      Sign Out
+                    </Button>
+                  </Col>
+                </Row>
+              </div>
             </div>
             <div className="contact-form1">
               <span className="circle one"></span>
               <span className="circle two"></span>
               <div className="user_image_div">
-
-                <img className="user_image" src={imgUrl}/>
-                </div> 
-                <br></br>
-                <div className="user_buttons1">
-                <Link to="/edituserdetails"><Button className="user_button1">Edit Details</Button></Link></div>
-                <div className="user_buttons1">
-                <Button onClick={signouttt} className="user_button1">Sign Out</Button></div>
-                <div className="user_buttons2">
-                <Button className="user_button1">My Bookings</Button></div>
-
+                <img className="user_image" src={imgUrl} alt={Name}/>
+              </div>
+              <br></br>
+              <div className="user_buttons1">
+                <Link to="/edituserdetails">
+                  <Button className="user_button1">Edit Details</Button>
+                </Link>
+              </div>
+              <div className="user_buttons1">
+                <Button onClick={signouttt} className="user_button1">
+                  Sign Out
+                </Button>
+              </div>
+              <div className="user_buttons2"></div>
             </div>
           </div>
         </div>
       </div>
       <Footer />
     </div>
-  ;
+  );
 }
 
 export default UserDashboard;

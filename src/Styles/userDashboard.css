@@ -11,7 +11,7 @@
   .heading-contact {
   
     background: linear-gradient(45deg, rgba(44, 44, 44, 0.25), rgba(44, 44, 44, 0.25)), url(../Assets/my_account.jpg);
-    height: 600px; 
+    height: 100vh; 
     width: 100%;
     background-position: center;
     background-size: cover;
@@ -37,7 +37,7 @@
     transform: translateX(-50%) translateY(-50%);
   }
   
-  .heading-contact p:before,
+  /* .heading-contact p:before,
   .heading-contact p:after {
     content: '';
     padding: .9em .4em;
@@ -49,7 +49,7 @@
     border: 10px solid var(--primary);
     transform: translateX(-50%) translateY(-50%) rotate(0deg);
     animation: 10s infinite alternate ease-in-out tipsy;
-  }
+  } */
   
   .heading-contact p:before {
     border-color: var(--primary) var(--primary) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
