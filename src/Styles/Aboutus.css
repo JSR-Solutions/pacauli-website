@@ -3,8 +3,12 @@
 }
 
 .heading-about {
-
-  background: linear-gradient(45deg, rgba(44, 44, 44, 0.25), rgba(44, 44, 44, 0.25)), url(../Assets/bg-about.jpg);
+  background: linear-gradient(
+      45deg,
+      rgba(44, 44, 44, 0.25),
+      rgba(44, 44, 44, 0.25)
+    ),
+    url(../Assets/bg-about.jpg);
   height: 100vh;
   width: 100%;
   background-position: center;
@@ -38,7 +42,7 @@
 .main-heading h1 {
   position: relative;
   padding: 200px;
-  
+
   font-size: 120px;
   letter-spacing: 0.1em;
   -webkit-text-fill-color: transparent;
@@ -48,39 +52,66 @@
 }
 
 .hheadd {
-    height: auto;
-    background:transparent;
-    font-family: "Red Hat Display", sans-serif;
-    padding-top: 100px;
-  }
-  
-  .hheadd h1 {
-    font-size: 5vw;
-    max-width: 75vw;
-    color: black;
-    transition: all .4s ease;
-  }
-  .hheadd h1 span {
-    background-image: linear-gradient(transparent calc(75% - 10px), grey 5px);
-    background-size: 0;
-    background-repeat: no-repeat;
-    display: inline;
-    transition: 0.5s ease;
-    transition: all .4s ease;
-  }
-  .hheadd h1:hover span {
-    background-size: 100%;
-  }
+  height: auto;
+  background: transparent;
+  font-family: "Red Hat Display", sans-serif;
+  padding-top: 100px;
+}
 
+.hheadd h1 {
+  font-size: 5vw;
+  max-width: 75vw;
+  color: black;
+  transition: all 0.4s ease;
+}
+.hheadd h1 span {
+  background-image: linear-gradient(transparent calc(75% - 10px), grey 5px);
+  background-size: 0;
+  background-repeat: no-repeat;
+  display: inline;
+  transition: 0.5s ease;
+  transition: all 0.4s ease;
+}
+.hheadd h1:hover span {
+  background-size: 100%;
+}
 
-  .sec1{
-    text-align: left;
-    margin-left: -10px;
-    padding-top: 50px;
-  }
-  
+.sec1 {
+  text-align: left;
+  margin-left: -10px;
+  padding-top: 50px;
+}
 
+.image-container {
+  display: flex;
+  width: 100%;
+  padding: 4% 2%;
+  box-sizing: border-box;
+  height: 70vh;
+}
 
+.image-box {
+  flex: 1;
+  overflow: hidden;
+  transition: 0.5s;
+  margin: 0 2%;
+  box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.4);
+  line-height: 0;
+}
 
+.image-box > img {
+  width: 200%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  transition: 0.5s;
+}
 
+.image-box:hover {
+  flex: 1 1 60%;
+}
 
+.image-box:hover > img {
+  width: 100%;
+  height: 100%;
+}
