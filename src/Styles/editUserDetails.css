@@ -398,3 +398,8 @@
     font-size: 15px;
     text-align: left;
   }
+  .uyit{
+    background-color: var(--primary) !important;
+    color: white !important;
+  
+  }

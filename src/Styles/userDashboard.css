@@ -131,7 +131,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
   
-  .contact-form1 {
+  .contact-form345 {
     background-color: var(--primary);
     position: relative;
   }
@@ -156,7 +156,7 @@
     right: 30px;
   }
   
-  .contact-form1:before {
+  .contact-form345:before {
     content: "";
     position: absolute;
     width: 26px;
@@ -421,7 +421,7 @@
       transform: scale(0.95);
     }
   
-    .contact-form1:before {
+    .contact-form345:before {
       top: -13px;
       left: initial;
       right: 70px;
@@ -524,9 +524,14 @@
         padding: 2.3rem 1rem;
 
     }
-    .contact-form1{
+    .contact-form345{
         width: 400px;
         padding-left: 20px;
+        text-align: center;
+    }
+    .contact-form345 div{
+      position: relative;
+      right: 27px;
     }
     .contact-us-form1{
         width: 400px;
@@ -539,7 +544,7 @@
         padding: 2.3rem 1rem;
 
     }
-    .contact-form1{
+    .contact-form345{
         width: 350px;
         padding-left: 10px;
     }

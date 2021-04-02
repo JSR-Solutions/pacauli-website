@@ -206,7 +206,7 @@ function EditUser() {
                     onChange={handleChange}
                     value={name}
                   />
-                  <span>Name</span>
+                  <span className = "uyit">Name</span>
                 </div>
                 <div
                   className="contact-form-input-container"
@@ -218,7 +218,7 @@ function EditUser() {
                     onChange={handleChange}
                     value={phoneno}
                   />
-                  <span>Phone Number</span>
+                  <span className = "uyit">Phone Number</span>
                 </div>
                 <div
                   className="contact-form-input-container"
@@ -230,7 +230,7 @@ function EditUser() {
                     onChange={handleChange}
                     value={address}
                   />
-                  <span>City</span>
+                  <span className = "uyit">City</span>
                 </div>
                 <Form>
                 <Form.File
