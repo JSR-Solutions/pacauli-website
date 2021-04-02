@@ -3,10 +3,14 @@ import firebase from "firebase";
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import Footer from "../Components/Footer";
+import shape from "../Assets/shape.png";
 import Header from "../Components/Header";
 import "../Styles/editUserDetails.css";
 import { Redirect } from "react-router-dom";
 import $ from "jquery";
+import editu from "../Assets/Edit.svg";
+
+import { ToastContainer, toast } from "react-toastify";
 
 function EditUser() {
   const auth = firebase.auth();
@@ -19,7 +23,9 @@ function EditUser() {
   const [email, setEmail] = useState("");
   const [updatestate, setupdateState] = useState(false);
   const [profileImage, setProfileImage] = useState(null);
+  const [showrofile, setShowProfile] = useState(null);
   const types = ["image/png", "image/jpeg", "image/jpg"];
+
 
   useEffect(() => {
     $(document).ready(function () {
@@ -60,6 +66,7 @@ function EditUser() {
             setName(data.name);
             setPhoneNo(data.phone);
             setEmail(data.email);
+            setShowProfile(data.imageUrl);
           });
       } else {
         console.log("Signed Out");
@@ -73,6 +80,44 @@ function EditUser() {
 
   const db = firebase.firestore();
   const storage = firebase.storage();
+
+  async function editUserProfile(event) {
+    event.preventDefault();
+    await auth.onAuthStateChanged((user) => {
+      if (user) {
+        uid = user.uid;
+        const uploadTask = storage.ref("Users/" + uid).put(profileImage);
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log(progress);
+          },
+          (err) => {
+            console.log(err.message);
+          },
+          () => {
+            storage
+              .ref("Users")
+              .child(uid)
+              .getDownloadURL()
+              .then((imageUrl) => {
+                db.collection("Users")
+                  .doc(uid)
+                  .update({
+                    imageUrl: imageUrl,
+                  })
+                  .then(() => {
+                    toast.success("Profile picture uploded succesfully")
+                    setShowProfile(imageUrl)
+                  });
+              });
+          }
+        );
+      }
+    });
+  }
 
   async function editUserdetails(event) {
     event.preventDefault();
@@ -106,6 +151,7 @@ function EditUser() {
                     imageUrl: imageUrl,
                   })
                   .then(() => {
+                    
                     setAddress("");
                     setName("");
                     setPhoneNo("");
@@ -122,66 +168,105 @@ function EditUser() {
       {updatestate ? <Redirect to="/userdashboard" /> : null}
       <Header />
 
-      <div className="heading-edit">
-        <p>&nbsp;&nbsp;Edit Profile&nbsp;&nbsp;</p>
+      <ToastContainer />
+      <div className="contact-us-main">
+        <div className="edit-custom">
+          <p>Edit Details</p>
+        </div>
+        <div className="contact-us-container">
+          <span className="big-circle"></span>
+          <img src={shape} className="square" alt=""></img>
+          <div className="contact-us-form">
+            <div className="contact-info" style = {{textAlign: "center"}}>
+              <div className="funi" >
+                <h3 className="contact-info-title">Edit Your Details</h3>
+               
+                
+              </div>
+              <img id="yuiop2" src={showrofile} alt="custom"></img>
+            </div>
+            <div className="contact-form">
+              <span className="circle one"></span>
+              <span className="circle two"></span>
+
+              <form
+                className="contact-us-main-form"
+              >
+                <h3 className="contact-form-title">
+                  Edit Below your details...
+                </h3>
+                <div
+                  className="contact-form-input-container"
+
+                >
+                  <input
+                    type="text"
+                    name="name"
+                    className="contact-input"
+                    onChange={handleChange}
+                    value={name}
+                  />
+                  <span>Name</span>
+                </div>
+                <div
+                  className="contact-form-input-container"
+                >
+                  <input
+                    type="text"
+                    name="phoneno"
+                    className="contact-input"
+                    onChange={handleChange}
+                    value={phoneno}
+                  />
+                  <span>Phone Number</span>
+                </div>
+                <div
+                  className="contact-form-input-container"
+                >
+                  <input
+                    type="text"
+                    name="address"
+                    className="contact-input"
+                    onChange={handleChange}
+                    value={address}
+                  />
+                  <span>City</span>
+                </div>
+                <Form>
+                <Form.File
+                    onChange={handleProfileImageChange}
+                    id="userImage"
+                  />
+                  
+                  </Form>
+
+                
+                <input
+                  type="button"
+                  value="Preview"
+                  onClick={editUserProfile}
+                  className="contact-button123"
+                ></input>
+                <input
+                  type="button"
+                  value="Submit"
+                  onClick={editUserdetails}
+                  className="contact-button123"
+                ></input>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="add-package-form-section contact-us-main">
-        <h2 className="add-package-form-section-title">Edit Profile</h2>
-        <hr />
-        <Form className="form-add-package">
-          <Form.Group className="add-package-form-group" controlId="user-name">
-            <Form.Label className="add-package-form-label">Name</Form.Label>
-            <Form.Control
-              onChange={handleChange}
-              className="add-package-form-input"
-              type="text"
-              name="name"
-              value={name}
-            />
-          </Form.Group>
-          <Form.Group
-            className="add-package-form-group"
-            controlId="user-Phone-no"
-          >
-            <Form.Label className="add-package-form-label">Phone No</Form.Label>
-            <Form.Control
-              onChange={handleChange}
-              className="add-package-form-input"
-              type="text"
-              name="phoneno"
-              value={phoneno}
-            />
-          </Form.Group>
-          <Form.Group
-            className="add-package-form-group"
-            controlId="user-Address"
-          >
-            <Form.Label className="add-package-form-label">Address</Form.Label>
-            <Form.Control
-              onChange={handleChange}
-              className="add-package-form-input"
-              type="text"
-              name="address"
-              value={address}
-            />
-          </Form.Group>
-          <Form.Label controlId="profileImage">Add your photo</Form.Label>
-          <Form.File onChange={handleProfileImageChange} id="userImage" />
-        </Form>
-      </div>
-      <div className="add-package-form-section">
-        <Form className="form-add-package">
-          <Form.Group>
-            <Button
-              className="add-package-button"
-              onClick={editUserdetails}
-              variant="primary"
-            >
-              Update Details
-            </Button>
-          </Form.Group>
-        </Form>
-      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#222222"
+          fill-opacity="1"
+          d="M0,256L48,245.3C96,235,192,213,288,181.3C384,149,480,107,576,117.3C672,128,768,192,864,202.7C960,213,1056,171,1152,138.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+        ></path>
+      </svg>
+      
+
       <Footer />
     </div>
   );
