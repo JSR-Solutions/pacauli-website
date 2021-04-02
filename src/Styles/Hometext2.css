@@ -159,3 +159,9 @@
   .explore-btn{
     padding-left: 190px;
   }
+
+  @media only screen and (max-width: 600px) {
+    .explore-btn {
+      padding-left: 110px !important;
+    }
+  }
