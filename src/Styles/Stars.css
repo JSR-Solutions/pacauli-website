@@ -21,6 +21,11 @@
   .card-aks {
     height: 350px;
   }
+
+  .achi-list-founder {
+    list-style: none !important;
+    text-align: left !important;
+  }
 }
 
 .card-aks:nth-child(1):before {
@@ -198,6 +203,7 @@
 
 .achi-list-founder {
   list-style: none !important;
+  text-align: left !important;
 }
 
 .achi-list-founder li {
