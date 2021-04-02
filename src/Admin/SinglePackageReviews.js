@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Modal, Button } from "react-bootstrap";
 import Sidebar from "./Sidebar";
 import "../Styles/AdminDashboard.css";
 import { DataGrid } from "@material-ui/data-grid";
 import firebase from "firebase";
 import "../Styles/CustomRequests.css";
+import ReviewModal from "./reviewModal"
 
 function SinglePackageReviews(props) {
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState([]); 
+  const [modalShow, setModalShow] = React.useState(false);
+  const [roww,setRoww]=useState({review:"",name:"",id:""});
+  const [packageType,setPackageType]=useState(props.match.params.packageType);
+  const [docId,setDocId]=useState(props.match.params.packageId)
 
   useEffect(() => {
     getReviews();
@@ -73,6 +78,35 @@ function SinglePackageReviews(props) {
       review: rev.review,
     };
   });
+  function rowSelected(row){
+    console.log("review selected")
+    console.log(row.data.id);
+    setModalShow(true);
+    const rowData={name:"",review:"",id:""};
+    rowData.name=row.data.userName;
+    rowData.review=row.data.review;
+    rowData.id=row.data.id;
+
+    setRoww(rowData);
+    console.log(roww);
+
+
+    
+  }
+  function DeleteReview(e){
+    e.preventDefault();
+    const db=firebase.firestore();
+    
+    db.collection(packageType)
+    .doc(docId)
+    .collection("Reviews")
+    .doc(roww.id)
+    .delete()
+    .then(()=>{
+      setModalShow(false);
+      
+    }); 
+  }
 
   return (
     <div>
@@ -92,9 +126,29 @@ function SinglePackageReviews(props) {
                 rows={rows}
                 columns={columns}
                 pageSize={10}
+                onRowSelected={rowSelected}
               />
             </div>
+                        
           )}
+          <Modal 
+          show={modalShow}
+          onHide={()=>{setModalShow(false);}}
+          size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+    <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          {roww.name}
+        </Modal.Title>
+      </Modal.Header>   
+            <Modal.Body>{roww.review}</Modal.Body>
+            <Modal.Footer>
+            <Button onClick={DeleteReview}>Delete Review</Button>
+            </Modal.Footer>
+    
+    </Modal>
         </Col>
       </Row>
     </div>
