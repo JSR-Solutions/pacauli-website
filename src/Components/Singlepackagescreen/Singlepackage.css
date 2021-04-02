@@ -206,6 +206,9 @@
     transform: translateX(-50%);
     margin-top: -28px;
     border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     border: 4px solid var(--primary);
     box-sizing: border-box;
 }
@@ -213,15 +216,11 @@
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    position: relative;
-    left: -0.5px;
     top: 0px;
     background-color: white;
 }
 .sng-pack-review-img div h1{
     line-height: 55px;
-    left: 27%;
-    position: relative;
     color: var(--primary);
     text-transform: uppercase;
 }
@@ -238,6 +237,11 @@
     text-align: justify;
 }
 
+.review-user-image {
+    height: 55px;
+    width: 55px;
+    border-radius: 55px;
+}
 
 /* .single-package-right{
     background-color: white; 

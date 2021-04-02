@@ -20,7 +20,9 @@ import { Button, Form } from "react-bootstrap";
 const Singlepackage = (props) => {
   const [pack, setpack] = useState();
   const [mapi, setmap] = useState("");
+  const [reviews, setReviews] = useState([]);
   const [newreview, setNewreview] = React.useState("");
+  const [reviewsFetched, setReviewsFetched] = useState(false);
 
   useEffect(() => {
     $(document).ready(function () {
@@ -32,11 +34,18 @@ const Singlepackage = (props) => {
   const auth = firebase.auth();
 
   useEffect(() => {
+    getPackage();
+  }, []);
+
+  function getPackage() {
+    setpack();
+    setmap("");
     db.collection(props.match.params.categoryName)
       .doc(props.match.params.packageId)
       .get()
       .then((res) => {
         console.log(res.data());
+        getReviews();
         if (res.data()) {
           setpack(res.data());
           if (res.data().map == "") {
@@ -47,7 +56,41 @@ const Singlepackage = (props) => {
           }
         }
       });
-  }, []);
+  }
+
+  function getReviews() {
+    setReviews([]);
+    db.collection(props.match.params.categoryName)
+      .doc(props.match.params.packageId)
+      .collection("Reviews")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.docs.forEach((doc) => {
+          const reviewData = doc.data();
+          db.collection("Users")
+            .doc(reviewData.userId)
+            .get()
+            .then((snap) => {
+              console.log("USER DATA");
+              const userData = snap.data();
+              setReviews((prev) => {
+                return [
+                  ...prev,
+                  {
+                    userId: reviewData.userId,
+                    review: reviewData.review,
+                    userName: userData.name,
+                    userImage: userData.imageUrl,
+                  },
+                ];
+              });
+            })
+            .then(() => {
+              setReviewsFetched(true);
+            });
+        });
+      });
+  }
 
   useEffect(() => {
     var header = document.getElementById("sing-pack-nav");
@@ -77,18 +120,16 @@ const Singlepackage = (props) => {
     auth.onAuthStateChanged((user) => {
       const uid = user.uid;
       if (uid) {
-        db.collection("Users")
-          .doc(uid)
-          .get()
-          .then((doc) => {
-            const userData = doc.data();
-            if (userData) {
-              db.collection(props.packageType)
-                .doc(props.packageId)
-                .collection("Reviews")
-                .add({});
-            } else {
-            }
+        db.collection(props.match.params.categoryName)
+          .doc(props.match.params.packageId)
+          .collection("Reviews")
+          .add({
+            userId: uid,
+            review: newreview,
+          })
+          .then(() => {
+            setNewreview("");
+            getReviews();
           });
       }
     });
@@ -332,15 +373,21 @@ const Singlepackage = (props) => {
                         <h4>Reviews</h4>
                         <hr />
 
-                        {pack &&
-                          pack.reviews.map((l, k) => (
-                            <SingleReview
-                              img={l.customerImage}
-                              name={l.customerName}
-                              text={l.customerReview}
-                              key={k}
-                            />
-                          ))}
+                        <Row>
+                          {reviewsFetched &&
+                            reviews.map((review, index) => {
+                              return (
+                                <Col lg={6} md={6} sm={12}>
+                                  <SingleReview
+                                    img={review.userImage}
+                                    name={review.userName}
+                                    text={review.review}
+                                    key={index}
+                                  />
+                                </Col>
+                              );
+                            })}
+                        </Row>
                         <Form>
                           <Form.Group controlId="add-review-text">
                             <Form.Label>Enter your review</Form.Label>
@@ -353,10 +400,7 @@ const Singlepackage = (props) => {
                           </Form.Group>
                         </Form>
 
-                        <Button
-                          onClick={() => addNewreview()}
-                          className="modal-button"
-                        >
+                        <Button onClick={addNewreview} className="modal-button">
                           Add Review
                         </Button>
                       </div>
