@@ -30,6 +30,7 @@ import UserDashboard from "./Core/UserDashboard"
 import Login from "./Auth/Login";
 import SignUp from "./Auth/SignUp";
 import UserRegistration from "./Auth/UserRegistration";
+import SinglePackageReviews from "./Admin/SinglePackageReviews";
 
 function App() {
   return (
@@ -105,6 +106,11 @@ function App() {
             path="/admin/editpackage/updategallery/:packageType/:packageId"
             exact
             component={UpdateGalleryImages}
+          />
+          <PrivateRoute
+            path="/admin/package/reviews/:packageType/:packageId"
+            exact
+            component={SinglePackageReviews}
           />
         </Switch>
       </Router>
