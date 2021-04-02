@@ -81,7 +81,7 @@ function SinglePackageReviews(props) {
           <Sidebar />
         </Col>
         <Col className="admin-dashboard-content" lg={10} md={6}>
-          <h3 className="admin-dashboard-title">Custom Package Requests</h3>
+          <h3 className="admin-dashboard-title">Package Reviews</h3>
           {reviews && (
             <div style={{ height: 600, width: "100%" }}>
               <DataGrid
