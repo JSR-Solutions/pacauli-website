@@ -63,7 +63,7 @@ function UserDashboard() {
       <Header />
 
       <div className="contact-us-main">
-        <div className="heading-contact">
+        <div className="heading-dashboard">
           <p>&nbsp;&nbsp;Your Profile&nbsp;&nbsp;</p>
         </div>
         <div className="contact-us-container">
