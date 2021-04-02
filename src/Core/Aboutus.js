@@ -32,12 +32,23 @@ const Aboutus = () => {
         </div>
         <Container>
           <div className="about-us-god">
-            <Row>
+            {/* <Row>
               <div className="hheadd">
                 <h1>
                   <span>NAMASKAAR!</span>
                 </h1>
               </div>
+            </Row> */}
+
+            <Row>
+              <div className="hheadd">
+                <h1>
+                  <span>ABOUT THE FOUNDER!</span>
+                </h1>
+              </div>
+            </Row>
+            <Row style={{ marginTop: "80px" }}>
+              <Stars />
             </Row>
             <Row>
               <Col className="sec1">
@@ -65,17 +76,6 @@ const Aboutus = () => {
                 our family.
               </Col>
             </Row>
-
-            <Row>
-              <div className="hheadd">
-                <h1>
-                  <span>ABOUT THE FOUNDER!</span>
-                </h1>
-              </div>
-            </Row>
-            <Row style={{marginTop : "20px"}}>
-              <Stars/>
-            </Row>
             <Row>
               <div className="hheadd">
                 <h1>
@@ -83,7 +83,7 @@ const Aboutus = () => {
                 </h1>
               </div>
             </Row>
-            <Row style={{marginTop: "20px"}}>
+            <Row style={{ marginTop: "20px" }}>
               <Shiningstars />
             </Row>
             <div className="heyy">
@@ -94,6 +94,34 @@ const Aboutus = () => {
                   </h1>
                 </div>
               </Row>
+              <div class="image-container">
+                <div class="image-box">
+                  <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+                </div>
+                <div class="image-box">
+                  <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80" />
+                </div>
+                <div class="image-box">
+                  <img src="https://images.unsplash.com/photo-1497501849790-78f74380d9d3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+                </div>
+                <div class="image-box">
+                  <img src="https://images.unsplash.com/photo-1484264883846-eb04404af310?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80" />
+                </div>
+              </div>
+              <div class="image-container">
+                <div class="image-box">
+                  <img src="https://images.unsplash.com/photo-1520208422220-d12a3c588e6c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+                </div>
+                <div class="image-box">
+                  <img src="https://images.unsplash.com/photo-1524262947531-13165500f291?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+                </div>
+                <div class="image-box">
+                  <img src="https://images.unsplash.com/photo-1519719498756-2f0d81cdf13b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1075&q=80" />
+                </div>
+                <div class="image-box">
+                  <img src="https://images.unsplash.com/photo-1525885270172-2b7c27278d8e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+                </div>
+              </div>
               <Row>
                 <Col className="sec1">
                   The trekking scenario has changed over the years. It has
