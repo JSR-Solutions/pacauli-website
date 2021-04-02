@@ -15,12 +15,12 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import Imagess from "./imageGallery";
 import $ from "jquery";
 import SingleReview from "../SingleReview";
+import { Button, Form } from "react-bootstrap";
 
 const Singlepackage = (props) => {
-
-const [pack, setpack] = useState();
-const [mapi, setmap] = useState("");
- 
+  const [pack, setpack] = useState();
+  const [mapi, setmap] = useState("");
+  const [newreview, setNewreview] = React.useState("");
 
   useEffect(() => {
     $(document).ready(function () {
@@ -29,6 +29,7 @@ const [mapi, setmap] = useState("");
   }, []);
 
   const db = firebase.firestore();
+  const auth = firebase.auth();
 
   useEffect(() => {
     db.collection(props.match.params.categoryName)
@@ -38,15 +39,12 @@ const [mapi, setmap] = useState("");
         console.log(res.data());
         if (res.data()) {
           setpack(res.data());
-          if (res.data().map == ''){
-            setmap("https://maps.google.com/maps?q=India&output=embed")
-            console.log(mapi)
-            
+          if (res.data().map == "") {
+            setmap("https://maps.google.com/maps?q=India&output=embed");
+            console.log(mapi);
+          } else {
+            setmap(res.data().map);
           }
-          else{
-            setmap(res.data().map)
-          }
-        
         }
       });
   }, []);
@@ -68,8 +66,33 @@ const [mapi, setmap] = useState("");
         }
       }
     }
-    
   }, []);
+
+  function handleNewreview(event) {
+    setNewreview(event.target.value);
+  }
+
+  function addNewreview(event) {
+    event.preventDefault();
+    auth.onAuthStateChanged((user) => {
+      const uid = user.uid;
+      if (uid) {
+        db.collection("Users")
+          .doc(uid)
+          .get()
+          .then((doc) => {
+            const userData = doc.data();
+            if (userData) {
+              db.collection(props.packageType)
+                .doc(props.packageId)
+                .collection("Reviews")
+                .add({});
+            } else {
+            }
+          });
+      }
+    });
+  }
 
   return (
     <div className="single-package-main">
@@ -308,17 +331,34 @@ const [mapi, setmap] = useState("");
                         <div className="single-pack-side-design"></div>
                         <h4>Reviews</h4>
                         <hr />
-                        
-                          {pack &&
-                            pack.reviews.map((l, k) => (
-                              <SingleReview
-                                img={l.customerImage}
-                                name={l.customerName}
-                                text={l.customerReview}
-                                key={k}
-                              />
-                            ))}
-                        
+
+                        {pack &&
+                          pack.reviews.map((l, k) => (
+                            <SingleReview
+                              img={l.customerImage}
+                              name={l.customerName}
+                              text={l.customerReview}
+                              key={k}
+                            />
+                          ))}
+                        <Form>
+                          <Form.Group controlId="add-review-text">
+                            <Form.Label>Enter your review</Form.Label>
+                            <Form.Control
+                              as="textarea"
+                              rows={5}
+                              value={newreview}
+                              onChange={handleNewreview}
+                            />
+                          </Form.Group>
+                        </Form>
+
+                        <Button
+                          onClick={() => addNewreview()}
+                          className="modal-button"
+                        >
+                          Add Review
+                        </Button>
                       </div>
                     </div>
                     <div className="sngl-pack-short-itn" id="gallery">
@@ -339,9 +379,8 @@ const [mapi, setmap] = useState("");
                         <h4>Location</h4>
                         <hr />
                         {pack && mapi && (
-                          
                           <iframe
-                            src= {mapi}
+                            src={mapi}
                             width="100%"
                             height="450"
                             frameborder="0"
