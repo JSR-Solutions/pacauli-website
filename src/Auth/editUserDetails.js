@@ -193,7 +193,7 @@ function EditUser() {
                 className="contact-us-main-form"
               >
                 <h3 className="contact-form-title">
-                  Edit Below your details...
+                  Edit your details below...
                 </h3>
                 <div
                   className="contact-form-input-container"
