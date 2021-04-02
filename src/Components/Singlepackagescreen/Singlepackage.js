@@ -14,16 +14,16 @@ import { StickyContainer, Sticky } from "react-sticky";
 import "react-alice-carousel/lib/alice-carousel.css";
 import Imagess from "./imageGallery";
 import $ from "jquery";
+import SingleReview from "../SingleReview";
 
 const Singlepackage = (props) => {
   const [pack, setpack] = useState();
- 
+
   useEffect(() => {
     $(document).ready(function () {
       $(this).scrollTop(0);
     });
   }, []);
-  
 
   const db = firebase.firestore();
 
@@ -35,11 +35,9 @@ const Singlepackage = (props) => {
         console.log(res.data());
         if (res.data()) {
           setpack(res.data());
-        
         }
       });
   }, []);
-
 
   useEffect(() => {
     var header = document.getElementById("sing-pack-nav");
@@ -59,9 +57,6 @@ const Singlepackage = (props) => {
       }
     }
   }, []);
-  
-
-  
 
   return (
     <div className="single-package-main">
@@ -70,15 +65,13 @@ const Singlepackage = (props) => {
       <div className="img-carou">
         <div className="single-package-upper">
           <Carousel>
-          {pack && 
-            pack.imgUrl.map((l,k)=>(
-              <Carousel.Item>
-              <img style={{height:"700px"}} src={l} alt="sk" />
-              </Carousel.Item>
-            ))
-            
-            }
-            </Carousel>
+            {pack &&
+              pack.imgUrl.map((l, k) => (
+                <Carousel.Item>
+                  <img style={{ height: "700px" }} src={l} alt="sk" />
+                </Carousel.Item>
+              ))}
+          </Carousel>
         </div>
       </div>
 
@@ -228,7 +221,7 @@ const Singlepackage = (props) => {
                           ))}
                       </div>
                     </div>
-                    
+
                     <div className="sngl-pack-short-itn" id="briefItinerary">
                       <div className="single-pck-2-row">
                         <div className="single-pack-side-design"></div>
@@ -302,29 +295,17 @@ const Singlepackage = (props) => {
                         <div className="single-pack-side-design"></div>
                         <h4>Reviews</h4>
                         <hr />
-                        <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "space-around",
-                          }}
-                        >
+                        
                           {pack &&
                             pack.reviews.map((l, k) => (
-                              <div key={k} className="sng-pack-review">
-                                <div className="sng-pack-review-img">
-                                  <div>
-                                    <h1>{l.customerName.substring(0, 1)}</h1>
-                                  </div>
-                                </div>
-                                <div className="sng-pack-review-cnt">
-                                  <h5>{l.customerName}</h5>
-                                  <h6>
-                                    {l.customerReview.substring(0, 163)}...
-                                  </h6>
-                                </div>
-                              </div>
+                              <SingleReview
+                                img={l.customerImage}
+                                name={l.customerName}
+                                text={l.customerReview}
+                                key={k}
+                              />
                             ))}
-                        </div>
+                        
                       </div>
                     </div>
                     <div className="sngl-pack-short-itn" id="gallery">
@@ -332,13 +313,12 @@ const Singlepackage = (props) => {
                         <div className="single-pack-side-design"></div>
                         <h4>Gallery</h4>
                         <hr />
-                        
-                        {pack && pack.imgUrl && <Imagess imgUrl={pack.imgUrl}/>}
-                            
-                        
+
+                        {pack && pack.imgUrl && (
+                          <Imagess imgUrl={pack.imgUrl} />
+                        )}
                       </div>
                     </div>
-                    
 
                     <div className="sngl-pack-short-itn" id="map">
                       <div className="single-pck-2-row">
@@ -388,7 +368,7 @@ const Singlepackage = (props) => {
                               marginTop: isSticky ? "66px" : "0px",
                             }}
                           >
-                            <Pricecard price={pack.pricing}/>
+                            <Pricecard price={pack.pricing} />
                           </div>
                         )}
                       </Sticky>
