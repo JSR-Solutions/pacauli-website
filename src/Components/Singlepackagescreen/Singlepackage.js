@@ -17,7 +17,10 @@ import $ from "jquery";
 import SingleReview from "../SingleReview";
 
 const Singlepackage = (props) => {
-  const [pack, setpack] = useState();
+
+const [pack, setpack] = useState();
+const [mapi, setmap] = useState("");
+ 
 
   useEffect(() => {
     $(document).ready(function () {
@@ -35,6 +38,15 @@ const Singlepackage = (props) => {
         console.log(res.data());
         if (res.data()) {
           setpack(res.data());
+          if (res.data().map == ''){
+            setmap("https://maps.google.com/maps?q=India&output=embed")
+            console.log(mapi)
+            
+          }
+          else{
+            setmap(res.data().map)
+          }
+        
         }
       });
   }, []);
@@ -56,6 +68,7 @@ const Singlepackage = (props) => {
         }
       }
     }
+    
   }, []);
 
   return (
@@ -325,9 +338,10 @@ const Singlepackage = (props) => {
                         <div className="single-pack-side-design"></div>
                         <h4>Location</h4>
                         <hr />
-                        {pack && pack.map && (
+                        {pack && mapi && (
+                          
                           <iframe
-                            src={pack.map}
+                            src= {mapi}
                             width="100%"
                             height="450"
                             frameborder="0"
