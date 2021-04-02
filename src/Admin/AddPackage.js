@@ -350,7 +350,6 @@ function AddPackage() {
                 briefItinerary: briefItinerary,
                 detailedItinerary: detailedItinerary,
                 pricing: pricing,
-                reviews: reviews,
                 imageUrl: packageImageUrl,
                 packageType: packageType,
               })
@@ -911,7 +910,7 @@ function AddPackage() {
             })}
 
             <hr />
-            <h5 className="form-admin-title">Reviews</h5>
+            {/* <h5 className="form-admin-title">Reviews</h5>
             {reviews.map((review, index) => {
               return (
                 <div className="admin-dashboard-form-group">
@@ -963,7 +962,7 @@ function AddPackage() {
               );
             })}
 
-            <hr />
+            <hr /> */}
             <h5 className="form-admin-title">Map</h5>
             <Row>
               <Col lg={10}>
