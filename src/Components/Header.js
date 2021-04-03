@@ -294,6 +294,12 @@ const Header = ({ history }) => {
                       >
                         <div className="cat-dropdown-child">Chardham</div>
                       </Link>
+                      <Link
+                        to={`/categories/8`}
+                        className="header-dropdown-link"
+                      >
+                        <div className="cat-dropdown-child">Snow Boarding</div>
+                      </Link>
                     </div>
                   </div>
 

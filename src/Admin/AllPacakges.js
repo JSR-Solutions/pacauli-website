@@ -108,6 +108,7 @@ function AllPacakges() {
               <option>Cycling</option>
               <option>Rafting</option>
               <option>Char Dham</option>
+              <option>Snow Boarding</option>
             </Form.Control>
           </Form.Group>
           {packages && (
