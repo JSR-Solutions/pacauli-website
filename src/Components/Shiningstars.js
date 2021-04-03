@@ -14,47 +14,96 @@ const Shiningstars = () => {
           <TeamMemberCard />
         </Col>
         <Col className="shiningstars-description" lg={6}>
-          Neymar came into prominence at Santos, where he made his professional
-          debut aged 17. He helped the club win two successive Campeonato
-          Paulista championships, a Copa do Brasil, and the 2011 Copa
-          Libertadores; the latter being Santos' first since 1963. Neymar was
-          twice named the South American Footballer of the Year, in 2011 and
-          2012, and soon relocated to Europe to join Barcelona. As part of
-          Barcelona's attacking trio with Lionel Messi and Luis Suárez, he won
-          the continental treble of La Liga, the Copa del Rey, and the UEFA
-          Champions League, and finished third for the FIFA Ballon d'Or in 2015
-          for his performances. He then attained a domestic double in the
-          2015–16 season. In 2017, Neymar transferred to Paris Saint-Germain in
-          a move worth €222 million, making him the most expensive player
-          ever.[note 1] In France, Neymar won three league titles, two Coupe de
-          France, and two Coupe de la Ligue, which included a domestic treble
-          and being voted Ligue 1 Player of the Year in his debut season.[11]
-          Neymar helped PSG attain a domestic quadruple in the 2019–20 season,
-          and led the club to its first ever Champions League Final.
+          <h2 className="titlee-alt">Achievements:</h2>
+          <p className="copyy-alt">
+            <ul className="achi-list-founderr">
+              <li>
+                <b>SKIING</b>
+                <ul className="achi-list-founderr">
+                  <li>
+                    <b>1996</b> Second Position in Auli National Winter Games
+                    Open Skiing Championship
+                  </li>
+                  <li>
+                    <b>1997</b> Third Position in National Winter Games
+                  </li>
+                  <li>
+                    <b>1998</b> Third Position in National Open Skiing
+                    Championship
+                  </li>
+                  <li>
+                    <b>1999</b> First Position in Winter Sports Championship
+                  </li>
+                  <li>
+                    <b>2000-2004</b> Participate in National Winter Games
+                  </li>
+                </ul>
+              </li>
+              <li>
+                {" "}
+                <b>SNOWBOARDING</b>
+                <ul className="achi-list-founderr">
+                  <li>
+                    <b>2008</b> First position (SL) in 5th National Winter Games
+                  </li>
+                  <li>
+                    <b>2008</b> First position (GS) in 5th National Winter Games
+                  </li>
+                  <li>
+                    <b>2008</b> International Snowboarding Competition - IRIAN
+                  </li>
+                  <li>
+                    <b>2010</b> Second Position in National Snowboarding
+                    Championship
+                  </li>
+                  <li>
+                    <b>2012</b> First Position (SL) in National Open Skiing
+                    Championship
+                  </li>
+                  <li>
+                    <b>2012</b> Represent INDIA in International Skiing
+                    Federation (FIS) meet in - BULGARIA
+                  </li>
+                  <li>
+                    <b>2012</b> First Position (GS) in National Open Skiing
+                    Championship
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </p>
         </Col>
       </Row>
       <Row className="shiningstars-row">
         <Col className="shiningstars-description" lg={6}>
-        Neymar came into prominence at Santos, where he made his professional
-          debut aged 17. He helped the club win two successive Campeonato
-          Paulista championships, a Copa do Brasil, and the 2011 Copa
-          Libertadores; the latter being Santos' first since 1963. Neymar was
-          twice named the South American Footballer of the Year, in 2011 and
-          2012, and soon relocated to Europe to join Barcelona. As part of
-          Barcelona's attacking trio with Lionel Messi and Luis Suárez, he won
-          the continental treble of La Liga, the Copa del Rey, and the UEFA
-          Champions League, and finished third for the FIFA Ballon d'Or in 2015
-          for his performances. He then attained a domestic double in the
-          2015–16 season. In 2017, Neymar transferred to Paris Saint-Germain in
-          a move worth €222 million, making him the most expensive player
-          ever.[note 1] In France, Neymar won three league titles, two Coupe de
-          France, and two Coupe de la Ligue, which included a domestic treble
-          and being voted Ligue 1 Player of the Year in his debut season.[11]
-          Neymar helped PSG attain a domestic quadruple in the 2019–20 season,
-          and led the club to its first ever Champions League Final.
+          <h2 className="titlee-alt">Achievements:</h2>
+          <p className="copyy-alt">
+            <ul className="achi-list-founderr">
+              <li>
+                <b>2010</b> Second Position in National Snowboard Championship
+                Auli
+              </li>
+              <li>
+                <b>2012</b> Third Position in National Snowboarding Championship
+                Gulmarg, J&K
+              </li>
+
+              <li>
+                <b>2013</b> First Person to board down from The Urgam Valley
+              </li>
+              <li>
+                <b>2015</b> Third Position in Auli Snowboarding Open
+                Championship
+              </li>
+              <li>
+                2018 Won the Guide of the Year and Excellence in Tourism
+                Industry Award
+              </li>
+            </ul>
+          </p>
         </Col>
         <Col lg={6}>
-        <TeamMemberCard2 />
+          <TeamMemberCard2 />
         </Col>
       </Row>
       <Row className="shiningstars-row">
@@ -62,23 +111,73 @@ const Shiningstars = () => {
           <TeamMemberCard3 />
         </Col>
         <Col className="shiningstars-description" lg={6}>
-        Neymar came into prominence at Santos, where he made his professional
-          debut aged 17. He helped the club win two successive Campeonato
-          Paulista championships, a Copa do Brasil, and the 2011 Copa
-          Libertadores; the latter being Santos' first since 1963. Neymar was
-          twice named the South American Footballer of the Year, in 2011 and
-          2012, and soon relocated to Europe to join Barcelona. As part of
-          Barcelona's attacking trio with Lionel Messi and Luis Suárez, he won
-          the continental treble of La Liga, the Copa del Rey, and the UEFA
-          Champions League, and finished third for the FIFA Ballon d'Or in 2015
-          for his performances. He then attained a domestic double in the
-          2015–16 season. In 2017, Neymar transferred to Paris Saint-Germain in
-          a move worth €222 million, making him the most expensive player
-          ever.[note 1] In France, Neymar won three league titles, two Coupe de
-          France, and two Coupe de la Ligue, which included a domestic treble
-          and being voted Ligue 1 Player of the Year in his debut season.[11]
-          Neymar helped PSG attain a domestic quadruple in the 2019–20 season,
-          and led the club to its first ever Champions League Final.
+          <h2 className="titlee-alt">Achievements:</h2>
+          <p className="copyy-alt">
+            <ul className="achi-list-founderr">
+              <li>
+                <b>1998</b> First Position National Skiing Championship Junior
+                Auli
+              </li>
+              <li>
+                <b>2000</b> First Position in Winter Sports Junior Championship
+                Slalom Auli
+              </li>
+              <li>
+                <b>2002</b> Second Position in National Sking Championship
+              </li>
+              <li>
+                <b>2003</b> Second Position in National Winter Games Auli
+              </li>
+              <li>
+                <b>2007</b> 3rd Position in National Senior Ski Championship
+                Auli(slalom)
+              </li>
+              <li>
+                <b>2007</b> 3rd Position in National Senior Ski Championship
+                Auli(GS)
+              </li>
+              <li>
+                <b>2008</b> First Position in 5th National Winter Games
+                Gulmarg(Kashmir)
+              </li>
+              <li>
+                <b>2010</b> Second Position in National Ski Championship
+                Manali(GS)
+              </li>
+              <li>
+                <b>2010</b> Third Position in WGAU Championship
+              </li>
+              <li>
+                <b>2010</b> Second Position in WGAU Championship
+              </li>
+              <li>
+                <b>2011</b> Second Position in Auli Skiing Open Championship
+              </li>
+              <li>
+                <b>2011</b> Third Position in 1st South Asian Games Auli,
+                Uttarakhand
+              </li>
+              <li>
+                <b>2012</b> Third Position in 1st Alpine Premier League Manali
+              </li>
+              <li>
+                <b>2012</b> Second Position in Open Skiing Championship Auli
+              </li>
+
+              <li>
+                <b>2013</b> First Position in National Senior Alpine Sking
+                Championship(GS)
+              </li>
+              <li>
+                <b>2013</b> Third Position in National Senior Alpine Skiing
+                Championship (slalom)
+              </li>
+              <li>
+                <b>2014</b> Third Position in National Championship
+                Gulmarg(Slalom)
+              </li>
+            </ul>
+          </p>
         </Col>
       </Row>
     </div>

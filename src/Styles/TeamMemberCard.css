@@ -94,18 +94,21 @@
   }
   
   .titlee {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
+    padding-bottom: 30px;
   }
   
   .titlee-alt {
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-weight: bold;
   }
   
   .copyy {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-style: italic;
+    margin-right: 50px;
+    margin-left: 50px;
   }
   
   .copyy-alt {
@@ -205,9 +208,12 @@
   .achi-list-founderr {
     list-style: none !important;
     margin-left: 0 !important;
-    margin-right: 40px !important;
+    /* margin-right: 40px !important; */
   }
   
   .achi-list-founderr li {
-      margin-bottom: 12px;
+      margin-bottom: 2px;
   }
+
+  
+  
