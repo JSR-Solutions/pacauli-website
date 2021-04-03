@@ -6,6 +6,7 @@ import Camping from "../Assets/camping.jpg";
 import Expedition from "../Assets/expedition.jpg";
 import Chardham from "../Assets/chardham.jpg";
 import Cycling from "../Assets/cycling.jpg";
+import Snowboarding from "../Assets/snowboarding.jpg"
 import skiing from "../Assets/skiing.svg";
 import trekking from "../Assets/trekking.svg";
 import expedition from "../Assets/expedition.svg";
@@ -66,6 +67,11 @@ const category = [
       quote: "“Chardham yatra washes away all sins and opens doors for Moksha”",
       icon: chardham
     },
+    {
+      Name: "Snow Boarding",
+      img: Snowboarding,
+      quote: "Some People Attach Snowboards to thier feet, very few attach them to their souls"
+    }
   ];
 
   export default category;
