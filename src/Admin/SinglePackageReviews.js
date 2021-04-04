@@ -103,8 +103,8 @@ function SinglePackageReviews(props) {
     .doc(roww.id)
     .delete()
     .then(()=>{
+      getReviews();
       setModalShow(false);
-      
     }); 
   }
 
