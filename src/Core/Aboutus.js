@@ -12,6 +12,8 @@ import price from "../Assets/dollar.png";
 import placeholder from "../Assets/placeholder.png";
 import experience from "../Assets/experience.png";
 
+import TeamSocials from "../Components/TeamSocials";
+
 const Aboutus = () => {
   useEffect(() => {
     $(document).ready(function () {
@@ -76,6 +78,10 @@ const Aboutus = () => {
                 our family.
               </Col>
             </Row>
+            <TeamSocials
+              facebook="https://www.facebook.com/khtrr.balak"
+              instagram="https://www.instagram.com/bisht.anshuman/?igshid=3a6jlv57iaqq"
+            />
             <Row>
               <div className="hheadd">
                 <h1>

@@ -70,7 +70,7 @@ const category = [
     {
       Name: "Snow Boarding",
       img: Snowboarding,
-      quote: "Some People Attach Snowboards to thier feet, very few attach them to their souls"
+      quote: "“Some people attach snowboards to their feet, very few attach them to their souls”"
     }
   ];
 
