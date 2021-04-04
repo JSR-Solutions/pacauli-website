@@ -5,6 +5,7 @@ import TeamMemberCard, {
   TeamMemberCard2,
   TeamMemberCard3,
 } from "./TeamMemberCard";
+import TeamSocials from "./TeamSocials";
 
 const Shiningstars = () => {
   return (
@@ -72,6 +73,7 @@ const Shiningstars = () => {
               </li>
             </ul>
           </p>
+          <TeamSocials />
         </Col>
       </Row>
       <Row className="shiningstars-row">
@@ -101,6 +103,10 @@ const Shiningstars = () => {
               </li>
             </ul>
           </p>
+          <TeamSocials
+            facebook="https://www.facebook.com/parmod.panwar.90/?show_switched_toast=0"
+            instagram="https://instagram.com/parmod.panwar.90?igshid=11z48elw5c6ko"
+          />
         </Col>
         <Col lg={6}>
           <TeamMemberCard2 />
@@ -178,6 +184,9 @@ const Shiningstars = () => {
               </li>
             </ul>
           </p>
+          <TeamSocials
+            facebook="https://www.facebook.com/vandana.panwar.52/?show_switched_toast=0"
+          />
         </Col>
       </Row>
     </div>
