@@ -73,7 +73,10 @@ const Shiningstars = () => {
               </li>
             </ul>
           </p>
-          <TeamSocials />
+          <TeamSocials 
+          facebook="https://m.facebook.com/profile.php?id=1184490462&ref=content_filter"
+          instagram="https://instagram.com/traveller.monk?igshid=nc3bc0sx258f"
+          />
         </Col>
       </Row>
       <Row className="shiningstars-row">
