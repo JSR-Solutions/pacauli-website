@@ -84,26 +84,6 @@ const Shiningstars = () => {
           <h2 className="titlee-alt">Achievements:</h2>
           <p className="copyy-alt">
             <ul className="achi-list-founderr">
-              <li>
-                <b>2010</b> Second Position in National Snowboard Championship
-                Auli
-              </li>
-              <li>
-                <b>2012</b> Third Position in National Snowboarding Championship
-                Gulmarg, J&K
-              </li>
-
-              <li>
-                <b>2013</b> First Person to board down from The Urgam Valley
-              </li>
-              <li>
-                <b>2015</b> Third Position in Auli Snowboarding Open
-                Championship
-              </li>
-              <li>
-                2018 Won the Guide of the Year and Excellence in Tourism
-                Industry Award
-              </li>
             </ul>
           </p>
           <TeamSocials
@@ -123,68 +103,6 @@ const Shiningstars = () => {
           <h2 className="titlee-alt">Achievements:</h2>
           <p className="copyy-alt">
             <ul className="achi-list-founderr">
-              <li>
-                <b>1998</b> First Position National Skiing Championship Junior
-                Auli
-              </li>
-              <li>
-                <b>2000</b> First Position in Winter Sports Junior Championship
-                Slalom Auli
-              </li>
-              <li>
-                <b>2002</b> Second Position in National Sking Championship
-              </li>
-              <li>
-                <b>2003</b> Second Position in National Winter Games Auli
-              </li>
-              <li>
-                <b>2007</b> 3rd Position in National Senior Ski Championship
-                Auli(slalom)
-              </li>
-              <li>
-                <b>2007</b> 3rd Position in National Senior Ski Championship
-                Auli(GS)
-              </li>
-              <li>
-                <b>2008</b> First Position in 5th National Winter Games
-                Gulmarg(Kashmir)
-              </li>
-              <li>
-                <b>2010</b> Second Position in National Ski Championship
-                Manali(GS)
-              </li>
-              <li>
-                <b>2010</b> Third Position in WGAU Championship
-              </li>
-              <li>
-                <b>2010</b> Second Position in WGAU Championship
-              </li>
-              <li>
-                <b>2011</b> Second Position in Auli Skiing Open Championship
-              </li>
-              <li>
-                <b>2011</b> Third Position in 1st South Asian Games Auli,
-                Uttarakhand
-              </li>
-              <li>
-                <b>2012</b> Third Position in 1st Alpine Premier League Manali
-              </li>
-              <li>
-                <b>2012</b> Second Position in Open Skiing Championship Auli
-              </li>
-
-              <li>
-                <b>2013</b> First Position in National Senior Alpine Sking
-                Championship(GS)
-              </li>
-              <li>
-                <b>2013</b> Third Position in National Senior Alpine Skiing
-                Championship (slalom)
-              </li>
-              <li>
-                <b>2014</b> Third Position in National Championship
-                Gulmarg(Slalom)
-              </li>
             </ul>
           </p>
           <TeamSocials
