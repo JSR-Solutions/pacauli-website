@@ -13,6 +13,7 @@ function AddPackage() {
   const [cancellation, setCancellation] = useState([""]);
   const [map, setMap] = useState("");
   const [name, setName] = useState("");
+  const [qoute,setQoute]=useState("");
   const [region, setRegion] = useState("");
   const [duration, setDuration] = useState("");
   const [grade, setgrade] = useState("");
@@ -47,7 +48,10 @@ function AddPackage() {
       setDuration(value);
     } else if (name === "region") {
       setRegion(value);
-    } else if (name === "grade") {
+    }else if (name === "qoute") {
+      setQoute(value);
+    } 
+    else if (name === "grade") {
       setgrade(value);
     } else if (name === "maxAltitude") {
       setMaxAltitude(value);
@@ -342,6 +346,7 @@ function AddPackage() {
                 cancellation: cancellation,
                 map: map,
                 name: name,
+                qoute:qoute,
                 region: region,
                 duration: duration,
                 grade: grade,
@@ -435,6 +440,25 @@ function AddPackage() {
                     name="duration"
                     value={duration}
                     placeholder={"Package Duration"}
+                    onChange={(event) => {
+                      handleChange(event);
+                    }}
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+
+            <hr />
+            <h5 className="form-admin-title">Package Qoute</h5>
+            <Row>
+              <Col lg={10}>
+                <Form.Group className="admin-dashboard-form-group">
+                  <Form.Control
+                    className="admin-dashboard-form-input"
+                    type="text"
+                    name="qoute"
+                    value={qoute}
+                    placeholder={"Package Qoute"}
                     onChange={(event) => {
                       handleChange(event);
                     }}

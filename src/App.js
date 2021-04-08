@@ -20,6 +20,8 @@ import Aboutus from "./Core/Aboutus";
 
 import PackageGalleryImages from "./Admin/PackageGalleryImages";
 import EditPackage from "./Admin/EditPackage";
+import DateUpload from "./Admin/dateUpload";
+import EditDate from "./Admin/editDate";
 
 import Singlepackage from "./Components/Singlepackagescreen/Singlepackage";
 import SinglePackageDashboard from "./Admin/SinglePackageDashboard";
@@ -69,6 +71,16 @@ function App() {
             path="/single/:packageType/:packageId"
             exact
             component={SinglePackageDashboard}
+          />
+          <PrivateRoute
+            path="/admin/package/:packageType/:packageId/date"
+            exact
+            component={DateUpload}
+          />
+          <PrivateRoute
+            path="/admin/package/:packageType/:packageId/editdate"
+            exact
+            component={EditDate}
           />
           <PrivateRoute
             path="/admin/allpackages"

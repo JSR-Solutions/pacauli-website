@@ -13,6 +13,7 @@ function EditPackage(props) {
   const [cancellation, setCancellation] = useState([""]);
   const [map, setMap] = useState("");
   const [name, setName] = useState("");
+  const [qoute,setQoute]=useState("");
   const [region, setRegion] = useState("");
   const [duration, setDuration] = useState("");
   const [grade, setgrade] = useState("");
@@ -65,6 +66,7 @@ function EditPackage(props) {
           setTrekDistance(snapshot.data().trekDistance);
           setBriefItinerary(snapshot.data().briefItinerary);
           setDetailedItinerary(snapshot.data().detailedItinerary);
+          setQoute(snapshot.data().qoute);
           setPricing(snapshot.data().pricing);
           setReviews(snapshot.data().reviews);
         }
@@ -80,7 +82,9 @@ function EditPackage(props) {
       setName(value);
     } else if (name === "duration") {
       setDuration(value);
-    } else if (name === "region") {
+    }else if (name==="qoute"){
+      setQoute(value);
+    }  else if (name === "region") {
       setRegion(value);
     } else if (name === "grade") {
       setgrade(value);
@@ -378,6 +382,7 @@ function EditPackage(props) {
                 cancellation: cancellation,
                 map: map,
                 name: name,
+                qoute:qoute,
                 region: region,
                 duration: duration,
                 grade: grade,
@@ -471,6 +476,25 @@ function EditPackage(props) {
                     name="duration"
                     value={duration}
                     placeholder={"Package Duration"}
+                    onChange={(event) => {
+                      handleChange(event);
+                    }}
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+
+            <hr />
+            <h5 className="form-admin-title">Package Qoute</h5>
+            <Row>
+              <Col lg={10}>
+                <Form.Group className="admin-dashboard-form-group">
+                  <Form.Control
+                    className="admin-dashboard-form-input"
+                    type="text"
+                    name="qoute"
+                    value={qoute}
+                    placeholder={"Package Qoute"}
                     onChange={(event) => {
                       handleChange(event);
                     }}
