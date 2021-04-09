@@ -43,6 +43,8 @@ function DateUpload(props) {
   }
 
   function addMonth() {
+    
+
     if(finalDates != []) {
       db.collection(props.match.params.packageType)
       .doc(props.match.params.packageId)
