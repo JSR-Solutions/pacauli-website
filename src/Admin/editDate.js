@@ -132,7 +132,18 @@ function EditDate(props) {
                             }}
                             name="sDate"
                           />
-                          
+                          <br></br>
+                          <br></br>
+                          <Form.Control
+                        onChange={(e) => {
+                          handleDateChange(i, e);
+                        }}
+                        placeholder={"Seats"}
+                        className="add-package-form-input date-input"
+                        type="text"
+                        name="seats"
+                        value={dates[i].seats}
+                      />
                         </Modal.Body>
                         <Modal.Footer>
                           <Button variant="secondary" onClick={handleClose}>
@@ -149,22 +160,23 @@ function EditDate(props) {
                         Date {index + 1}
                       </Form.Label>
                       <br />
-
                       <Form.Control
-                        onChange={(e) => {
-                          handleDateChange(index, e);
-                        }}
-                        placeholder={"Seats"}
-                        className="add-package-form-input date-input"
-                        type="text"
-                        name="seats"
-                        value={date.seats}
-                      />
+                      onChange={(e) => {
+                        handleDateChange(index, e);
+                      }}
+                      placeholder={"Seats"}
+                      className="add-package-form-input date-input"
+                      type="text"
+                      name="seats"
+                      value={date.seats}
+                      readOnly
+                    />
+                      
 
                       <Button onClick={()=>{
                         editDate(index);
                       }} className="inline-button">
-                        Edit date
+                        Edit 
                       </Button>
                     </Form.Group>
                   );
