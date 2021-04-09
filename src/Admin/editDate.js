@@ -132,18 +132,7 @@ function EditDate(props) {
                             }}
                             name="sDate"
                           />
-                          <br></br>
-                          <br></br>
-                          <Form.Control
-                        onChange={(e) => {
-                          handleDateChange(index, e);
-                        }}
-                        placeholder={"Seats"}
-                        className="add-package-form-input date-input"
-                        type="text"
-                        name="seats"
-                        value={date.seats}
-                      />
+                          
                         </Modal.Body>
                         <Modal.Footer>
                           <Button variant="secondary" onClick={handleClose}>
