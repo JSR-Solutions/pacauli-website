@@ -254,31 +254,43 @@
 
 .about-founder-div {
   position: absolute;
+  transition: all 0.4s ease;
 }
 
 .founder-div {
-  transition: 0.35s ease-in-out;
+  transition: all 0.4s ease;
+}
+
+.founder-achievements {
+  text-align: left;
+  padding-top: 20px;
+  /* display: none; */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-30px);
+  transition: all 0.4s ease;
 }
 
 .founder-div:hover .about-founder-div,
 .team-div-1:hover .about-founder-div,
 .team-div-2:hover .about-founder-div,
 .team-div-3:hover .about-founder-div {
-  display: none;
+  /* display: none; */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-30px);
 }
 
 .founder-div:hover .founder-achievements,
 .team-div-3:hover .founder-achievements,
 .team-div-1:hover .founder-achievements,
 .team-div-2:hover .founder-achievements {
-  display: block;
+  /* display: block; */
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0px);
 }
 
-.founder-achievements {
-  text-align: left;
-  padding-top: 20px;
-  display: none;
-}
 
 .achievements-list {
   margin-top: 20px;
