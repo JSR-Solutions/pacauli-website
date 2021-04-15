@@ -74,7 +74,19 @@
     );
   }
 }
-
+@media screen and (max-width:850px){
+  .heading-alt-1 h2 {
+     font-size: 100px;
+   }
+}
+  @media screen and (max-width:450px){
+  .heading-alt-1 {
+    height: 400px;
+     }
+  .heading-alt-1 h2{
+    font-size: 80px;
+  }
+}
 .heading-categories {
 
   background: linear-gradient(45deg, rgba(44, 44, 44, 0.25), rgba(44, 44, 44, 0.25)), url("../Assets/headingg.jpg");

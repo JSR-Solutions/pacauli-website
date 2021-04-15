@@ -63,8 +63,12 @@ function UserDashboard() {
       <Header />
 
       <div className="contact-us-main">
-        <div className="heading-dashboard">
+        {/* <div className="heading-dashboard">
           <p>&nbsp;&nbsp;Your Profile&nbsp;&nbsp;</p>
+        </div> */}
+        <div className="heading-alt-4">
+          <h2>Your Profile</h2>
+          <h2>Your Profile</h2>
         </div>
         <div className="contact-us-container">
           <span className="big-circle"></span>

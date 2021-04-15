@@ -220,7 +220,7 @@ const Singlepackage = (props) => {
                   <div className="sngl-pack-short-itn">
                     <div className="single-pck-2-row">
                       <div className="single-pack-side-design"></div>
-                      <h4>Qoute</h4>
+                      <h4>Quote</h4>
                       <hr />
                       <p>
                         {pack.qoute && pack.qoute}
