@@ -286,33 +286,7 @@ function AddPackage() {
     setPricing(values);
   };
 
-  //Reviews dynamic part
-  const handleReviewsChange = (e, index) => {
-    e.preventDefault();
-    const values = [...reviews];
-    const { name, value } = e.target;
-    if (name === "customerName") {
-      values[index].customerName = value;
-    } else if (name === "customerReview") {
-      values[index].customerReview = value;
-    }
-    setReviews(values);
-  };
 
-  const addReviews = (e) => {
-    e.preventDefault();
-    setReviews((prev) => {
-      return [...prev, { day: "", title: "", desc: "" }];
-    });
-  };
-
-  const removeReviews = (index) => {
-    console.log("Element to be removed : " + index);
-    const values = [...reviews];
-    values.splice(index, 1);
-    console.log(values);
-    setReviews(values);
-  };
 
   //Add Package Function
   const addPackage = (e) => {

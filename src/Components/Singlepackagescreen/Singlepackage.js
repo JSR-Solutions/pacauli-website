@@ -19,12 +19,13 @@ import { Button, Form } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 
 const Singlepackage = (props) => {
-  const [pack, setpack] = useState();
+  const [pack, setpack] = useState('');
   const [mapi, setmap] = useState("");
   const [reviews, setReviews] = useState([]);
   const [newreview, setNewreview] = React.useState("");
   const [reviewsFetched, setReviewsFetched] = useState(false);
   const [redirectLogin, setRedirectLogin] = useState(false);
+  const [seatavail, seatavailablity] = useState([])
 
   useEffect(() => {
     $(document).ready(function () {
@@ -35,32 +36,7 @@ const Singlepackage = (props) => {
   const db = firebase.firestore();
   const auth = firebase.auth();
 
-  useEffect(() => {
-    getPackage();
-  }, []);
-
-  function getPackage() {
-    setpack();
-    setmap("");
-    db.collection(props.match.params.categoryName)
-      .doc(props.match.params.packageId)
-      .get()
-      .then((res) => {
-        console.log(res.data());
-        getReviews();
-        if (res.data()) {
-          setpack(res.data());
-          if (res.data().map == "") {
-            setmap("https://maps.google.com/maps?q=India&output=embed");
-            console.log(mapi);
-          } else {
-            setmap(res.data().map);
-          }
-        }
-      });
-  }
-
-  function getReviews() {
+  const getReviews = () => {
     setReviews([]);
     db.collection(props.match.params.categoryName)
       .doc(props.match.params.packageId)
@@ -73,7 +49,6 @@ const Singlepackage = (props) => {
             .doc(reviewData.userId)
             .get()
             .then((snap) => {
-              console.log("USER DATA");
               const userData = snap.data();
               setReviews((prev) => {
                 return [
@@ -93,6 +68,27 @@ const Singlepackage = (props) => {
         });
       });
   }
+
+  useEffect(() => {
+    db.collection(props.match.params.categoryName)
+      .doc(props.match.params.packageId)
+      .get()
+      .then((ress) => {
+        if (ress.data()) {
+          setpack(ress.data());
+          getReviews();
+          if (ress.data().map == "") {
+            setmap("https://maps.google.com/maps?q=India&output=embed");
+            // console.log(mapi);
+          } else {
+            setmap(ress.data().map);
+          }
+        } else {
+          setpack('')
+        }
+      });
+  }, [])
+
 
   useEffect(() => {
     var header = document.getElementById("sing-pack-nav");
@@ -141,9 +137,25 @@ const Singlepackage = (props) => {
     });
   }
 
+  useEffect(() => {
+    seatavailablity([])
+    db.collection(props.match.params.categoryName)
+      .doc(props.match.params.packageId)
+      .collection("Dates")
+      .doc("dates")
+      .get()
+      .then((ress) => {
+        if (ress.data()) {
+          seatavailablity(ress.data().dates)
+        } else {
+          seatavailablity([])
+        }
+      });
+  }, [])
+
   return (
     <div className="single-package-main">
-    {redirectLogin && <Redirect to="/signin" />}
+      {redirectLogin && <Redirect to="/signin" />}
       <Header />
 
       <div className="img-carou">
@@ -160,7 +172,7 @@ const Singlepackage = (props) => {
       </div>
 
       <div className="single-package-lower">
-        {pack && (
+        {pack &&
           <Container>
             <Row className="sngl-pack-row">
               <Col md={8}>
@@ -205,6 +217,53 @@ const Singlepackage = (props) => {
                     </div>
                   </div>
 
+                  <div className="sngl-pack-short-itn">
+                    <div className="single-pck-2-row">
+                      <div className="single-pack-side-design"></div>
+                      <h4>Qoute</h4>
+                      <hr />
+                      <p>
+                        {pack.qoute && pack.qoute}
+                      </p>
+                    </div>
+                  </div>
+
+
+                  <div className="sngl-pack-short-itn">
+                    <div className="single-pck-2-row">
+                      <div className="single-pack-side-design"></div>
+                      <h4>Seat Availability</h4>
+                      <hr />
+                      {seatavail &&
+                        seatavail.map((l, k) => (
+                          <div key={k} className="sng-prc-tag">
+                            <Row>
+                              <Col lg={6}>
+                                <div className="sng-prc-tag1">
+                                  <h5>
+                                    {l.sDate && l.sDate.seconds && new Date(l.sDate.seconds * 1000).toDateString()}
+                                  </h5>
+                                </div>
+                              </Col>
+                              <Col lg={6}>
+                                <div className="sng-prc-tag2">
+                                  <h5>
+                                    Seats {l.seats}
+                                    <span>
+                                    {
+                                      l.seats < 32 ? " move fast" : null
+                                    }
+                                    </span>
+                                  </h5>
+                                </div>
+                              </Col>
+                            </Row>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+
+
                   <StickyContainer>
                     <Sticky topOffset={50}>
                       {({ style, isSticky }) => (
@@ -223,12 +282,12 @@ const Singlepackage = (props) => {
                           </div>
                           <div className="single-pack-nav-item nav-time-active">
                             <a href="#detailedItinerary">
-                              <p>Detailed Itinerary</p>
+                              <p>Detailed_Itinerary</p>
                             </a>
                           </div>
                           <div className="single-pack-nav-item">
                             <a href="#briefItinerary">
-                              <p>Brief Itinerary</p>
+                              <p>Brief_Itinerary</p>
                             </a>
                           </div>
                           <div className="single-pack-nav-item">
@@ -268,24 +327,30 @@ const Singlepackage = (props) => {
                         {pack &&
                           pack.pricing.map((l, k) => (
                             <div key={k} className="sng-prc-tag">
-                              <div className="sng-prc-tag1">
-                                <h5>
-                                  {k + 1}
-                                  <sup>st</sup> Option
+                              <Row>
+                                <Col lg={6}>
+                                  <div className="sng-prc-tag1">
+                                    <h5>
+                                      {k + 1}
+                                      <sup>st</sup> Option
                                 </h5>
-                                <h6>
-                                  <AiOutlineFieldTime
-                                    style={{ fontSize: "21px" }}
-                                  />{" "}
-                                  {pack.duration}
-                                </h6>
-                              </div>
-                              <div className="sng-prc-tag2">
-                                <h6>Rs {parseInt(l.cost) + 1000}</h6>
-                                <h5>
-                                  Rs {l.cost} <span>{l.type}</span>
-                                </h5>
-                              </div>
+                                    <h6>
+                                      <AiOutlineFieldTime
+                                        style={{ fontSize: "21px" }}
+                                      />{" "}
+                                      {pack.duration}
+                                    </h6>
+                                  </div>
+                                </Col>
+                                <Col lg={6}>
+                                  <div className="sng-prc-tag2">
+                                    <h6>Rs {parseInt(l.cost) + 1000}</h6>
+                                    <h5>
+                                      Rs {l.cost} <span>{l.type}</span>
+                                    </h5>
+                                  </div>
+                                </Col>
+                              </Row>
                             </div>
                           ))}
                       </div>
@@ -483,7 +548,7 @@ const Singlepackage = (props) => {
               </Col>
             </Row>
           </Container>
-        )}
+        }
       </div>
 
       <Footer />
@@ -492,35 +557,3 @@ const Singlepackage = (props) => {
 };
 
 export default Singlepackage;
-
-// <h5><AiOutlineFieldTime className='single-pck-1-row-icon' />Max Altitude - {pack.maxAltitude} km</h5>
-// <h5><AiOutlineFieldTime className='single-pck-1-row-icon' />Region - {pack.region}</h5>
-
-// <div className='img-carou'>
-// <div className='single-package-upper'>
-//     {
-//         pack && pack.imgUrl && pack.imgUrl[0] &&
-//         <img src={pack.imgUrl[4]} alt='sk' />
-//     }
-// </div>
-// <div className='img-carou1'>
-//     {
-//         pack && pack.imgUrl && pack.imgUrl[0] &&
-//         <img src={pack.imgUrl[0]} alt='sk' />
-//     }
-//     {
-//         pack && pack.imgUrl && pack.imgUrl[0] &&
-//         <img src={pack.imgUrl[1]} alt='sk' />
-//     }
-// </div>
-// <div className='img-carou2'>
-//     {
-//         pack && pack.imgUrl && pack.imgUrl[0] &&
-//         <img src={pack.imgUrl[2]} alt='sk' />
-//     }
-//     {
-//         pack && pack.imgUrl && pack.imgUrl[0] &&
-//         <img src={pack.imgUrl[5]} alt='sk' />
-//     }
-// </div>
-// </div>
