@@ -250,7 +250,7 @@ function AddPackage() {
   // Map handle change function
   const handleMapChange = (e) => {
     e.preventDefault();
-    const { value } = e.target;
+    const { value } = `{e.target}`;
     setMap(value);
   };
 
@@ -340,7 +340,7 @@ function AddPackage() {
                 inclusions: inclusions,
                 exclusions: exclusions,
                 cancellation: cancellation,
-                map: map,
+                map: map.concat("&output=embed"),
                 name: name,
                 region: region,
                 duration: duration,
