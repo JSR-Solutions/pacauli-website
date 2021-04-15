@@ -20,7 +20,7 @@
     text-decoration: line-through;
 }
 .price-card1 h2{
-    color: var(--primary);
+    color: var(--primary-black);
     margin: 5px 0;
     padding: 0;
     font-weight: bold;
@@ -36,7 +36,7 @@
     left: 5px;
 }
 .price-card1 h4{
-    color: var(--primary);
+    color: var(--primary-black);
     margin-top: -1px;
     padding: 0;
     font-size: 19px;
@@ -46,7 +46,7 @@
     margin-top: -5px !important;
 }
 .price-card2 button{
-    background-color: var(--primary);
+    background-color: var(--primary-black);
     border: none;
     width: 100%;
     line-height: 47px;
@@ -107,7 +107,7 @@
     padding: 0;
 }
 .form-main-btn-ak button{
-    background-color: var(--primary);
+    background-color: var(--primary-black);
     border: none;
     width: 100%;
     line-height: 50px;
@@ -157,7 +157,7 @@
     background-color: white;
 }
 .why-pac-main{
-    background-color: var(--primary);
+    background-color: var(--primary-black);
     width: 100%;
     line-height: 50px;
     color: var(--white);
