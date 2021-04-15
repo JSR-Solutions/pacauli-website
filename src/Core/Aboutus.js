@@ -34,8 +34,12 @@ const Aboutus = () => {
       </div> */}
 
       <div>
-        <div className="heading-about">
+        {/* <div className="heading-about">
           <p>&nbsp;&nbsp;About Us&nbsp;&nbsp;</p>
+        </div> */}
+        <div className="heading-alt">
+          <h2>About Us</h2>
+          <h2>About Us</h2>
         </div>
         <div className="about-us-god">
           <p className="about-us-quote">

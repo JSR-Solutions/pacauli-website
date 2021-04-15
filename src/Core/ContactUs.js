@@ -108,8 +108,12 @@ const ContactUs = () => {
       <Header />
       <ToastContainer />
       <div className="contact-us-main">
-        <div className="heading-contact">
+        {/* <div className="heading-contact">
           <p>&nbsp;&nbsp;Contact Us&nbsp;&nbsp;</p>
+        </div> */}
+        <div className="heading-alt-3">
+          <h2>Contact Us</h2>
+          <h2>Contact Us</h2>
         </div>
         <div className="contact-us-container">
           <span className="big-circle"></span>
