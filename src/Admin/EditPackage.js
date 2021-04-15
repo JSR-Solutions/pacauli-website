@@ -129,8 +129,10 @@ function EditPackage(props) {
   const removeOverview = (index) => {
     console.log("Element to be removed : " + index);
     const values = [...overviews];
-    values.splice(index, 1);
-    console.log(values);
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
     setOverviews(values);
   };
 
@@ -151,9 +153,11 @@ function EditPackage(props) {
 
   const removeHistory = (index) => {
     console.log("Element to be removed : " + index);
-    const values = [...inclusions];
-    values.splice(index, 1);
-    console.log(values);
+    const values = [...histories];
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
     setHistories(values);
   };
 
@@ -175,8 +179,10 @@ function EditPackage(props) {
   const removeInclusions = (index) => {
     console.log("Element to be removed : " + index);
     const values = [...inclusions];
-    values.splice(index, 1);
-    console.log(values);
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
     setInclusions(values);
   };
 
@@ -198,8 +204,10 @@ function EditPackage(props) {
   const removeExclusions = (index) => {
     console.log("Element to be removed : " + index);
     const values = [...exclusions];
-    values.splice(index, 1);
-    console.log(values);
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
     setExclusions(values);
   };
 
@@ -221,8 +229,10 @@ function EditPackage(props) {
   const removeCancellation = (index) => {
     console.log("Element to be removed : " + index);
     const values = [...cancellation];
-    values.splice(index, 1);
-    console.log(values);
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
     setCancellation(values);
   };
 
@@ -250,9 +260,11 @@ function EditPackage(props) {
 
   const removeBriefItinerary = (index) => {
     console.log("Element to be removed : " + index);
-    const values = [...detailedItinerary];
-    values.splice(index, 1);
-    console.log(values);
+    const values = [...briefItinerary];
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
     setBriefItinerary(values);
   };
 
@@ -281,8 +293,10 @@ function EditPackage(props) {
   const removeDetailedItinerary = (index) => {
     console.log("Element to be removed : " + index);
     const values = [...detailedItinerary];
-    values.splice(index, 1);
-    console.log(values);
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
     setDetailedItinerary(values);
   };
 
@@ -316,38 +330,40 @@ function EditPackage(props) {
   const removePricing = (index) => {
     console.log("Element to be removed : " + index);
     const values = [...pricing];
-    values.splice(index, 1);
-    console.log(values);
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
     setPricing(values);
   };
 
   //Reviews dynamic part
-  const handleReviewsChange = (e, index) => {
-    e.preventDefault();
-    const values = [...reviews];
-    const { name, value } = e.target;
-    if (name === "customerName") {
-      values[index].customerName = value;
-    } else if (name === "customerReview") {
-      values[index].customerReview = value;
-    }
-    setReviews(values);
-  };
+  // const handleReviewsChange = (e, index) => {
+  //   e.preventDefault();
+  //   const values = [...reviews];
+  //   const { name, value } = e.target;
+  //   if (name === "customerName") {
+  //     values[index].customerName = value;
+  //   } else if (name === "customerReview") {
+  //     values[index].customerReview = value;
+  //   }
+  //   setReviews(values);
+  // };
 
-  const addReviews = (e) => {
-    e.preventDefault();
-    setReviews((prev) => {
-      return [...prev, { day: "", title: "", desc: "" }];
-    });
-  };
+  // const addReviews = (e) => {
+  //   e.preventDefault();
+  //   setReviews((prev) => {
+  //     return [...prev, { day: "", title: "", desc: "" }];
+  //   });
+  // };
 
-  const removeReviews = (index) => {
-    console.log("Element to be removed : " + index);
-    const values = [...reviews];
-    values.splice(index, 1);
-    console.log(values);
-    setReviews(values);
-  };
+  // const removeReviews = (index) => {
+  //   console.log("Element to be removed : " + index);
+  //   const values = [...reviews];
+  //   values.splice(index, 1);
+  //   console.log(values);
+  //   setReviews(values);
+  // };
 
   //Add Package Function
   const updatePackage = (e) => {
