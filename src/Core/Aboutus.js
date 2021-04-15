@@ -193,7 +193,7 @@ const Aboutus = () => {
               ></path>
             </svg>
             <Row>
-              <Col lg={6} md={12} sm={12}>
+              <Col lg={6} md={{ span: 12, order: 2 }}  sm={{ span: 12, order: 2 }} xs={{ span: 12, order: 2 }}>
                 <div className="about-founder-div">
                   <h2 className="founder-name">VIVEK PANWAR</h2>
                   <h6>TEAM MEMBER</h6>
@@ -282,7 +282,7 @@ const Aboutus = () => {
                   </ul>
                 </div>
               </Col>
-              <Col className="image-col-team" lg={6} md={12} sm={12}>
+              <Col className="image-col-team" lg={6} sm={{ span: 12, order: 1 }} md={12}>
                 <img src={t1} alt="Anshuman Bisht" className="founder-image" />
               </Col>
             </Row>
@@ -378,7 +378,7 @@ const Aboutus = () => {
               ></path>
             </svg>
             <Row>
-              <Col lg={6} md={12} sm={12}>
+              <Col lg={6} md={{ span: 12, order: 2 }}  sm={{ span: 12, order: 2 }} xs={{ span: 12, order: 2 }}>
                 <div className="about-founder-div">
                   <h2 className="founder-name">VANDANA PANWAR</h2>
                   <h6>TEAM MEMBER</h6>
