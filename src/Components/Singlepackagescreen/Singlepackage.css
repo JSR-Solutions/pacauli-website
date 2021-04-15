@@ -146,7 +146,16 @@
     font-weight: normal;
     text-transform: lowercase;
 }
-
+.sng-prc-tag2 .seat-availablity1{
+    color: green !important;
+    font-size: 17.5px ;
+}
+.sng-prc-tag2 .seat-availablity2{
+    color: yellow !important;
+}
+.sng-prc-tag2 .seat-availablity3{
+    color: red !important;
+}
 
 
 .single-package-navbar{

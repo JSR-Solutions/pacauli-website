@@ -5,8 +5,9 @@ import Pricecard from "./Pricecard";
 import Formcomp from "./Form";
 import { GiNetworkBars } from "react-icons/gi";
 import { AiOutlineSafetyCertificate, AiOutlineFieldTime } from "react-icons/ai";
-import { RiPinDistanceFill } from "react-icons/ri";
-import { IoLocateSharp } from "react-icons/io5";
+import { RiPinDistanceFill, RiCheckboxCircleFill } from "react-icons/ri";
+import { IoLocateSharp, IoAlertCircleSharp } from "react-icons/io5";
+import { FaTimesCircle } from 'react-icons/fa';
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import firebase from "firebase";
@@ -27,11 +28,11 @@ const Singlepackage = (props) => {
   const [redirectLogin, setRedirectLogin] = useState(false);
   const [seatavail, seatavailablity] = useState([])
 
-  useEffect(() => {
-    $(document).ready(function () {
-      $(this).scrollTop(0);
-    });
-  }, []);
+  // useEffect(() => {
+  //   $(document).ready(function () {
+  //     $(this).scrollTop(0);
+  //   });
+  // }, []);
 
   const db = firebase.firestore();
   const auth = firebase.auth();
@@ -248,12 +249,17 @@ const Singlepackage = (props) => {
                               <Col lg={6}>
                                 <div className="sng-prc-tag2">
                                   <h5>
-                                    Seats {l.seats}
-                                    <span>
+
                                     {
-                                      l.seats < 32 ? " move fast" : null
+                                      l.seats > 4 ? <span className='seat-availablity1'><RiCheckboxCircleFill style={{ color: 'green', fontSize: '19px' }} /> Seats Availabe</span> : null
                                     }
-                                    </span>
+                                    {
+                                      l.seats < 3 ? <span className='seat-availablity2'> <IoAlertCircleSharp style={{ color: 'yellow', fontSize: '20px' }} /> Seats Filling</span> : null
+                                    }
+                                    {
+                                      l.seats < 1 ? <span className='seat-availablity3'><FaTimesCircle style={{ color: 'red', fontSize: '17px' }} /> Seats Full</span> : null
+                                    }
+
                                   </h5>
                                 </div>
                               </Col>
