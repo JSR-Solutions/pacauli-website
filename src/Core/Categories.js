@@ -15,12 +15,16 @@ const Categories = () => {
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>
       <Header />
-      <div
+      {/* <div
         style={{ width: "100%", overflowX: "hidden" }}
         className="heading-categories"
       >
         <p>&nbsp;&nbsp;Categories&nbsp;&nbsp;</p>
-      </div>
+      </div> */}
+      <div className="heading-alt-1">
+          <h2>Categories</h2>
+          <h2>Categories</h2>
+        </div>
       <div className="catt">
         {category.map((cat, index) => {
           return (
