@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Form, Button,Col,Row } from "react-bootstrap";
 import firebase from "firebase";
 import Sidebar from "./Sidebar"
@@ -10,13 +10,41 @@ import "../Styles/dateupload.css"
 
 function DateUpload(props) {
   const [dates, setDates] = useState([
-    { sDate: "", seats: "" },
+    { sDate: "", seats: "" }
   ]);
-  const [finalDates, setFinalDates] = useState([]);
+  const [prevDates,setPrevDates]=useState([{}]);
+  const [packageDates,setPackageDates]=useState([]);
+  const [finalDates, setFinalDates] = useState([{ sDate: "", seats: "" }]);
   const [added, setAdded] = useState(false);
   const db = firebase.firestore();
+  const [tareek,setTareek]=useState([{date:"",month:"",year:""}]);
+  
+
+  useEffect(() => {
+    getDates();
+  }, []);
+
+  function getDates() {
+    
+    db.collection(props.match.params.packageType)
+      .doc(props.match.params.packageId)
+      .collection("Dates")
+      .doc("dates")
+      .get()
+      .then((snapshot) => {
+        if (snapshot) {
+          setPrevDates(snapshot.data().dates);
+          if(prevDates!=null){
+          console.log(prevDates.length);
+          console.log(prevDates);
+        }}
+      });
+  }
 
   function addDate() {
+    setTareek((prev)=>{
+      return[...prev,{date:"",month:"",year:""}];
+    });
     setDates((prev) => {
       return [...prev, { sDate: "", seats: "" }];
     });
@@ -28,22 +56,52 @@ function DateUpload(props) {
     values.splice(index, 1);
     setDates(values);
   }
+  function handleTareekChange(index,event){
+    const values=[...tareek];
+    const fulldate=[...dates]
+    if(event){
+      const {name,value}=event.target;
+      if(name==="date"){
+        values[index].date=value;
+      }
+      if(name==="month"){
+        values[index].month=value;
+      }
+      if(name==="year"){
+        values[index].year=value;
+      }
+      setTareek(values);
+      
 
+      fulldate[index].sDate=tareek[index].date +"/"+tareek[index].month+"/"+tareek[index].year; 
+      setDates(fulldate);
+      console.log(dates);
+    }
+  }
   function handleDateChange(index, event) {
     const values = [...dates];
     if (event) {
       const { name, value } = event.target;
       if (name == "seats") {
         values[index].seats = value;
+      }if (name == "sDate") {
+        values[index].sDate = value;
       }
     }
 
     setDates(values);
-    console.log(dates);
+    
   }
 
   function addMonth() {
     
+    dates.forEach((date)=>{
+      prevDates.push(date);
+    })
+    console.log(prevDates);
+    
+      
+   
 
     if(finalDates != []) {
       db.collection(props.match.params.packageType)
@@ -51,10 +109,12 @@ function DateUpload(props) {
       .collection("Dates")
       .doc("dates")
       .set({
-         dates
+         dates: prevDates
       })
       .then(() => {
         setAdded(true);
+        
+        setPrevDates([{sDate:"",seats:""}])
       });
     }
   }
@@ -82,15 +142,41 @@ function DateUpload(props) {
                 Date {index + 1}
               </Form.Label>
               <br />
-              <DatePicker
-                onChange={(newDate) => {
-                  const values = [...dates];
-                  values[index].sDate = newDate;
-                  setDates(values);
+              
+              <Form.Control
+                onChange={(e) => {
+                  handleTareekChange(index, e);
                 }}
-                value={date.sDate}
-                name="sDate"
+                placeholder={"Date"}
+                className="add-package-form-input-datee-input"
+                type="text"
+                name="date"
+                value={tareek[index].date}
               />
+              <Form.Control
+                onChange={(e) => {
+                  handleTareekChange(index, e);
+                }}
+                placeholder={"Month"}
+                className="add-package-form-input-datee-input"
+                type="text"
+                name="month"
+                value={tareek[index].month}
+              />
+              <Form.Control
+                onChange={(e) => {
+                  handleTareekChange(index, e);
+                }}
+                placeholder={"Year"}
+                className="add-package-form-input-datee-input"
+                type="text"
+                name="year"
+                value={tareek[index].year}
+              />
+              
+              
+              
+              
               <Form.Control
                 onChange={(e) => {
                   handleDateChange(index, e);

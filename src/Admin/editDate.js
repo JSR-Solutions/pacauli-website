@@ -36,15 +36,8 @@ function EditDate(props) {
       .get()
       .then((snapshot) => {
         if (snapshot) {
-          snapshot.data().dates.map((datee, index) => {
-            datee.sDate = moment.unix(datee.sDate.seconds).format("DD-MM-YYYY");
-            console.log(datee.sDate);
-
-            datte[index] = datee;
-          });
-
-          setDates(datte);
-          setDatess(datte);
+          setDates(snapshot.data().dates);
+            
         }
       });
   }
@@ -55,17 +48,24 @@ function EditDate(props) {
         d[index]=moment.unix(date.sDate.seconds).format("DD-MM-YYYY");
     });
     };*/
-  function editDate(index) {
-    setShow(true);
-    setI(index);
-    console.log(index);
-  }
-  function removeDate(index) {
-    const values = [...dates];
-    console.log("Removing : " + index);
-    values.splice(index, 1);
-    setDates(values);
-  }
+  
+  
+    function deleteDate(date) {
+      console.log(date);
+      db.collection(props.match.params.packageType)
+        .doc(props.match.params.packageId)
+        .collection("Dates")
+        .doc("dates")
+        .update({
+          dates: firebase.firestore.FieldValue.arrayRemove(date)
+        })
+        .then(() => {
+          getDates();
+        });
+        
+    }
+    
+  
 
   function handleDateChange(index, event) {
     const values = [...dates];
@@ -73,6 +73,8 @@ function EditDate(props) {
       const { name, value } = event.target;
       if (name == "seats") {
         values[index].seats = value;
+      }if (name == "sDate") {
+        values[index].sDate = value;
       }
     }
 
@@ -87,7 +89,7 @@ function EditDate(props) {
         .doc(props.match.params.packageId)
         .collection("Dates")
         .doc("dates")
-        .set({
+        .update({
           dates,
         })
         .then(() => {
@@ -117,54 +119,36 @@ function EditDate(props) {
                       className="add-package-form-group"
                       controlId="package-dates"
                     >
-                      <Modal show={show} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                          <Modal.Title>Select New Date</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                          <DatePicker
-                            onChange={(newDate) => {
-                              const values = [...datess];
-                              values[i].sDate = newDate;
-                              setDatess(values);
-                              handleClose();
-                              console.log(i);
-                            }}
-                            name="sDate"
-                          />
-                          
-                        </Modal.Body>
-                        <Modal.Footer>
-                          <Button variant="secondary" onClick={handleClose}>
-                            Close
-                          </Button>
-                        </Modal.Footer>
-                      </Modal>
-                      <Form.Control
-                        type="text"
-                        value={date.sDate}
-                        name="sDate"
-                      ></Form.Control>
+                      
+                      
                       <Form.Label className="add-package-form-label">
                         Date {index + 1}
                       </Form.Label>
                       <br />
-
                       <Form.Control
+                        type="text"
+                        value={date.sDate}
+                        name="sDate"
                         onChange={(e) => {
                           handleDateChange(index, e);
                         }}
-                        placeholder={"Seats"}
-                        className="add-package-form-input date-input"
-                        type="text"
-                        name="seats"
-                        value={date.seats}
-                      />
-
-                      <Button onClick={()=>{
-                        editDate(index);
-                      }} className="inline-button">
-                        Edit
+                      ></Form.Control>
+                      <Form.Control
+                      onChange={(e) => {
+                        handleDateChange(index, e);
+                      }}
+                      placeholder={"Seats"}
+                      className="add-package-form-input date-input"
+                      type="text"
+                      name="seats"
+                      value={date.seats}
+                      
+                    />
+                      <Button  className="inline-button"
+                      onClick={() => {
+                        deleteDate(date);
+                      }}>
+                        Delete 
                       </Button>
                     </Form.Group>
                   );
