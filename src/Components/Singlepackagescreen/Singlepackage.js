@@ -75,7 +75,7 @@ const Singlepackage = (props) => {
       .get()
       .then((ress) => {
         if (ress.data()) {
-          console.log(ress.data())
+
           setpack(ress.data());
           getReviews();
           if (ress.data().map == "") {
