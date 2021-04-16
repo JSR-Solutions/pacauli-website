@@ -76,6 +76,7 @@ const Singlepackage = (props) => {
       .get()
       .then((ress) => {
         if (ress.data()) {
+          console.log(ress.data())
           setpack(ress.data());
           getReviews();
           if (ress.data().map == "") {
@@ -224,7 +225,7 @@ const Singlepackage = (props) => {
                       <h4>Quote</h4>
                       <hr />
                       <p>
-                        {pack.qoute && pack.qoute}
+                        {pack.quote && pack.quote}
                       </p>
                     </div>
                   </div>
