@@ -40,3 +40,12 @@
     border: none !important;
     color: rgb(255, 255, 255) !important;
 }
+.add-package-form-input-datee-input{
+    width:80px!important;
+    display: inline-flex!important;
+    margin-right: 5px!important;
+    margin-bottom: 15px!important;
+}
+.add-package-form-input{
+    width:250px!important;
+}
