@@ -21,7 +21,7 @@
   position: absolute;
   font-size: 180px;
   text-align: center;
-  font-family: 'Oleo Script', cursive !important;
+  font-family: var(--sans-serif) !important;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

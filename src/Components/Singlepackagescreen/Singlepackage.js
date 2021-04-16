@@ -7,26 +7,25 @@ import { GiNetworkBars } from "react-icons/gi";
 import { AiOutlineSafetyCertificate, AiOutlineFieldTime } from "react-icons/ai";
 import { RiPinDistanceFill, RiCheckboxCircleFill } from "react-icons/ri";
 import { IoLocateSharp, IoAlertCircleSharp } from "react-icons/io5";
-import { FaTimesCircle } from 'react-icons/fa';
+import { FaTimesCircle } from "react-icons/fa";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import firebase from "firebase";
 import { StickyContainer, Sticky } from "react-sticky";
 import "react-alice-carousel/lib/alice-carousel.css";
 import Imagess from "./imageGallery";
-import $ from "jquery";
 import SingleReview from "../SingleReview";
 import { Button, Form } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 
 const Singlepackage = (props) => {
-  const [pack, setpack] = useState('');
+  const [pack, setpack] = useState("");
   const [mapi, setmap] = useState("");
   const [reviews, setReviews] = useState([]);
   const [newreview, setNewreview] = React.useState("");
   const [reviewsFetched, setReviewsFetched] = useState(false);
   const [redirectLogin, setRedirectLogin] = useState(false);
-  const [seatavail, seatavailablity] = useState([])
+  const [seatavail, seatavailablity] = useState([]);
 
   // useEffect(() => {
   //   $(document).ready(function () {
@@ -68,7 +67,7 @@ const Singlepackage = (props) => {
             });
         });
       });
-  }
+  };
 
   useEffect(() => {
     db.collection(props.match.params.categoryName)
@@ -86,11 +85,10 @@ const Singlepackage = (props) => {
             setmap(ress.data().map);
           }
         } else {
-          setpack('')
+          setpack("");
         }
       });
-  }, [])
-
+  }, []);
 
   useEffect(() => {
     var header = document.getElementById("sing-pack-nav");
@@ -140,7 +138,7 @@ const Singlepackage = (props) => {
   }
 
   useEffect(() => {
-    seatavailablity([])
+    seatavailablity([]);
     db.collection(props.match.params.categoryName)
       .doc(props.match.params.packageId)
       .collection("Dates")
@@ -148,12 +146,12 @@ const Singlepackage = (props) => {
       .get()
       .then((ress) => {
         if (ress.data()) {
-          seatavailablity(ress.data().dates)
+          seatavailablity(ress.data().dates);
         } else {
-          seatavailablity([])
+          seatavailablity([]);
         }
       });
-  }, [])
+  }, []);
 
   return (
     <div className="single-package-main">
@@ -174,7 +172,7 @@ const Singlepackage = (props) => {
       </div>
 
       <div className="single-package-lower">
-        {pack &&
+        {pack && (
           <Container>
             <Row className="sngl-pack-row">
               <Col md={8}>
@@ -201,75 +199,11 @@ const Singlepackage = (props) => {
                         Duration - {pack.duration}
                       </h5>
                       <hr />
+                      <center><h6>
+                        "{pack.quote && pack.quote}"
+                      </h6></center>
                     </div>
                   </div>
-
-                  <div className="sngl-pack-short-itn">
-                    <div className="single-pck-2-row">
-                      <div className="single-pack-side-design"></div>
-                      <h4>Histories</h4>
-                      <hr />
-                      {pack &&
-                        pack.histories.map((l, k) => (
-                          <p key={k}>
-                            <IoLocateSharp className="single-pck-2-row-icon" />
-                            {l}
-                          </p>
-                        ))}
-                    </div>
-                  </div>
-
-                  <div className="sngl-pack-short-itn">
-                    <div className="single-pck-2-row">
-                      <div className="single-pack-side-design"></div>
-                      <h4>Quote</h4>
-                      <hr />
-                      <p>
-                        {pack.quote && pack.quote}
-                      </p>
-                    </div>
-                  </div>
-
-
-                  <div className="sngl-pack-short-itn">
-                    <div className="single-pck-2-row">
-                      <div className="single-pack-side-design"></div>
-                      <h4>Seat Availability</h4>
-                      <hr />
-                      {seatavail &&
-                        seatavail.map((l, k) => (
-                          <div key={k} className="sng-prc-tag">
-                            <Row>
-                              <Col lg={6}>
-                                <div className="sng-prc-tag1">
-                                  <h5>
-                                    {l.sDate && l.sDate.seconds && new Date(l.sDate.seconds * 1000).toDateString()}
-                                  </h5>
-                                </div>
-                              </Col>
-                              <Col lg={6}>
-                                <div className="sng-prc-tag2">
-                                  <h5>
-
-                                    {
-                                      l.seats > 4 ? <span className='seat-availablity1'><RiCheckboxCircleFill style={{ color: 'green', fontSize: '19px' }} /> Seats Availabe</span> : null
-                                    }
-                                    {
-                                      l.seats < 3 ? <span className='seat-availablity2'> <IoAlertCircleSharp style={{ color: 'yellow', fontSize: '20px' }} /> Seats Filling</span> : null
-                                    }
-                                    {
-                                      l.seats < 1 ? <span className='seat-availablity3'><FaTimesCircle style={{ color: 'red', fontSize: '17px' }} /> Seats Full</span> : null
-                                    }
-
-                                  </h5>
-                                </div>
-                              </Col>
-                            </Row>
-                          </div>
-                        ))}
-                    </div>
-                  </div>
-
 
                   <StickyContainer>
                     <Sticky topOffset={50}>
@@ -287,14 +221,24 @@ const Singlepackage = (props) => {
                               <p>Overview</p>
                             </a>
                           </div>
+                          <div className="single-pack-nav-item">
+                            <a href="#briefItinerary">
+                              <p>Brief_Itinerary</p>
+                            </a>
+                          </div>
                           <div className="single-pack-nav-item nav-time-active">
                             <a href="#detailedItinerary">
                               <p>Detailed_Itinerary</p>
                             </a>
                           </div>
                           <div className="single-pack-nav-item">
-                            <a href="#briefItinerary">
-                              <p>Brief_Itinerary</p>
+                            <a href="#reviews">
+                              <p>Reviews</p>
+                            </a>
+                          </div>
+                          <div className="single-pack-nav-item">
+                            <a href="#map">
+                              <p>Map</p>
                             </a>
                           </div>
                           <div className="single-pack-nav-item">
@@ -308,16 +252,6 @@ const Singlepackage = (props) => {
                             </a>
                           </div>
                           <div className="single-pack-nav-item">
-                            <a href="#map">
-                              <p>Map</p>
-                            </a>
-                          </div>
-                          <div className="single-pack-nav-item">
-                            <a href="#reviews">
-                              <p>Reviews</p>
-                            </a>
-                          </div>
-                          <div className="single-pack-nav-item">
                             <a href="#cancellation">
                               <p>Policies</p>
                             </a>
@@ -326,47 +260,11 @@ const Singlepackage = (props) => {
                       )}
                     </Sticky>
 
-                    <div className="sngl-pack-short-itn">
-                      <div className="single-pck-2-row">
-                        <div className="single-pack-side-design"></div>
-                        <h4>Package Options</h4>
-                        <hr />
-                        {pack &&
-                          pack.pricing.map((l, k) => (
-                            <div key={k} className="sng-prc-tag">
-                              <Row>
-                                <Col lg={6}>
-                                  <div className="sng-prc-tag1">
-                                    <h5>
-                                      {k + 1}
-                                      <sup>st</sup> Option
-                                </h5>
-                                    <h6>
-                                      <AiOutlineFieldTime
-                                        style={{ fontSize: "21px" }}
-                                      />{" "}
-                                      {pack.duration}
-                                    </h6>
-                                  </div>
-                                </Col>
-                                <Col lg={6}>
-                                  <div className="sng-prc-tag2">
-                                    <h6>Rs {parseInt(l.cost) + 1000}</h6>
-                                    <h5>
-                                      Rs {l.cost} <span>{l.type}</span>
-                                    </h5>
-                                  </div>
-                                </Col>
-                              </Row>
-                            </div>
-                          ))}
-                      </div>
-                    </div>
-
+                    {/* OVERVIEW */}
                     <div className="sngl-pack-short-itn" id="overview">
                       <div className="single-pck-2-row">
                         <div className="single-pack-side-design"></div>
-                        <h4>Overviews</h4>
+                        <h4>Overview</h4>
                         <hr />
                         {pack &&
                           pack.overviews.map((l, k) => (
@@ -377,7 +275,22 @@ const Singlepackage = (props) => {
                           ))}
                       </div>
                     </div>
-
+                    {/* HISTORY */}
+                    <div className="sngl-pack-short-itn">
+                      <div className="single-pck-2-row">
+                        <div className="single-pack-side-design"></div>
+                        <h4>History</h4>
+                        <hr />
+                        {pack &&
+                          pack.histories.map((l, k) => (
+                            <p key={k}>
+                              <IoLocateSharp className="single-pck-2-row-icon" />
+                              {l}
+                            </p>
+                          ))}
+                      </div>
+                    </div>
+                    {/* BRIEF ITINERARY */}
                     <div className="sngl-pack-short-itn" id="briefItinerary">
                       <div className="single-pck-2-row">
                         <div className="single-pack-side-design"></div>
@@ -396,7 +309,7 @@ const Singlepackage = (props) => {
                           ))}
                       </div>
                     </div>
-
+                    {/* DETAILED ITINERARY */}
                     <div className="sngl-pack-short-itn" id="detailedItinerary">
                       <div className="single-pck-2-row">
                         <div className="single-pack-side-design"></div>
@@ -415,37 +328,112 @@ const Singlepackage = (props) => {
                           ))}
                       </div>
                     </div>
+                    {/* BATCH AVAILABILITY */}
 
-                    <div className="sngl-pack-short-itn" id="inclusion">
+                    <div className="sngl-pack-short-itn">
                       <div className="single-pck-2-row">
                         <div className="single-pack-side-design"></div>
-                        <h4>Inclusions</h4>
+                        <h4>Seat Availability</h4>
                         <hr />
-                        {pack &&
-                          pack.inclusions.map((l, k) => (
-                            <p key={k}>
-                              <IoLocateSharp className="single-pck-2-row-icon" />
-                              {l}
-                            </p>
+                        {seatavail &&
+                          seatavail.map((l, k) => (
+                            <div key={k} className="sng-prc-tag">
+                              <Row>
+                                <Col lg={6}>
+                                  <div className="sng-prc-tag1">
+                                    <h5>
+                                      {l.sDate &&
+                                        l.sDate.seconds &&
+                                        new Date(
+                                          l.sDate.seconds * 1000
+                                        ).toDateString()}
+                                    </h5>
+                                  </div>
+                                </Col>
+                                <Col lg={6}>
+                                  <div className="sng-prc-tag2 sng-batch">
+                                    <h5>
+                                      {l.seats > 2 ? (
+                                        <span className="seat-availablity1">
+                                          <RiCheckboxCircleFill
+                                            style={{
+                                              color: "green",
+                                              fontSize: "19px",
+                                            }}
+                                          />{" "}
+                                          Seats Availabe
+                                        </span>
+                                      ) : null}
+                                      {l.seats < 3 && l.seats > 0 ? (
+                                        <span className="seat-availablity2">
+                                          {" "}
+                                          <IoAlertCircleSharp
+                                            style={{
+                                              color: "yellow",
+                                              fontSize: "20px",
+                                            }}
+                                          />{" "}
+                                          Seats Filling
+                                        </span>
+                                      ) : null}
+                                      {l.seats < 1 ? (
+                                        <span className="seat-availablity3">
+                                          <FaTimesCircle
+                                            style={{
+                                              color: "red",
+                                              fontSize: "17px",
+                                            }}
+                                          />{" "}
+                                          Seats Full
+                                        </span>
+                                      ) : null}
+                                    </h5>
+                                  </div>
+                                </Col>
+                              </Row>
+                            </div>
                           ))}
                       </div>
                     </div>
 
-                    <div className="sngl-pack-short-itn" id="exclusion">
+                    {/* PACKAGE PRICING */}
+                    <div className="sngl-pack-short-itn">
                       <div className="single-pck-2-row">
                         <div className="single-pack-side-design"></div>
-                        <h4>Exclusions</h4>
+                        <h4>Package Options</h4>
                         <hr />
                         {pack &&
-                          pack.exclusions.map((l, k) => (
-                            <p key={k}>
-                              <IoLocateSharp className="single-pck-2-row-icon" />
-                              {l}
-                            </p>
+                          pack.pricing.map((l, k) => (
+                            <div key={k} className="sng-prc-tag">
+                              <Row>
+                                <Col lg={6}>
+                                  <div className="sng-prc-tag1">
+                                    <h5>
+                                      {k + 1}
+                                      <sup>st</sup> Option
+                                    </h5>
+                                    <h6>
+                                      <AiOutlineFieldTime
+                                        style={{ fontSize: "21px" }}
+                                      />{" "}
+                                      {pack.duration}
+                                    </h6>
+                                  </div>
+                                </Col>
+                                <Col lg={6}>
+                                  <div className="sng-prc-tag2">
+                                    <h6>Rs {parseInt(l.cost) + 1000}</h6>
+                                    <h5>
+                                      <span>{l.type}</span> : Rs {l.cost}
+                                    </h5>
+                                  </div>
+                                </Col>
+                              </Row>
+                            </div>
                           ))}
                       </div>
                     </div>
-
+                    {/* REVIEWS */}
                     <div className="sngl-pack-short-itn" id="reviews">
                       <div className="single-pck-2-row">
                         <div className="single-pack-side-design"></div>
@@ -484,6 +472,7 @@ const Singlepackage = (props) => {
                         </Button>
                       </div>
                     </div>
+                    {/* GALLERY */}
                     <div className="sngl-pack-short-itn" id="gallery">
                       <div className="single-pck-2-row">
                         <div className="single-pack-side-design"></div>
@@ -495,7 +484,7 @@ const Singlepackage = (props) => {
                         )}
                       </div>
                     </div>
-
+                    {/* LOCATION */}
                     <div className="sngl-pack-short-itn" id="map">
                       <div className="single-pck-2-row">
                         <div className="single-pack-side-design"></div>
@@ -512,7 +501,37 @@ const Singlepackage = (props) => {
                         )}
                       </div>
                     </div>
-
+                    {/* INCLUSIONS */}
+                    <div className="sngl-pack-short-itn" id="inclusion">
+                      <div className="single-pck-2-row">
+                        <div className="single-pack-side-design"></div>
+                        <h4>Inclusions</h4>
+                        <hr />
+                        {pack &&
+                          pack.inclusions.map((l, k) => (
+                            <p key={k}>
+                              <IoLocateSharp className="single-pck-2-row-icon" />
+                              {l}
+                            </p>
+                          ))}
+                      </div>
+                    </div>
+                    {/* EXCLUSIONS */}
+                    <div className="sngl-pack-short-itn" id="exclusion">
+                      <div className="single-pck-2-row">
+                        <div className="single-pack-side-design"></div>
+                        <h4>Exclusions</h4>
+                        <hr />
+                        {pack &&
+                          pack.exclusions.map((l, k) => (
+                            <p key={k}>
+                              <IoLocateSharp className="single-pck-2-row-icon" />
+                              {l}
+                            </p>
+                          ))}
+                      </div>
+                    </div>
+                    {/* CANCELLATIONइ */}
                     <div className="sngl-pack-short-itn" id="cancellation">
                       <div className="single-pck-2-row">
                         <div className="single-pack-side-design"></div>
@@ -527,6 +546,15 @@ const Singlepackage = (props) => {
                           ))}
                       </div>
                     </div>
+
+                    {/* <div className="sngl-pack-short-itn">
+                    <div className="single-pck-2-row">
+                      <div className="single-pack-side-design"></div>
+                      <h4>Quote</h4>
+                      <hr />
+                      <p>{pack.qoute && pack.qoute}</p>
+                    </div>
+                  </div> */}
                   </StickyContainer>
                 </div>
               </Col>
@@ -555,7 +583,7 @@ const Singlepackage = (props) => {
               </Col>
             </Row>
           </Container>
-        }
+        )}
       </div>
 
       <Footer />
