@@ -14,7 +14,6 @@ import firebase from "firebase";
 import { StickyContainer, Sticky } from "react-sticky";
 import "react-alice-carousel/lib/alice-carousel.css";
 import Imagess from "./imageGallery";
-import $ from "jquery";
 import SingleReview from "../SingleReview";
 import { Button, Form } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
@@ -76,6 +75,7 @@ const Singlepackage = (props) => {
       .get()
       .then((ress) => {
         if (ress.data()) {
+
           setpack(ress.data());
           getReviews();
           if (ress.data().map == "") {
@@ -199,6 +199,9 @@ const Singlepackage = (props) => {
                         Duration - {pack.duration}
                       </h5>
                       <hr />
+                      <center><h6>
+                        "{pack.quote && pack.quote}"
+                      </h6></center>
                     </div>
                   </div>
 
@@ -220,12 +223,12 @@ const Singlepackage = (props) => {
                           </div>
                           <div className="single-pack-nav-item">
                             <a href="#briefItinerary">
-                              <p>Brief Itinerary</p>
+                              <p>Brief_Itinerary</p>
                             </a>
                           </div>
                           <div className="single-pack-nav-item nav-time-active">
                             <a href="#detailedItinerary">
-                              <p>Detailed Itinerary</p>
+                              <p>Detailed_Itinerary</p>
                             </a>
                           </div>
                           <div className="single-pack-nav-item">
