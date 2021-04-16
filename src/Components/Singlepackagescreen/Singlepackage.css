@@ -144,7 +144,6 @@
     color: black !important;
     font-size: 16px ;
     font-weight: normal;
-    text-transform: lowercase;
 }
 .sng-prc-tag2 .seat-availablity1{
     color: green !important;
@@ -189,7 +188,7 @@
 
 .single-pack-nav-item{
     padding: 0 19.3px;
-    line-height: 50px;
+    line-height: 25px;
     border-left: 1px solid rgb(201, 201, 201) ;
 }
 .single-pack-nav-item a{
@@ -303,4 +302,7 @@
 .modal-button:hover {
     background-color: white !important;
     color: var(--primary-black) !important;
+}
+.sng-batch {
+    text-transform: none !important;
 }

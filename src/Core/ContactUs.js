@@ -9,42 +9,38 @@ import shape from "../Assets/shape.png";
 import firebase from "firebase";
 import { ToastContainer, toast } from "react-toastify";
 
-import $ from "jquery"
-import {useFormik} from "formik"
+import $ from "jquery";
+import { useFormik } from "formik";
 
-const ValidateForm=empData=>{
+const ValidateForm = (empData) => {
   const errors = {};
 
-  if(!empData.name){
-    errors.name = 'Please Enter Your Name';
-  }
-  else if(empData.name.length > 20){
-    errors.name = 'Name Should Not Exeed 20 Characters'
-  }
-
-  if(!empData.phNo){
-    errors.phNo = 'Please Enter Your Phone number';
-  }
-  else if(!/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(empData.phNo)){
-    errors.phNo = 'Phone Number you entered is invalid'
+  if (!empData.name) {
+    errors.name = "Please Enter Your Name";
+  } else if (empData.name.length > 20) {
+    errors.name = "Name Should Not Exeed 20 Characters";
   }
 
-  if(!empData.email){
-    errors.email = 'Please Enter Your Email Adress';
+  if (!empData.phNo) {
+    errors.phNo = "Please Enter Your Phone number";
+  } else if (
+    !/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(empData.phNo)
+  ) {
+    errors.phNo = "Phone Number you entered is invalid";
   }
-  else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(empData.email)) {
-    errors.email = 'Email address you entered in invalid';
+
+  if (!empData.email) {
+    errors.email = "Please Enter Your Email Adress";
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(empData.email)) {
+    errors.email = "Email address you entered in invalid";
   }
-  if(!empData.message){
-    errors.message = "Please Enter your Message"
+  if (!empData.message) {
+    errors.message = "Please Enter your Message";
   }
   return errors;
-}
-
+};
 
 const ContactUs = () => {
-  
-
   useEffect(() => {
     $(document).ready(function () {
       $(this).scrollTop(0);
@@ -70,38 +66,33 @@ const ContactUs = () => {
     }
   }, []);
 
-
   const formik = useFormik({
-   initialValues: {
-     name: '',
-     phNo : '',
-     email: '',
-     message: ''
-   },
-   validate: ValidateForm,
-   onSubmit: (values,{resetForm}) => {
-     resetForm()
-   },
-
+    initialValues: {
+      name: "",
+      phNo: "",
+      email: "",
+      message: "",
+    },
+    validate: ValidateForm,
+    onSubmit: (values, { resetForm }) => {
+      resetForm();
+    },
   });
 
   const db = firebase.firestore();
-  
 
   const addEnquiry = (e) => {
     e.preventDefault();
     db.collection("Enquiries")
       .add(formik.values)
       .then((docRef) => {
-        
-            toast.success("Your enquiry has reached us. We will get in touch with you shortly.");
-            formik.handleSubmit()
-            db.collection("Enquiries")
-          .doc(docRef.id)
-          .update({ id: docRef.id })
+        toast.success(
+          "Your enquiry has reached us. We will get in touch with you shortly."
+        );
+        formik.handleSubmit();
+        db.collection("Enquiries").doc(docRef.id).update({ id: docRef.id });
       });
   };
-
 
   return (
     <div>
@@ -144,7 +135,14 @@ const ContactUs = () => {
                     alt="Location"
                     className="contact-info-icon"
                   />
-                  <p>lorem@ipsum.com</p>
+                  <p>
+                    <a
+                      className="contact-us-link"
+                      href="mailto:lorem@ipsum.com"
+                    >
+                      lorem@ipsum.com
+                    </a>
+                  </p>
                 </div>
               </div>
               <div className="info">
@@ -154,7 +152,11 @@ const ContactUs = () => {
                     alt="Location"
                     className="contact-info-icon"
                   />
-                  <p>+91-987-654-3210</p>
+                  <p>
+                    <a className="contact-us-link" href="tel:919876543210">
+                      +91-987-654-3210
+                    </a>
+                  </p>
                 </div>
               </div>
               <div className="social-media">
@@ -181,19 +183,40 @@ const ContactUs = () => {
               <form className="contact-us-main-form">
                 <h3 className="contact-form-title">Contact Us</h3>
 
-                <div className="contact-form-input-container" style = {formik.errors.name ? {marginBottom: "0"} : null}>
-                  <input type="text" name="name" className="contact-input" onBlur = {formik.handleBlur} onChange = {formik.handleChange} value = {formik.values.name} />
+                <div
+                  className="contact-form-input-container"
+                  style={formik.errors.name ? { marginBottom: "0" } : null}
+                >
+                  <input
+                    type="text"
+                    name="name"
+                    className="contact-input"
+                    onBlur={formik.handleBlur}
+                    onChange={formik.handleChange}
+                    value={formik.values.name}
+                  />
 
-                
                   <label className="contact-form-label" for="">
                     Name
                   </label>
                   <span>Name</span>
                 </div>
 
-                {formik.touched.name && formik.errors.name ? <p className = "errt" >{formik.errors.name}</p> : null}
-                <div className="contact-form-input-container" style = {formik.errors.phNo  ? {marginBottom: "0"} : null}>
-                  <input type="text" name="phNo" className="contact-input" onBlur = {formik.handleBlur}  onChange = {formik.handleChange} value = {formik.values.phNo}/>
+                {formik.touched.name && formik.errors.name ? (
+                  <p className="errt">{formik.errors.name}</p>
+                ) : null}
+                <div
+                  className="contact-form-input-container"
+                  style={formik.errors.phNo ? { marginBottom: "0" } : null}
+                >
+                  <input
+                    type="text"
+                    name="phNo"
+                    className="contact-input"
+                    onBlur={formik.handleBlur}
+                    onChange={formik.handleChange}
+                    value={formik.values.phNo}
+                  />
 
                   <label className="contact-form-label" for="">
                     Phone Number
@@ -201,10 +224,23 @@ const ContactUs = () => {
                   <span>Phone Number</span>
                 </div>
 
-                {formik.touched.phNo && formik.errors.phNo ? <p className = "errt">{formik.errors.phNo}</p> : null}
-                
-                <div className="contact-form-input-container" style = {formik.errors.email ? {marginBottom: "0"} : null}>
-                  <input id = "Email" type="email" name="email" className="contact-input" onBlur = {formik.handleBlur} onChange = {formik.handleChange} value = {formik.values.email} />
+                {formik.touched.phNo && formik.errors.phNo ? (
+                  <p className="errt">{formik.errors.phNo}</p>
+                ) : null}
+
+                <div
+                  className="contact-form-input-container"
+                  style={formik.errors.email ? { marginBottom: "0" } : null}
+                >
+                  <input
+                    id="Email"
+                    type="email"
+                    name="email"
+                    className="contact-input"
+                    onBlur={formik.handleBlur}
+                    onChange={formik.handleChange}
+                    value={formik.values.email}
+                  />
 
                   <label className="contact-form-label" for="">
                     Email
@@ -212,24 +248,39 @@ const ContactUs = () => {
                   <span>Email</span>
                 </div>
 
-                {formik.touched.email && formik.errors.email ? <p className = "errt">{formik.errors.email}</p> : null}
-                
-                <div className="contact-form-input-container contact-textarea" style = {formik.errors.message ? {marginBottom: "0"} : null}>
-                  <textarea  name="message" cols="" rows="" className="contact-input" onBlur = {formik.handleBlur} onChange = {formik.handleChange} value = {formik.values.message} />
+                {formik.touched.email && formik.errors.email ? (
+                  <p className="errt">{formik.errors.email}</p>
+                ) : null}
+
+                <div
+                  className="contact-form-input-container contact-textarea"
+                  style={formik.errors.message ? { marginBottom: "0" } : null}
+                >
+                  <textarea
+                    name="message"
+                    cols=""
+                    rows=""
+                    className="contact-input"
+                    onBlur={formik.handleBlur}
+                    onChange={formik.handleChange}
+                    value={formik.values.message}
+                  />
 
                   <label className="contact-form-label" for="">
                     Message
                   </label>
                   <span>Message</span>
                 </div>
-                {formik.touched.message && formik.errors.message ? <p className = "errt">{formik.errors.message}</p> : null}
-                
+                {formik.touched.message && formik.errors.message ? (
+                  <p className="errt">{formik.errors.message}</p>
+                ) : null}
+
                 <input
                   type="button"
                   value="Submit"
-                  onClick={formik.isValid ? addEnquiry: null}
+                  onClick={formik.isValid ? addEnquiry : null}
                   className="contact-button"
-                  style = {formik.errors.message ? {marginTop: "0"} : null}
+                  style={formik.errors.message ? { marginTop: "0" } : null}
                 ></input>
               </form>
             </div>
@@ -237,12 +288,12 @@ const ContactUs = () => {
         </div>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path
-            fill="#222222"
-            fill-opacity="1"
-            d="M0,256L48,245.3C96,235,192,213,288,181.3C384,149,480,107,576,117.3C672,128,768,192,864,202.7C960,213,1056,171,1152,138.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-          ></path>
-        </svg>
+        <path
+          fill="#222222"
+          fill-opacity="1"
+          d="M0,256L48,245.3C96,235,192,213,288,181.3C384,149,480,107,576,117.3C672,128,768,192,864,202.7C960,213,1056,171,1152,138.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+        ></path>
+      </svg>
       <Footer />
     </div>
   );
