@@ -4,6 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import call from "../../Assets/call.svg";
 import whatsapp from "../../Assets/whatsapp.svg";
+import { FaRupeeSign } from "react-icons/fa";
 
 const Pricecard = (props) => {
   const [modalShow, setModalShow] = useState(false);
@@ -65,10 +66,10 @@ const Pricecard = (props) => {
         <div className="price-card1">
           <p>
             Starting from{" "}
-            <span>INR {parseInt(props.price[0].cost) + 1000}</span>
+            <span><FaRupeeSign/>{parseInt(props.price[0].cost) + 1000}</span>
           </p>
           <h2>
-            INR {props.price && props.price[0] && props.price[0].cost}{" "}
+          <FaRupeeSign/>{props.price && props.price[0] && props.price[0].cost}{" "}
             <span>
               {parseInt((1000 / (parseInt(props.price[0].cost) + 1000)) * 100)}%
               Off

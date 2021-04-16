@@ -114,69 +114,71 @@ const Aboutus = () => {
             ></path>
           </svg>
           <div className="founder-div">
-            <Row>
+            <Row className="founder-div-check">
               <Col className="image-col-team" lg={6} md={12} sm={12}>
                 <img src={t4} alt="Anshuman Bisht" className="founder-image" />
               </Col>
               <Col lg={6} md={12} sm={12}>
-                <div className="about-founder-div">
-                  <h2 className="founder-name">ANSHUMAN BISHT</h2>
-                  <h6>FOUNDER</h6>
-                  <div className="divider-div">
-                    <hr className="founder-divider" />
+                <div className='about-founder-baap'>
+                  <div className="about-founder-div">
+                    <h2 className="founder-name">ANSHUMAN BISHT</h2>
+                    <h6>FOUNDER</h6>
+                    <div className="divider-div">
+                      <hr className="founder-divider" />
+                    </div>
+
+                    <p className="about-founder">
+                      <em>
+                        Anshuman’s curiosity to endeavor the Himalayas started at
+                        a very young age. His passion for trekking and delving
+                        into one of the most famous adventure sports, ‘skiing,’
+                        started when he was 10 years old. How did this happen?
+                        What made him so inquisitive to explore this mountain
+                        range? Like any other adrenaline junkie, he went on
+                        different treks with his cousins and their trekking groups
+                        from India and people from other continents. One day when
+                        he went for his first peak summit of Mt Pangarchulla at
+                        the age of 12. This was a game-changing moment for him,
+                        and then he never looked back. He realized that his love
+                        for the mountains could not be replaced; hence he started
+                        his own trekking company at 16. Anshuman was a different
+                        person altogether; wanted to do something different and
+                        break the barriers. A rank holder in studies from India's
+                        renowned boarding school, ’ Doon International School,’ he
+                        wanted to take the road less traveled and embark on the
+                        thrilling journey. He has brought a lot of accolades in
+                        skiing and competed at the highest level. He still
+                        participates in skiing competitions due to his immense
+                        love for this sport. Apart from being adventurous,
+                        Anshuman is a fun-loving and welcoming person as he
+                        believes in the philosophy of ‘Vasudhaiva Katumbakam’ that
+                        every living being is a part of our family.
+                    </em>
+                    </p>
                   </div>
 
-                  <p className="about-founder">
-                    <em>
-                      Anshuman’s curiosity to endeavor the Himalayas started at
-                      a very young age. His passion for trekking and delving
-                      into one of the most famous adventure sports, ‘skiing,’
-                      started when he was 10 years old. How did this happen?
-                      What made him so inquisitive to explore this mountain
-                      range? Like any other adrenaline junkie, he went on
-                      different treks with his cousins and their trekking groups
-                      from India and people from other continents. One day when
-                      he went for his first peak summit of Mt Pangarchulla at
-                      the age of 12. This was a game-changing moment for him,
-                      and then he never looked back. He realized that his love
-                      for the mountains could not be replaced; hence he started
-                      his own trekking company at 16. Anshuman was a different
-                      person altogether; wanted to do something different and
-                      break the barriers. A rank holder in studies from India's
-                      renowned boarding school, ’ Doon International School,’ he
-                      wanted to take the road less traveled and embark on the
-                      thrilling journey. He has brought a lot of accolades in
-                      skiing and competed at the highest level. He still
-                      participates in skiing competitions due to his immense
-                      love for this sport. Apart from being adventurous,
-                      Anshuman is a fun-loving and welcoming person as he
-                      believes in the philosophy of ‘Vasudhaiva Katumbakam’ that
-                      every living being is a part of our family.
-                    </em>
-                  </p>
-                </div>
-
-                <div className="founder-achievements">
-                  <h2>ACHIEVEMENTS</h2>
-                  <hr className="achievements-divider" />
-                  <ul className="achievements-list">
-                    <li>
-                      2013 First Position in Junior National Championship Auli
+                  <div className="founder-achievements">
+                    <h2>ACHIEVEMENTS</h2>
+                    <hr className="achievements-divider" />
+                    <ul className="achievements-list">
+                      <li>
+                        2013 First Position in Junior National Championship Auli
                     </li>
-                    <li>
-                      2014 Participation in National Skiing Championship Auli
+                      <li>
+                        2014 Participation in National Skiing Championship Auli
                     </li>
-                    <li>2018 First ever to cover the Winter Malari Trial</li>
-                    <li>
-                      2018 Youngest ever to board down from Pangarchulla base
+                      <li>2018 First ever to cover the Winter Malari Trial</li>
+                      <li>
+                        2018 Youngest ever to board down from Pangarchulla base
                     </li>
-                    <li>2019 Only skier to Ski down from Tungnath Temple.</li>
-                    <li>
-                      Founder of Cuddle the Himalaya Foundation (NGO that works
-                      in field of Nature, Tradition, education and health in the
-                      Himalayas)
+                      <li>2019 Only skier to Ski down from Tungnath Temple.</li>
+                      <li>
+                        Founder of Cuddle the Himalaya Foundation (NGO that works
+                        in field of Nature, Tradition, education and health in the
+                        Himalayas)
                     </li>
-                  </ul>
+                    </ul>
+                  </div>
                 </div>
               </Col>
             </Row>
@@ -191,7 +193,7 @@ const Aboutus = () => {
               ></path>
             </svg>
             <Row>
-              <Col lg={6} md={12} sm={12}>
+              <Col lg={6} md={{ span: 12, order: 2 }}  sm={{ span: 12, order: 2 }} xs={{ span: 12, order: 2 }}>
                 <div className="about-founder-div">
                   <h2 className="founder-name">VIVEK PANWAR</h2>
                   <h6>TEAM MEMBER</h6>
@@ -280,7 +282,7 @@ const Aboutus = () => {
                   </ul>
                 </div>
               </Col>
-              <Col className="image-col-team" lg={6} md={12} sm={12}>
+              <Col className="image-col-team" lg={6} sm={{ span: 12, order: 1 }} md={12}>
                 <img src={t1} alt="Anshuman Bisht" className="founder-image" />
               </Col>
             </Row>
@@ -376,7 +378,7 @@ const Aboutus = () => {
               ></path>
             </svg>
             <Row>
-              <Col lg={6} md={12} sm={12}>
+              <Col lg={6} md={{ span: 12, order: 2 }}  sm={{ span: 12, order: 2 }} xs={{ span: 12, order: 2 }}>
                 <div className="about-founder-div">
                   <h2 className="founder-name">VANDANA PANWAR</h2>
                   <h6>TEAM MEMBER</h6>
@@ -567,6 +569,7 @@ const Aboutus = () => {
                 of Joshimath Garhwal.
               </Col>
             </Row>
+
             <Row>
               <Col xs={12} md={6} lg={3}>
                 <Iconholder icon={staff} title="EXPERT LOCAL KNOWLEDGE" />
@@ -581,6 +584,7 @@ const Aboutus = () => {
                 <Iconholder icon={experience} title="EXPERIENCED STAFF" />
               </Col>
             </Row>
+            
           </div>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

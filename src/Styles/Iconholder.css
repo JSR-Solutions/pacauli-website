@@ -40,3 +40,15 @@
     transform: translateX(-90%);
     transition: 1.2s;
   }
+
+  @media screen and (max-width: 990px) {
+    .iconholder-god {
+      font-family: "";
+      font-size: 18px;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 35vh;
+    } 
+  }

@@ -14,7 +14,7 @@
     background-color: black;
     position: relative; */
     background: linear-gradient(45deg, rgba(44, 44, 44, 0.35), rgba(44, 44, 44, 0.35)), url(../Assets/bg-custom.jpg);
-    height: 100vh;
+    height: 100vh !important;
     width: 100%;
     background-position: center;
     background-size: cover;
@@ -31,7 +31,7 @@
     position: absolute;
     font-size: 180px;
     text-align: center;
-    font-family: 'Oleo Script', cursive !important;
+    font-family: var(--sans-serif) !important;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -73,6 +73,19 @@
         100% 100%,
         0% 100%
       );
+    }
+  }
+  @media screen and (max-width:850px){
+    .heading-alt-2 h2 {
+       font-size: 100px;
+     }
+  }
+    @media screen and (max-width:450px){
+    .heading-alt-2 {
+      height: 400px;
+       }
+    .heading-alt-2 h2{
+      font-size: 80px;
     }
   }
   

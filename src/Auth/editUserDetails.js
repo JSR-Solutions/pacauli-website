@@ -170,8 +170,12 @@ function EditUser() {
 
       <ToastContainer />
       <div className="contact-us-main">
-        <div className="edit-custom">
+        {/* <div className="edit-custom">
           <p>Edit Details</p>
+        </div> */}
+        <div className="heading-alt">
+          <h2>Edit Details</h2>
+          <h2>Edit Details</h2>
         </div>
         <div className="contact-us-container">
           <span className="big-circle"></span>

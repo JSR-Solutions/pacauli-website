@@ -9,7 +9,7 @@
       rgba(44, 44, 44, 0.25)
     ),
     url(../Assets/bg-about.jpg);
-  height: 100vh;
+  height: 100vh !important;
   width: 100%;
   background-position: center;
   background-size: cover;
@@ -26,7 +26,7 @@
   position: absolute;
   font-size: 180px;
   text-align: center;
-  font-family: 'Oleo Script', cursive !important;
+  font-family: var(--sans-serif) !important;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -40,6 +40,11 @@
   color: white;
 
   animation: animate 4s ease-in-out infinite;
+}
+.about-us-quote {
+  margin-top: 40px;
+  font-size: 36px;
+  padding: 24px;
 }
 @keyframes animate {
   0%,
@@ -70,6 +75,30 @@
     );
   }
 }
+@media screen and (max-width:850px){
+  .heading-alt h2 {
+     font-size: 100px;
+   }
+   .about-us-quote {
+    margin-top: 40px;
+    font-size: 24px;
+    padding: 15px;
+  }
+}
+  @media screen and (max-width:450px){
+  .heading-alt {
+    height: 400px;
+     }
+  .heading-alt h2{
+    font-size: 84px;
+  }
+  .about-us-quote {
+    margin-top: 40px;
+    font-size: 21px;
+    padding: 24px;
+  }
+}
+
 .heading-about {
   background: linear-gradient(
       45deg,
@@ -77,7 +106,7 @@
       rgba(44, 44, 44, 0.25)
     ),
     url(../Assets/bg-about.jpg);
-  height: 100vh;
+  height: auto !important;
   width: 100%;
   background-position: center;
   background-size: cover;
@@ -110,7 +139,6 @@
 .main-heading h1 {
   position: relative;
   padding: 200px;
-
   font-size: 120px;
   letter-spacing: 0.1em;
   -webkit-text-fill-color: transparent;
@@ -157,7 +185,7 @@
   width: 100%;
   padding: 4% 0%;
   box-sizing: border-box;
-  height: 70vh;
+  height: auto;
 }
 
 .image-box {
@@ -188,19 +216,15 @@
 
 /* NEW ABOUT US */
 
-.about-us-quote {
-  margin-top: 40px;
-  font-size: 36px;
-  padding: 24px;
-}
+
 
 .founder-div,
 .team-div-2 {
   background-color: #222;
   text-align: left;
   color: white;
+  transition: all 0.4s ease;
 }
-
 .team-div-1,
 .team-div-3 {
   background-color: white;
@@ -213,6 +237,13 @@
   width: 100%;
   height: 500px;
   object-fit: cover;
+}
+
+@media screen and (max-width: 450px) {
+  .founder-image {
+    width: 100%;
+    height: auto !important;
+  } 
 }
 
 .founder-name {
@@ -253,32 +284,44 @@
 }
 
 .about-founder-div {
-  position: absolute;
+  transition: all 0.4s ease;
+  padding-left: 20px;
 }
 
-.founder-div {
-  transition: 0.35s ease-in-out;
+
+.founder-achievements {
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-30px);
+  transition: all 0.4s ease;
+  position: absolute;
+  top: 0;
+  height: auto;
 }
 
 .founder-div:hover .about-founder-div,
 .team-div-1:hover .about-founder-div,
 .team-div-2:hover .about-founder-div,
 .team-div-3:hover .about-founder-div {
-  display: none;
+  /* display: none; */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-30px);
 }
 
 .founder-div:hover .founder-achievements,
 .team-div-3:hover .founder-achievements,
 .team-div-1:hover .founder-achievements,
 .team-div-2:hover .founder-achievements {
-  display: block;
+  /* display: block; */
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0px);
 }
 
-.founder-achievements {
-  text-align: left;
-  padding-top: 20px;
-  display: none;
-}
 
 .achievements-list {
   margin-top: 20px;

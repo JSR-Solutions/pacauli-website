@@ -13,7 +13,7 @@ function AddPackage() {
   const [cancellation, setCancellation] = useState([""]);
   const [map, setMap] = useState("");
   const [name, setName] = useState("");
-  const [qoute,setQoute]=useState("");
+  const [qoute, setQoute] = useState("");
   const [region, setRegion] = useState("");
   const [duration, setDuration] = useState("");
   const [grade, setgrade] = useState("");
@@ -48,10 +48,9 @@ function AddPackage() {
       setDuration(value);
     } else if (name === "region") {
       setRegion(value);
-    }else if (name === "qoute") {
+    } else if (name === "qoute") {
       setQoute(value);
-    } 
-    else if (name === "grade") {
+    } else if (name === "grade") {
       setgrade(value);
     } else if (name === "maxAltitude") {
       setMaxAltitude(value);
@@ -94,9 +93,11 @@ function AddPackage() {
   const removeOverview = (index) => {
     console.log("Element to be removed : " + index);
     const values = [...overviews];
-    values.splice(index, 1);
-    console.log(values);
-    setOverviews(values);
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+      setOverviews(values);
+    }
   };
 
   //Histories dynamic part
@@ -117,8 +118,10 @@ function AddPackage() {
   const removeHistory = (index) => {
     console.log("Element to be removed : " + index);
     const values = [...inclusions];
-    values.splice(index, 1);
-    console.log(values);
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
     setHistories(values);
   };
 
@@ -140,8 +143,10 @@ function AddPackage() {
   const removeInclusions = (index) => {
     console.log("Element to be removed : " + index);
     const values = [...inclusions];
-    values.splice(index, 1);
-    console.log(values);
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
     setInclusions(values);
   };
 
@@ -163,8 +168,10 @@ function AddPackage() {
   const removeExclusions = (index) => {
     console.log("Element to be removed : " + index);
     const values = [...exclusions];
-    values.splice(index, 1);
-    console.log(values);
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
     setExclusions(values);
   };
 
@@ -186,8 +193,10 @@ function AddPackage() {
   const removeCancellation = (index) => {
     console.log("Element to be removed : " + index);
     const values = [...cancellation];
-    values.splice(index, 1);
-    console.log(values);
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
     setCancellation(values);
   };
 
@@ -216,8 +225,10 @@ function AddPackage() {
   const removeBriefItinerary = (index) => {
     console.log("Element to be removed : " + index);
     const values = [...detailedItinerary];
-    values.splice(index, 1);
-    console.log(values);
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
     setBriefItinerary(values);
   };
 
@@ -246,8 +257,10 @@ function AddPackage() {
   const removeDetailedItinerary = (index) => {
     console.log("Element to be removed : " + index);
     const values = [...detailedItinerary];
-    values.splice(index, 1);
-    console.log(values);
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
     setDetailedItinerary(values);
   };
 
@@ -255,7 +268,7 @@ function AddPackage() {
   const handleMapChange = (e) => {
     e.preventDefault();
     const { value } = e.target;
-    setMap(value);
+    setMap(value.concat("&output=embed"));
   };
 
   //Pricing dynamic part
@@ -281,38 +294,13 @@ function AddPackage() {
   const removePricing = (index) => {
     console.log("Element to be removed : " + index);
     const values = [...pricing];
-    values.splice(index, 1);
-    console.log(values);
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
     setPricing(values);
   };
 
-  //Reviews dynamic part
-  const handleReviewsChange = (e, index) => {
-    e.preventDefault();
-    const values = [...reviews];
-    const { name, value } = e.target;
-    if (name === "customerName") {
-      values[index].customerName = value;
-    } else if (name === "customerReview") {
-      values[index].customerReview = value;
-    }
-    setReviews(values);
-  };
-
-  const addReviews = (e) => {
-    e.preventDefault();
-    setReviews((prev) => {
-      return [...prev, { day: "", title: "", desc: "" }];
-    });
-  };
-
-  const removeReviews = (index) => {
-    console.log("Element to be removed : " + index);
-    const values = [...reviews];
-    values.splice(index, 1);
-    console.log(values);
-    setReviews(values);
-  };
 
   //Add Package Function
   const addPackage = (e) => {
@@ -346,7 +334,7 @@ function AddPackage() {
                 cancellation: cancellation,
                 map: map,
                 name: name,
-                qoute:qoute,
+                qoute: qoute,
                 region: region,
                 duration: duration,
                 grade: grade,

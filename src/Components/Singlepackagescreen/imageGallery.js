@@ -5,10 +5,9 @@ import ImageGallery from "react-image-gallery";
 function Images(props) {
   const [images, setImages] = useState([]);
 
-  useEffect(() => {
-    
+  useEffect(() => {  
     createImages();
-  });
+  },[]);
 
   function createImages() {
     const imgs =
