@@ -343,10 +343,7 @@ const Singlepackage = (props) => {
                                   <div className="sng-prc-tag1">
                                     <h5>
                                       {l.sDate &&
-                                        l.sDate.seconds &&
-                                        new Date(
-                                          l.sDate.seconds * 1000
-                                        ).toDateString()}
+                                        l.sDate}
                                     </h5>
                                   </div>
                                 </Col>
@@ -369,11 +366,11 @@ const Singlepackage = (props) => {
                                           {" "}
                                           <IoAlertCircleSharp
                                             style={{
-                                              color: "yellow",
+                                              color: "#ff8303",
                                               fontSize: "20px",
                                             }}
                                           />{" "}
-                                          Seats Filling
+                                          Seats Filling Fast
                                         </span>
                                       ) : null}
                                       {l.seats < 1 ? (
