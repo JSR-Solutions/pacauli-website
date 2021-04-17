@@ -206,86 +206,90 @@ const Aboutus = () => {
                 sm={{ span: 12, order: 2 }}
                 xs={{ span: 12, order: 2 }}
               >
-                <div className="about-founder-div">
-                  <h2 className="founder-name">VIVEK PANWAR</h2>
-                  <h6>TEAM MEMBER</h6>
-                  <div className="divider-div">
-                    <hr className="founder-divider" />
+                <div className="team-1-div">
+                  <div className="about-founder-div">
+                    <h2 className="founder-name">VIVEK PANWAR</h2>
+                    <h6>TEAM MEMBER</h6>
+                    <div className="divider-div">
+                      <hr className="founder-divider" />
+                    </div>
+
+                    <p className="about-founder">
+                      <em>
+                        Vivek Panwar discovered his passion when he was just a
+                        child. Belonging to the Himalayas, he wanted to try out
+                        adventure sports. At a very young age, the coaches
+                        noticed his talent for skiing and snowboarding. So, he
+                        started practicing this sport diligently until he
+                        perfected the techniques. A naturally gifted athlete, he
+                        became one of India's best skiers and snowboarders. He
+                        excelled at the national level and bought laurels at the
+                        international level, representing India. He has
+                        officially retired from professional skiing and
+                        snowboarding after years of dominance in the field.
+                        Excellence at par skier and snowboarder, Panwar is
+                        currently serving as a Coach of the Indian Snowboarding
+                        Team.
+                      </em>
+                    </p>
                   </div>
 
-                  <p className="about-founder">
-                    <em>
-                      Vivek Panwar discovered his passion when he was just a
-                      child. Belonging to the Himalayas, he wanted to try out
-                      adventure sports. At a very young age, the coaches noticed
-                      his talent for skiing and snowboarding. So, he started
-                      practicing this sport diligently until he perfected the
-                      techniques. A naturally gifted athlete, he became one of
-                      India's best skiers and snowboarders. He excelled at the
-                      national level and bought laurels at the international
-                      level, representing India. He has officially retired from
-                      professional skiing and snowboarding after years of
-                      dominance in the field. Excellence at par skier and
-                      snowboarder, Panwar is currently serving as a Coach of the
-                      Indian Snowboarding Team.
-                    </em>
-                  </p>
-                </div>
+                  <div className="founder-achievements">
+                    <h2>ACHIEVEMENTS</h2>
+                    <hr className="achievements-divider" />
+                    <ul className="achievements-list">
+                      <li>
+                        <b>1996</b> Second Position in Auli National Winter
+                        Games Open Skiing Championship
+                      </li>
+                      <li>
+                        <b>1997</b> Third Position in National Winter Games
+                      </li>
+                      <li>
+                        <b>1998</b> Third Position in National Open Skiing
+                        Championship
+                      </li>
+                      <li>
+                        <b>1999</b> First Position in Winter Sports Championship
+                      </li>
+                      <li>
+                        <b>2000-2004</b> Participate in National Winter Games
+                      </li>
+                      <li>
+                        <b>2008</b> First position (SL) in 5th National Winter
+                        Games
+                      </li>
+                      <li>
+                        <b>2008</b> First position (GS) in 5th National Winter
+                        Games
+                      </li>
+                      <li>
+                        <b>2008</b> International Snowboarding Competition -
+                        IRIAN
+                      </li>
+                      <li>
+                        <b>2010</b> Second Position in National Snowboarding
+                        Championship
+                      </li>
+                      <li>
+                        <b>2012</b> First Position (SL) in National Open Skiing
+                        Championship
+                      </li>
+                      <li>
+                        <b>2012</b> Represent INDIA in International Skiing
+                        Federation (FIS) meet in - BULGARIA
+                      </li>
+                      <li>
+                        <b>2012</b> First Position (GS) in National Open Skiing
+                        Championship
+                      </li>
+                    </ul>
 
-                <div className="founder-achievements">
-                  <h2>ACHIEVEMENTS</h2>
-                  <hr className="achievements-divider" />
-                  <ul className="achievements-list">
-                    <li>
-                      <b>1996</b> Second Position in Auli National Winter Games
-                      Open Skiing Championship
-                    </li>
-                    <li>
-                      <b>1997</b> Third Position in National Winter Games
-                    </li>
-                    <li>
-                      <b>1998</b> Third Position in National Open Skiing
-                      Championship
-                    </li>
-                    <li>
-                      <b>1999</b> First Position in Winter Sports Championship
-                    </li>
-                    <li>
-                      <b>2000-2004</b> Participate in National Winter Games
-                    </li>
-                    <li>
-                      <b>2008</b> First position (SL) in 5th National Winter
-                      Games
-                    </li>
-                    <li>
-                      <b>2008</b> First position (GS) in 5th National Winter
-                      Games
-                    </li>
-                    <li>
-                      <b>2008</b> International Snowboarding Competition - IRIAN
-                    </li>
-                    <li>
-                      <b>2010</b> Second Position in National Snowboarding
-                      Championship
-                    </li>
-                    <li>
-                      <b>2012</b> First Position (SL) in National Open Skiing
-                      Championship
-                    </li>
-                    <li>
-                      <b>2012</b> Represent INDIA in International Skiing
-                      Federation (FIS) meet in - BULGARIA
-                    </li>
-                    <li>
-                      <b>2012</b> First Position (GS) in National Open Skiing
-                      Championship
-                    </li>
-                  </ul>
-
-                  <TeamSocials
-                    facebook="https://m.facebook.com/profile.php?id=1184490462&ref=content_filter"
-                    instagram="https://instagram.com/traveller.monk?igshid=nc3bc0sx258f"
-                  />
+                    <TeamSocials
+                      facebook="https://m.facebook.com/profile.php?id=1184490462&ref=content_filter"
+                      instagram="https://instagram.com/traveller.monk?igshid=nc3bc0sx258f"
+                    />
+                  </div>
                 </div>
               </Col>
               <Col
@@ -312,59 +316,62 @@ const Aboutus = () => {
                 <img src={t2} alt="Anshuman Bisht" className="founder-image" />
               </Col>
               <Col lg={6} md={12} sm={12}>
-                <div className="about-founder-div">
-                  <h2 className="founder-name">PRAMOD PANWAR</h2>
-                  <h6>TEAM MEMBER</h6>
-                  <div className="divider-div">
-                    <hr className="founder-divider" />
+                <div className="team-2-div">
+                  <div className="about-founder-div">
+                    <h2 className="founder-name">PRAMOD PANWAR</h2>
+                    <h6>TEAM MEMBER</h6>
+                    <div className="divider-div">
+                      <hr className="founder-divider" />
+                    </div>
+
+                    <p className="about-founder">
+                      <em>
+                        Pramod Panwar is one of the best snowboarders in India
+                        currently. Because of his exceptional athletic skills,
+                        he has won many medals at a national level. It wasn't
+                        easy for this young gun to be at the top level. Pramod
+                        had to go through a lot of training and excel in his
+                        techniques. His dedication to this sport is amicable.
+                        Pramod's immense downhill technique and extreme speed
+                        are extraordinary and known as Batho (Wind) in the
+                        community.
+                      </em>
+                    </p>
                   </div>
 
-                  <p className="about-founder">
-                    <em>
-                      Pramod Panwar is one of the best snowboarders in India
-                      currently. Because of his exceptional athletic skills, he
-                      has won many medals at a national level. It wasn't easy
-                      for this young gun to be at the top level. Pramod had to
-                      go through a lot of training and excel in his techniques.
-                      His dedication to this sport is amicable. Pramod's immense
-                      downhill technique and extreme speed are extraordinary and
-                      known as Batho (Wind) in the community.
-                    </em>
-                  </p>
-                </div>
+                  <div className="founder-achievements">
+                    <h2>ACHIEVEMENTS</h2>
+                    <hr className="achievements-divider" />
+                    <ul className="achievements-list">
+                      <li>
+                        <b>2010</b> Second Position in National Snowboard
+                        Championship Auli
+                      </li>
+                      <li>
+                        <b>2012</b> Third Position in National Snowboarding
+                        Championship Gulmarg, J&K
+                      </li>
 
-                <div className="founder-achievements">
-                  <h2>ACHIEVEMENTS</h2>
-                  <hr className="achievements-divider" />
-                  <ul className="achievements-list">
-                    <li>
-                      <b>2010</b> Second Position in National Snowboard
-                      Championship Auli
-                    </li>
-                    <li>
-                      <b>2012</b> Third Position in National Snowboarding
-                      Championship Gulmarg, J&K
-                    </li>
+                      <li>
+                        <b>2013</b> First Person to board down from The Urgam
+                        Valley
+                      </li>
+                      <li>
+                        <b>2015</b> Third Position in Auli Snowboarding Open
+                        Championship
+                      </li>
+                      <li>
+                        2018 Won the Guide of the Year and Excellence in Tourism
+                        Industry Award
+                      </li>
+                    </ul>
 
-                    <li>
-                      <b>2013</b> First Person to board down from The Urgam
-                      Valley
-                    </li>
-                    <li>
-                      <b>2015</b> Third Position in Auli Snowboarding Open
-                      Championship
-                    </li>
-                    <li>
-                      2018 Won the Guide of the Year and Excellence in Tourism
-                      Industry Award
-                    </li>
-                  </ul>
-
-                  <TeamSocials
-                    color="white"
-                    facebook="https://www.facebook.com/parmod.panwar.90/?show_switched_toast=0"
-                    instagram="https://instagram.com/parmod.panwar.90?igshid=11z48elw5c6ko"
-                  />
+                    <TeamSocials
+                      color="white"
+                      facebook="https://www.facebook.com/parmod.panwar.90/?show_switched_toast=0"
+                      instagram="https://instagram.com/parmod.panwar.90?igshid=11z48elw5c6ko"
+                    />
+                  </div>
                 </div>
               </Col>
             </Row>
@@ -385,104 +392,109 @@ const Aboutus = () => {
                 sm={{ span: 12, order: 2 }}
                 xs={{ span: 12, order: 2 }}
               >
-                <div className="about-founder-div">
-                  <h2 className="founder-name">VANDANA PANWAR</h2>
-                  <h6>TEAM MEMBER</h6>
-                  <div className="divider-div">
-                    <hr className="founder-divider" />
+                <div className="team-3-div">
+                  <div className="about-founder-div">
+                    <h2 className="founder-name">VANDANA PANWAR</h2>
+                    <h6>TEAM MEMBER</h6>
+                    <div className="divider-div">
+                      <hr className="founder-divider" />
+                    </div>
+
+                    <p className="about-founder">
+                      <em>
+                        Vandana is one of the finest athletes India has
+                        produced. At a very young age, she got introduced to
+                        sports. Since then, Vandana never looked back and honed
+                        her athletic skills. As a woman, she faced a lot of
+                        challenges as men dominated sports. She broke the
+                        records and became an inspiration for young girls to
+                        take up sports as a career. She is the first female
+                        Indian athlete to win at the international level
+                        representing India in South Asian Games. Vandana has won
+                        numerous championships and awards and dominated this
+                        league for a long time, making her one of the most
+                        famous names in Winters sports in India. Known for her
+                        charismatic turns and downhill techniques, she has
+                        retired as a professional athlete three years back.
+                      </em>
+                    </p>
                   </div>
 
-                  <p className="about-founder">
-                    <em>
-                      Vandana is one of the finest athletes India has produced.
-                      At a very young age, she got introduced to sports. Since
-                      then, Vandana never looked back and honed her athletic
-                      skills. As a woman, she faced a lot of challenges as men
-                      dominated sports. She broke the records and became an
-                      inspiration for young girls to take up sports as a career.
-                      She is the first female Indian athlete to win at the
-                      international level representing India in South Asian
-                      Games. Vandana has won numerous championships and awards
-                      and dominated this league for a long time, making her one
-                      of the most famous names in Winters sports in India. Known
-                      for her charismatic turns and downhill techniques, she has
-                      retired as a professional athlete three years back.
-                    </em>
-                  </p>
-                </div>
+                  <div className="founder-achievements">
+                    <h2>ACHIEVEMENTS</h2>
+                    <hr className="achievements-divider" />
+                    <ul className="achievements-list">
+                      <li>
+                        <b>1998</b> First Position National Skiing Championship
+                        Junior Auli
+                      </li>
+                      <li>
+                        <b>2000</b> First Position in Winter Sports Junior
+                        Championship Slalom Auli
+                      </li>
+                      <li>
+                        <b>2002</b> Second Position in National Sking
+                        Championship
+                      </li>
+                      <li>
+                        <b>2003</b> Second Position in National Winter Games
+                        Auli
+                      </li>
+                      <li>
+                        <b>2007</b> 3rd Position in National Senior Ski
+                        Championship Auli(slalom)
+                      </li>
+                      <li>
+                        <b>2007</b> 3rd Position in National Senior Ski
+                        Championship Auli(GS)
+                      </li>
+                      <li>
+                        <b>2008</b> First Position in 5th National Winter Games
+                        Gulmarg(Kashmir)
+                      </li>
+                      <li>
+                        <b>2010</b> Second Position in National Ski Championship
+                        Manali(GS)
+                      </li>
+                      <li>
+                        <b>2010</b> Third Position in WGAU Championship
+                      </li>
+                      <li>
+                        <b>2010</b> Second Position in WGAU Championship
+                      </li>
+                      <li>
+                        <b>2011</b> Second Position in Auli Skiing Open
+                        Championship
+                      </li>
+                      <li>
+                        <b>2011</b> Third Position in 1st South Asian Games
+                        Auli, Uttarakhand
+                      </li>
+                      <li>
+                        <b>2012</b> Third Position in 1st Alpine Premier League
+                        Manali
+                      </li>
+                      <li>
+                        <b>2012</b> Second Position in Open Skiing Championship
+                        Auli
+                      </li>
 
-                <div className="founder-achievements">
-                  <h2>ACHIEVEMENTS</h2>
-                  <hr className="achievements-divider" />
-                  <ul className="achievements-list">
-                    <li>
-                      <b>1998</b> First Position National Skiing Championship
-                      Junior Auli
-                    </li>
-                    <li>
-                      <b>2000</b> First Position in Winter Sports Junior
-                      Championship Slalom Auli
-                    </li>
-                    <li>
-                      <b>2002</b> Second Position in National Sking Championship
-                    </li>
-                    <li>
-                      <b>2003</b> Second Position in National Winter Games Auli
-                    </li>
-                    <li>
-                      <b>2007</b> 3rd Position in National Senior Ski
-                      Championship Auli(slalom)
-                    </li>
-                    <li>
-                      <b>2007</b> 3rd Position in National Senior Ski
-                      Championship Auli(GS)
-                    </li>
-                    <li>
-                      <b>2008</b> First Position in 5th National Winter Games
-                      Gulmarg(Kashmir)
-                    </li>
-                    <li>
-                      <b>2010</b> Second Position in National Ski Championship
-                      Manali(GS)
-                    </li>
-                    <li>
-                      <b>2010</b> Third Position in WGAU Championship
-                    </li>
-                    <li>
-                      <b>2010</b> Second Position in WGAU Championship
-                    </li>
-                    <li>
-                      <b>2011</b> Second Position in Auli Skiing Open
-                      Championship
-                    </li>
-                    <li>
-                      <b>2011</b> Third Position in 1st South Asian Games Auli,
-                      Uttarakhand
-                    </li>
-                    <li>
-                      <b>2012</b> Third Position in 1st Alpine Premier League
-                      Manali
-                    </li>
-                    <li>
-                      <b>2012</b> Second Position in Open Skiing Championship
-                      Auli
-                    </li>
+                      <li>
+                        <b>2013</b> First Position in National Senior Alpine
+                        Sking Championship(GS)
+                      </li>
+                      <li>
+                        <b>2013</b> Third Position in National Senior Alpine
+                        Skiing Championship (slalom)
+                      </li>
+                      <li>
+                        <b>2014</b> Third Position in National Championship
+                        Gulmarg(Slalom)
+                      </li>
+                    </ul>
 
-                    <li>
-                      <b>2013</b> First Position in National Senior Alpine Sking
-                      Championship(GS)
-                    </li>
-                    <li>
-                      <b>2013</b> Third Position in National Senior Alpine
-                      Skiing Championship (slalom)
-                    </li>
-                    <li>
-                      <b>2014</b> Third Position in National Championship
-                      Gulmarg(Slalom)
-                    </li>
-                  </ul>
-
-                  <TeamSocials facebook="https://www.facebook.com/vandana.panwar.52/?show_switched_toast=0" />
+                    <TeamSocials facebook="https://www.facebook.com/vandana.panwar.52/?show_switched_toast=0" />
+                  </div>
                 </div>
               </Col>
               <Col className="image-col-team" lg={6} md={12} sm={12}>
