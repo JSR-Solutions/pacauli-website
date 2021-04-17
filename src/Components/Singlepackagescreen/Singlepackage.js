@@ -384,7 +384,7 @@ const Singlepackage = (props) => {
                           <Row>
                             {seatavail &&
                               seatavail.map((l, k) => (
-                                <Col lg={3}>
+                                <Col lg={3} md={3} sm={4}>
                                   <div
                                     style={
                                       l.seats === "0"
