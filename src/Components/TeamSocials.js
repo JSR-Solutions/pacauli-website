@@ -12,14 +12,20 @@ function TeamSocials(props) {
         {props.instagram && (
           <Col className="team-socials-col">
             <a href={props.instagram}>
-              <AiFillInstagram className="team-social-icon" />
+              <AiFillInstagram
+                style={props.color && { color: `${props.color}` }}
+                className="team-social-icon"
+              />
             </a>
           </Col>
         )}
         {props.facebook && (
           <Col className="team-socials-col">
             <a href={props.facebook}>
-              <AiFillFacebook className="team-social-icon" />
+              <AiFillFacebook
+                style={props.color && { color: `${props.color}` }}
+                className="team-social-icon"
+              />
             </a>
           </Col>
         )}
