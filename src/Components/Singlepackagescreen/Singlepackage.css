@@ -134,13 +134,25 @@
 }
 
 .sng-date {
-    margin: 16px 0;
-    padding: 10px 12px;
-    display: flex;
-    color: white;
-    justify-content: center;
-    align-items: center;
+    margin: 16px -7px !important;
+    padding: 10px 0px !important;
+    border-radius: 6px;
 }
+.sng-prc-tag-date{
+    color: white;
+    text-align: center;
+}
+@media screen and (max-width : 950px) {
+    .sng-date {
+        margin: 16px -10px !important;
+        overflow: hidden;
+    }
+    .sng-prc-tag-date{
+        font-size: 12px !important;
+        padding-left: 3px;
+    }   
+}
+
 
 .sng-prc-tag1 h6{
     color: rgb(102, 102, 102);
