@@ -344,58 +344,65 @@ const Singlepackage = (props) => {
                           <div className="single-pack-side-design"></div>
                           <h4>Seat Availability</h4>
                           <hr />
-                          {seatavail &&
-                            seatavail.map((l, k) => (
-                              <div key={k} className="sng-prc-tag">
-                                <Row>
-                                  <Col lg={6}>
+                          <Row>
+                            <Col lg={4} md={4} sm={12}>
+                              <span className="seat-availablity1">
+                                <RiCheckboxCircleFill
+                                  style={{
+                                    color: "green",
+                                    fontSize: "19px",
+                                  }}
+                                />{" "}
+                                Seats Availabe
+                              </span>
+                            </Col>
+                            <Col lg={4} md={4} sm={12}>
+                              <span className="seat-availablity2">
+                                {" "}
+                                <IoAlertCircleSharp
+                                  style={{
+                                    color: "#ff8303",
+                                    fontSize: "20px",
+                                  }}
+                                />{" "}
+                                Seats Filling Fast
+                              </span>
+                            </Col>
+                            <Col lg={4} md={4} sm={12}>
+                              <span className="seat-availablity3">
+                                <FaTimesCircle
+                                  style={{
+                                    color: "red",
+                                    fontSize: "17px",
+                                  }}
+                                />{" "}
+                                Seats Full
+                              </span>
+                            </Col>
+                          </Row>
+
+                          <Row>
+                            {seatavail &&
+                              seatavail.map((l, k) => (
+                                <Col lg={3}>
+                                  <div
+                                    style={
+                                      l.seats === "0"
+                                        ? { backgroundColor: "rgba(255, 0, 0, 0.75)" }
+                                        : l.seats > 2
+                                        ? { backgroundColor: "rgba(0, 128, 0,0.75)" }
+                                        : { backgroundColor: "#ff8303" }
+                                    }
+                                    key={k}
+                                    className="sng-prc-tag sng-date"
+                                  >
                                     <div className="sng-prc-tag1">
-                                      <h5>{l.sDate && l.sDate}</h5>
+                                      <h5 className="sng-prc-tag-date">{l.sDate && l.sDate}</h5>
                                     </div>
-                                  </Col>
-                                  <Col lg={6}>
-                                    <div className="sng-prc-tag2 sng-batch">
-                                      <h5>
-                                        {l.seats > 2 ? (
-                                          <span className="seat-availablity1">
-                                            <RiCheckboxCircleFill
-                                              style={{
-                                                color: "green",
-                                                fontSize: "19px",
-                                              }}
-                                            />{" "}
-                                            Seats Availabe
-                                          </span>
-                                        ) : null}
-                                        {l.seats < 3 && l.seats > 0 ? (
-                                          <span className="seat-availablity2">
-                                            {" "}
-                                            <IoAlertCircleSharp
-                                              style={{
-                                                color: "#ff8303",
-                                                fontSize: "20px",
-                                              }}
-                                            />{" "}
-                                            Seats Filling Fast
-                                          </span>
-                                        ) : null}
-                                        {l.seats < 1 ? (
-                                          <span className="seat-availablity3">
-                                            <FaTimesCircle
-                                              style={{
-                                                color: "red",
-                                                fontSize: "17px",
-                                              }}
-                                            />{" "}
-                                            Seats Full
-                                          </span>
-                                        ) : null}
-                                      </h5>
-                                    </div>
-                                  </Col>
-                                </Row>
-                              </div>
-                            ))}
+                                  </div>
+                                </Col>
+                              ))}
+                          </Row>
                         </div>
                       </div>
 
