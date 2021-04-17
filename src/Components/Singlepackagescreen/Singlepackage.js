@@ -18,6 +18,7 @@ import SingleReview from "../SingleReview";
 import { Button, Form } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import LoadingScreen from "../LoadingScreen";
+import { FaRupeeSign } from "react-icons/fa";
 
 const Singlepackage = (props) => {
   const [pack, setpack] = useState("");
@@ -384,7 +385,7 @@ const Singlepackage = (props) => {
                           <Row>
                             {seatavail &&
                               seatavail.map((l, k) => (
-                                <Col lg={3} md={3} sm={4}>
+                                <Col lg={3} md={4} sm={4} xs={4}>
                                   <div
                                     style={
                                       l.seats === "0"
@@ -419,8 +420,7 @@ const Singlepackage = (props) => {
                                   <Col lg={6}>
                                     <div className="sng-prc-tag1">
                                       <h5>
-                                        {k + 1}
-                                        <sup>st</sup> Option
+                                        Option {k+1}
                                       </h5>
                                       <h6>
                                         <AiOutlineFieldTime
@@ -432,9 +432,9 @@ const Singlepackage = (props) => {
                                   </Col>
                                   <Col lg={6}>
                                     <div className="sng-prc-tag2">
-                                      <h6>Rs {parseInt(l.cost) + 1000}</h6>
+                                      <h6><FaRupeeSign/> {parseInt(l.cost) + 1000}</h6>
                                       <h5>
-                                        <span>{l.type}</span> : Rs {l.cost}
+                                        <span>{l.type}</span> : <FaRupeeSign/> {l.cost}
                                       </h5>
                                     </div>
                                   </Col>
