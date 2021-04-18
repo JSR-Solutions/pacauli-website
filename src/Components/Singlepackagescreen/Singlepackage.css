@@ -229,17 +229,17 @@
 .sng-pack-review{
     width: 300px;
     background-color: var(white);
-    border-radius: 10px;
+    border-radius: 0px;
     margin: 35px auto 20px;
     background-color: rgb(230, 230, 230);
 }
 .sng-pack-review-img{
     height: 60px;
     width: 60px;
-    position: relative;
+     position: relative;
     left: 50%;    
     transform: translateX(-50%);
-    margin-top: -28px;
+    margin-top: 18px;
     border-radius: 50%;
     justify-content: center;
     align-items: center;
@@ -255,7 +255,7 @@
     background-color: white;
 }
 .sng-pack-review-img div h1{
-    line-height: 55px;
+    line-height: 45px;
     color: var(--primary-black);
     text-transform: uppercase;
 }
@@ -266,10 +266,13 @@
     margin: 0px 0 10px 0;
     text-align: center;
     color: var(--primary-black);
-    font-size: 23px;
+    font-size: 16px;
+    font-weight: 500;
 }
 .sng-pack-review-cnt h6{
     text-align: justify;
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .review-user-image {

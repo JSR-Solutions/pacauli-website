@@ -17,7 +17,7 @@ function DateUpload(props) {
   const [finalDates, setFinalDates] = useState([{ sDate: "", seats: "" }]);
   const [added, setAdded] = useState(false);
   const db = firebase.firestore();
-  const [tareek,setTareek]=useState([{date:"",month:"",year:""}]);
+  const [tareek,setTareek]=useState([{date:"",month:""}]);
   
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function DateUpload(props) {
 
   function addDate() {
     setTareek((prev)=>{
-      return[...prev,{date:"",month:"",year:""}];
+      return[...prev,{date:"",month:""}];
     });
     setDates((prev) => {
       return [...prev, { sDate: "", seats: "" }];
@@ -67,13 +67,10 @@ function DateUpload(props) {
       if(name==="month"){
         values[index].month=value;
       }
-      if(name==="year"){
-        values[index].year=value;
-      }
       setTareek(values);
       
 
-      fulldate[index].sDate=tareek[index].date +"/"+tareek[index].month+"/"+tareek[index].year; 
+      fulldate[index].sDate=tareek[index].date +"-"+tareek[index].month; 
       setDates(fulldate);
       console.log(dates);
     }
@@ -162,16 +159,6 @@ function DateUpload(props) {
                 type="text"
                 name="month"
                 value={tareek[index].month}
-              />
-              <Form.Control
-                onChange={(e) => {
-                  handleTareekChange(index, e);
-                }}
-                placeholder={"Year"}
-                className="add-package-form-input-datee-input"
-                type="text"
-                name="year"
-                value={tareek[index].year}
               />
               
               
