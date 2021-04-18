@@ -212,75 +212,6 @@ const Singlepackage = (props) => {
                       </div>
                     </div>
 
-                    {/* BATCH AVAILABILITY */}
-
-                    <div className="sngl-pack-short-itn">
-                    <div className="single-pck-2-row">
-                      <div className="single-pack-side-design"></div>
-                      <h4>Seat Availability</h4>
-                      <hr />
-                      <Row>
-                        <Col lg={4} md={4} sm={12}>
-                          <span className="seat-availablity1">
-                            <RiCheckboxCircleFill
-                              style={{
-                                color: "green",
-                                fontSize: "19px",
-                              }}
-                            />{" "}
-                            Seats Availabe
-                          </span>
-                        </Col>
-                        <Col lg={4} md={4} sm={12}>
-                          <span className="seat-availablity2">
-                            {" "}
-                            <IoAlertCircleSharp
-                              style={{
-                                color: "#ff8303",
-                                fontSize: "20px",
-                              }}
-                            />{" "}
-                            Seats Filling Fast
-                          </span>
-                        </Col>
-                        <Col lg={4} md={4} sm={12}>
-                          <span className="seat-availablity3">
-                            <FaTimesCircle
-                              style={{
-                                color: "red",
-                                fontSize: "17px",
-                              }}
-                            />{" "}
-                            Seats Full
-                          </span>
-                        </Col>
-                      </Row>
-
-                      <Row>
-                        {seatavail &&
-                          seatavail.map((l, k) => (
-                            <Col lg={2} md={2} xs={2}>
-                              <div
-                                style={
-                                  l.seats === "0"
-                                    ? { backgroundColor: "rgba(255, 0, 0, 0.75)" }
-                                    : l.seats > 2
-                                    ? { backgroundColor: "rgba(0, 128, 0,0.75)" }
-                                    : { backgroundColor: "#ff8303" }
-                                }
-                                key={k}
-                                className="sng-date"
-                              >
-                                <div className="sng-prc-tag1">
-                                  <h5 className="sng-prc-tag-date">{l.sDate && l.sDate}</h5>
-                                </div>
-                              </div>
-                            </Col>
-                          ))}
-                      </Row>
-                    </div>
-                  </div>
-
                     <StickyContainer>
                       <Sticky topOffset={50}>
                         {({ style, isSticky }) => (
@@ -419,9 +350,7 @@ const Singlepackage = (props) => {
                                 <Row>
                                   <Col lg={6}>
                                     <div className="sng-prc-tag1">
-                                      <h5>
-                                        Option {k+1}
-                                      </h5>
+                                      <h5>Option {k + 1}</h5>
                                       <h6>
                                         <AiOutlineFieldTime
                                           style={{ fontSize: "21px" }}
@@ -432,15 +361,95 @@ const Singlepackage = (props) => {
                                   </Col>
                                   <Col lg={6}>
                                     <div className="sng-prc-tag2">
-                                      <h6><FaRupeeSign/> {parseInt(l.cost) + 1000}</h6>
+                                      <h6>
+                                        <FaRupeeSign />{" "}
+                                        {parseInt(l.cost) + 1000}
+                                      </h6>
                                       <h5>
-                                        <span>{l.type}</span> : <FaRupeeSign/> {l.cost}
+                                        <span>{l.type}</span> : <FaRupeeSign />{" "}
+                                        {l.cost}
                                       </h5>
                                     </div>
                                   </Col>
                                 </Row>
                               </div>
                             ))}
+                        </div>
+                      </div>
+                      {/* BATCH AVAILABILITY */}
+
+                      <div className="sngl-pack-short-itn">
+                        <div className="single-pck-2-row">
+                          <div className="single-pack-side-design"></div>
+                          <h4>Seat Availability</h4>
+                          <hr />
+                          <Row>
+                            <Col lg={4} md={4} sm={12}>
+                              <span className="seat-availablity1">
+                                <RiCheckboxCircleFill
+                                  style={{
+                                    color: "green",
+                                    fontSize: "19px",
+                                  }}
+                                />{" "}
+                                Seats Availabe
+                              </span>
+                            </Col>
+                            <Col lg={4} md={4} sm={12}>
+                              <span className="seat-availablity2">
+                                {" "}
+                                <IoAlertCircleSharp
+                                  style={{
+                                    color: "#ff8303",
+                                    fontSize: "20px",
+                                  }}
+                                />{" "}
+                                Seats Filling Fast
+                              </span>
+                            </Col>
+                            <Col lg={4} md={4} sm={12}>
+                              <span className="seat-availablity3">
+                                <FaTimesCircle
+                                  style={{
+                                    color: "red",
+                                    fontSize: "17px",
+                                  }}
+                                />{" "}
+                                Seats Full
+                              </span>
+                            </Col>
+                          </Row>
+
+                          <Row>
+                            {seatavail &&
+                              seatavail.map((l, k) => (
+                                <Col lg={2} md={2} xs={2}>
+                                  <div
+                                    style={
+                                      l.seats === "0"
+                                        ? {
+                                            backgroundColor:
+                                              "rgba(255, 0, 0, 0.75)",
+                                          }
+                                        : l.seats > 2
+                                        ? {
+                                            backgroundColor:
+                                              "rgba(0, 128, 0,0.75)",
+                                          }
+                                        : { backgroundColor: "#ff8303" }
+                                    }
+                                    key={k}
+                                    className="sng-date"
+                                  >
+                                    <div className="sng-prc-tag1">
+                                      <h5 className="sng-prc-tag-date">
+                                        {l.sDate && l.sDate}
+                                      </h5>
+                                    </div>
+                                  </div>
+                                </Col>
+                              ))}
+                          </Row>
                         </div>
                       </div>
                       {/* REVIEWS */}
