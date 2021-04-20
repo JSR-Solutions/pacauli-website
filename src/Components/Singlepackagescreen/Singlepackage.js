@@ -46,30 +46,35 @@ const Singlepackage = (props) => {
       .collection("Reviews")
       .get()
       .then((querySnapshot) => {
-        querySnapshot.docs.forEach((doc) => {
-          const reviewData = doc.data();
-          db.collection("Users")
-            .doc(reviewData.userId)
-            .get()
-            .then((snap) => {
-              const userData = snap.data();
-              setReviews((prev) => {
-                return [
-                  ...prev,
-                  {
-                    userId: reviewData.userId,
-                    review: reviewData.review,
-                    userName: userData.name,
-                    userImage: userData.imageUrl,
-                  },
-                ];
+        if (querySnapshot.docs.length > 0) {
+          querySnapshot.docs.forEach((doc) => {
+            const reviewData = doc.data();
+            db.collection("Users")
+              .doc(reviewData.userId)
+              .get()
+              .then((snap) => {
+                const userData = snap.data();
+                setReviews((prev) => {
+                  return [
+                    ...prev,
+                    {
+                      userId: reviewData.userId,
+                      review: reviewData.review,
+                      userName: userData.name,
+                      userImage: userData.imageUrl,
+                    },
+                  ];
+                });
+              })
+              .then(() => {
+                setFetching(false);
+                setReviewsFetched(true);
               });
-            })
-            .then(() => {
-              setFetching(false);
-              setReviewsFetched(true);
-            });
-        });
+          });
+        } else {
+          setReviewsFetched(true);
+          setFetching(false);
+        }
       });
   };
 
@@ -80,6 +85,7 @@ const Singlepackage = (props) => {
       .get()
       .then((ress) => {
         if (ress.data()) {
+          console.log(ress.data());
           setpack(ress.data());
           getReviews();
           if (ress.data().map == "") {
@@ -169,6 +175,7 @@ const Singlepackage = (props) => {
           <div className="single-package-upper">
             <Carousel>
               {pack &&
+                pack.imgUrl &&
                 pack.imgUrl.map((l, k) => (
                   <Carousel.Item>
                     <img style={{ height: "700px" }} src={l} alt="sk" />
@@ -189,26 +196,36 @@ const Singlepackage = (props) => {
                         <div className="single-pack-side-design"></div>
                         <h3>{pack.name}</h3>
                         <hr />
-                        <h5>
-                          <GiNetworkBars className="single-pck-1-row-icon" />
-                          Level - {pack.grade}
-                        </h5>
-                        <h5>
-                          <RiPinDistanceFill className="single-pck-1-row-icon" />
-                          Distance - {pack.trekDistance} km
-                        </h5>
-                        <h5>
-                          <AiOutlineSafetyCertificate className="single-pck-1-row-icon" />
-                          Package Type - {pack.packageType}
-                        </h5>
-                        <h5>
-                          <AiOutlineFieldTime className="single-pck-1-row-icon" />
-                          Duration - {pack.duration}
-                        </h5>
+                        {pack.grade != "" && (
+                          <h5>
+                            <GiNetworkBars className="single-pck-1-row-icon" />
+                            Level - {pack.grade}
+                          </h5>
+                        )}
+                        {pack.trekDistance != "" && (
+                          <h5>
+                            <RiPinDistanceFill className="single-pck-1-row-icon" />
+                            Distance - {pack.trekDistance} km
+                          </h5>
+                        )}
+                        {pack.packageType != "" && (
+                          <h5>
+                            <AiOutlineSafetyCertificate className="single-pck-1-row-icon" />
+                            Package Type - {pack.packageType}
+                          </h5>
+                        )}
+                        {pack.duration != "" && (
+                          <h5>
+                            <AiOutlineFieldTime className="single-pck-1-row-icon" />
+                            Duration - {pack.duration}
+                          </h5>
+                        )}
                         <hr />
-                        <center>
-                          <h6>"{pack.quote && pack.quote}"</h6>
-                        </center>
+                        {pack.quote &&  (
+                          <center>
+                            <h6>"{pack.quote}"</h6>
+                          </center>
+                        )}
                       </div>
                     </div>
 
@@ -298,46 +315,53 @@ const Singlepackage = (props) => {
                         </div>
                       </div>
                       {/* BRIEF ITINERARY */}
-                      <div className="sngl-pack-short-itn" id="briefItinerary">
-                        <div className="single-pck-2-row">
-                          <div className="single-pack-side-design"></div>
-                          <h4>Brief Itinerary</h4>
-                          <hr />
-                          {pack &&
-                            pack.briefItinerary.map((l, k) => (
-                              <div key={k} className="single-pack-itn">
-                                <h5>{l.day}</h5>
-                                <h6>
-                                  <IoLocateSharp className="single-pck-2-row-icon" />
-                                  {l.title}
-                                </h6>
-                                <p>{l.desc}</p>
-                              </div>
-                            ))}
+                      {props.match.params.categoryName != "Rafting" && (
+                        <div
+                          className="sngl-pack-short-itn"
+                          id="briefItinerary"
+                        >
+                          <div className="single-pck-2-row">
+                            <div className="single-pack-side-design"></div>
+                            <h4>Brief Itinerary</h4>
+                            <hr />
+                            {pack &&
+                              pack.briefItinerary.map((l, k) => (
+                                <div key={k} className="single-pack-itn">
+                                  <h5>{l.day}</h5>
+                                  <h6>
+                                    <IoLocateSharp className="single-pck-2-row-icon" />
+                                    {l.title}
+                                  </h6>
+                                  <p>{l.desc}</p>
+                                </div>
+                              ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
                       {/* DETAILED ITINERARY */}
-                      <div
-                        className="sngl-pack-short-itn"
-                        id="detailedItinerary"
-                      >
-                        <div className="single-pck-2-row">
-                          <div className="single-pack-side-design"></div>
-                          <h4>Detailed Itinerary</h4>
-                          <hr />
-                          {pack &&
-                            pack.detailedItinerary.map((l, k) => (
-                              <div key={k} className="single-pack-itn">
-                                <h5>{l.day}</h5>
-                                <h6>
-                                  <IoLocateSharp className="single-pck-2-row-icon" />
-                                  {l.title}
-                                </h6>
-                                <p>{l.desc}</p>
-                              </div>
-                            ))}
+                      {props.match.params.categoryName != "Rafting" && (
+                        <div
+                          className="sngl-pack-short-itn"
+                          id="detailedItinerary"
+                        >
+                          <div className="single-pck-2-row">
+                            <div className="single-pack-side-design"></div>
+                            <h4>Detailed Itinerary</h4>
+                            <hr />
+                            {pack &&
+                              pack.detailedItinerary.map((l, k) => (
+                                <div key={k} className="single-pack-itn">
+                                  <h5>{l.day}</h5>
+                                  <h6>
+                                    <IoLocateSharp className="single-pck-2-row-icon" />
+                                    {l.title}
+                                  </h6>
+                                  <p>{l.desc}</p>
+                                </div>
+                              ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
                       {/* PACKAGE PRICING */}
                       <div className="sngl-pack-short-itn">
                         <div className="single-pck-2-row">
