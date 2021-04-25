@@ -5,6 +5,7 @@ import admin from "../Assets/admin.png";
 import firebase from "firebase";
 import { reactLocalStorage } from "reactjs-localstorage";
 import { Redirect } from "react-router";
+import {toast , ToastContainer} from "react-toastify"
 
 function AdminLogin() {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -48,12 +49,16 @@ function AdminLogin() {
               }
             });
         }
-      });
+      })
+      .catch((error) =>{
+        toast.error(error.message)
+      })
   };
 
   return (
     <div className="admin-login-main-div">
       {isAdmin ? <Redirect to="/admin/dashboard" /> : null}
+      <ToastContainer />
       <Row className="admin-login-row">
         <Col className="admin-login-colored-col" lg={3} md={6} sm={12}>
           <div>
