@@ -59,7 +59,7 @@ function EditPackage(props) {
           setMap(snapshot.data().map);
           setgrade(snapshot.data().grade);
           setName(snapshot.data().name);
-          setMap(snapshot.data().map);
+          setMap(snapshot.data().map.replace(snapshot.data().map.substring(snapshot.data().map.length-13),"");
           setRegion(snapshot.data().region);
           setDuration(snapshot.data().duration);
           setMaxAltitude(snapshot.data().maxAltitude);
