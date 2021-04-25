@@ -268,7 +268,7 @@ function AddPackage() {
   const handleMapChange = (e) => {
     e.preventDefault();
     const { value } = e.target;
-    setMap(value.concat("&output=embed"));
+    setMap(value);
   };
 
   //Pricing dynamic part
@@ -332,7 +332,7 @@ function AddPackage() {
                 inclusions: inclusions,
                 exclusions: exclusions,
                 cancellation: cancellation,
-                map: map,
+                map: map.concat("&output=embed"),
                 name: name,
                 qoute: qoute,
                 region: region,
