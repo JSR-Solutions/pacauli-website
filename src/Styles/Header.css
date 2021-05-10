@@ -15,6 +15,11 @@
     z-index: 99;
 }
 
+.logo-header {
+    height: 72px;
+    margin-top: 12px;
+}
+
 /*Scroll event styling*/
 /* .header-main-exit {
     margin-bottom: 95px !important;
@@ -63,12 +68,12 @@
 
 /*Header 2nd row*/
 .header-main3 {
-    height: 66px;
+    height: 80px;
     background-color: transparent;
 }
 .header-main3-exit{
-    height: 66px;
-    background-color: #222222;
+    height: 96px;
+    background-color: rgba(255, 255, 255, 0.74);
 }
 .header-main31{
     display: flex;
@@ -104,7 +109,7 @@
     z-index: 110;
     font-weight: bold;
     font-size: 18px;
-    color: var(--white);
+    color: #222;
 }
 
 .header-main32 span {
@@ -117,7 +122,7 @@
 
 .header-main33 {
     background-color: transparent;
-    line-height: 66px;
+    line-height: 96px;
 }
 
 .header-main33 ul {
@@ -135,6 +140,7 @@
 .header-main33 ul li {
     margin: 0 10px;
     font-size: 17px;
+    color: #222;
     font-family: 'Poppins', sans-serif;
 }
 

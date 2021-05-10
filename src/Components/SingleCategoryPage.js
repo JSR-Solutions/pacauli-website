@@ -29,7 +29,7 @@ function SingleCatScreen(props) {
 
   useEffect(() => {
     getPackages();
-  }, []);
+  }, [props]);
 
   const getPackages = () => {
     setPackages([]);

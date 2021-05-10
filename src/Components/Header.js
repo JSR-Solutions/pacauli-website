@@ -23,6 +23,7 @@ import { toast } from "react-toastify";
 import emailjs from "emailjs-com";
 import firebase from "firebase";
 import { useFormik } from "formik";
+import logo from "../Assets/logo.png";
 
 const isActive = (history, path) => {
   if (history.location.pathname === path) {
@@ -217,7 +218,7 @@ const Header = ({ history }) => {
             <div className="header-main31">
               <div className="header-main32">
                 <Link to="/" style={isActive(history, "/")}>
-                  <h3>PACAULI</h3>
+                  <img src={logo} className="logo-header" alt="logo" />
                 </Link>
               </div>
               <div className="hamburger">
