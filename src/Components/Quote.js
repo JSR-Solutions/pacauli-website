@@ -7,8 +7,7 @@ const Quote = () => {
       <div class="cp-wrapper">
         <figure class="review">
           <blockquote class="review__text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga
-            doloremque architecto dicta animi, totam, itaque officia ex.
+            The gladdest moment in human life is a departure into unknown lands.
           </blockquote>
         </figure>
       </div>

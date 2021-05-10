@@ -61,7 +61,9 @@ const Home = () => {
           caption1="Auli /Joshimath is starting of many breathtaking and India’s best treks.Local people are passionate about exploring the mountains here they have been doing this work for past 60-70 years now ,as decades before there ancestors where all shepherds roaming and exploring the mountains with their livestock. With that connection to past and culture it gives Auli a boost."
           src2={a4}
           heading2="Exploring the Mountains"
-          caption2="Trekking and exploring the mountain is the procress of healing yourself and learning the peaceful way of life. When you trek a mountain you learn many life lessons"
+          caption2="Trekking is something that makes you experience your level of strength. It's tied in with acknowledging demands, vanquishing dread, and exploring uninhabited areas at higher heights.
+
+The Himalayan Trekking Trails in Uttrakhand ,Himanchal and Nepal is acclaimed as the best journeying locales and it draws in travelers from all over the world."
           mainheading="TREKKING"
           link={`/categories/1`}
         />
@@ -79,8 +81,10 @@ const Home = () => {
           heading1="xyz"
           caption1="abc"
           src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading2="xyz"
-          caption2="abc"
+          heading2=""
+          caption2="Far away from this populated world, on top of any bluff, the world under the sky brimming with gleaming stars, other than your camp and some tea what else an individual can wish to get harmony. Camping invigorates your brain and soul and assists you in continuing your existence with more energy.
+
+Each individual requires a break from this rushed and occupied way of life when he can invigorate his brain and plan their future. Outdoors in Uttrakhand can help you in reestablishing your energy and inventiveness"
           mainheading="CAMPING"
           link={`/categories/4`}
         />
@@ -99,7 +103,9 @@ const Home = () => {
           caption1="Cycling is always more than a adventure as you all know two wheels move the soul.We are offering you the best trails in the valley with the view and track you will never forget.This experience of yours will always live with you with flashbacks of you gliding and enjoying cycling in the Himalayas."
           src2={a6}
           heading2="It is a fresh start"
-          caption2="We are only company in the valley that Provide these cycling facilities as it takes a lot courage to start something new ,so join us and explore the unseen."
+          caption2="Cycling in mountains is a game of riding bicycles on rough terrain, regularly over harsh territory, typically utilizing exceptionally planned off-road bicycles. 
+
+Individuals are presently more worried about contaminations, greenery, just as their wellness consequently the rage for cycling, is expanding now. Individuals like to invest their energy in the middle of nature and investigating places around by cycle."
           mainheading="CYCLING"
           link={`/categories/3`}
         />
@@ -134,11 +140,15 @@ const Home = () => {
       <div class="curved-div2">
         <Hometext2
           src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading1="xyz"
-          caption1="abc"
+          heading1=""
+          caption1="Something alternate which you need to unexpectedly. Skiing is a vigorous and bold game that is useful for raising the pulse and for expanding cardiovascular perseverance. It's astonishing to cover miles in minutes on the most troublesome bends on snow-shrouded mountains.
+
+Auli is the most loved spot for skiing darlings with incredible slants encompassed by excellent valleys. An ideal objective to pick up skiing and practice expertly for competitions."
           src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading2="xyz"
-          caption2="abc"
+          heading2=""
+          caption2="Something alternate which you need to unexpectedly. Skiing is a vigorous and bold game that is useful for raising the pulse and for expanding cardiovascular perseverance. It's astonishing to cover miles in minutes on the most troublesome bends on snow-shrouded mountains.
+
+Auli is the most loved spot for skiing darlings with incredible slants encompassed by excellent valleys. An ideal objective to pick up skiing and practice expertly for competitions."
           mainheading="SKIING"
           link={`/categories/0`}
         />
@@ -155,10 +165,12 @@ const Home = () => {
         <Hometext
           src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
           heading1="xyz"
-          caption1="abc"
+          caption1="Water, quite possibly the most smooth component on this planet. It continues to change its way, nature, and shape according to necessity. Rafting assists you in learning the method of change with hazardous and surprising floods of water.
+Searching generally advantageous and testing place for waterway rafting then you should visit Hrishikesh, perhaps the best area in India for boating where you can enjoy rafting in the rushes of the stream strong Ganga."
           src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading2="xyz"
-          caption2="abc"
+          heading2=""
+          caption2="Water, quite possibly the most smooth component on this planet. It continues to change its way, nature, and shape according to necessity. Rafting assists you in learning the method of change with hazardous and surprising floods of water.
+Searching generally advantageous and testing place for waterway rafting then you should visit Hrishikesh, perhaps the best area in India for boating where you can enjoy rafting in the rushes of the stream strong Ganga."
           mainheading="RAFTING"
           link={`/categories/5`}
         />
@@ -174,11 +186,19 @@ const Home = () => {
       <div class="curved-div2">
         <Hometext2
           src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading1="xyz"
-          caption1="abc"
+          heading1=""
+          caption1="Each pinnacle of mountains isn't that simple to overcome. To investigate the immaculate excellence you need to transform yourself into a monster. 
+
+It doesn't go under adventure sports, it's a dangerous movement to do in the wake of setting yourself up actually and intellectually, and it requires geological and specialized information too. 
+
+There are heaps of mountain tops in our country which go under endeavor yet everybody needs more guts to go there."
           src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading2="xyz"
-          caption2="abc"
+          heading2=""
+          caption2="Each pinnacle of mountains isn't that simple to overcome. To investigate the immaculate excellence you need to transform yourself into a monster. 
+
+It doesn't go under adventure sports, it's a dangerous movement to do in the wake of setting yourself up actually and intellectually, and it requires geological and specialized information too. 
+
+There are heaps of mountain tops in our country which go under endeavor yet everybody needs more guts to go there."
           mainheading="EXPEDITIONS"
           link={`/categories/6`}
         />

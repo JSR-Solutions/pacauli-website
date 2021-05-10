@@ -14,7 +14,7 @@ import CustomPackageRequests from "./Admin/CustomPackage";
 import CustomPackage from "./Core/CustomPackage";
 import ContactRequests from "./Admin/ContactRequests";
 import GetInTouch from "./Admin/GetInTouch";
-import EditUser from "./Auth/editUserDetails"
+import EditUser from "./Auth/editUserDetails";
 
 import Aboutus from "./Core/Aboutus";
 
@@ -26,13 +26,14 @@ import EditDate from "./Admin/editDate";
 import Singlepackage from "./Components/Singlepackagescreen/Singlepackage";
 import SinglePackageDashboard from "./Admin/SinglePackageDashboard";
 import UpdateGalleryImages from "./Admin/UpdateGalleryImages";
-import UserDashboard from "./Core/UserDashboard"
+import UserDashboard from "./Core/UserDashboard";
 
 //User Auth Pages
 import Login from "./Auth/Login";
 import SignUp from "./Auth/SignUp";
 import UserRegistration from "./Auth/UserRegistration";
 import SinglePackageReviews from "./Admin/SinglePackageReviews";
+import LoadingScreen from "./Components/LoadingScreen";
 
 function App() {
   return (
@@ -62,6 +63,7 @@ function App() {
           <Route path="/user/register" exact component={UserRegistration} />
           <Route path="/userDashboard" exact component={UserDashboard} />
           <Route path="/edituserdetails" exact component={EditUser} />
+          <Route path="/loading" exact component={LoadingScreen} />
           <PrivateRoute
             path="/admin/dashboard"
             exact
