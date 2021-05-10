@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {
-  IoLogoFacebook,
-  IoLogoTwitter,
-  IoLogoWhatsapp,
-  IoMdMail,
   IoIosPeople,
 } from "react-icons/io";
 import {
-  AiFillInstagram,
-  AiFillPhone,
   AiOutlineUserAdd,
   AiOutlinePhone,
   AiOutlineMail,
@@ -78,10 +72,10 @@ const Header = ({ history }) => {
     if (window.scrollY > 110) {
       const navlink = document.querySelector(".header-main2");
       const navlinkss = document.querySelector(".hamburger");
-      const navlinks = document.querySelector(".header-main");
+      // const navlinks = document.querySelector(".header-main");
       const seconddiv = document.querySelector(".header-main3");
-      if (navlinks && navlinkss && navlink) {
-        navlinks.classList.add("header-main-exit");
+      if (navlinkss && navlink) {
+        // navlinks.classList.add("header-main-exit");
         navlinkss.classList.add("hamburger-exit");
         navlink.classList.add("header-main2-exit");
         seconddiv.classList.add("header-main3-exit");
@@ -89,12 +83,12 @@ const Header = ({ history }) => {
     }
     if (window.scrollY <= 110) {
       const navlinkss = document.querySelector(".hamburger");
-      const navlinks = document.querySelector(".header-main");
+      // const navlinks = document.querySelector(".header-main");
       const navlink = document.querySelector(".header-main2");
       const seconddiv = document.querySelector(".header-main3");
-      if (navlink && navlinks && navlinkss) {
+      if (navlink && navlinkss) {
         navlink.classList.remove("header-main2-exit");
-        navlinks.classList.remove("header-main-exit");
+        // navlinks.classList.remove("header-main-exit");
         navlinkss.classList.remove("hamburger-exit");
         seconddiv.classList.remove("header-main3-exit");
       }
@@ -151,12 +145,6 @@ const Header = ({ history }) => {
     },
   });
 
-  function handlechange(event) {
-    const { name, value } = event.target;
-    setQuickEnquiry((prev) => {
-      return { ...prev, [name]: value };
-    });
-  }
 
   function sendEmail() {
     emailjs
@@ -363,11 +351,11 @@ const Header = ({ history }) => {
           className="quick-inq2"
           style={
             formik.errors.email ||
-            formik.errors.fullName ||
-            formik.errors.phNo ||
-            formik.errors.requirements ||
-            formik.errors.budget ||
-            formik.errors.destination
+              formik.errors.fullName ||
+              formik.errors.phNo ||
+              formik.errors.requirements ||
+              formik.errors.budget ||
+              formik.errors.destination
               ? { height: "570px" }
               : null
           }
