@@ -235,7 +235,7 @@ const Singlepackage = (props) => {
                           <div
                             style={{
                               ...style,
-                              marginTop: isSticky ? "66px" : "0px",
+                              marginTop: isSticky ? "76px" : "0px",
                             }}
                             className="single-package-navbar"
                             id="sing-pack-nav"
