@@ -7,7 +7,8 @@ import custi from "../Assets/custompackage.svg";
 import firebase from "firebase";
 import { ToastContainer, toast } from "react-toastify";
 import { useFormik } from "formik";
-import $ from "jquery"
+import emailjs from "emailjs-com";
+import $ from "jquery";
 
 const ValidateForm = (empData) => {
   const errors = {};
@@ -39,6 +40,9 @@ const ValidateForm = (empData) => {
   }
   if (!empData.message) {
     errors.message = "Please Enter your Message";
+  }
+  if (!empData.noOfPeople) {
+    errors.noOfPeople = "Please Enter Number Of People";
   }
   return errors;
 };
@@ -72,6 +76,7 @@ const ContactUs = () => {
       budget: "",
       destination: "",
       message: "",
+      noOfPeople: "",
     },
     validate: ValidateForm,
     onSubmit: (values, { resetForm }) => {
@@ -85,15 +90,29 @@ const ContactUs = () => {
 
       .add(formik.values)
 
-      .then((docRef) => {
-        formik.handleSubmit();
-        toast.success(
-          "Your request has been successfully submitted, we will contact you shortly."
-        );
-        db.collection("CustomPackages")
-          .doc(docRef.id)
-          .update({ id: docRef.id });
-      });
+      .then(
+        (docRef) => {
+          formik.handleSubmit();
+          emailjs
+            .send(
+              "service_bamc2hz",
+              "template_szc8rfg",
+              formik.values,
+              "user_VBg8xCBfb5y3PPweXPV0B"
+            )
+            .then((response) => {
+              toast.success(
+                "Your request has been successfully submitted, we will contact you shortly."
+              );
+              db.collection("CustomPackages")
+                .doc(docRef.id)
+                .update({ id: docRef.id });
+            });
+        },
+        (err) => {
+          toast.error("An error occurred, please try again.");
+        }
+      );
   };
 
   useEffect(() => {
@@ -230,6 +249,30 @@ const ContactUs = () => {
 
                 {formik.touched.destination && formik.errors.destination ? (
                   <p class="errt">{formik.errors.destination}</p>
+                ) : null}
+                <div
+                  className="contact-form-input-container"
+                  style={
+                    formik.errors.noOfPeople ? { marginBottom: "0" } : null
+                  }
+                >
+                  <input
+                    type="text"
+                    name="noOfPeople"
+                    className="contact-input"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.noOfPeople}
+                  />
+
+                  <label className="contact-form-label" for="">
+                    No Of People
+                  </label>
+                  <span>No Of People</span>
+                </div>
+
+                {formik.touched.noOfPeople && formik.errors.noOfPeople ? (
+                  <p class="errt">{formik.errors.noOfPeople}</p>
                 ) : null}
                 <div
                   className="contact-form-input-container"

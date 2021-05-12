@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  IoIosPeople,
-} from "react-icons/io";
+import { IoIosPeople } from "react-icons/io";
 import {
   AiOutlineUserAdd,
   AiOutlinePhone,
@@ -13,7 +11,7 @@ import { IoCashOutline, IoLocationOutline } from "react-icons/io5";
 import "../Styles/Header.css";
 import { Link, withRouter } from "react-router-dom";
 import { Form } from "react-bootstrap";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import emailjs from "emailjs-com";
 import firebase from "firebase";
 import { useFormik } from "formik";
@@ -30,9 +28,9 @@ const ValidateForm = (empData) => {
   const errors = {};
 
   if (!empData.fullName) {
-    errors.fullName = "Please Enter Your Name";
+    errors.name = "Please Enter Your Name";
   } else if (empData.fullName.length > 20) {
-    errors.fullName = "Name Should Not Exeed 20 Characters";
+    errors.name = "Name Should Not Exeed 20 Characters";
   }
 
   if (!empData.phNo) {
@@ -54,8 +52,8 @@ const ValidateForm = (empData) => {
   if (!empData.budget) {
     errors.budget = "Please Enter your Budget";
   }
-  if (!empData.requirements) {
-    errors.requirements = "Please Enter your Requiremets";
+  if (!empData.message) {
+    errors.message = "Please Enter your Message";
   }
   if (!empData.noOfPeople) {
     errors.noOfPeople = "Please Enter The number of people";
@@ -95,6 +93,8 @@ const Header = ({ history }) => {
     }
   };
 
+  const db = firebase.firestore();
+
   window.addEventListener("scroll", changebackgroundd);
 
   useEffect(() => {
@@ -123,7 +123,7 @@ const Header = ({ history }) => {
     fullName: "",
     email: "",
     phNo: "",
-    requirements: "",
+    message: "",
     budget: "",
     noOfPeople: "",
     destination: "",
@@ -131,10 +131,10 @@ const Header = ({ history }) => {
 
   const formik = useFormik({
     initialValues: {
-      fullName: "",
+      name: "",
       phNo: "",
       email: "",
-      requirements: "",
+      message: "",
       budget: "",
       noOfPeople: "",
       destination: "",
@@ -145,37 +145,37 @@ const Header = ({ history }) => {
     },
   });
 
+  function sendEmail(e) {
+    e.preventDefault();
+    db.collection("QuickEnquiries")
 
-  function sendEmail() {
-    emailjs
-      .send(
-        "service_wmmn1mc",
-        "template_hi5n6h4",
-        quickEnquiry,
-        "user_kOM812vqGT0AINxPmaGol"
-      )
+      .add(formik.values)
+
       .then(
-        function (response) {
-          console.log("SUCCESS!", response.status, response.text);
-          toast.success("Mail Sent");
-          setQuickEnquiry({
-            fullName: "",
-            email: "",
-            phNo: "",
-            destination: "",
-            requirements: "",
-            budget: "",
-            noOfPeople: "",
-          });
+        (docRef) => {
+          formik.handleSubmit();
+          emailjs
+            .send(
+              "service_bamc2hz",
+              "template_szc8rfg",
+              formik.values,
+              "user_VBg8xCBfb5y3PPweXPV0B"
+            )
+            .then((response) => {
+              toast.success(
+                "Your request has been successfully submitted, we will contact you shortly."
+              );
+              db.collection("QuickEnquiries")
+                .doc(docRef.id)
+                .update({ id: docRef.id });
+            });
         },
-        function (err) {
-          console.log("FAILED...", err);
-          toast.error(
-            "There is an issue sending your request. Please try again later."
-          );
+        (err) => {
+          toast.error("An error occurred, please try again.");
         }
       );
   }
+  
   function isSignedIn() {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -194,6 +194,7 @@ const Header = ({ history }) => {
       style={{ width: "100%", overflowX: "hidden" }}
       className="header-main-main"
     >
+      <ToastContainer />
       <div className="header-main">
         <div className="header-main1">
           <div className="header-main2">
@@ -351,11 +352,11 @@ const Header = ({ history }) => {
           className="quick-inq2"
           style={
             formik.errors.email ||
-              formik.errors.fullName ||
-              formik.errors.phNo ||
-              formik.errors.requirements ||
-              formik.errors.budget ||
-              formik.errors.destination
+            formik.errors.name ||
+            formik.errors.phNo ||
+            formik.errors.message ||
+            formik.errors.budget ||
+            formik.errors.destination
               ? { height: "570px" }
               : null
           }
@@ -367,13 +368,13 @@ const Header = ({ history }) => {
                 <Form.Control
                   type="text"
                   onChange={formik.handleChange}
-                  name="fullName"
-                  value={formik.values.fullName}
+                  name="name"
+                  value={formik.values.name}
                   placeholder="Name"
                   onBlur={formik.handleBlur}
                 />
-                {formik.touched.fullName && formik.errors.fullName ? (
-                  <p className="erryu">{formik.errors.fullName}</p>
+                {formik.touched.name && formik.errors.name ? (
+                  <p className="erryu">{formik.errors.name}</p>
                 ) : null}
               </Form.Group>
               <Form.Group>
@@ -422,16 +423,16 @@ const Header = ({ history }) => {
                 <VscDebugRestartFrame className="icone-form" />
                 <Form.Control
                   as="textarea"
-                  placeholder="Requirement"
+                  placeholder="Message"
                   rows={3}
                   onChange={formik.handleChange}
-                  name="requirements"
-                  value={formik.values.requirements}
+                  name="message"
+                  value={formik.values.message}
                   className="nobb-form"
                   onBlur={formik.handleBlur}
                 />
-                {formik.touched.requirements && formik.errors.requirements ? (
-                  <p className="erryu">{formik.errors.requirements}</p>
+                {formik.touched.message && formik.errors.message ? (
+                  <p className="erryu">{formik.errors.message}</p>
                 ) : null}
               </Form.Group>
               <Form.Group>

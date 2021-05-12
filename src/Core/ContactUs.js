@@ -7,6 +7,7 @@ import location from "../Assets/location.png";
 import phone from "../Assets/phone.png";
 import shape from "../Assets/shape.png";
 import firebase from "firebase";
+import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 
 import $ from "jquery";
@@ -86,11 +87,19 @@ const ContactUs = () => {
     db.collection("Enquiries")
       .add(formik.values)
       .then((docRef) => {
-        toast.success(
-          "Your enquiry has reached us. We will get in touch with you shortly."
-        );
-        formik.handleSubmit();
-        db.collection("Enquiries").doc(docRef.id).update({ id: docRef.id });
+        emailjs
+          .send(
+            "service_bamc2hz",
+            "template_t9icbvw",
+            formik.values,
+            "user_VBg8xCBfb5y3PPweXPV0B"
+          )
+          .then((response) => {
+            toast.success(
+              "Your request has been successfully submitted, we will contact you shortly."
+            );
+            db.collection("Enquiries").doc(docRef.id).update({ id: docRef.id });
+          });
       });
   };
 
