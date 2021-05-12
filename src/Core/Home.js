@@ -81,7 +81,7 @@ The Himalayan Trekking Trails in Uttrakhand ,Himanchal and Nepal is acclaimed as
           heading1="xyz"
           caption1="abc"
           src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading2=""
+          heading2="Overview"
           caption2="Far away from this populated world, on top of any bluff, the world under the sky brimming with gleaming stars, other than your camp and some tea what else an individual can wish to get harmony. Camping invigorates your brain and soul and assists you in continuing your existence with more energy.
 
 Each individual requires a break from this rushed and occupied way of life when he can invigorate his brain and plan their future. Outdoors in Uttrakhand can help you in reestablishing your energy and inventiveness"
@@ -140,12 +140,12 @@ Individuals are presently more worried about contaminations, greenery, just as t
       <div class="curved-div2">
         <Hometext2
           src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading1=""
+          heading1="Overview"
           caption1="Something alternate which you need to unexpectedly. Skiing is a vigorous and bold game that is useful for raising the pulse and for expanding cardiovascular perseverance. It's astonishing to cover miles in minutes on the most troublesome bends on snow-shrouded mountains.
 
 Auli is the most loved spot for skiing darlings with incredible slants encompassed by excellent valleys. An ideal objective to pick up skiing and practice expertly for competitions."
           src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading2=""
+          heading2="Overview"
           caption2="Something alternate which you need to unexpectedly. Skiing is a vigorous and bold game that is useful for raising the pulse and for expanding cardiovascular perseverance. It's astonishing to cover miles in minutes on the most troublesome bends on snow-shrouded mountains.
 
 Auli is the most loved spot for skiing darlings with incredible slants encompassed by excellent valleys. An ideal objective to pick up skiing and practice expertly for competitions."
@@ -164,11 +164,11 @@ Auli is the most loved spot for skiing darlings with incredible slants encompass
       <div class="curved-div1">
         <Hometext
           src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading1="xyz"
+          heading1="Overview"
           caption1="Water, quite possibly the most smooth component on this planet. It continues to change its way, nature, and shape according to necessity. Rafting assists you in learning the method of change with hazardous and surprising floods of water.
 Searching generally advantageous and testing place for waterway rafting then you should visit Hrishikesh, perhaps the best area in India for boating where you can enjoy rafting in the rushes of the stream strong Ganga."
           src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading2=""
+          heading2="Overview"
           caption2="Water, quite possibly the most smooth component on this planet. It continues to change its way, nature, and shape according to necessity. Rafting assists you in learning the method of change with hazardous and surprising floods of water.
 Searching generally advantageous and testing place for waterway rafting then you should visit Hrishikesh, perhaps the best area in India for boating where you can enjoy rafting in the rushes of the stream strong Ganga."
           mainheading="RAFTING"
@@ -186,14 +186,14 @@ Searching generally advantageous and testing place for waterway rafting then you
       <div class="curved-div2">
         <Hometext2
           src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading1=""
+          heading1="Overview"
           caption1="Each pinnacle of mountains isn't that simple to overcome. To investigate the immaculate excellence you need to transform yourself into a monster. 
 
 It doesn't go under adventure sports, it's a dangerous movement to do in the wake of setting yourself up actually and intellectually, and it requires geological and specialized information too. 
 
 There are heaps of mountain tops in our country which go under endeavor yet everybody needs more guts to go there."
           src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading2=""
+          heading2="Overview"
           caption2="Each pinnacle of mountains isn't that simple to overcome. To investigate the immaculate excellence you need to transform yourself into a monster. 
 
 It doesn't go under adventure sports, it's a dangerous movement to do in the wake of setting yourself up actually and intellectually, and it requires geological and specialized information too. 
@@ -214,11 +214,12 @@ There are heaps of mountain tops in our country which go under endeavor yet ever
       <div class="curved-div1">
         <Hometext
           src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading1="xyz"
-          caption1="abc"
+          heading1=""
+          caption1="Char Dham is also known as the four abodes and is considered a sacred pilgrimage site in India. The Hindus suggest that once in a lifetime, people should do this holy Yatra. This pilgrimage yatra holds a significant essence to the devotees. It comprises the four sacred sites: Yamunotri, Gangotri, Kedarnath, and Badrinath. Char Dham Yatra is also called the Chota Chardham Yatra, as these sites are very close to each other and are within Uttarakhand. People all over the world pay a visit to these pilgrimages to attain spirituality. All four sites have a specific deity. Yamunotri is dedicated to Goddess Yamuna, who goes to the high altitude of Rawai valley. Gangotri is dedicated to the river Goddess Ganga. Kedarnath is a part of Panch Kedar, and this pilgrimage is dedicated to Lord Shiva. It is close to the river Alaknanda. Badrinath is dedicated to Lord Vishnu. These holy pilgrimages are situated in the Garhwal Himalayas, where the Yatra route follows from West to East Direction. It starts clockwise, i.e., from  Yamunotri and then heading towards Gangotri then Kedarnath. This Yatra aspires people to go through salvation through difficulties of life. 
+Primarily people visit the Char Dham for a spiritual purpose. Doing these four holy Yatra exhibits a blessed connection within an individual. There is this sense of inner self-satisfaction and contentment. Embarking on this journey will not only give peace to your soul but also prepares the soul for ‘Enlightenment.’"
           src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
-          heading2="xyz"
-          caption2="abc"
+          heading2="Overview"
+          caption2="Char Dham is also known as the four abodes and is considered a sacred pilgrimage site in India. The Hindus suggest that once in a lifetime, people should do this holy Yatra. This pilgrimage yatra holds a significant essence to the devotees. It comprises the four sacred sites: Yamunotri, Gangotri, Kedarnath, and Badrinath. People all over the world pay a visit to these pilgrimages to attain spirituality. All four sites have a specific deity. Embarking on this journey will not only give peace to your soul but also prepares the soul for ‘Enlightenment.’"
           mainheading="CHAR DHAM"
           link={`/categories/7`}
         />
