@@ -20,12 +20,11 @@ function Footer() {
               <h3 className="footer-section-title">About Us</h3>
               <div className="footer-section-content-div">
                 <p className="footer-section-content">
-                  Lorem ipsum dolor sit amet, officia excepteur ex fugiat
-                  reprehenderit enim labore culpa sint ad nisi Lorem pariatur
-                  mollit ex esse exercitation amet. Nisi anim cupidatat
-                  excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem
-                  est aliquip amet voluptate voluptate dolor minim nulla est
-                  proident.
+                  PAC AULI is more than seven in sequential order words. It
+                  represents a dream, commitment, and determination. Life is all
+                  about living once for your dream and other responsibilities,
+                  we want to be a medium that helps individuals in doing the
+                  most adorable thing.
                 </p>
               </div>
             </div>
@@ -104,8 +103,7 @@ function Footer() {
                   </p>
                 </a>
                 <p className="footer-section-content">
-                  Address : PAC (Pangarchulla Adventure Camps),Auli (403.54 km)
-                  246443 Auli, Norway
+                  Address : Pac Auli Office, Auli Road, Joshimath
                 </p>
               </div>
             </div>
