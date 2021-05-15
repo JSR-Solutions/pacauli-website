@@ -40,6 +40,7 @@ import Rock from './Components/SinglePackagesdiff/Rockclimb'
 import Skiing from './Components/SinglePackagesdiff/Sking'
 import Raft from './Components/SinglePackagesdiff/Rafting'
 import Camping from './Components/SinglePackagesdiff/Camping'
+import Snowboarding from './Components/SinglePackagesdiff/Snowboarding'
 
 function App() {
   return (
@@ -75,7 +76,7 @@ function App() {
           <Route
             path="/package/Snow Boarding/:packageId"
             exact
-            component={Skiing}
+            component={Snowboarding}
           />
           <Route
             path="/package/Skiing/:packageId"

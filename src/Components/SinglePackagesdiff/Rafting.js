@@ -41,7 +41,7 @@ const Singlepackage = (props) => {
 
   const getReviews = () => {
     setReviews([]);
-    db.collection(props.match.params.categoryName)
+    db.collection('Rafting')
       .doc(props.match.params.packageId)
       .collection("Reviews")
       .get()
@@ -80,7 +80,7 @@ const Singlepackage = (props) => {
 
   useEffect(() => {
     setFetching(true);
-    db.collection(props.match.params.categoryName)
+    db.collection('Rafting')
       .doc(props.match.params.packageId)
       .get()
       .then((ress) => {
@@ -129,7 +129,7 @@ const Singlepackage = (props) => {
       if (user) {
         const uid = user.uid;
         if (uid) {
-          db.collection(props.match.params.categoryName)
+          db.collection('Rafting')
             .doc(props.match.params.packageId)
             .collection("Reviews")
             .add({
@@ -149,7 +149,7 @@ const Singlepackage = (props) => {
 
   useEffect(() => {
     seatavailablity([]);
-    db.collection(props.match.params.categoryName)
+    db.collection('Rafting')
       .doc(props.match.params.packageId)
       .collection("Dates")
       .doc("dates")
@@ -250,11 +250,11 @@ const Singlepackage = (props) => {
                                 <p>Reviews</p>
                               </a>
                             </div>
-                            <div className="single-pack-nav-item">
+                            {/* <div className="single-pack-nav-item">
                               <a href="#map">
                                 <p>Map</p>
                               </a>
-                            </div>
+                          </div> */}
                             <div className="single-pack-nav-item">
                               <a href="#cancellation">
                                 <p>Rapids</p>
@@ -492,23 +492,6 @@ const Singlepackage = (props) => {
                           )}
                         </div>
                       </div>
-                      {/* LOCATION */}
-                      <div className="sngl-pack-short-itn" id="map">
-                        <div className="single-pck-2-row">
-                          <div className="single-pack-side-design"></div>
-                          <h4>Location</h4>
-                          <hr />
-                          {pack && mapi && (
-                            <iframe
-                              src={mapi}
-                              width="100%"
-                              height="450"
-                              frameborder="0"
-                              allowfullscreen
-                            ></iframe>
-                          )}
-                        </div>
-                      </div>
                       {/* INCLUSIONS */}
                       <div className="sngl-pack-short-itn" id="inclusion">
                         <div className="single-pck-2-row">
@@ -577,3 +560,22 @@ const Singlepackage = (props) => {
 };
 
 export default Singlepackage;
+
+
+//  {/* LOCATION */}
+//  <div className="sngl-pack-short-itn" id="map">
+//  <div className="single-pck-2-row">
+//    <div className="single-pack-side-design"></div>
+//    <h4>Location</h4>
+//    <hr />
+//    {pack && mapi && (
+//      <iframe
+//        src={mapi}
+//        width="100%"
+//        height="450"
+//        frameborder="0"
+//        allowfullscreen
+//      ></iframe>
+//    )}
+//  </div>
+// </div>
