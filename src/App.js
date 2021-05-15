@@ -35,6 +35,12 @@ import UserRegistration from "./Auth/UserRegistration";
 import SinglePackageReviews from "./Admin/SinglePackageReviews";
 import LoadingScreen from "./Components/LoadingScreen";
 
+//DiffSinglePackageScreens
+import Rock from './Components/SinglePackagesdiff/Rockclimb'
+import Skiing from './Components/SinglePackagesdiff/Sking'
+import Raft from './Components/SinglePackagesdiff/Rafting'
+import Camping from './Components/SinglePackagesdiff/Camping'
+
 function App() {
   return (
     <div className="App" style={{ width: "100%", overflowX: "hidden" }}>
@@ -55,6 +61,31 @@ function App() {
             path="/package/:categoryName/:packageId"
             exact
             component={Singlepackage}
+          />
+          <Route
+            path="/package/Rafting/:packageId"
+            exact
+            component={Raft}
+          />
+          <Route
+            path="/package/Camping/:packageId"
+            exact
+            component={Camping}
+          />
+          <Route
+            path="/package/Snow Boarding/:packageId"
+            exact
+            component={Skiing}
+          />
+          <Route
+            path="/package/Skiing/:packageId"
+            exact
+            component={Skiing}
+          />
+          <Route
+            path="/package/Rock Climbing/:packageId"
+            exact
+            component={Rock}
           />
           {/* Admin Routes */}
           <Route path="/admin/login" exact component={AdminLogin} />
