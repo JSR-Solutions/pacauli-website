@@ -457,14 +457,15 @@ function AddPackage() {
                     value={packageType}
                   >
                     <option>Trekking</option>
-                    <option>Skiing</option>
-                    <option>Snowboarding</option>
-                    <option>Cycling</option>
-                    <option>Bike Trips</option>
                     <option>Expedition</option>
-                    <option>Rafting</option>
+                    <option>Skiing</option>
                     <option>Camping</option>
                     <option>Spiritual Tours</option>
+                    <option>Bike Trips</option>
+                    <option>Rafting</option>
+                    <option>Cycling</option>
+                    <option>Rock Climbing</option>
+                    <option>Snowboarding</option>
                   </Form.Control>
                 </Form.Group>
               </Col>
