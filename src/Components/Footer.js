@@ -55,33 +55,36 @@ function Footer() {
                 <Row>
                   <Col>
                     <Link to="/categories/0">
-                      <p className="footer-section-content">Skiing</p>
-                    </Link>
-                    <Link to="/categories/1">
                       <p className="footer-section-content">Trekking</p>
                     </Link>
-                    <Link to="/categories/6">
+                    <Link to="/categories/1">
                       <p className="footer-section-content">Expedition</p>
                     </Link>
-                    <Link to="/categories/4">
+                    <Link to="/categories/2">
+                      <p className="footer-section-content">Skiing</p>
+                    </Link>
+                    <Link to="/categories/3">
                       <p className="footer-section-content">Camping</p>
                     </Link>
-                    <Link to="/categories/5">
-                      <p className="footer-section-content">Rafting</p>
+                    <Link to="/categories/4">
+                      <p className="footer-section-content">Spiritual Tours</p>
                     </Link>
                   </Col>
                   <Col>
-                    <Link to="/categories/2">
-                      <p className="footer-section-content">Rock Climbing</p>
+                    <Link to="/categories/5">
+                      <p className="footer-section-content">Bike Trips</p>
                     </Link>
-                    <Link to="/categories/3">
-                      <p className="footer-section-content">Cycling</p>
+                    <Link to="/categories/6">
+                      <p className="footer-section-content">Rafting</p>
                     </Link>
                     <Link to="/categories/7">
-                      <p className="footer-section-content">Char Dham</p>
+                      <p className="footer-section-content">Cycling</p>
                     </Link>
                     <Link to="/categories/8">
-                      <p className="footer-section-content">Snow Boarding</p>
+                      <p className="footer-section-content">Rock Climbing</p>
+                    </Link>
+                    <Link to="/categories/9">
+                      <p className="footer-section-content">Snowboarding</p>
                     </Link>
                   </Col>
                 </Row>
