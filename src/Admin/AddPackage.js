@@ -9,6 +9,8 @@ function AddPackage() {
   const [overviews, setOverviews] = useState([""]);
   const [histories, setHistories] = useState([""]);
   const [inclusions, setInclusions] = useState([""]);
+  const [rapid, setRapid] = useState([""]);
+  const [majorattraction, setMajorAttraction] = useState([""]);
   const [exclusions, setExclusions] = useState([""]);
   const [cancellation, setCancellation] = useState([""]);
   const [map, setMap] = useState("");
@@ -142,12 +144,62 @@ function AddPackage() {
 
   const removeInclusions = (index) => {
     console.log("Element to be removed : " + index);
-    const values = [...inclusions];
+    const values = [...rapid];
     if (values.length > 1) {
       values.splice(index, 1);
       console.log(values);
     }
     setInclusions(values);
+  };
+
+  //Rapids dynamic part
+  const handleRapidChange = (e, index) => {
+    e.preventDefault();
+    const values = [...rapid];
+    values[index] = e.target.value;
+    setRapid(values);
+  };
+
+  const addRapid = (e) => {
+    e.preventDefault();
+    setRapid((prev) => {
+      return [...prev, ""];
+    });
+  };
+
+  const removeRapid = (index) => {
+    console.log("Element to be removed : " + index);
+    const values = [...rapid];
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
+    setRapid(values);
+  };
+
+  //Major attractions dynamic part
+  const handleMajorAttractionsChange = (e, index) => {
+    e.preventDefault();
+    const values = [...majorattraction];
+    values[index] = e.target.value;
+    setMajorAttraction(values);
+  };
+
+  const addMajorAttractions = (e) => {
+    e.preventDefault();
+    setMajorAttraction((prev) => {
+      return [...prev, ""];
+    });
+  };
+
+  const removeMajorAttractions = (index) => {
+    console.log("Element to be removed : " + index);
+    const values = [...majorattraction];
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
+    setMajorAttraction(values);
   };
 
   //Exclusions dynamic part
@@ -301,7 +353,6 @@ function AddPackage() {
     setPricing(values);
   };
 
-
   //Add Package Function
   const addPackage = (e) => {
     e.preventDefault();
@@ -345,6 +396,8 @@ function AddPackage() {
                 pricing: pricing,
                 imageUrl: packageImageUrl,
                 packageType: packageType,
+                rapid: rapid,
+                majorattraction: majorattraction,
               })
               .then((docRef) => {
                 db.collection(packageType)
@@ -403,15 +456,15 @@ function AddPackage() {
                     required
                     value={packageType}
                   >
-                    <option>Skiing</option>
                     <option>Trekking</option>
-                    <option>Expedition</option>
-                    <option>Rock Climbing</option>
-                    <option>Camping</option>
+                    <option>Skiing</option>
+                    <option>Snowboarding</option>
                     <option>Cycling</option>
+                    <option>Bike Trips</option>
+                    <option>Expedition</option>
                     <option>Rafting</option>
-                    <option>Char Dham</option>
-                    <option>Snow Boarding</option>
+                    <option>Camping</option>
+                    <option>Spiritual Tours</option>
                   </Form.Control>
                 </Form.Group>
               </Col>
@@ -911,6 +964,89 @@ function AddPackage() {
                       <Button
                         onClick={() => {
                           removeCancellation(index);
+                        }}
+                        className="admin-dashboard-form-button"
+                      >
+                        -
+                      </Button>{" "}
+                    </Col>
+                  </Row>
+                </div>
+              );
+            })}
+
+            <hr />
+
+            <h5 className="form-admin-title">Rapids</h5>
+            {rapid.map((rap, index) => {
+              return (
+                <div className="admin-dashboard-form-group">
+                  <Row>
+                    <Col lg={10}>
+                      <Form.Group>
+                        <Form.Control
+                          className="admin-dashboard-form-input"
+                          type="text"
+                          name="rapid"
+                          value={rap}
+                          placeholder={"Rapid " + (index + 1)}
+                          onChange={(event) => {
+                            handleRapidChange(event, index);
+                          }}
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col className="form-admin-button-col" lg={2}>
+                      <Button
+                        onClick={addRapid}
+                        className="admin-dashboard-form-button"
+                      >
+                        +
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          removeRapid(index);
+                        }}
+                        className="admin-dashboard-form-button"
+                      >
+                        -
+                      </Button>{" "}
+                    </Col>
+                  </Row>
+                </div>
+              );
+            })}
+
+            <hr />
+            <h5 className="form-admin-title">Major Attractions</h5>
+            {majorattraction.map((attraction, index) => {
+              return (
+                <div className="admin-dashboard-form-group">
+                  <Row>
+                    <Col lg={10}>
+                      <Form.Group>
+                        <Form.Control
+                          className="admin-dashboard-form-input"
+                          type="text"
+                          name="majorattraction"
+                          value={attraction}
+                          placeholder={"Major Attraction " + (index + 1)}
+                          onChange={(event) => {
+                            handleMajorAttractionsChange(event, index);
+                          }}
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col className="form-admin-button-col" lg={2}>
+                      <Button
+                        onClick={addMajorAttractions}
+                        className="admin-dashboard-form-button"
+                      >
+                        +
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          removeMajorAttractions(index);
                         }}
                         className="admin-dashboard-form-button"
                       >

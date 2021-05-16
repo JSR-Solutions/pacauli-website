@@ -1,5 +1,5 @@
 import Skiing from "../Assets/skiing.jpg";
-import Rock from "../Assets/rockClimbing.jpg";
+import BikeTrips from "../Assets/biketrips.jpg";
 import Trekking from "../Assets/trekking.jpg";
 import Rafting from "../Assets/Rafting.jpg";
 import Camping from "../Assets/camping.jpg";
@@ -10,7 +10,7 @@ import Snowboarding from "../Assets/snowboarding.jpg"
 import skiing from "../Assets/skiing.svg";
 import trekking from "../Assets/trekking.svg";
 import expedition from "../Assets/expedition.svg";
-import rockclimbing from "../Assets/rockclimbing.svg";
+import biketrips from "../Assets/motorbike.svg";
 import camping from "../Assets/tent.svg";
 import cycling from "../Assets/cycling.svg";
 import rafting from "../Assets/raft.svg";
@@ -31,10 +31,10 @@ const category = [
       icon: trekking
     },
     {
-      Name: "Rock Climbing",
-      img: Rock,
+      Name: "Bike Trips",
+      img: BikeTrips,
       quote: "“The best view comes after the hardest climb.”",
-      icon: rockclimbing
+      icon: biketrips
     },
     {
       Name: "Cycling",
@@ -62,7 +62,7 @@ const category = [
       icon: expedition
     },
     {
-      Name: "Char Dham",
+      Name: "Spiritual Tours",
       img: Chardham,
       quote: "“Chardham yatra washes away all sins and opens doors for Moksha”",
       icon: chardham

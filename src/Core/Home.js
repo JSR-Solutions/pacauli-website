@@ -15,6 +15,15 @@ import a5 from "../Assets/5.jpg";
 import a6 from "../Assets/6.jpg";
 import a9 from "../Assets/9.jpg";
 import a10 from "../Assets/10.jpg";
+import Skiing from "../Assets/skiing.jpg";
+import BikeTrips from "../Assets/biketrips.jpg";
+import Trekking from "../Assets/trekking.jpg";
+import Rafting from "../Assets/Rafting.jpg";
+import Camping from "../Assets/camping.jpg";
+import Expedition from "../Assets/expedition.jpg";
+import Chardham from "../Assets/chardham.jpg";
+import Cycling from "../Assets/cycling.jpg";
+import Snowboarding from "../Assets/snowboarding.jpg";
 import $ from "jquery";
 
 const Home = () => {
@@ -37,13 +46,16 @@ const Home = () => {
       <br />
       <div class="curved-div1">
         <Hometext
-          src1={a1}
+          src1={Trekking}
           heading1="Be Part of our Family"
           caption1="PAC Auli is a family thing it will be our pleasure to join the community and be a proud PACian. Our camps are on the prime location of Auli.From where you will be seeing a paranomic view of Nanda Devi,Brahmal,Nar Narayan and Sleeping beauty with a blessed location of a Apple orchid Farm."
-          src2={a2}
-          heading2="What's Special about auli?"
-          caption2="Auli is the best winter ski destination in India and hub for Trekking activities located at 9800 ft above sea level. It offers a variety of activities and mesmerising himalayan panorama view. When you visit Auli, Uttarakhand it will a lifelong memory as the things you see here will be cherished by you."
-          mainheading="SWISS CAMPS & MUD HUTS"
+          src2={Trekking}
+          heading2="Overview"
+          caption2="Trekking is something that makes you experience your level of strength. It's tied in with acknowledging demands, vanquishing dread, and exploring uninhabited areas at higher heights.
+
+The Himalayan Trekking Trails in Uttrakhand ,Himanchal and Nepal is acclaimed as the best journeying locales and it draws in travelers from all over the world."
+          mainheading="TREKKING"
+          link={`/categories/1`}
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -56,16 +68,18 @@ const Home = () => {
       <div class="curved-div2">
         <Hometext2
           data-aos="fade-left"
-          src1={a3}
-          heading1="Auli the Trekking Hub"
-          caption1="Auli /Joshimath is starting of many breathtaking and India’s best treks.Local people are passionate about exploring the mountains here they have been doing this work for past 60-70 years now ,as decades before there ancestors where all shepherds roaming and exploring the mountains with their livestock. With that connection to past and culture it gives Auli a boost."
-          src2={a4}
+          src1={Skiing}
+          heading1="Overview"
+          caption1="Something alternate which you need to unexpectedly. Skiing is a vigorous and bold game that is useful for raising the pulse and for expanding cardiovascular perseverance. It's astonishing to cover miles in minutes on the most troublesome bends on snow-shrouded mountains.
+
+Auli is the most loved spot for skiing darlings with incredible slants encompassed by excellent valleys. An ideal objective to pick up skiing and practice expertly for competitions."
+          src2={Skiing}
           heading2="Exploring the Mountains"
           caption2="Trekking is something that makes you experience your level of strength. It's tied in with acknowledging demands, vanquishing dread, and exploring uninhabited areas at higher heights.
 
 The Himalayan Trekking Trails in Uttrakhand ,Himanchal and Nepal is acclaimed as the best journeying locales and it draws in travelers from all over the world."
-          mainheading="TREKKING"
-          link={`/categories/1`}
+          mainheading="SKIING"
+          link={`/categories/0`}
         />
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -77,16 +91,14 @@ The Himalayan Trekking Trails in Uttrakhand ,Himanchal and Nepal is acclaimed as
       </svg>
       <div class="curved-div1">
         <Hometext
-          src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
+          src1={Snowboarding}
           heading1="xyz"
           caption1="abc"
-          src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
+          src2={Snowboarding}
           heading2="Overview"
-          caption2="Far away from this populated world, on top of any bluff, the world under the sky brimming with gleaming stars, other than your camp and some tea what else an individual can wish to get harmony. Camping invigorates your brain and soul and assists you in continuing your existence with more energy.
-
-Each individual requires a break from this rushed and occupied way of life when he can invigorate his brain and plan their future. Outdoors in Uttrakhand can help you in reestablishing your energy and inventiveness"
-          mainheading="CAMPING"
-          link={`/categories/4`}
+          caption2="No content provided"
+          mainheading="SNOWBOARDING"
+          link={`/categories/8`}
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -98,10 +110,10 @@ Each individual requires a break from this rushed and occupied way of life when 
       </div>
       <div class="curved-div2">
         <Hometext2
-          src1={a5}
+          src1={Cycling}
           heading1="Overview"
           caption1="Cycling is always more than a adventure as you all know two wheels move the soul.We are offering you the best trails in the valley with the view and track you will never forget.This experience of yours will always live with you with flashbacks of you gliding and enjoying cycling in the Himalayas."
-          src2={a6}
+          src2={Cycling}
           heading2="It is a fresh start"
           caption2="Cycling in mountains is a game of riding bicycles on rough terrain, regularly over harsh territory, typically utilizing exceptionally planned off-road bicycles. 
 
@@ -119,13 +131,17 @@ Individuals are presently more worried about contaminations, greenery, just as t
       </svg>
       <div class="curved-div1">
         <Hometext
-          src1={a9}
+          src1={BikeTrips}
           heading1="What will you learn from it ?"
           caption1="You will be learning not to give up, stand up again and achieve your target. After climbing the top you will experience the feeling of Completion."
-          src2={a10}
-          heading2="Himalaya Climbing"
-          caption2="Rock climbing is a physically and mentally demanding sport, one that often tests a climber's strength, endurance, agility and balance along with mental control. Rockclimbing in the Himalayas is a lifetime experience as you will be Raiding the mighty Himalayas."
-          mainheading="ROCK CLIMBING"
+          src2={BikeTrips}
+          heading2="Overview"
+          caption2="valley, is there much else charming than this? 
+
+Ladakh, the fantasy objective for all riders and it is quite possibly the most visited places in India by bikers. Individuals are getting wild about riding and continue to look for places good for bike riding. 
+
+It's an undertaking movement for individuals with a high Patience level since riding 300-350 kilometers in mountains is an intense assignment."
+          mainheading="BIKE TRIPS"
           link={`/categories/2`}
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -139,18 +155,20 @@ Individuals are presently more worried about contaminations, greenery, just as t
 
       <div class="curved-div2">
         <Hometext2
-          src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
+          src1={Expedition}
           heading1="Overview"
-          caption1="Something alternate which you need to unexpectedly. Skiing is a vigorous and bold game that is useful for raising the pulse and for expanding cardiovascular perseverance. It's astonishing to cover miles in minutes on the most troublesome bends on snow-shrouded mountains.
+          caption1="Each pinnacle of mountains isn't that simple to overcome. To investigate the immaculate excellence you need to transform yourself into a monster. 
 
-Auli is the most loved spot for skiing darlings with incredible slants encompassed by excellent valleys. An ideal objective to pick up skiing and practice expertly for competitions."
-          src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
+It doesn't go under adventure sports, it's a dangerous movement to do in the wake of setting yourself up actually and intellectually, and it requires geological and specialized information too. 
+
+There are heaps of mountain tops in our country which go under endeavor yet everybody needs more guts to go there."
+          src2={Expedition}
           heading2="Overview"
           caption2="Something alternate which you need to unexpectedly. Skiing is a vigorous and bold game that is useful for raising the pulse and for expanding cardiovascular perseverance. It's astonishing to cover miles in minutes on the most troublesome bends on snow-shrouded mountains.
 
 Auli is the most loved spot for skiing darlings with incredible slants encompassed by excellent valleys. An ideal objective to pick up skiing and practice expertly for competitions."
-          mainheading="SKIING"
-          link={`/categories/0`}
+          mainheading="EXPEDITION"
+          link={`/categories/6`}
         />
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -163,11 +181,11 @@ Auli is the most loved spot for skiing darlings with incredible slants encompass
 
       <div class="curved-div1">
         <Hometext
-          src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
+          src1={Rafting}
           heading1="Overview"
           caption1="Water, quite possibly the most smooth component on this planet. It continues to change its way, nature, and shape according to necessity. Rafting assists you in learning the method of change with hazardous and surprising floods of water.
 Searching generally advantageous and testing place for waterway rafting then you should visit Hrishikesh, perhaps the best area in India for boating where you can enjoy rafting in the rushes of the stream strong Ganga."
-          src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
+          src2={Rafting}
           heading2="Overview"
           caption2="Water, quite possibly the most smooth component on this planet. It continues to change its way, nature, and shape according to necessity. Rafting assists you in learning the method of change with hazardous and surprising floods of water.
 Searching generally advantageous and testing place for waterway rafting then you should visit Hrishikesh, perhaps the best area in India for boating where you can enjoy rafting in the rushes of the stream strong Ganga."
@@ -185,22 +203,18 @@ Searching generally advantageous and testing place for waterway rafting then you
 
       <div class="curved-div2">
         <Hometext2
-          src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
+          src1={Camping}
           heading1="Overview"
-          caption1="Each pinnacle of mountains isn't that simple to overcome. To investigate the immaculate excellence you need to transform yourself into a monster. 
+          caption1="Far away from this populated world, on top of any bluff, the world under the sky brimming with gleaming stars, other than your camp and some tea what else an individual can wish to get harmony. Camping invigorates your brain and soul and assists you in continuing your existence with more energy.
 
-It doesn't go under adventure sports, it's a dangerous movement to do in the wake of setting yourself up actually and intellectually, and it requires geological and specialized information too. 
-
-There are heaps of mountain tops in our country which go under endeavor yet everybody needs more guts to go there."
-          src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
+Each individual requires a break from this rushed and occupied way of life when he can invigorate his brain and plan their future. Outdoors in Uttrakhand can help you in reestablishing your energy and inventiveness"
+          src2={Camping}
           heading2="Overview"
-          caption2="Each pinnacle of mountains isn't that simple to overcome. To investigate the immaculate excellence you need to transform yourself into a monster. 
+          caption2="Far away from this populated world, on top of any bluff, the world under the sky brimming with gleaming stars, other than your camp and some tea what else an individual can wish to get harmony. Camping invigorates your brain and soul and assists you in continuing your existence with more energy.
 
-It doesn't go under adventure sports, it's a dangerous movement to do in the wake of setting yourself up actually and intellectually, and it requires geological and specialized information too. 
-
-There are heaps of mountain tops in our country which go under endeavor yet everybody needs more guts to go there."
-          mainheading="EXPEDITIONS"
-          link={`/categories/6`}
+Each individual requires a break from this rushed and occupied way of life when he can invigorate his brain and plan their future. Outdoors in Uttrakhand can help you in reestablishing your energy and inventiveness"
+          mainheading="CAMPING"
+          link={`/categories/4`}
         />
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -213,14 +227,13 @@ There are heaps of mountain tops in our country which go under endeavor yet ever
 
       <div class="curved-div1">
         <Hometext
-          src1="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
+          src1={Chardham}
           heading1=""
-          caption1="Char Dham is also known as the four abodes and is considered a sacred pilgrimage site in India. The Hindus suggest that once in a lifetime, people should do this holy Yatra. This pilgrimage yatra holds a significant essence to the devotees. It comprises the four sacred sites: Yamunotri, Gangotri, Kedarnath, and Badrinath. Char Dham Yatra is also called the Chota Chardham Yatra, as these sites are very close to each other and are within Uttarakhand. People all over the world pay a visit to these pilgrimages to attain spirituality. All four sites have a specific deity. Yamunotri is dedicated to Goddess Yamuna, who goes to the high altitude of Rawai valley. Gangotri is dedicated to the river Goddess Ganga. Kedarnath is a part of Panch Kedar, and this pilgrimage is dedicated to Lord Shiva. It is close to the river Alaknanda. Badrinath is dedicated to Lord Vishnu. These holy pilgrimages are situated in the Garhwal Himalayas, where the Yatra route follows from West to East Direction. It starts clockwise, i.e., from  Yamunotri and then heading towards Gangotri then Kedarnath. This Yatra aspires people to go through salvation through difficulties of life. 
-Primarily people visit the Char Dham for a spiritual purpose. Doing these four holy Yatra exhibits a blessed connection within an individual. There is this sense of inner self-satisfaction and contentment. Embarking on this journey will not only give peace to your soul but also prepares the soul for ‘Enlightenment.’"
-          src2="https://images.unsplash.com/photo-1615662051070-59fc8d2804da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80"
+          caption1="Uttarakhand is considered as DEV BHOOMI and the whole locale is acclaimed for its otherworldliness. Each of the 4 dhaams are there in Uttarakhand and consistently lakhs of individuals visit Kedarnath, Badrinath, Gangotri, and Yamunotri. Kedarnath sanctuary is quite possibly the most visited puts around here and it just remaining parts open for 6-7 months.Uttarakhand has its own excellence to show and its own story to describe. Its an ideal objective where you can go with your family in light of the fact that there is something for everybody."
+          src2={Chardham}
           heading2="Overview"
-          caption2="Char Dham is also known as the four abodes and is considered a sacred pilgrimage site in India. The Hindus suggest that once in a lifetime, people should do this holy Yatra. This pilgrimage yatra holds a significant essence to the devotees. It comprises the four sacred sites: Yamunotri, Gangotri, Kedarnath, and Badrinath. People all over the world pay a visit to these pilgrimages to attain spirituality. All four sites have a specific deity. Embarking on this journey will not only give peace to your soul but also prepares the soul for ‘Enlightenment.’"
-          mainheading="CHAR DHAM"
+          caption2="Uttarakhand is considered as DEV BHOOMI and the whole locale is acclaimed for its otherworldliness. Each of the 4 dhaams are there in Uttarakhand and consistently lakhs of individuals visit Kedarnath, Badrinath, Gangotri, and Yamunotri. Kedarnath sanctuary is quite possibly the most visited puts around here and it just remaining parts open for 6-7 months.Uttarakhand has its own excellence to show and its own story to describe. Its an ideal objective where you can go with your family in light of the fact that there is something for everybody."
+          mainheading="SPIRITUAL TOURS"
           link={`/categories/7`}
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
