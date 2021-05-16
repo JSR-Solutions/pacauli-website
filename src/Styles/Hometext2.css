@@ -69,6 +69,7 @@
 
   .photuu img{
       height: 400px;
+      object-fit: cover;
       width: 550px;
   }
 
