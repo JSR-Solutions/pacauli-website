@@ -136,7 +136,7 @@ Individuals are presently more worried about contaminations, greenery, just as t
           caption1="You will be learning not to give up, stand up again and achieve your target. After climbing the top you will experience the feeling of Completion."
           src2={BikeTrips}
           heading2="Overview"
-          caption2="valley, is there much else charming than this? 
+          caption2="Riding your number one motor alongside a streaming waterway in a delightful valley, is there much else charming than this? 
 
 Ladakh, the fantasy objective for all riders and it is quite possibly the most visited places in India by bikers. Individuals are getting wild about riding and continue to look for places good for bike riding. 
 
