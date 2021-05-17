@@ -39,9 +39,8 @@ function SinglePackageReviews(props) {
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.docs.length) {
-          console.log(querySnapshot.docs.length !== 0);
+          
           querySnapshot.docs.forEach((doc) => {
-            console.log(doc.data());
             if (doc.data()) {
               const uid = doc.data().userId;
               db.collection("Users")
@@ -49,8 +48,7 @@ function SinglePackageReviews(props) {
                 .get()
                 .then((user) => {
                   const userData = user.data();
-                  console.log("USER DATA");
-                  console.log(userData);
+
                   setReviews((prev) => {
                     return [
                       ...prev,
@@ -81,8 +79,6 @@ function SinglePackageReviews(props) {
     };
   });
   function rowSelected(row) {
-    console.log("review selected");
-    console.log(row.data.id);
     setModalShow(true);
     const rowData = { name: "", review: "", id: "" };
     rowData.name = row.data.userName;
@@ -90,7 +86,6 @@ function SinglePackageReviews(props) {
     rowData.id = row.data.id;
 
     setRoww(rowData);
-    console.log(roww);
   }
   function DeleteReview(e) {
     e.preventDefault();

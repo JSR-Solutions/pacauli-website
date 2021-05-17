@@ -14,7 +14,6 @@ function PackageGalleryImages(props) {
   const docId = props.match.params.packageId;
 
   function handleImageChange(event) {
-    console.log(event.target.files);
     const files = event.target.files;
     Array.from(files).forEach((image) => {
       const uploadTask = storage
@@ -25,10 +24,8 @@ function PackageGalleryImages(props) {
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log(progress);
         },
         (err) => {
-          console.log(err.message);
         },
         () => {
           storage
@@ -36,7 +33,6 @@ function PackageGalleryImages(props) {
             .child(image.name)
             .getDownloadURL()
             .then((url) => {
-              console.log(url);
               db.collection(packageType)
                 .doc(docId)
                 .update({

@@ -4,7 +4,7 @@ import "./Singlepackage.css";
 import Pricecard from "../Singlepackagescreen/Pricecard";
 import Formcomp from "../Singlepackagescreen/Form";
 import { GiNetworkBars } from "react-icons/gi";
-import { AiOutlineSafetyCertificate, AiOutlineFieldTime } from "react-icons/ai";
+import { AiOutlineSafetyCertificate, AiOutlineFieldTime, AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
 import { RiPinDistanceFill, RiCheckboxCircleFill } from "react-icons/ri";
 import { IoLocateSharp, IoAlertCircleSharp } from "react-icons/io5";
 import { FaTimesCircle } from "react-icons/fa";
@@ -85,12 +85,11 @@ const Singlepackage = (props) => {
       .get()
       .then((ress) => {
         if (ress.data()) {
-          console.log(ress.data());
           setpack(ress.data());
           getReviews();
           if (ress.data().map == "") {
             setmap("https://maps.google.com/maps?q=India&output=embed");
-            // console.log(mapi);
+            
           } else {
             setmap(ress.data().map);
           }
@@ -501,7 +500,7 @@ const Singlepackage = (props) => {
                           {pack &&
                             pack.inclusions.map((l, k) => (
                               <p key={k}>
-                                <IoLocateSharp className="single-pck-2-row-icon" />
+                                <AiFillCheckCircle className="single-pck-2-row-icon" />
                                 {l}
                               </p>
                             ))}
@@ -516,7 +515,7 @@ const Singlepackage = (props) => {
                           {pack &&
                             pack.exclusions.map((l, k) => (
                               <p key={k}>
-                                <IoLocateSharp className="single-pck-2-row-icon" />
+                                <AiFillCloseCircle className="single-pck-2-row-icon" />
                                 {l}
                               </p>
                             ))}

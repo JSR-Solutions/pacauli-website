@@ -64,7 +64,7 @@ function AddPackage() {
   //Package Type change handle function
   function handleTypeChange(event) {
     setPackageType(event.target.value);
-    console.log(event.target.value);
+    
   }
 
   //Package image change handle function
@@ -93,11 +93,11 @@ function AddPackage() {
   };
 
   const removeOverview = (index) => {
-    console.log("Element to be removed : " + index);
+    
     const values = [...overviews];
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
       setOverviews(values);
     }
   };
@@ -118,11 +118,11 @@ function AddPackage() {
   };
 
   const removeHistory = (index) => {
-    console.log("Element to be removed : " + index);
+    
     const values = [...inclusions];
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
     }
     setHistories(values);
   };
@@ -143,11 +143,11 @@ function AddPackage() {
   };
 
   const removeInclusions = (index) => {
-    console.log("Element to be removed : " + index);
     const values = [...rapid];
+
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
     }
     setInclusions(values);
   };
@@ -218,11 +218,11 @@ function AddPackage() {
   };
 
   const removeExclusions = (index) => {
-    console.log("Element to be removed : " + index);
+    
     const values = [...exclusions];
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
     }
     setExclusions(values);
   };
@@ -243,11 +243,11 @@ function AddPackage() {
   };
 
   const removeCancellation = (index) => {
-    console.log("Element to be removed : " + index);
+    
     const values = [...cancellation];
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
     }
     setCancellation(values);
   };
@@ -275,11 +275,11 @@ function AddPackage() {
   };
 
   const removeBriefItinerary = (index) => {
-    console.log("Element to be removed : " + index);
+    
     const values = [...detailedItinerary];
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
     }
     setBriefItinerary(values);
   };
@@ -307,11 +307,11 @@ function AddPackage() {
   };
 
   const removeDetailedItinerary = (index) => {
-    console.log("Element to be removed : " + index);
+    
     const values = [...detailedItinerary];
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
     }
     setDetailedItinerary(values);
   };
@@ -344,11 +344,11 @@ function AddPackage() {
   };
 
   const removePricing = (index) => {
-    console.log("Element to be removed : " + index);
+    
     const values = [...pricing];
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
     }
     setPricing(values);
   };

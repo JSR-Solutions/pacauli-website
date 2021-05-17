@@ -57,12 +57,10 @@ const ContactUs = () => {
       inputs.forEach((input) => {
         input.addEventListener("focus", () => {
           input.parentNode.classList.add("focus");
-          console.log("Adding focus");
         });
         input.addEventListener("blur", () => {
           if (input.value === "") {
             input.parentNode.classList.remove("focus");
-            console.log("Removing focus");
           }
         });
       });

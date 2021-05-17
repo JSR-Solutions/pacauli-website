@@ -34,7 +34,7 @@ function AdminLogin() {
             .get()
             .then((querySnapshot) => {
               const data = querySnapshot.data();
-              console.log(data);
+              
               if (data.role === "admin") {
                 reactLocalStorage.setObject("pacauli-admin", {
                   email: credentials.email,
@@ -43,7 +43,6 @@ function AdminLogin() {
                 });
                 setAdmin(true);
               } else {
-                  console.log("Not an admin");
                 auth.signOut();
                 setCredentials({ email: "", password: "" });
               }

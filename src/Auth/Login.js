@@ -33,10 +33,8 @@ function Login() {
             .get()
             .then((snapshot) => {
               if (snapshot.exists) {
-                console.log("Exists");
                 setRedirectHome(true);
               } else {
-                console.log("Does not exists");
                 setRedirectRegistration(true);
               }
             });
