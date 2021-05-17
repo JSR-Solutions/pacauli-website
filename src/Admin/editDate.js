@@ -51,7 +51,7 @@ function EditDate(props) {
   
   
     function deleteDate(date) {
-      console.log(date);
+     
       db.collection(props.match.params.packageType)
         .doc(props.match.params.packageId)
         .collection("Dates")
@@ -79,7 +79,6 @@ function EditDate(props) {
     }
 
     setDates(values);
-    console.log(dates);
   }
 
   function addMonth() {

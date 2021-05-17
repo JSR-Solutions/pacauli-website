@@ -12,8 +12,6 @@ function SinglePackageDashboard(props) {
   const [docId, setDocId] = useState(props.match.params.packageId);
   const [deleted, setDeleted] = useState(false);
   const [name, setName] = useState("");
-  console.log(packageType);
-  console.log(docId);
   const db = firebase.firestore();
   const [packages, setPackage] = useState({});
 
@@ -27,7 +25,6 @@ function SinglePackageDashboard(props) {
       .get()
       .then((snapshot) => {
         setName(snapshot.data().name);
-        console.log(name);
       });
   }
   const deletePackage = (e) => {

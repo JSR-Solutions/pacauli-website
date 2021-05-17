@@ -75,7 +75,6 @@ function EditPackage(props) {
 
   //Basic handle change function
   const handleChange = (e) => {
-    console.log("Inside handle change");
     e.preventDefault();
     const { name, value } = e.target;
     if (name === "name") {
@@ -98,7 +97,7 @@ function EditPackage(props) {
   //Package Type change handle function
   function handleTypeChange(event) {
     setPackageType(event.target.value);
-    console.log(event.target.value);
+    
   }
 
   //Package image change handle function
@@ -127,11 +126,11 @@ function EditPackage(props) {
   };
 
   const removeOverview = (index) => {
-    console.log("Element to be removed : " + index);
+    
     const values = [...overviews];
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
     }
     setOverviews(values);
   };
@@ -152,11 +151,11 @@ function EditPackage(props) {
   };
 
   const removeHistory = (index) => {
-    console.log("Element to be removed : " + index);
+    
     const values = [...histories];
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
     }
     setHistories(values);
   };
@@ -177,11 +176,11 @@ function EditPackage(props) {
   };
 
   const removeInclusions = (index) => {
-    console.log("Element to be removed : " + index);
+    
     const values = [...inclusions];
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
     }
     setInclusions(values);
   };
@@ -202,11 +201,11 @@ function EditPackage(props) {
   };
 
   const removeExclusions = (index) => {
-    console.log("Element to be removed : " + index);
+    
     const values = [...exclusions];
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
     }
     setExclusions(values);
   };
@@ -227,11 +226,11 @@ function EditPackage(props) {
   };
 
   const removeCancellation = (index) => {
-    console.log("Element to be removed : " + index);
+    
     const values = [...cancellation];
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
     }
     setCancellation(values);
   };
@@ -259,11 +258,11 @@ function EditPackage(props) {
   };
 
   const removeBriefItinerary = (index) => {
-    console.log("Element to be removed : " + index);
+    
     const values = [...briefItinerary];
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
     }
     setBriefItinerary(values);
   };
@@ -291,11 +290,11 @@ function EditPackage(props) {
   };
 
   const removeDetailedItinerary = (index) => {
-    console.log("Element to be removed : " + index);
+    
     const values = [...detailedItinerary];
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
     }
     setDetailedItinerary(values);
   };
@@ -328,11 +327,11 @@ function EditPackage(props) {
   };
 
   const removePricing = (index) => {
-    console.log("Element to be removed : " + index);
+    
     const values = [...pricing];
     if (values.length > 1) {
       values.splice(index, 1);
-      console.log(values);
+      
     }
     setPricing(values);
   };
@@ -358,10 +357,10 @@ function EditPackage(props) {
   // };
 
   // const removeReviews = (index) => {
-  //   console.log("Element to be removed : " + index);
+  //   
   //   const values = [...reviews];
   //   values.splice(index, 1);
-  //   console.log(values);
+  //   
   //   setReviews(values);
   // };
 

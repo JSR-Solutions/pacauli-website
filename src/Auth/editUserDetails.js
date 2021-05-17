@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import firebase from "firebase";
-import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import Footer from "../Components/Footer";
 import shape from "../Assets/shape.png";
@@ -8,8 +7,6 @@ import Header from "../Components/Header";
 import "../Styles/editUserDetails.css";
 import { Redirect } from "react-router-dom";
 import $ from "jquery";
-import editu from "../Assets/Edit.svg";
-
 import { ToastContainer, toast } from "react-toastify";
 import LoadingScreen from "../Components/LoadingScreen";
 
@@ -62,8 +59,7 @@ function EditUser() {
           .doc(uid)
           .get()
           .then((doc) => {
-            const data = doc.data();
-            console.log(data);
+            const data = doc.data();      
             setAddress(data.city);
             setName(data.name);
             setPhoneNo(data.phone);
@@ -72,7 +68,6 @@ function EditUser() {
             setFetching(false);
           });
       } else {
-        console.log("Signed Out");
       }
     });
   };

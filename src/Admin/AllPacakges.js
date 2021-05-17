@@ -18,7 +18,7 @@ function AllPacakges() {
   // Package type change handling
   function handleTypeChange(event) {
     setPackageType(event.target.value);
-    console.log(event.target.value);
+    
     getPackages(event.target.value);
   }
 
@@ -50,9 +50,8 @@ function AllPacakges() {
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.docs.length) {
-          console.log(querySnapshot.docs.length !== 0);
+          
           querySnapshot.docs.forEach((doc) => {
-            console.log(doc.data());
             if (doc.data) {
               setPackages((prev) => {
                 return [...prev, doc.data()];
@@ -70,7 +69,6 @@ function AllPacakges() {
   const [redirect, setRedirect] = useState(false);
 
   const redirectToSingle = (row) => {
-    console.log(row.data);
     setRedirectPath("/single/" + row.data.packageType + "/" + row.data.id);
     setRedirect(true);
   };

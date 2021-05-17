@@ -64,27 +64,27 @@ function App() {
             component={Singlepackage}
           />
           <Route
-            path="/package/Rafting/:packageId"
+            path="/packages/Rafting/:packageId"
             exact
             component={Raft}
           />
           <Route
-            path="/package/Camping/:packageId"
+            path="/packages/Camping/:packageId"
             exact
             component={Camping}
           />
           <Route
-            path="/package/Snow Boarding/:packageId"
+            path="/packages/Snow Boarding/:packageId"
             exact
             component={Snowboarding}
           />
           <Route
-            path="/package/Skiing/:packageId"
+            path="/packages/Skiing/:packageId"
             exact
             component={Skiing}
           />
           <Route
-            path="/package/Rock Climbing/:packageId"
+            path="/packages/Rock Climbing/:packageId"
             exact
             component={Rock}
           />

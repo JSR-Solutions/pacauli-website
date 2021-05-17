@@ -40,9 +40,9 @@ function ContactRequests() {
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.docs.length) {
-          console.log(querySnapshot.docs.length !== 0);
+          
           querySnapshot.docs.forEach((doc) => {
-            console.log(doc.data());
+            
             if (doc.data) {
               setRequests((prev) => {
                 return [...prev, doc.data()];

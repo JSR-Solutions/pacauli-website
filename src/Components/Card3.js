@@ -1,14 +1,26 @@
 import React from "react";
 import "../Styles/Card3.css";
 import { MdLocationOn } from "react-icons/md";
-import { AiFillStar, AiFillClockCircle } from "react-icons/ai";
+import { AiFillClockCircle } from "react-icons/ai";
 import { BiRupee } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 function Card3(props) {
+
+  var redirect = ""
+
+  if (props.categoryName) {
+    if (props.categoryName == 'Rafting' || props.categoryName == 'Skiing' || props.categoryName == 'Camping' || props.categoryName == 'Snow Boarding' || props.categoryName == 'Rock Climbing') {
+      redirect = `/packages/${props.categoryName}/${props.package.packageId}`
+    }
+    else {
+      redirect = `/package/${props.categoryName}/${props.package.packageId}`
+    }
+  }
+
   return (
     <div className="parent-card3">
-      <Link to={`/package/${props.categoryName}/${props.package.packageId}`}>
+      <Link to={`${redirect}`}>
         <div className="card3">
           <div
             className="card3-image"

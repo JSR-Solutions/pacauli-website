@@ -35,8 +35,6 @@ function DateUpload(props) {
         if (snapshot) {
           setPrevDates(snapshot.data().dates);
           if(prevDates!=null){
-          console.log(prevDates.length);
-          console.log(prevDates);
         }}
       });
   }
@@ -52,7 +50,6 @@ function DateUpload(props) {
 
   function removeDate(index) {
     const values = [...dates];
-    console.log("Removing : " + index);
     values.splice(index, 1);
     setDates(values);
   }
@@ -72,7 +69,6 @@ function DateUpload(props) {
 
       fulldate[index].sDate=tareek[index].date +"-"+tareek[index].month; 
       setDates(fulldate);
-      console.log(dates);
     }
   }
   function handleDateChange(index, event) {
@@ -95,7 +91,6 @@ function DateUpload(props) {
     dates.forEach((date)=>{
       prevDates.push(date);
     })
-    console.log(prevDates);
     
       
    
