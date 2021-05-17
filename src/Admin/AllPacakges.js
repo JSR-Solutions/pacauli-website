@@ -84,7 +84,7 @@ function AllPacakges() {
   });
   return (
     <div>
-      {redirect?<Redirect to={redirectPath} />: null}
+      {redirect ? <Redirect to={redirectPath} /> : null}
       <Row>
         <Col className="admin-dashboard-sidebar" lg={2} md={6}>
           <Sidebar />
@@ -98,15 +98,16 @@ function AllPacakges() {
               name="package-type"
               value={packageType}
             >
-              <option>Skiing</option>
-              <option>Trekking</option>
-              <option>Expedition</option>
-              <option>Rock Climbing</option>
-              <option>Camping</option>
-              <option>Cycling</option>
-              <option>Rafting</option>
-              <option>Char Dham</option>
-              <option>Snow Boarding</option>
+                    <option>Trekking</option>
+                    <option>Expedition</option>
+                    <option>Skiing</option>
+                    <option>Camping</option>
+                    <option>Spiritual Tours</option>
+                    <option>Bike Trips</option>
+                    <option>Rafting</option>
+                    <option>Cycling</option>
+                    <option>Rock Climbing</option>
+                    <option>Snowboarding</option>
             </Form.Control>
           </Form.Group>
           {packages && (

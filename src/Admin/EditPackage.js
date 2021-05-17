@@ -10,10 +10,12 @@ function EditPackage(props) {
   const [histories, setHistories] = useState([""]);
   const [inclusions, setInclusions] = useState([""]);
   const [exclusions, setExclusions] = useState([""]);
+  const [rapid, setRapid] = useState([""]);
+  const [majorattraction, setMajorAttraction] = useState([""]);
   const [cancellation, setCancellation] = useState([""]);
   const [map, setMap] = useState("");
   const [name, setName] = useState("");
-  const [qoute,setQoute]=useState("");
+  const [qoute, setQoute] = useState("");
   const [region, setRegion] = useState("");
   const [duration, setDuration] = useState("");
   const [grade, setgrade] = useState("");
@@ -59,7 +61,14 @@ function EditPackage(props) {
           setMap(snapshot.data().map);
           setgrade(snapshot.data().grade);
           setName(snapshot.data().name);
-          setMap(snapshot.data().map.replace(snapshot.data().map.substring(snapshot.data().map.length-13),""));
+          setMap(
+            snapshot
+              .data()
+              .map.replace(
+                snapshot.data().map.substring(snapshot.data().map.length - 13),
+                ""
+              )
+          );
           setRegion(snapshot.data().region);
           setDuration(snapshot.data().duration);
           setMaxAltitude(snapshot.data().maxAltitude);
@@ -69,6 +78,8 @@ function EditPackage(props) {
           setQoute(snapshot.data().qoute);
           setPricing(snapshot.data().pricing);
           setReviews(snapshot.data().reviews);
+          setRapid(snapshot.data().rapid);
+          setMajorAttraction(snapshot.data().majorattraction);
         }
       });
   };
@@ -81,9 +92,9 @@ function EditPackage(props) {
       setName(value);
     } else if (name === "duration") {
       setDuration(value);
-    }else if (name==="qoute"){
+    } else if (name === "qoute") {
       setQoute(value);
-    }  else if (name === "region") {
+    } else if (name === "region") {
       setRegion(value);
     } else if (name === "grade") {
       setgrade(value);
@@ -208,6 +219,56 @@ function EditPackage(props) {
       
     }
     setExclusions(values);
+  };
+
+  //Rapids dynamic part
+  const handleRapidChange = (e, index) => {
+    e.preventDefault();
+    const values = [...rapid];
+    values[index] = e.target.value;
+    setRapid(values);
+  };
+
+  const addRapid = (e) => {
+    e.preventDefault();
+    setRapid((prev) => {
+      return [...prev, ""];
+    });
+  };
+
+  const removeRapid = (index) => {
+    console.log("Element to be removed : " + index);
+    const values = [...rapid];
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
+    setRapid(values);
+  };
+
+  //Major attractions dynamic part
+  const handleMajorAttractionsChange = (e, index) => {
+    e.preventDefault();
+    const values = [...majorattraction];
+    values[index] = e.target.value;
+    setMajorAttraction(values);
+  };
+
+  const addMajorAttractions = (e) => {
+    e.preventDefault();
+    setMajorAttraction((prev) => {
+      return [...prev, ""];
+    });
+  };
+
+  const removeMajorAttractions = (index) => {
+    console.log("Element to be removed : " + index);
+    const values = [...majorattraction];
+    if (values.length > 1) {
+      values.splice(index, 1);
+      console.log(values);
+    }
+    setMajorAttraction(values);
   };
 
   //Cancellation dynamic part
@@ -397,7 +458,7 @@ function EditPackage(props) {
                 cancellation: cancellation,
                 map: map.concat("&output=embed"),
                 name: name,
-                qoute:qoute,
+                qoute: qoute,
                 region: region,
                 duration: duration,
                 grade: grade,
@@ -408,6 +469,8 @@ function EditPackage(props) {
                 pricing: pricing,
                 imageUrl: packageImageUrl,
                 packageType: packageType,
+                rapid: rapid,
+                majorattraction: majorattraction,
               })
               .then((docRef) => {
                 setAdded(true);
@@ -466,15 +529,16 @@ function EditPackage(props) {
                     name="package-type"
                     value={packageType}
                   >
-                    <option>Skiing</option>
                     <option>Trekking</option>
                     <option>Expedition</option>
-                    <option>Rock Climbing</option>
+                    <option>Skiing</option>
                     <option>Camping</option>
-                    <option>Cycling</option>
+                    <option>Spiritual Tours</option>
+                    <option>Bike Trips</option>
                     <option>Rafting</option>
-                    <option>Char Dham</option>
-                    <option>Snow Boarding</option>
+                    <option>Cycling</option>
+                    <option>Rock Climbing</option>
+                    <option>Snowboarding</option>
                   </Form.Control>
                 </Form.Group>
               </Col>
@@ -985,6 +1049,89 @@ function EditPackage(props) {
                       <Button
                         onClick={() => {
                           removeCancellation(index);
+                        }}
+                        className="admin-dashboard-form-button"
+                      >
+                        -
+                      </Button>{" "}
+                    </Col>
+                  </Row>
+                </div>
+              );
+            })}
+
+            <hr />
+
+            <h5 className="form-admin-title">Rapids</h5>
+            {rapid.map((rap, index) => {
+              return (
+                <div className="admin-dashboard-form-group">
+                  <Row>
+                    <Col lg={10}>
+                      <Form.Group>
+                        <Form.Control
+                          className="admin-dashboard-form-input"
+                          type="text"
+                          name="rapid"
+                          value={rap}
+                          placeholder={"Rapid " + (index + 1)}
+                          onChange={(event) => {
+                            handleRapidChange(event, index);
+                          }}
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col className="form-admin-button-col" lg={2}>
+                      <Button
+                        onClick={addRapid}
+                        className="admin-dashboard-form-button"
+                      >
+                        +
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          removeRapid(index);
+                        }}
+                        className="admin-dashboard-form-button"
+                      >
+                        -
+                      </Button>{" "}
+                    </Col>
+                  </Row>
+                </div>
+              );
+            })}
+
+            <hr />
+            <h5 className="form-admin-title">Major Attractions</h5>
+            {majorattraction.map((attraction, index) => {
+              return (
+                <div className="admin-dashboard-form-group">
+                  <Row>
+                    <Col lg={10}>
+                      <Form.Group>
+                        <Form.Control
+                          className="admin-dashboard-form-input"
+                          type="text"
+                          name="majorattraction"
+                          value={attraction}
+                          placeholder={"Major Attraction " + (index + 1)}
+                          onChange={(event) => {
+                            handleMajorAttractionsChange(event, index);
+                          }}
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col className="form-admin-button-col" lg={2}>
+                      <Button
+                        onClick={addMajorAttractions}
+                        className="admin-dashboard-form-button"
+                      >
+                        +
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          removeMajorAttractions(index);
                         }}
                         className="admin-dashboard-form-button"
                       >

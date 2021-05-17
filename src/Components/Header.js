@@ -240,16 +240,10 @@ const Header = ({ history }) => {
                         to={`/categories/0`}
                         className="header-dropdown-link"
                       >
-                        <div className="cat-dropdown-child">Sking</div>
-                      </Link>
-                      <Link
-                        to={`/categories/1`}
-                        className="header-dropdown-link"
-                      >
                         <div className="cat-dropdown-child">Trekking</div>
                       </Link>
                       <Link
-                        to={`/categories/6`}
+                        to={`/categories/1`}
                         className="header-dropdown-link"
                       >
                         <div className="cat-dropdown-child">Expedition</div>
@@ -258,22 +252,28 @@ const Header = ({ history }) => {
                         to={`/categories/2`}
                         className="header-dropdown-link"
                       >
-                        <div className="cat-dropdown-child">Rock Climbing</div>
-                      </Link>
-                      <Link
-                        to={`/categories/4`}
-                        className="header-dropdown-link"
-                      >
-                        <div className="cat-dropdown-child">Camping</div>
+                        <div className="cat-dropdown-child">Skiing</div>
                       </Link>
                       <Link
                         to={`/categories/3`}
                         className="header-dropdown-link"
                       >
-                        <div className="cat-dropdown-child">Cycling</div>
+                        <div className="cat-dropdown-child">Camping</div>
+                      </Link>
+                      <Link
+                        to={`/categories/4`}
+                        className="header-dropdown-link"
+                      >
+                        <div className="cat-dropdown-child">Spiritual Tours</div>
                       </Link>
                       <Link
                         to={`/categories/5`}
+                        className="header-dropdown-link"
+                      >
+                        <div className="cat-dropdown-child">Bike Trips</div>
+                      </Link>
+                      <Link
+                        to={`/categories/6`}
                         className="header-dropdown-link"
                       >
                         <div className="cat-dropdown-child">Rafting</div>
@@ -282,10 +282,16 @@ const Header = ({ history }) => {
                         to={`/categories/7`}
                         className="header-dropdown-link"
                       >
-                        <div className="cat-dropdown-child">Chardham</div>
+                        <div className="cat-dropdown-child">Cycling</div>
                       </Link>
                       <Link
                         to={`/categories/8`}
+                        className="header-dropdown-link"
+                      >
+                        <div className="cat-dropdown-child">Rock Climbing</div>
+                      </Link>
+                      <Link
+                        to={`/categories/9`}
                         className="header-dropdown-link"
                       >
                         <div className="cat-dropdown-child">Snow Boarding</div>
