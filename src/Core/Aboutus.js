@@ -41,7 +41,7 @@ const Aboutus = () => {
           <h2>About Us</h2>
         </div>
         <div className="about-us-god">
-          <p style={{marginTop : "60px"}} className="about-journey">
+          <p style={{ marginTop: "60px" }} className="about-journey">
             Pac Auli's adventure began with two intrepid explorers hoping to
             trek and conquer all of the world's most exciting locations. They
             realized that people who enjoy trekking and bag packing need proper
@@ -58,6 +58,13 @@ const Aboutus = () => {
             in Uttarakhand's Himalayan region, but now we help people explore
             Himanchal,Ladakh, Nepal, and Bhutan.
           </p>
+          <div className="hheadd">
+            <center>
+              <h1>
+                <span>MEET THE CRUSADERS!</span>
+              </h1>
+            </center>
+          </div>
           {/* <Row>
               <div className="hheadd">
                 <h1>
