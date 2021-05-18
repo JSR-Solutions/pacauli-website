@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import firebase from "firebase";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import email from "../Assets/email.png";
-import location from "../Assets/location.png";
-import phone from "../Assets/phone.png";
 import shape from "../Assets/shape.png";
 import "../Styles/userDashboard.css";
 

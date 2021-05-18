@@ -4,7 +4,10 @@ import "./Singlepackage.css";
 import Pricecard from "./Pricecard";
 import Formcomp from "./Form";
 import { GiNetworkBars } from "react-icons/gi";
-import { AiOutlineSafetyCertificate, AiOutlineFieldTime, AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
+import {
+  AiOutlineSafetyCertificate,
+  AiOutlineFieldTime,
+} from "react-icons/ai";
 import { RiPinDistanceFill, RiCheckboxCircleFill } from "react-icons/ri";
 import { IoLocateSharp, IoAlertCircleSharp } from "react-icons/io5";
 import { FaTimesCircle } from "react-icons/fa";
@@ -87,9 +90,8 @@ const Singlepackage = (props) => {
         if (ress.data()) {
           setpack(ress.data());
           getReviews();
-          if (ress.data().map == "") {
+          if (ress.data().map === "") {
             setmap("https://maps.google.com/maps?q=India&output=embed");
-            
           } else {
             setmap(ress.data().map);
           }
@@ -220,7 +222,7 @@ const Singlepackage = (props) => {
                           </h5>
                         )}
                         <hr />
-                        {pack.quote &&  (
+                        {pack.quote && (
                           <center>
                             <h6>"{pack.quote}"</h6>
                           </center>
@@ -555,7 +557,13 @@ const Singlepackage = (props) => {
                           {pack &&
                             pack.inclusions.map((l, k) => (
                               <p key={k}>
-                                <AiFillCheckCircle className="single-pck-2-row-icon" />
+                                <RiCheckboxCircleFill
+                                  className="single-pck-2-row-icon"
+                                  style={{
+                                    color: "green",
+                                    fontSize: "19px",
+                                  }}
+                                />
                                 {l}
                               </p>
                             ))}
@@ -570,7 +578,13 @@ const Singlepackage = (props) => {
                           {pack &&
                             pack.exclusions.map((l, k) => (
                               <p key={k}>
-                                <AiFillCloseCircle className="single-pck-2-row-icon" />
+                                <FaTimesCircle
+                                  className="single-pck-2-row-icon"
+                                  style={{
+                                    color: "red",
+                                    fontSize: "17px",
+                                  }}
+                                />
                                 {l}
                               </p>
                             ))}

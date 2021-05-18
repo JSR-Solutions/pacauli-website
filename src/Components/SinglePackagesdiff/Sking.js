@@ -484,7 +484,13 @@ const Singlepackage = (props) => {
                           {pack &&
                             pack.inclusions.map((l, k) => (
                               <p key={k}>
-                                <AiFillCheckCircle className="single-pck-2-row-icon" />
+                                <RiCheckboxCircleFill
+                                  className="single-pck-2-row-icon"
+                                  style={{
+                                    color: "green",
+                                    fontSize: "19px",
+                                  }}
+                                />
                                 {l}
                               </p>
                             ))}
@@ -499,7 +505,13 @@ const Singlepackage = (props) => {
                           {pack &&
                             pack.exclusions.map((l, k) => (
                               <p key={k}>
-                                <AiFillCloseCircle className="single-pck-2-row-icon" />
+                                <FaTimesCircle
+                                  className="single-pck-2-row-icon"
+                                  style={{
+                                    color: "red",
+                                    fontSize: "17px",
+                                  }}
+                                />
                                 {l}
                               </p>
                             ))}
