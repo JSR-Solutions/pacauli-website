@@ -237,12 +237,14 @@ Individuals are presently more worried about contaminations, greenery, just as t
       </svg>
       <div class="curved-div1">
         <Hometext
-          src1={Snowboarding}
+          src1={Rock}
           heading1="xyz"
           caption1="abc"
-          src2={Snowboarding}
+          src2={Rock}
           heading2="Overview"
-          caption2="No content provided"
+          caption2="The sport or activity of climbing rock faces, particularly with the use of ropes and special equipment, is known as rock climbing. The goal is to reach the top or end point of a rock face or structure. Depending on the difficulty and severity of the climb, this can be accomplished with specialised equipment. 
+
+It is a physically demanding sport that combines fitness and agility with the mental toughness required to conquer an ascent or traverse. It can be dangerous, but this is often viewed as a positive aspect of the adventure."
           mainheading="ROCK CLIMBING"
           link={`/categories/8`}
         />
@@ -253,6 +255,23 @@ Individuals are presently more worried about contaminations, greenery, just as t
             d="M0,96L48,85.3C96,75,192,53,288,48C384,43,480,53,576,85.3C672,117,768,171,864,165.3C960,160,1056,96,1152,90.7C1248,85,1344,139,1392,165.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           ></path>
         </svg>
+      {/* Snowboarding */}
+      <div class="curved-div2">
+        <Hometext2
+          src1={Snowboarding}
+          heading1="Overview"
+          caption1="Cycling is always more than a adventure as you all know two wheels move the soul.We are offering you the best trails in the valley with the view and track you will never forget.This experience of yours will always live with you with flashbacks of you gliding and enjoying cycling in the Himalayas."
+          src2={Snowboarding}
+          heading2="Overview"
+          caption2="Winter sport with roots in skiing, surfing, and skateboarding in which the primary activity is riding down any snow-covered surface while standing on a snowboard with feet positioned roughly perpendicular to the board and its direction, distinguishing it from skiing, in which riders face forward. Furthermore, unlike skiing, no poles are used, and the majority of participants wear soft- to mid-flexing boots for support. 
+
+Snowboarding is a special kind of medicine for the soul for die-hard riders and enthusiasts all over the world, including this author, because it combines the beauty of nature, the thrill of competition, and the opportunity for self-expression. There is no single method for snowboard.
+
+We have some of the most thrilling destination for snowboarding in Himalayas as Auli,Uttarakhand,Niti Valley and Chopta Valley."
+          mainheading="SNOWBOARDING"
+          link={`/categories/3`}
+        />
+      </div>
       </div>
 
       <Footer />

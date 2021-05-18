@@ -42,10 +42,27 @@ const Aboutus = () => {
           <h2>About Us</h2>
         </div>
         <div className="about-us-god">
-          <p className="about-us-quote">
-            Now that you are about to embark on a new journey with us, it's only
-            better if we get to know each other. You can read about our core
-            team members, our journey, our vision and more about us here.
+          <div className="headd">
+            <h1 style={{marginTop : "20px"}} >
+              <span>HOW IT ALL STARTED</span>
+            </h1>
+          </div>
+          <p className="about-journey">
+            Pac Auli's adventure began with two intrepid explorers hoping to
+            trek and conquer all of the world's most exciting locations. They
+            realized that people who enjoy trekking and bag packing need proper
+            guidance during their journey of exploring various destinations, so
+            they decided to form PAC AULI(Pangarchulla Adventure Camps),which
+            they named after a Himalayan Peak Mt Pangarchulla.As one of the
+            founders have sheer memories with this peak. We vary because we
+            think in different ways. The goal of PAC AULI is not to make money
+            from the travellers; rather, it is to encourage them to live in the
+            moment, learn from nature, explore conventional lifestyles, and
+            assist us in the conservation of natural resources, among other
+            things. We help people do the right thing when they travel by
+            guiding, training, and motivating them. Previously, we only worked
+            in Uttarakhand's Himalayan region, but now we help people explore
+            Himanchal,Ladakh, Nepal, and Bhutan.
           </p>
           {/* <Row>
               <div className="hheadd">
