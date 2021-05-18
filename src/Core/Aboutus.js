@@ -16,6 +16,7 @@ import t1 from "../Assets/Team/t1.jpeg";
 import t2 from "../Assets/Team/t2.jpeg";
 import t3 from "../Assets/Team/t3.jpeg";
 import t4 from "../Assets/Team/t4.jpeg";
+import t5 from "../Assets/Team/t5.jpeg";
 
 const Aboutus = () => {
   useEffect(() => {
@@ -40,12 +41,7 @@ const Aboutus = () => {
           <h2>About Us</h2>
         </div>
         <div className="about-us-god">
-          <div className="headd">
-            <h1 style={{marginTop : "20px"}} >
-              <span>HOW IT ALL STARTED</span>
-            </h1>
-          </div>
-          <p className="about-journey">
+          <p style={{marginTop : "60px"}} className="about-journey">
             Pac Auli's adventure began with two intrepid explorers hoping to
             trek and conquer all of the world's most exciting locations. They
             realized that people who enjoy trekking and bag packing need proper
@@ -137,7 +133,7 @@ const Aboutus = () => {
                 <div className="about-founder-baap">
                   <div className="about-founder-div">
                     <h2 className="founder-name">ANSHUMAN BISHT</h2>
-                    <h6>FOUNDER</h6>
+                    <h6>FOUNDER & MD</h6>
                     <div className="divider-div">
                       <hr className="founder-divider" />
                     </div>
@@ -224,7 +220,7 @@ const Aboutus = () => {
                 <div className="team-1-div">
                   <div className="about-founder-div">
                     <h2 className="founder-name">VIVEK PANWAR</h2>
-                    <h6>TEAM MEMBER</h6>
+                    <h6>BOARD MEMBER</h6>
                     <div className="divider-div">
                       <hr className="founder-divider" />
                     </div>
@@ -334,7 +330,7 @@ const Aboutus = () => {
                 <div className="team-2-div">
                   <div className="about-founder-div">
                     <h2 className="founder-name">PRAMOD PANWAR</h2>
-                    <h6>TEAM MEMBER</h6>
+                    <h6>CO FOUNDER</h6>
                     <div className="divider-div">
                       <hr className="founder-divider" />
                     </div>
@@ -410,7 +406,7 @@ const Aboutus = () => {
                 <div className="team-3-div">
                   <div className="about-founder-div">
                     <h2 className="founder-name">VANDANA PANWAR</h2>
-                    <h6>TEAM MEMBER</h6>
+                    <h6>ADVENTURE SPORTS EXECUTIVE</h6>
                     <div className="divider-div">
                       <hr className="founder-divider" />
                     </div>
@@ -518,6 +514,59 @@ const Aboutus = () => {
             </Row>
           </div>
 
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill="#222222"
+              fill-opacity="1"
+              d="M0,256L48,245.3C96,235,192,213,288,181.3C384,149,480,107,576,117.3C672,128,768,192,864,202.7C960,213,1056,171,1152,138.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
+          <div className="team-div-4">
+            <Row>
+              <Col className="image-col-team" lg={6} md={12} sm={12}>
+                <img src={t5} alt="Anshuman Bisht" className="founder-image" />
+              </Col>
+              <Col lg={6} md={12} sm={12}>
+                <div className="team-4-div">
+                  <div className="about-founder-div">
+                    <h2 className="founder-name">HRISHI SINGH</h2>
+                    <h6>BOARD MEMBER</h6>
+                    <div className="divider-div">
+                      <hr className="founder-divider" />
+                    </div>
+
+                    <p className="about-founder">
+                      <em>
+                        Hrishi Singh is a digital marketer by profession, but an
+                        explorer at heart. He began riding in 2013 and has
+                        already been through Rajasthan, Maharashtra, Gujarat,
+                        Karnataka, and Jammu, and Kashmir (including Ladakh).
+                        Passionate about guiding people on difficult stretches
+                        and helping new riders in knowing more about bike riding
+                        on Indian routes. Presently improving his abilities and
+                        learning more approximately mountaineering and trekking
+                        within the Himalayan locale.
+                      </em>
+                    </p>
+
+                    <TeamSocials
+                      color="white"
+                      facebook="https://www.facebook.com/ridefor.pride.5"
+                      instagram="https://www.instagram.com/insta04hrishi/"
+                    />
+                  </div>{" "}
+                </div>
+              </Col>
+            </Row>
+          </div>
+
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill="#222222"
+              fill-opacity="1"
+              d="M0,128L48,122.7C96,117,192,107,288,117.3C384,128,480,160,576,170.7C672,181,768,171,864,144C960,117,1056,75,1152,80C1248,85,1344,139,1392,165.3L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+            ></path>
+          </svg>
           <div className="heyy">
             <Row>
               <div className="hheadd">
@@ -528,30 +577,54 @@ const Aboutus = () => {
             </Row>
             <div class="image-container">
               <div class="image-box">
-                <img alt="" src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+                <img
+                  alt=""
+                  src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                />
               </div>
               <div class="image-box">
-                <img alt="" src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80" />
+                <img
+                  alt=""
+                  src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80"
+                />
               </div>
               <div class="image-box">
-                <img alt="" src="https://images.unsplash.com/photo-1497501849790-78f74380d9d3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+                <img
+                  alt=""
+                  src="https://images.unsplash.com/photo-1497501849790-78f74380d9d3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                />
               </div>
               <div class="image-box">
-                <img alt="" src="https://images.unsplash.com/photo-1484264883846-eb04404af310?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80" />
+                <img
+                  alt=""
+                  src="https://images.unsplash.com/photo-1484264883846-eb04404af310?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80"
+                />
               </div>
             </div>
             <div class="image-container">
               <div class="image-box">
-                <img alt="" src="https://images.unsplash.com/photo-1520208422220-d12a3c588e6c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+                <img
+                  alt=""
+                  src="https://images.unsplash.com/photo-1520208422220-d12a3c588e6c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                />
               </div>
               <div class="image-box">
-                <img alt="" src="https://images.unsplash.com/photo-1524262947531-13165500f291?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+                <img
+                  alt=""
+                  src="https://images.unsplash.com/photo-1524262947531-13165500f291?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                />
               </div>
               <div class="image-box">
-                <img alt="" src="https://images.unsplash.com/photo-1519719498756-2f0d81cdf13b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1075&q=80" />
+                <img
+                  alt=""
+                  src="https://images.unsplash.com/photo-1519719498756-2f0d81cdf13b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1075&q=80"
+                />
               </div>
               <div class="image-box">
-                <img alt="" src="https://images.unsplash.com/photo-1525885270172-2b7c27278d8e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+                <img
+                  alt=""
+                  src="https://images.unsplash.com/photo-1525885270172-2b7c27278d8e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                />
               </div>
             </div>
             <Row>

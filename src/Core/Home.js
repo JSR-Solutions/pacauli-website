@@ -260,7 +260,11 @@ It is a physically demanding sport that combines fitness and agility with the me
           <Hometext2
             src1={Snowboarding}
             heading1="Overview"
-            caption1="Cycling is always more than a adventure as you all know two wheels move the soul.We are offering you the best trails in the valley with the view and track you will never forget.This experience of yours will always live with you with flashbacks of you gliding and enjoying cycling in the Himalayas."
+            caption1="Winter sport with roots in skiing, surfing, and skateboarding in which the primary activity is riding down any snow-covered surface while standing on a snowboard with feet positioned roughly perpendicular to the board and its direction, distinguishing it from skiing, in which riders face forward. Furthermore, unlike skiing, no poles are used, and the majority of participants wear soft- to mid-flexing boots for support. 
+
+Snowboarding is a special kind of medicine for the soul for die-hard riders and enthusiasts all over the world, including this author, because it combines the beauty of nature, the thrill of competition, and the opportunity for self-expression. There is no single method for snowboard.
+
+We have some of the most thrilling destination for snowboarding in Himalayas as Auli,Uttarakhand,Niti Valley and Chopta Valley."
             src2={Snowboarding}
             heading2="Overview"
             caption2="Winter sport with roots in skiing, surfing, and skateboarding in which the primary activity is riding down any snow-covered surface while standing on a snowboard with feet positioned roughly perpendicular to the board and its direction, distinguishing it from skiing, in which riders face forward. Furthermore, unlike skiing, no poles are used, and the majority of participants wear soft- to mid-flexing boots for support. 
