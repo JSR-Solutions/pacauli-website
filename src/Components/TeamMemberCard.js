@@ -1,6 +1,5 @@
 import React from "react";
 import "../Styles/Stars.css";
-import t3 from "../Assets/Team/t3.jpeg";
 import "../Styles/TeamMemberCard.css";
 
 const TeamMemberCard1 = () => {

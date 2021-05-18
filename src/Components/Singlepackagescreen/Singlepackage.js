@@ -7,8 +7,6 @@ import { GiNetworkBars } from "react-icons/gi";
 import {
   AiOutlineSafetyCertificate,
   AiOutlineFieldTime,
-  AiFillCheckCircle,
-  AiFillCloseCircle,
 } from "react-icons/ai";
 import { RiPinDistanceFill, RiCheckboxCircleFill } from "react-icons/ri";
 import { IoLocateSharp, IoAlertCircleSharp } from "react-icons/io5";
@@ -92,7 +90,7 @@ const Singlepackage = (props) => {
         if (ress.data()) {
           setpack(ress.data());
           getReviews();
-          if (ress.data().map == "") {
+          if (ress.data().map === "") {
             setmap("https://maps.google.com/maps?q=India&output=embed");
           } else {
             setmap(ress.data().map);
