@@ -246,7 +246,7 @@ Individuals are presently more worried about contaminations, greenery, just as t
 
 It is a physically demanding sport that combines fitness and agility with the mental toughness required to conquer an ascent or traverse. It can be dangerous, but this is often viewed as a positive aspect of the adventure."
           mainheading="ROCK CLIMBING"
-          link={`/categories/8`}
+          link={`/categories/7`}
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -269,7 +269,7 @@ Snowboarding is a special kind of medicine for the soul for die-hard riders and 
 
 We have some of the most thrilling destination for snowboarding in Himalayas as Auli,Uttarakhand,Niti Valley and Chopta Valley."
           mainheading="SNOWBOARDING"
-          link={`/categories/3`}
+          link={`/categories/8`}
         />
       </div>
       </div>
