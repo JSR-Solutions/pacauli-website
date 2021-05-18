@@ -50,7 +50,7 @@ const Home = () => {
 
 The Himalayan Trekking Trails in Uttrakhand ,Himanchal and Nepal is acclaimed as the best journeying locales and it draws in travelers from all over the world."
           mainheading="TREKKING"
-          link={`/categories/1`}
+          link={`/categories/0`}
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -76,7 +76,7 @@ There are heaps of mountain tops in our country which go under endeavor yet ever
 
 Auli is the most loved spot for skiing darlings with incredible slants encompassed by excellent valleys. An ideal objective to pick up skiing and practice expertly for competitions."
           mainheading="EXPEDITION"
-          link={`/categories/6`}
+          link={`/categories/1`}
         />
       </div>
 
@@ -103,7 +103,7 @@ The Himalayan Trekking Trails in Uttrakhand ,Himanchal and Nepal is acclaimed as
 
 Auli is the most loved spot for skiing darlings with incredible slants encompassed by excellent valleys. An ideal objective to pick up skiing and practice expertly for competitions."
           mainheading="SKIING"
-          link={`/categories/0`}
+          link={`/categories/2`}
         />
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -128,7 +128,7 @@ Each individual requires a break from this rushed and occupied way of life when 
 
 Each individual requires a break from this rushed and occupied way of life when he can invigorate his brain and plan their future. Outdoors in Uttrakhand can help you in reestablishing your energy and inventiveness"
           mainheading="CAMPING"
-          link={`/categories/4`}
+          link={`/categories/3`}
         />
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -149,7 +149,7 @@ Each individual requires a break from this rushed and occupied way of life when 
           heading2="Overview"
           caption2="Uttarakhand is considered as DEV BHOOMI and the whole locale is acclaimed for its otherworldliness. Each of the 4 dhaams are there in Uttarakhand and consistently lakhs of individuals visit Kedarnath, Badrinath, Gangotri, and Yamunotri. Kedarnath sanctuary is quite possibly the most visited puts around here and it just remaining parts open for 6-7 months.Uttarakhand has its own excellence to show and its own story to describe. Its an ideal objective where you can go with your family in light of the fact that there is something for everybody."
           mainheading="SPIRITUAL TOURS"
-          link={`/categories/7`}
+          link={`/categories/4`}
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -177,7 +177,7 @@ Ladakh, the fantasy objective for all riders and it is quite possibly the most v
 
 It's an undertaking movement for individuals with a high Patience level since riding 300-350 kilometers in mountains is an intense assignment."
           mainheading="BIKE TRIPS"
-          link={`/categories/2`}
+          link={`/categories/5`}
         />
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -200,7 +200,7 @@ Searching generally advantageous and testing place for waterway rafting then you
           caption2="Water, quite possibly the most smooth component on this planet. It continues to change its way, nature, and shape according to necessity. Rafting assists you in learning the method of change with hazardous and surprising floods of water.
 Searching generally advantageous and testing place for waterway rafting then you should visit Hrishikesh, perhaps the best area in India for boating where you can enjoy rafting in the rushes of the stream strong Ganga."
           mainheading="RAFTING"
-          link={`/categories/5`}
+          link={`/categories/6`}
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -222,7 +222,7 @@ Searching generally advantageous and testing place for waterway rafting then you
 
 Individuals are presently more worried about contaminations, greenery, just as their wellness consequently the rage for cycling, is expanding now. Individuals like to invest their energy in the middle of nature and investigating places around by cycle."
           mainheading="CYCLING"
-          link={`/categories/3`}
+          link={`/categories/7`}
         />
       </div>
 
@@ -246,7 +246,7 @@ Individuals are presently more worried about contaminations, greenery, just as t
 
 It is a physically demanding sport that combines fitness and agility with the mental toughness required to conquer an ascent or traverse. It can be dangerous, but this is often viewed as a positive aspect of the adventure."
           mainheading="ROCK CLIMBING"
-          link={`/categories/7`}
+          link={`/categories/8`}
         />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -255,23 +255,23 @@ It is a physically demanding sport that combines fitness and agility with the me
             d="M0,96L48,85.3C96,75,192,53,288,48C384,43,480,53,576,85.3C672,117,768,171,864,165.3C960,160,1056,96,1152,90.7C1248,85,1344,139,1392,165.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           ></path>
         </svg>
-      {/* Snowboarding */}
-      <div class="curved-div2">
-        <Hometext2
-          src1={Snowboarding}
-          heading1="Overview"
-          caption1="Cycling is always more than a adventure as you all know two wheels move the soul.We are offering you the best trails in the valley with the view and track you will never forget.This experience of yours will always live with you with flashbacks of you gliding and enjoying cycling in the Himalayas."
-          src2={Snowboarding}
-          heading2="Overview"
-          caption2="Winter sport with roots in skiing, surfing, and skateboarding in which the primary activity is riding down any snow-covered surface while standing on a snowboard with feet positioned roughly perpendicular to the board and its direction, distinguishing it from skiing, in which riders face forward. Furthermore, unlike skiing, no poles are used, and the majority of participants wear soft- to mid-flexing boots for support. 
+        {/* Snowboarding */}
+        <div class="curved-div2">
+          <Hometext2
+            src1={Snowboarding}
+            heading1="Overview"
+            caption1="Cycling is always more than a adventure as you all know two wheels move the soul.We are offering you the best trails in the valley with the view and track you will never forget.This experience of yours will always live with you with flashbacks of you gliding and enjoying cycling in the Himalayas."
+            src2={Snowboarding}
+            heading2="Overview"
+            caption2="Winter sport with roots in skiing, surfing, and skateboarding in which the primary activity is riding down any snow-covered surface while standing on a snowboard with feet positioned roughly perpendicular to the board and its direction, distinguishing it from skiing, in which riders face forward. Furthermore, unlike skiing, no poles are used, and the majority of participants wear soft- to mid-flexing boots for support. 
 
 Snowboarding is a special kind of medicine for the soul for die-hard riders and enthusiasts all over the world, including this author, because it combines the beauty of nature, the thrill of competition, and the opportunity for self-expression. There is no single method for snowboard.
 
 We have some of the most thrilling destination for snowboarding in Himalayas as Auli,Uttarakhand,Niti Valley and Chopta Valley."
-          mainheading="SNOWBOARDING"
-          link={`/categories/8`}
-        />
-      </div>
+            mainheading="SNOWBOARDING"
+            link={`/categories/9`}
+          />
+        </div>
       </div>
 
       <Footer />

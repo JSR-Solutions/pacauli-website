@@ -12,7 +12,7 @@ const SingleCategoryPackages = (props) => {
     $(document).ready(function () {
       $(this).scrollTop(0);
     });
-  }, []);
+  }, [x]);
   
   return (
     <div>

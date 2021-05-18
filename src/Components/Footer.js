@@ -11,6 +11,8 @@ import {
 import { Link } from "react-router-dom";
 
 function Footer() {
+
+
   return (
     <div>
       <div className="footer-main-div">
