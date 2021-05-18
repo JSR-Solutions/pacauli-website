@@ -139,10 +139,9 @@ const ContactUs = () => {
               <div className="funi">
                 <h3 className="contact-info-title">Request A Custom Package</h3>
                 <p className="contact-info-text">
-                  Lorem ipsum dolor sit amet, officia excepteur ex fugiat
-                  reprehenderit enim labore culpa sint ad nisi Lorem pariatur
-                  mollit ex esse exercitation amet. Nisi anim cupidatat
-                  excepteur officia.
+                  Not everyone has the same expectations, same outlook towards a
+                  trip. Everyone has something different in their mind for their
+                  vacations. And for all that, we've got you covered.
                 </p>
               </div>
               <img id="yuiop" src={custi} alt="custom"></img>
@@ -156,7 +155,7 @@ const ContactUs = () => {
                 onSubmit={formik.handleSubmit}
               >
                 <h3 className="contact-form-title">
-                  Let us know what you need...
+                  Let us know what you need
                 </h3>
                 <div
                   className="contact-form-input-container"

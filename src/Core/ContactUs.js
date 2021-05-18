@@ -120,10 +120,10 @@ const ContactUs = () => {
             <div className="contact-info">
               <h3 className="contact-info-title">Let's get in touch</h3>
               <p className="contact-info-text">
-                Lorem ipsum dolor sit amet, officia excepteur ex fugiat
-                reprehenderit enim labore culpa sint ad nisi Lorem pariatur
-                mollit ex esse exercitation amet. Nisi anim cupidatat excepteur
-                officia.
+                Our connection with our customers in not limited to the time of
+                their journey with us. We believe in being there for our
+                customers before and after the trip. In case you need some kind
+                of help, here's how you can reach out to us.
               </p>
               <div className="info">
                 <div className="information">
@@ -132,7 +132,7 @@ const ContactUs = () => {
                     alt="Location"
                     className="contact-info-icon"
                   />
-                  <p>Lorem ipsum dolor sit amet, officia excepteur.</p>
+                  <p>Pac Auli Office, Auli Road, Joshimath.</p>
                 </div>
               </div>
               <div className="info">
@@ -145,9 +145,9 @@ const ContactUs = () => {
                   <p>
                     <a
                       className="contact-us-link"
-                      href="mailto:lorem@ipsum.com"
+                      href="mailto:info@pacauli.com"
                     >
-                      lorem@ipsum.com
+                      info@pacauli.com
                     </a>
                   </p>
                 </div>
@@ -160,8 +160,8 @@ const ContactUs = () => {
                     className="contact-info-icon"
                   />
                   <p>
-                    <a className="contact-us-link" href="tel:919876543210">
-                      +91-987-654-3210
+                    <a className="contact-us-link" href="tel:919557212758">
+                      +91-9557212758
                     </a>
                   </p>
                 </div>
