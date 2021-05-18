@@ -413,7 +413,7 @@ const Aboutus = () => {
                 <div className="team-3-div">
                   <div className="about-founder-div">
                     <h2 className="founder-name">VANDANA PANWAR</h2>
-                    <h6>ADVENTURE SPORTS EXECUTIVE</h6>
+                    <h6>BOARD MEMBER</h6>
                     <div className="divider-div">
                       <hr className="founder-divider" />
                     </div>
