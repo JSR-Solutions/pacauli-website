@@ -74,9 +74,19 @@
     );
   }
 }
+@media screen and (max-width:960px){
+  .heading-alt-1 h2 {
+     font-size: 140px !important;
+   }
+}
 @media screen and (max-width:850px){
   .heading-alt-1 h2 {
      font-size: 100px;
+   }
+}
+@media screen and (max-width:750px){
+  .heading-alt-1 h2 {
+     font-size: 80px !important;
    }
 }
   @media screen and (max-width:450px){
@@ -84,7 +94,7 @@
     height: 400px;
      }
   .heading-alt-1 h2{
-    font-size: 80px;
+    font-size: 60px !important;
   }
 }
 .heading-categories {
