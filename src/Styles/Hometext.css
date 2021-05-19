@@ -189,11 +189,14 @@
 
 @media only screen and (max-width: 1000px) {
   .explore-btn0 {
-    padding-left: 240px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0 !important;
   }
 }
 
-@media only screen and (max-width: 740px) {
+/* @media only screen and (max-width: 740px) {
   .explore-btn0 {
     padding-left: 180px !important;
   }
@@ -215,5 +218,5 @@
   .explore-btn0 {
     padding-left: 80px !important;
   }
-}
+} */
 

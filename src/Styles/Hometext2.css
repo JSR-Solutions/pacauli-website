@@ -164,17 +164,23 @@
 
   @media only screen and (max-width: 600px) {
     .explore-btn00 {
-      padding-left: 110px !important;
+      padding-left: 0px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 
   @media only screen and (max-width: 1000px) {
     .explore-btn00 {
-      padding-left: 240px !important;
+      padding-left: 0px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
   
-  @media only screen and (max-width: 740px) {
+  /* @media only screen and (max-width: 740px) {
     .explore-btn00 {
       padding-left: 180px !important;
     }
@@ -196,4 +202,4 @@
     .explore-btn00 {
       padding-left: 80px !important;
     }
-  }
+  } */
