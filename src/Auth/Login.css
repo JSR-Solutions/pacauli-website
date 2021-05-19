@@ -3,6 +3,14 @@
     justify-content: center;
     align-items: center;
     height: 100vh !important;
+    background-color: #80e7c3;
+    flex-direction: column;
+    padding: 36px;
+}
+
+.logo-auth {
+    height: 160px;
+    margin-bottom: 40px;
 }
 
 .auth-card {
@@ -44,4 +52,10 @@
 
 .auth-link:hover {
     color: white !important;
+}
+
+@media screen and (max-width : 476px) {
+    .auth-card, .auth-button, .auth-input {
+        width: 100% !important;
+    }
 }

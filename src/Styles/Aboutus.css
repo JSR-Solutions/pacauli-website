@@ -179,7 +179,7 @@
 }
 
 .sec1 {
-  text-align: left;
+  text-align: justify;
   margin-left: -10px;
   padding-top: 50px;
 }
@@ -225,7 +225,7 @@
 .founder-div,
 .team-div-2, .team-div-4 {
   background-color: #222;
-  text-align: left;
+  text-align: justify;
   color: white;
   transition: all 0.4s ease;
 }
@@ -234,7 +234,7 @@
 .team-div-3 {
   background-color: white;
   margin-top: 60px;
-  text-align: left;
+  text-align: justify;
   color: #222;
 }
 
@@ -271,7 +271,7 @@
 }
 
 .divider-div {
-  text-align: left;
+  text-align: justify;
   justify-content: left;
   display: flex;
 }
@@ -280,7 +280,7 @@
 .achievements-divider {
   background-color: white;
   width: 12%;
-  text-align: left !important;
+  text-align: justify !important;
   margin: 0 !important;
 }
 
@@ -295,7 +295,7 @@
 
 
 .founder-achievements {
-  text-align: left;
+  text-align: justify;
   padding-top: 20px;
   padding-left: 10px;
   opacity: 0;

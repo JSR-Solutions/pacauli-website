@@ -169,17 +169,17 @@ const ContactUs = () => {
               <div className="social-media">
                 <p>Connect with us:</p>
                 <div className="social-icons">
-                  <a href="www.facebook.com">
+                  <a href="https://www.facebook.com/Pacauli/">
                     <i className="fab fa-facebook-f"></i>
                   </a>
-                  <a href="www.twitter.com">
-                    <i className="fab fa-twitter"></i>
+                  <a href="mailto:info@pacauli.com">
+                    <i class="fas fa-envelope"></i>
                   </a>
-                  <a href="www.instagram.com">
+                  <a href="https://www.instagram.com/pac_auli/?hl=en">
                     <i className="fab fa-instagram"></i>
                   </a>
-                  <a href="www.linkedin.com">
-                    <i className="fab fa-linkedin-in"></i>
+                  <a href="https://www.google.com/search?q=pacauli&rlz=1C1CHBF_enIN863IN863&oq=pacauli+&aqs=chrome..69i57j69i59j69i60l6.1995j0j4&sourceid=chrome&ie=UTF-8#lrd=0x39a79dae40b6daf7:0x6564e03ad73a0fbf,1,,,">
+                    <i class="fab fa-google"></i>
                   </a>
                 </div>
               </div>
