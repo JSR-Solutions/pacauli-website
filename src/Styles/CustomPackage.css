@@ -115,7 +115,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    text-align: center !important;
+    text-align: justify !important;
     transform: translateX(-50%) translateY(-50%);
 }
 
@@ -338,6 +338,7 @@
   color: var(--primary-black);
   margin: 1.5rem 0 2rem 0;
   font-size: 1rem !important;
+  text-align: justify !important;
 }
   .big-circle {
     position: absolute;

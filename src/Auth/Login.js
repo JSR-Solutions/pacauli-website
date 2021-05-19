@@ -4,6 +4,7 @@ import { Card, Form, Button } from "react-bootstrap";
 import firebase from "firebase";
 import { toast, ToastContainer } from "react-toastify";
 
+import logo from "../Assets/logo.png"
 import "./Login.css";
 
 function Login() {
@@ -52,6 +53,7 @@ function Login() {
       <ToastContainer />
       {redirectRegistration ? <Redirect to="/user/register" /> : null}
       {redirectHome ? <Redirect to="/" /> : null}
+      <img src={logo} className="logo-auth" alt="logo" />
       <div className="auth-card-div">
         <Card className="auth-card">
           <h3 className="auth-title">Login</h3>
