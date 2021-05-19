@@ -52,7 +52,7 @@ const Hometext = (props) => {
                 <div className="captionn">{props.caption2}</div>
               </div>
             </Row>
-            <Row className="explore-btn"><Link to={props.link} class="horizontall"><span class="text">Explore More</span></Link></Row>
+            <Row className="explore-btn00"><Link to={props.link} class="horizontall"><span class="text">Explore More</span></Link></Row>
             {/* <Row data-aos="fade-right">
               <div className="headings-aks">
                 <div className="photuu">

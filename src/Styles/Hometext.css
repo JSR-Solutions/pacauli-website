@@ -123,6 +123,7 @@
   padding-top: 2px;
   padding-right: 10px;
   padding-left: 10px;
+  text-align: justify;
 }
 
 @media screen and (max-width: 576px) {
@@ -181,12 +182,38 @@
   transform: scale3d(1, 1, 1);
 }
 
-.explore-btn {
+.explore-btn0 {
   padding-left: 190px;
 }
 
+
+@media only screen and (max-width: 1000px) {
+  .explore-btn0 {
+    padding-left: 240px !important;
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .explore-btn0 {
+    padding-left: 180px !important;
+  }
+}
+
 @media only screen and (max-width: 600px) {
-  .explore-btn {
+  .explore-btn0 {
+    padding-left: 150px !important;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .explore-btn0 {
     padding-left: 110px !important;
   }
 }
+
+@media only screen and (max-width: 420px) {
+  .explore-btn0 {
+    padding-left: 80px !important;
+  }
+}
+

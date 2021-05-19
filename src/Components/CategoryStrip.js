@@ -32,6 +32,7 @@ function catStrip(props) {
         <Link to={`/categories/${props.index}`}><Button className="category-button" onClick={buttonClick}>
           View Packages
         </Button></Link>
+        <br/>
       </div>
     </div>
   );
