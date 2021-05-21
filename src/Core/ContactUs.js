@@ -181,6 +181,9 @@ const ContactUs = () => {
                   <a href="https://www.google.com/search?q=pacauli&rlz=1C1CHBF_enIN863IN863&oq=pacauli+&aqs=chrome..69i57j69i59j69i60l6.1995j0j4&sourceid=chrome&ie=UTF-8#lrd=0x39a79dae40b6daf7:0x6564e03ad73a0fbf,1,,,">
                     <i class="fab fa-google"></i>
                   </a>
+                  <a href="https://www.youtube.com/channel/UCLJwNA0dOYJk3AJb-yC3MKw">
+                  <i class="fab fa-youtube"></i>
+                  </a>
                 </div>
               </div>
             </div>
