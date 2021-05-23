@@ -6,15 +6,19 @@ import { BiRupee } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 function Card3(props) {
-
-  var redirect = ""
+  var redirect = "";
 
   if (props.categoryName) {
-    if (props.categoryName == 'Rafting' || props.categoryName == 'Skiing' || props.categoryName == 'Camping' || props.categoryName == 'Snow Boarding' || props.categoryName == 'Rock Climbing') {
-      redirect = `/packages/${props.categoryName}/${props.package.packageId}`
-    }
-    else {
-      redirect = `/package/${props.categoryName}/${props.package.packageId}`
+    if (
+      props.categoryName == "Rafting" ||
+      props.categoryName == "Skiing" ||
+      props.categoryName == "Camping" ||
+      props.categoryName == "Snow Boarding" ||
+      props.categoryName == "Rock Climbing"
+    ) {
+      redirect = `/packages/${props.categoryName}/${props.package.packageId}`;
+    } else {
+      redirect = `/package/${props.categoryName}/${props.package.packageId}`;
     }
   }
 

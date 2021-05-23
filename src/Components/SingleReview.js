@@ -11,7 +11,11 @@ const SingleReview = (props) => {
       >
         <div key={props.key} className="sng-pack-review">
           <div className="sng-pack-review-img">
-              <img className="review-user-image" src={props.img} alt={props.name} />
+            <img
+              className="review-user-image"
+              src={props.img}
+              alt={props.name}
+            />
           </div>
           <div className="sng-pack-review-cnt">
             <h5>{props.name}</h5>

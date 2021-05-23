@@ -4,18 +4,18 @@ import {
   SidebarHeader,
   SidebarFooter,
   Menu,
-  MenuItem
+  MenuItem,
 } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
 import { Link } from "react-router-dom";
 import "../Styles/Sidebar.css";
-import { MdDashboard, MdTouchApp} from "react-icons/md";
-import { VscPackage} from "react-icons/vsc";
+import { MdDashboard, MdTouchApp } from "react-icons/md";
+import { VscPackage } from "react-icons/vsc";
 import { RiCustomerService2Fill } from "react-icons/ri";
-import {AiFillFileAdd} from "react-icons/ai";
+import { AiFillFileAdd } from "react-icons/ai";
 import "../Styles/Sidebar.scss";
-import {GoPackage} from 'react-icons/go';
-import {FiPhoneCall} from "react-icons/fi";
+import { GoPackage } from "react-icons/go";
+import { FiPhoneCall } from "react-icons/fi";
 
 function Sidebar() {
   return (
@@ -30,15 +30,15 @@ function Sidebar() {
           <MenuItem icon={<MdDashboard />} className="sidebar-menu-item">
             <Link to="/admin/dashboard">Dashboard</Link>{" "}
           </MenuItem>
-            <MenuItem icon={<VscPackage />} className="sidebar-menu-item">
-              <Link to="/admin/allpackages">All Packages</Link>{" "}
-            </MenuItem>
-            {/* <MenuItem className="sidebar-menu-item">
+          <MenuItem icon={<VscPackage />} className="sidebar-menu-item">
+            <Link to="/admin/allpackages">All Packages</Link>{" "}
+          </MenuItem>
+          {/* <MenuItem className="sidebar-menu-item">
               <Link to="/editpackages">Edit Packages</Link>{" "}
             </MenuItem> */}
-            <MenuItem icon={<AiFillFileAdd />} className="sidebar-menu-item">
-              <Link to="/admin/addpackage">Add Package</Link>{" "}
-            </MenuItem>
+          <MenuItem icon={<AiFillFileAdd />} className="sidebar-menu-item">
+            <Link to="/admin/addpackage">Add Package</Link>{" "}
+          </MenuItem>
           <MenuItem icon={<GoPackage />} className="sidebar-menu-item">
             <Link to="/admin/customrequests">Custom Package</Link>{" "}
           </MenuItem>
@@ -48,16 +48,10 @@ function Sidebar() {
           >
             <Link to="/admin/allenquiries">All Enquiries</Link>{" "}
           </MenuItem>
-          <MenuItem
-            icon={<FiPhoneCall />}
-            className="sidebar-menu-item"
-          >
+          <MenuItem icon={<FiPhoneCall />} className="sidebar-menu-item">
             <Link to="/admin/contactrequests">Contact Requests</Link>{" "}
           </MenuItem>
-          <MenuItem
-            icon={<MdTouchApp />}
-            className="sidebar-menu-item"
-          >
+          <MenuItem icon={<MdTouchApp />} className="sidebar-menu-item">
             <Link to="/admin/getintouch">Get In Touch Requests</Link>{" "}
           </MenuItem>
         </Menu>

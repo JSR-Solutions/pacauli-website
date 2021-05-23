@@ -42,7 +42,6 @@ function AllEnquiries() {
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.docs.length) {
-          
           querySnapshot.docs.forEach((doc) => {
             if (doc.data) {
               setEnquiries((prev) => {
@@ -65,7 +64,7 @@ function AllEnquiries() {
       customerPhone: enquiry.phNo,
       email: enquiry.email,
       budget: enquiry.budget,
-      noOfPeople: enquiry.noOfPeople
+      noOfPeople: enquiry.noOfPeople,
     };
   });
 
@@ -76,7 +75,8 @@ function AllEnquiries() {
           <Sidebar />
         </Col>
         <Col className="admin-dashboard-content" lg={10} md={6}>
-          <h3 className="admin-dashboard-title">All Enquiries</h3>{enquiries && (
+          <h3 className="admin-dashboard-title">All Enquiries</h3>
+          {enquiries && (
             <div style={{ height: 600, width: "100%" }}>
               <DataGrid
                 className="admin-dashboard-table"

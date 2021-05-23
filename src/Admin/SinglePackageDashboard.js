@@ -34,7 +34,6 @@ function SinglePackageDashboard(props) {
       .delete()
       .then(() => {
         setDeleted(true);
-        
       });
   };
 
@@ -95,9 +94,9 @@ function SinglePackageDashboard(props) {
               </Link>
             </Col>
           </Row>
-          
+
           <Row className="admin-dashboard-cards-row">
-          <Col lg={6} md={6} sm={12}>
+            <Col lg={6} md={6} sm={12}>
               <Link
                 className="admin-dashboard-link"
                 to={`/admin/package/${packageType}/${docId}/date`}

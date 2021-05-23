@@ -1,15 +1,13 @@
-import React from 'react'
-import "../Styles/Parallax1.css"
+import React from "react";
+import "../Styles/Parallax1.css";
 const Parralax1 = () => {
-    return (
-        <div>
-            <div className="parallax fcb">
-                <div className="box fcb">
+  return (
+    <div>
+      <div className="parallax fcb">
+        <div className="box fcb"></div>
+      </div>
+    </div>
+  );
+};
 
-                </div>
-            </div>
-        </div>
-    )
-}
-
-export default Parralax1
+export default Parralax1;

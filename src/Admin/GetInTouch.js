@@ -19,7 +19,12 @@ function GetInTouch() {
     { field: "id", headerName: "Request ID", width: 225 },
     { field: "customerName", headerName: "Customer name", width: 250 },
     { field: "date", headerName: "Date", width: 250 },
-    { field: "noOfPeople", headerName: "Number of people", width: 150, type: "number" },
+    {
+      field: "noOfPeople",
+      headerName: "Number of people",
+      width: 150,
+      type: "number",
+    },
     {
       field: "customerPhone",
       headerName: "Customer Number",
@@ -41,9 +46,7 @@ function GetInTouch() {
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.docs.length) {
-          
           querySnapshot.docs.forEach((doc) => {
-          
             if (doc.data) {
               setRequests((prev) => {
                 return [...prev, doc.data()];
@@ -78,7 +81,7 @@ function GetInTouch() {
           {requests && (
             <div style={{ height: 600, width: "100%" }}>
               <DataGrid
-              className="admin-dashboard-table"
+                className="admin-dashboard-table"
                 loading={isLoading}
                 rowCount={requests.length}
                 rowsPerPageOptions={[5, 10, 15]}

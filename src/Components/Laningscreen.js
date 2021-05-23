@@ -1,6 +1,6 @@
 import React from "react";
 import "../Styles/Landingscreen.css";
-import { Carousel } from "react-bootstrap"
+import { Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Laningscreen = () => {

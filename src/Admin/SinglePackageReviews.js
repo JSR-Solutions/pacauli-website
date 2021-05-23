@@ -39,7 +39,6 @@ function SinglePackageReviews(props) {
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.docs.length) {
-          
           querySnapshot.docs.forEach((doc) => {
             if (doc.data()) {
               const uid = doc.data().userId;

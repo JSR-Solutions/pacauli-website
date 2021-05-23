@@ -5,7 +5,7 @@ import admin from "../Assets/admin.png";
 import firebase from "firebase";
 import { reactLocalStorage } from "reactjs-localstorage";
 import { Redirect } from "react-router";
-import {toast , ToastContainer} from "react-toastify"
+import { toast, ToastContainer } from "react-toastify";
 
 function AdminLogin() {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -34,7 +34,7 @@ function AdminLogin() {
             .get()
             .then((querySnapshot) => {
               const data = querySnapshot.data();
-              
+
               if (data.role === "admin") {
                 reactLocalStorage.setObject("pacauli-admin", {
                   email: credentials.email,
@@ -49,9 +49,9 @@ function AdminLogin() {
             });
         }
       })
-      .catch((error) =>{
-        toast.error(error.message)
-      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   return (

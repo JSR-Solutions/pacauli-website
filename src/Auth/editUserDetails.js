@@ -59,7 +59,7 @@ function EditUser() {
           .doc(uid)
           .get()
           .then((doc) => {
-            const data = doc.data();      
+            const data = doc.data();
             setAddress(data.city);
             setName(data.name);
             setPhoneNo(data.phone);

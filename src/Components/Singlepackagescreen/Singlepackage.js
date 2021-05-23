@@ -4,10 +4,7 @@ import "./Singlepackage.css";
 import Pricecard from "./Pricecard";
 import Formcomp from "./Form";
 import { GiNetworkBars } from "react-icons/gi";
-import {
-  AiOutlineSafetyCertificate,
-  AiOutlineFieldTime,
-} from "react-icons/ai";
+import { AiOutlineSafetyCertificate, AiOutlineFieldTime } from "react-icons/ai";
 import { RiPinDistanceFill, RiCheckboxCircleFill } from "react-icons/ri";
 import { IoLocateSharp, IoAlertCircleSharp } from "react-icons/io5";
 import { FaTimesCircle } from "react-icons/fa";

@@ -15,13 +15,13 @@ const Categorycards = () => {
         </div>
         <Row data-aos="fade-up" className="team-cards-aks">
           {category.map((cat, index) => {
-            if(index < 9){
-            return (
-              
-              <Col className="category-card-col" lg={4} md={4} sm={12}>
-                <CategoryCard img={cat.icon} title={cat.Name} index={index}/>
-              </Col>
-            );}
+            if (index < 9) {
+              return (
+                <Col className="category-card-col" lg={4} md={4} sm={12}>
+                  <CategoryCard img={cat.icon} title={cat.Name} index={index} />
+                </Col>
+              );
+            }
           })}
         </Row>
       </div>

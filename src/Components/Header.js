@@ -175,7 +175,7 @@ const Header = ({ history }) => {
         }
       );
   }
-  
+
   function isSignedIn() {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -264,7 +264,9 @@ const Header = ({ history }) => {
                         to={`/categories/4`}
                         className="header-dropdown-link"
                       >
-                        <div className="cat-dropdown-child">Spiritual Tours</div>
+                        <div className="cat-dropdown-child">
+                          Spiritual Tours
+                        </div>
                       </Link>
                       <Link
                         to={`/categories/5`}

@@ -36,25 +36,28 @@ const Pricecard = (props) => {
             </Col>
             <Col>
               <a
-              className="modal-link"
+                className="modal-link"
                 href={`https://api.whatsapp.com/send?phone=919557212758&text=I'm%20interested%20in%20your%20tourism%20package%20`}
                 target="_blank"
               >
-              <Card className="modal-card">
-                <Card.Body>
-                  <img
-                    className="modal-card-img"
-                    src={whatsapp}
-                    alt="whatsapp"
-                  />
-                  <p>WhatsApp</p>
-                </Card.Body>
-              </Card></a>
+                <Card className="modal-card">
+                  <Card.Body>
+                    <img
+                      className="modal-card-img"
+                      src={whatsapp}
+                      alt="whatsapp"
+                    />
+                    <p>WhatsApp</p>
+                  </Card.Body>
+                </Card>
+              </a>
             </Col>
           </Row>
         </Modal.Body>
         <Modal.Footer>
-          <Button className="modal-button" onClick={prps.onHide}>Close</Button>
+          <Button className="modal-button" onClick={prps.onHide}>
+            Close
+          </Button>
         </Modal.Footer>
       </Modal>
     );
@@ -66,10 +69,14 @@ const Pricecard = (props) => {
         <div className="price-card1">
           <p>
             Starting from{" "}
-            <span><FaRupeeSign/>{parseInt(props.price[0].cost) + 1000}</span>
+            <span>
+              <FaRupeeSign />
+              {parseInt(props.price[0].cost) + 1000}
+            </span>
           </p>
           <h2>
-          <FaRupeeSign/>{props.price && props.price[0] && props.price[0].cost}{" "}
+            <FaRupeeSign />
+            {props.price && props.price[0] && props.price[0].cost}{" "}
             <span>
               {parseInt((1000 / (parseInt(props.price[0].cost) + 1000)) * 100)}%
               Off

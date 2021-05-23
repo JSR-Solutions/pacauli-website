@@ -41,7 +41,6 @@ function CustomPackage() {
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.docs.length) {
-          
           querySnapshot.docs.forEach((doc) => {
             if (doc.data) {
               setRequests((prev) => {
@@ -77,7 +76,7 @@ function CustomPackage() {
           {requests && (
             <div style={{ height: 600, width: "100%" }}>
               <DataGrid
-              className="admin-dashboard-table"
+                className="admin-dashboard-table"
                 loading={isLoading}
                 rowCount={requests.length}
                 rowsPerPageOptions={[5, 10, 15]}

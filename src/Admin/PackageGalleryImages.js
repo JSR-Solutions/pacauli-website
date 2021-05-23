@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 import "../Styles/AdminDashboard.css";
 import firebase from "firebase";
 import { Redirect } from "react-router";
-import {Form} from "react-bootstrap"
+import { Form } from "react-bootstrap";
 
 function PackageGalleryImages(props) {
   const [added, setAdded] = useState(false);
@@ -16,17 +16,14 @@ function PackageGalleryImages(props) {
   function handleImageChange(event) {
     const files = event.target.files;
     Array.from(files).forEach((image) => {
-      const uploadTask = storage
-        .ref(packageType + "/" + image.name)
-        .put(image);
+      const uploadTask = storage.ref(packageType + "/" + image.name).put(image);
       uploadTask.on(
         "state_changed",
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         },
-        (err) => {
-        },
+        (err) => {},
         () => {
           storage
             .ref(packageType)
@@ -47,7 +44,7 @@ function PackageGalleryImages(props) {
 
   return (
     <div>
-    {added ? <Redirect to="/admin/dashboard" /> : null}
+      {added ? <Redirect to="/admin/dashboard" /> : null}
       <Row>
         <Col className="admin-dashboard-sidebar" lg={2} md={6}>
           <Sidebar />

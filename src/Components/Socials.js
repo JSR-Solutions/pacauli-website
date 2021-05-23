@@ -1,5 +1,5 @@
 import React from "react";
-import '../Styles/Socials.css'
+import "../Styles/Socials.css";
 import {
   AiFillInstagram,
   AiFillFacebook,
@@ -9,7 +9,7 @@ import {
 
 const Socials = () => {
   return (
-    <div className = "social-god">
+    <div className="social-god">
       <div class="button-block">
         <div class="social">
           <a href="/">

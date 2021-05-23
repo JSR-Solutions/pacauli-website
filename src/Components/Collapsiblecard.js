@@ -1,5 +1,5 @@
 import React from "react";
-import '../Styles/Collapsiblecard.css'
+import "../Styles/Collapsiblecard.css";
 const Collapsiblecard = () => {
   return (
     <div className="card-aks-god">

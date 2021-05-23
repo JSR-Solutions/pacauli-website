@@ -1,12 +1,11 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import "../Styles/categoryPage.css";
 import category from "../helper/categoryData";
 import CatStrip from "../Components/CategoryStrip";
-import $ from "jquery"
+import $ from "jquery";
 const Categories = () => {
-  
   useEffect(() => {
     $(document).ready(function () {
       $(this).scrollTop(0);
@@ -22,9 +21,9 @@ const Categories = () => {
         <p>&nbsp;&nbsp;Categories&nbsp;&nbsp;</p>
       </div> */}
       <div className="heading-alt-1">
-          <h2>Categories</h2>
-          <h2>Categories</h2>
-        </div>
+        <h2>Categories</h2>
+        <h2>Categories</h2>
+      </div>
       <div className="catt">
         {category.map((cat, index) => {
           return (
