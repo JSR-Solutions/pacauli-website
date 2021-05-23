@@ -108,7 +108,6 @@ function EditPackage(props) {
   //Package Type change handle function
   function handleTypeChange(event) {
     setPackageType(event.target.value);
-    
   }
 
   //Package image change handle function
@@ -137,11 +136,9 @@ function EditPackage(props) {
   };
 
   const removeOverview = (index) => {
-    
     const values = [...overviews];
     if (values.length > 1) {
       values.splice(index, 1);
-      
     }
     setOverviews(values);
   };
@@ -162,11 +159,9 @@ function EditPackage(props) {
   };
 
   const removeHistory = (index) => {
-    
     const values = [...histories];
     if (values.length > 1) {
       values.splice(index, 1);
-      
     }
     setHistories(values);
   };
@@ -187,11 +182,9 @@ function EditPackage(props) {
   };
 
   const removeInclusions = (index) => {
-    
     const values = [...inclusions];
     if (values.length > 1) {
       values.splice(index, 1);
-      
     }
     setInclusions(values);
   };
@@ -212,11 +205,9 @@ function EditPackage(props) {
   };
 
   const removeExclusions = (index) => {
-    
     const values = [...exclusions];
     if (values.length > 1) {
       values.splice(index, 1);
-      
     }
     setExclusions(values);
   };
@@ -287,11 +278,9 @@ function EditPackage(props) {
   };
 
   const removeCancellation = (index) => {
-    
     const values = [...cancellation];
     if (values.length > 1) {
       values.splice(index, 1);
-      
     }
     setCancellation(values);
   };
@@ -319,11 +308,9 @@ function EditPackage(props) {
   };
 
   const removeBriefItinerary = (index) => {
-    
     const values = [...briefItinerary];
     if (values.length > 1) {
       values.splice(index, 1);
-      
     }
     setBriefItinerary(values);
   };
@@ -351,11 +338,9 @@ function EditPackage(props) {
   };
 
   const removeDetailedItinerary = (index) => {
-    
     const values = [...detailedItinerary];
     if (values.length > 1) {
       values.splice(index, 1);
-      
     }
     setDetailedItinerary(values);
   };
@@ -388,11 +373,9 @@ function EditPackage(props) {
   };
 
   const removePricing = (index) => {
-    
     const values = [...pricing];
     if (values.length > 1) {
       values.splice(index, 1);
-      
     }
     setPricing(values);
   };
@@ -418,10 +401,10 @@ function EditPackage(props) {
   // };
 
   // const removeReviews = (index) => {
-  //   
+  //
   //   const values = [...reviews];
   //   values.splice(index, 1);
-  //   
+  //
   //   setReviews(values);
   // };
 

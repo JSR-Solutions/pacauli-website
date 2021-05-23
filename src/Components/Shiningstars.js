@@ -73,9 +73,9 @@ const Shiningstars = () => {
               </li>
             </ul>
           </p>
-          <TeamSocials 
-          facebook="https://m.facebook.com/profile.php?id=1184490462&ref=content_filter"
-          instagram="https://instagram.com/traveller.monk?igshid=nc3bc0sx258f"
+          <TeamSocials
+            facebook="https://m.facebook.com/profile.php?id=1184490462&ref=content_filter"
+            instagram="https://instagram.com/traveller.monk?igshid=nc3bc0sx258f"
           />
         </Col>
       </Row>
@@ -83,8 +83,7 @@ const Shiningstars = () => {
         <Col className="shiningstars-description" lg={6}>
           <h2 className="titlee-alt">Achievements:</h2>
           <p className="copyy-alt">
-            <ul className="achi-list-founderr">
-            </ul>
+            <ul className="achi-list-founderr"></ul>
           </p>
           <TeamSocials
             facebook="https://www.facebook.com/parmod.panwar.90/?show_switched_toast=0"
@@ -102,12 +101,9 @@ const Shiningstars = () => {
         <Col className="shiningstars-description" lg={6}>
           <h2 className="titlee-alt">Achievements:</h2>
           <p className="copyy-alt">
-            <ul className="achi-list-founderr">
-            </ul>
+            <ul className="achi-list-founderr"></ul>
           </p>
-          <TeamSocials
-            facebook="https://www.facebook.com/vandana.panwar.52/?show_switched_toast=0"
-          />
+          <TeamSocials facebook="https://www.facebook.com/vandana.panwar.52/?show_switched_toast=0" />
         </Col>
       </Row>
     </div>

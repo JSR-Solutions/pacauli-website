@@ -5,7 +5,6 @@ import Card from "./Card3";
 import "../Styles/CardCarousel.css";
 import { Link } from "react-router-dom";
 
-
 import $ from "jquery";
 import Spinner from "react-bootstrap/Spinner";
 
@@ -60,7 +59,6 @@ function CardCarousel(props) {
 
   return (
     <div className="parentcarouel">
-      
       <Carousel
         swipeable={false}
         draggable={false}
@@ -78,22 +76,21 @@ function CardCarousel(props) {
         itemClass="carousel-item-padding-40-px"
         className="cari"
       >
-        
-              <div>
-                <Card  />
-              </div>
-              
-              <div>
-                <Card  />
-              </div>
-              
-              <div>
-                <Card  />
-              </div>
-              
-              <div>
-                <Card  />
-              </div>
+        <div>
+          <Card />
+        </div>
+
+        <div>
+          <Card />
+        </div>
+
+        <div>
+          <Card />
+        </div>
+
+        <div>
+          <Card />
+        </div>
       </Carousel>
     </div>
   );

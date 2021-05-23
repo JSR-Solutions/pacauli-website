@@ -3,7 +3,7 @@ import { Card, Form, Button } from "react-bootstrap";
 import firebase from "firebase";
 
 import "./Login.css";
-import logo from "../Assets/logo.png"
+import logo from "../Assets/logo.png";
 import { Redirect } from "react-router-dom";
 
 function UserRegistration() {

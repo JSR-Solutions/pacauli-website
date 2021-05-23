@@ -4,7 +4,12 @@ import "./Singlepackage.css";
 import Pricecard from "../Singlepackagescreen/Pricecard";
 import Formcomp from "../Singlepackagescreen/Form";
 import { GiNetworkBars } from "react-icons/gi";
-import { AiOutlineSafetyCertificate, AiOutlineFieldTime, AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
+import {
+  AiOutlineSafetyCertificate,
+  AiOutlineFieldTime,
+  AiFillCheckCircle,
+  AiFillCloseCircle,
+} from "react-icons/ai";
 import { RiPinDistanceFill, RiCheckboxCircleFill } from "react-icons/ri";
 import { IoLocateSharp, IoAlertCircleSharp } from "react-icons/io5";
 import { FaTimesCircle } from "react-icons/fa";
@@ -41,7 +46,7 @@ const Singlepackage = (props) => {
 
   const getReviews = () => {
     setReviews([]);
-    db.collection('Rafting')
+    db.collection("Rafting")
       .doc(props.match.params.packageId)
       .collection("Reviews")
       .get()
@@ -80,7 +85,7 @@ const Singlepackage = (props) => {
 
   useEffect(() => {
     setFetching(true);
-    db.collection('Rafting')
+    db.collection("Rafting")
       .doc(props.match.params.packageId)
       .get()
       .then((ress) => {
@@ -89,7 +94,6 @@ const Singlepackage = (props) => {
           getReviews();
           if (ress.data().map == "") {
             setmap("https://maps.google.com/maps?q=India&output=embed");
-            
           } else {
             setmap(ress.data().map);
           }
@@ -128,7 +132,7 @@ const Singlepackage = (props) => {
       if (user) {
         const uid = user.uid;
         if (uid) {
-          db.collection('Rafting')
+          db.collection("Rafting")
             .doc(props.match.params.packageId)
             .collection("Reviews")
             .add({
@@ -148,7 +152,7 @@ const Singlepackage = (props) => {
 
   useEffect(() => {
     seatavailablity([]);
-    db.collection('Rafting')
+    db.collection("Rafting")
       .doc(props.match.params.packageId)
       .collection("Dates")
       .doc("dates")
@@ -338,7 +342,8 @@ const Singlepackage = (props) => {
                           <div className="single-pack-side-design"></div>
                           <h4>Rapids</h4>
                           <hr />
-                          {pack && pack.rapids &&
+                          {pack &&
+                            pack.rapids &&
                             pack.cancellation.map((l, k) => (
                               <p key={k}>
                                 <IoLocateSharp className="single-pck-2-row-icon" />
@@ -353,7 +358,8 @@ const Singlepackage = (props) => {
                           <div className="single-pack-side-design"></div>
                           <h4>Major Attraction</h4>
                           <hr />
-                          {pack && pack.majorattraction &&
+                          {pack &&
+                            pack.majorattraction &&
                             pack.majorattraction.map((l, k) => (
                               <p key={k}>
                                 <IoLocateSharp className="single-pck-2-row-icon" />
@@ -413,15 +419,15 @@ const Singlepackage = (props) => {
                                     style={
                                       l.seats === "0"
                                         ? {
-                                          backgroundColor:
-                                            "rgba(255, 0, 0, 0.75)",
-                                        }
+                                            backgroundColor:
+                                              "rgba(255, 0, 0, 0.75)",
+                                          }
                                         : l.seats > 2
-                                          ? {
+                                        ? {
                                             backgroundColor:
                                               "rgba(0, 128, 0,0.75)",
                                           }
-                                          : { backgroundColor: "#ff8303" }
+                                        : { backgroundColor: "#ff8303" }
                                     }
                                     key={k}
                                     className="sng-date"
@@ -571,7 +577,6 @@ const Singlepackage = (props) => {
 };
 
 export default Singlepackage;
-
 
 //  {/* LOCATION */}
 //  <div className="sngl-pack-short-itn" id="map">

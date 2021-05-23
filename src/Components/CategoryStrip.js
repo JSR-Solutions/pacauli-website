@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap";
 import React from "react";
 import "../Styles/catStrip.css";
-import {Link} from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 function catStrip(props) {
   let catStripCss = {
@@ -18,10 +18,7 @@ function catStrip(props) {
     transition: "0.5s ease-in-out",
   };
 
-  const buttonClick = () => {
-    
-
-  };
+  const buttonClick = () => {};
 
   return (
     <div className="category-strip-main">
@@ -29,10 +26,12 @@ function catStrip(props) {
       <div className="category-strip-content">
         <h1 className="category-title">{props.Name}</h1>
         <p className="category-quote">{props.quote}</p>
-        <Link to={`/categories/${props.index}`}><Button className="category-button" onClick={buttonClick}>
-          View Packages
-        </Button></Link>
-        <br/>
+        <Link to={`/categories/${props.index}`}>
+          <Button className="category-button" onClick={buttonClick}>
+            View Packages
+          </Button>
+        </Link>
+        <br />
       </div>
     </div>
   );

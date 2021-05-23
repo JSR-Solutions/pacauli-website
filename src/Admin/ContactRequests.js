@@ -40,9 +40,7 @@ function ContactRequests() {
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.docs.length) {
-          
           querySnapshot.docs.forEach((doc) => {
-            
             if (doc.data) {
               setRequests((prev) => {
                 return [...prev, doc.data()];
@@ -65,7 +63,7 @@ function ContactRequests() {
       email: customRequest.email,
     };
   });
-  
+
   return (
     <div>
       <Row>

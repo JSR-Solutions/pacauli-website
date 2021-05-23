@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import SingleCategoryPage from "../Components/SingleCategoryPage";
@@ -6,14 +6,13 @@ import $ from "jquery";
 
 const SingleCategoryPackages = (props) => {
   const x = props.match.params.categoryName;
-  
 
   useEffect(() => {
     $(document).ready(function () {
       $(this).scrollTop(0);
     });
   }, [x]);
-  
+
   return (
     <div>
       <Header />

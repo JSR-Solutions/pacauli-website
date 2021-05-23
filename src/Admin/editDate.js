@@ -9,7 +9,7 @@ import DatePicker from "react-date-picker";
 import moment from "moment";
 
 function EditDate(props) {
-  const [i,setI]=useState(0);
+  const [i, setI] = useState(0);
   const datte = [{ sDate: "", seats: "" }];
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -37,7 +37,6 @@ function EditDate(props) {
       .then((snapshot) => {
         if (snapshot) {
           setDates(snapshot.data().dates);
-            
         }
       });
   }
@@ -48,24 +47,19 @@ function EditDate(props) {
         d[index]=moment.unix(date.sDate.seconds).format("DD-MM-YYYY");
     });
     };*/
-  
-  
-    function deleteDate(date) {
-     
-      db.collection(props.match.params.packageType)
-        .doc(props.match.params.packageId)
-        .collection("Dates")
-        .doc("dates")
-        .update({
-          dates: firebase.firestore.FieldValue.arrayRemove(date)
-        })
-        .then(() => {
-          getDates();
-        });
-        
-    }
-    
-  
+
+  function deleteDate(date) {
+    db.collection(props.match.params.packageType)
+      .doc(props.match.params.packageId)
+      .collection("Dates")
+      .doc("dates")
+      .update({
+        dates: firebase.firestore.FieldValue.arrayRemove(date),
+      })
+      .then(() => {
+        getDates();
+      });
+  }
 
   function handleDateChange(index, event) {
     const values = [...dates];
@@ -73,7 +67,8 @@ function EditDate(props) {
       const { name, value } = event.target;
       if (name == "seats") {
         values[index].seats = value;
-      }if (name == "sDate") {
+      }
+      if (name == "sDate") {
         values[index].sDate = value;
       }
     }
@@ -118,8 +113,6 @@ function EditDate(props) {
                       className="add-package-form-group"
                       controlId="package-dates"
                     >
-                      
-                      
                       <Form.Label className="add-package-form-label">
                         Date {index + 1}
                       </Form.Label>
@@ -133,21 +126,22 @@ function EditDate(props) {
                         }}
                       ></Form.Control>
                       <Form.Control
-                      onChange={(e) => {
-                        handleDateChange(index, e);
-                      }}
-                      placeholder={"Seats"}
-                      className="add-package-form-input date-input"
-                      type="text"
-                      name="seats"
-                      value={date.seats}
-                      
-                    />
-                      <Button  className="inline-button"
-                      onClick={() => {
-                        deleteDate(date);
-                      }}>
-                        Delete 
+                        onChange={(e) => {
+                          handleDateChange(index, e);
+                        }}
+                        placeholder={"Seats"}
+                        className="add-package-form-input date-input"
+                        type="text"
+                        name="seats"
+                        value={date.seats}
+                      />
+                      <Button
+                        className="inline-button"
+                        onClick={() => {
+                          deleteDate(date);
+                        }}
+                      >
+                        Delete
                       </Button>
                     </Form.Group>
                   );

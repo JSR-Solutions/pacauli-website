@@ -7,13 +7,22 @@ const Textstyle1 = (props) => {
         <span class="textstyle1__row">
           <span class="textstyle1__text">{props.text}</span>
         </span>
-        <span class="textstyle1__row textstyle1__row--sibling" aria-hidden="true">
+        <span
+          class="textstyle1__row textstyle1__row--sibling"
+          aria-hidden="true"
+        >
           <span class="textstyle1__text">{props.text}</span>
         </span>
-        <span class="textstyle1__row textstyle1__row--sibling" aria-hidden="true">
+        <span
+          class="textstyle1__row textstyle1__row--sibling"
+          aria-hidden="true"
+        >
           <span class="jt__text">{props.text}</span>
         </span>
-        <span class="textstyle1__row textstyle1__row--sibling" aria-hidden="true">
+        <span
+          class="textstyle1__row textstyle1__row--sibling"
+          aria-hidden="true"
+        >
           <span class="textstyle1__text">{props.text}</span>
         </span>
       </h1>

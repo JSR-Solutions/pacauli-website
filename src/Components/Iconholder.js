@@ -11,7 +11,7 @@ const Iconholder = (props) => {
           backgroundSize: "80px",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          backgroundColor: "var(--primary)"
+          backgroundColor: "var(--primary)",
         }}
       ></div>
     </div>

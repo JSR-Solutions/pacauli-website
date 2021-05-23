@@ -18,7 +18,7 @@ function AllPacakges() {
   // Package type change handling
   function handleTypeChange(event) {
     setPackageType(event.target.value);
-    
+
     getPackages(event.target.value);
   }
 
@@ -50,7 +50,6 @@ function AllPacakges() {
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.docs.length) {
-          
           querySnapshot.docs.forEach((doc) => {
             if (doc.data) {
               setPackages((prev) => {
@@ -98,16 +97,16 @@ function AllPacakges() {
               name="package-type"
               value={packageType}
             >
-                    <option>Trekking</option>
-                    <option>Expedition</option>
-                    <option>Skiing</option>
-                    <option>Camping</option>
-                    <option>Spiritual Tours</option>
-                    <option>Bike Trips</option>
-                    <option>Rafting</option>
-                    <option>Cycling</option>
-                    <option>Rock Climbing</option>
-                    <option>Snowboarding</option>
+              <option>Trekking</option>
+              <option>Expedition</option>
+              <option>Skiing</option>
+              <option>Camping</option>
+              <option>Spiritual Tours</option>
+              <option>Bike Trips</option>
+              <option>Rafting</option>
+              <option>Cycling</option>
+              <option>Rock Climbing</option>
+              <option>Snowboarding</option>
             </Form.Control>
           </Form.Group>
           {packages && (

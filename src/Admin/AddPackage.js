@@ -64,7 +64,6 @@ function AddPackage() {
   //Package Type change handle function
   function handleTypeChange(event) {
     setPackageType(event.target.value);
-    
   }
 
   //Package image change handle function
@@ -93,11 +92,10 @@ function AddPackage() {
   };
 
   const removeOverview = (index) => {
-    
     const values = [...overviews];
     if (values.length > 1) {
       values.splice(index, 1);
-      
+
       setOverviews(values);
     }
   };
@@ -118,11 +116,9 @@ function AddPackage() {
   };
 
   const removeHistory = (index) => {
-    
     const values = [...inclusions];
     if (values.length > 1) {
       values.splice(index, 1);
-      
     }
     setHistories(values);
   };
@@ -147,7 +143,6 @@ function AddPackage() {
 
     if (values.length > 1) {
       values.splice(index, 1);
-      
     }
     setInclusions(values);
   };
@@ -218,11 +213,9 @@ function AddPackage() {
   };
 
   const removeExclusions = (index) => {
-    
     const values = [...exclusions];
     if (values.length > 1) {
       values.splice(index, 1);
-      
     }
     setExclusions(values);
   };
@@ -243,11 +236,9 @@ function AddPackage() {
   };
 
   const removeCancellation = (index) => {
-    
     const values = [...cancellation];
     if (values.length > 1) {
       values.splice(index, 1);
-      
     }
     setCancellation(values);
   };
@@ -275,11 +266,9 @@ function AddPackage() {
   };
 
   const removeBriefItinerary = (index) => {
-    
     const values = [...detailedItinerary];
     if (values.length > 1) {
       values.splice(index, 1);
-      
     }
     setBriefItinerary(values);
   };
@@ -307,11 +296,9 @@ function AddPackage() {
   };
 
   const removeDetailedItinerary = (index) => {
-    
     const values = [...detailedItinerary];
     if (values.length > 1) {
       values.splice(index, 1);
-      
     }
     setDetailedItinerary(values);
   };
@@ -344,11 +331,9 @@ function AddPackage() {
   };
 
   const removePricing = (index) => {
-    
     const values = [...pricing];
     if (values.length > 1) {
       values.splice(index, 1);
-      
     }
     setPricing(values);
   };

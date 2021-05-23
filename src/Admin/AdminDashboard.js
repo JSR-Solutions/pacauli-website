@@ -45,7 +45,10 @@ function AdminDashboard() {
           </Row>
           <Row className="admin-dashboard-cards-row">
             <Col lg={4} md={6} sm={12}>
-              <Link className="admin-dashboard-link" to="/admin/contactrequests">
+              <Link
+                className="admin-dashboard-link"
+                to="/admin/contactrequests"
+              >
                 <Card className="admin-dashboard-card">
                   <Card.Body className="admin-dashboard-card-body">
                     <h3>Contact Requests</h3>

@@ -45,11 +45,11 @@ const TeamMemberCard2 = () => {
           <div className="contentt">
             <h2 className="titlee">Pramod Panwar</h2>
             <p className="copyy">
-                The ‘Young Gun’ ,he is counted amoung one of the best freestyle
-                skier and snowboarder amoung his age and famous for his speed and
-                unique technique.He started sking at the age of 8 now holds the
-                experience of more than a decade.
-              </p>
+              The ‘Young Gun’ ,he is counted amoung one of the best freestyle
+              skier and snowboarder amoung his age and famous for his speed and
+              unique technique.He started sking at the age of 8 now holds the
+              experience of more than a decade.
+            </p>
             {/* <h2 className="titlee-alt">Achievements:</h2>
             <p className="copyy-alt">
               <ul className="achi-list-founderr">
@@ -83,11 +83,11 @@ const TeamMemberCard3 = () => {
           <div className="contentt">
             <h2 className="titlee">Vandna Panwar</h2>
             <p className="copyy">
-                  The ‘Young Gun’ ,he is counted amoung one of the best freestyle
-                  skier and snowboarder amoung his age and famous for his speed and
-                  unique technique.He started sking at the age of 8 now holds the
-                  experience of more than a decade.
-                </p>
+              The ‘Young Gun’ ,he is counted amoung one of the best freestyle
+              skier and snowboarder amoung his age and famous for his speed and
+              unique technique.He started sking at the age of 8 now holds the
+              experience of more than a decade.
+            </p>
             {/* <h2 className="titlee-alt">Achievements:</h2>
             <p className="copyy-alt">
               <ul className="achi-list-founderr">

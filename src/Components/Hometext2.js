@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { propTypes } from "react-bootstrap/esm/Image";
 import "../Styles/Hometext2.css";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Hometext = (props) => {
   return (
@@ -52,7 +52,11 @@ const Hometext = (props) => {
                 <div className="captionn">{props.caption2}</div>
               </div>
             </Row>
-            <Row className="explore-btn00"><Link to={props.link} class="horizontall"><span class="text">Explore More</span></Link></Row>
+            <Row className="explore-btn00">
+              <Link to={props.link} class="horizontall">
+                <span class="text">Explore More</span>
+              </Link>
+            </Row>
             {/* <Row data-aos="fade-right">
               <div className="headings-aks">
                 <div className="photuu">
