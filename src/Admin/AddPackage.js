@@ -11,11 +11,14 @@ function AddPackage() {
   const [inclusions, setInclusions] = useState([""]);
   const [rapid, setRapid] = useState([""]);
   const [majorattraction, setMajorAttraction] = useState([""]);
+  const [thingsToCarry, setThingsToCarry] = useState([""]);
+  const [terms, setTerms] = useState([""]);
   const [exclusions, setExclusions] = useState([""]);
   const [cancellation, setCancellation] = useState([""]);
   const [map, setMap] = useState("");
   const [name, setName] = useState("");
-  const [qoute, setQoute] = useState("");
+  const [bestTime, setBestTime] = useState("");
+  const [quote, setQuote] = useState("");
   const [region, setRegion] = useState("");
   const [duration, setDuration] = useState("");
   const [grade, setgrade] = useState("");
@@ -51,13 +54,15 @@ function AddPackage() {
     } else if (name === "region") {
       setRegion(value);
     } else if (name === "qoute") {
-      setQoute(value);
+      setQuote(value);
     } else if (name === "grade") {
       setgrade(value);
     } else if (name === "maxAltitude") {
       setMaxAltitude(value);
     } else if (name === "trekDistance") {
       setTrekDistance(value);
+    } else if(name==="bestTime") {
+      setBestTime(value);
     }
   };
 
@@ -220,6 +225,52 @@ function AddPackage() {
     setExclusions(values);
   };
 
+  //Things to carry dynamic part
+  const handleThingsToCarryChange = (e, index) => {
+    e.preventDefault();
+    const values = [...thingsToCarry];
+    values[index] = e.target.value;
+    setThingsToCarry(values);
+  };
+
+  const addThingsToCarry = (e) => {
+    e.preventDefault();
+    setThingsToCarry((prev) => {
+      return [...prev, ""];
+    });
+  };
+
+  const removeThingsToCarry = (index) => {
+    const values = [...thingsToCarry];
+    if (values.length > 1) {
+      values.splice(index, 1);
+    }
+    setThingsToCarry(values);
+  };
+
+  //Terms and conditions dynamic part
+  const handleTermsChange = (e, index) => {
+    e.preventDefault();
+    const values = [...terms];
+    values[index] = e.target.value;
+    setTerms(values);
+  };
+
+  const addTerms = (e) => {
+    e.preventDefault();
+    setTerms((prev) => {
+      return [...prev, ""];
+    });
+  };
+
+  const removeTerms = (index) => {
+    const values = [...terms];
+    if (values.length > 1) {
+      values.splice(index, 1);
+    }
+    setTerms(values);
+  };
+
   //Cancellation dynamic part
   const handleCancellationChange = (e, index) => {
     e.preventDefault();
@@ -370,7 +421,7 @@ function AddPackage() {
                 cancellation: cancellation,
                 map: map.concat("&output=embed"),
                 name: name,
-                qoute: qoute,
+                quote: quote,
                 region: region,
                 duration: duration,
                 grade: grade,
@@ -484,7 +535,7 @@ function AddPackage() {
                     className="admin-dashboard-form-input"
                     type="text"
                     name="qoute"
-                    value={qoute}
+                    value={quote}
                     placeholder={"Package Qoute"}
                     onChange={(event) => {
                       handleChange(event);
@@ -545,6 +596,25 @@ function AddPackage() {
                     name="maxAltitude"
                     value={maxAltitude}
                     placeholder={"Package Max Altitude"}
+                    onChange={(event) => {
+                      handleChange(event);
+                    }}
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+            <hr />
+            <h5 className="form-admin-title">Best Time</h5>
+            <Row>
+              <Col lg={10}>
+                <Form.Group className="admin-dashboard-form-group">
+                  <Form.Control
+                    className="admin-dashboard-form-input"
+                    type="text"
+                    required
+                    name="bestTime"
+                    value={bestTime}
+                    placeholder={"Best Time"}
                     onChange={(event) => {
                       handleChange(event);
                     }}
@@ -909,6 +979,88 @@ function AddPackage() {
                       <Button
                         onClick={() => {
                           removeExclusions(index);
+                        }}
+                        className="admin-dashboard-form-button"
+                      >
+                        -
+                      </Button>{" "}
+                    </Col>
+                  </Row>
+                </div>
+              );
+            })}
+
+            <hr />
+            <h5 className="form-admin-title">Things To Carry</h5>
+            {thingsToCarry.map((thing, index) => {
+              return (
+                <div className="admin-dashboard-form-group">
+                  <Row>
+                    <Col lg={10}>
+                      <Form.Group>
+                        <Form.Control
+                          className="admin-dashboard-form-input"
+                          type="text"
+                          name="things"
+                          value={thing}
+                          placeholder={"Thing " + (index + 1)}
+                          onChange={(event) => {
+                            handleThingsToCarryChange(event, index);
+                          }}
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col className="form-admin-button-col" lg={2}>
+                      <Button
+                        onClick={addThingsToCarry}
+                        className="admin-dashboard-form-button"
+                      >
+                        +
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          removeThingsToCarry(index);
+                        }}
+                        className="admin-dashboard-form-button"
+                      >
+                        -
+                      </Button>{" "}
+                    </Col>
+                  </Row>
+                </div>
+              );
+            })}
+
+            <hr />
+            <h5 className="form-admin-title">Terms and Conditions</h5>
+            {terms.map((term, index) => {
+              return (
+                <div className="admin-dashboard-form-group">
+                  <Row>
+                    <Col lg={10}>
+                      <Form.Group>
+                        <Form.Control
+                          className="admin-dashboard-form-input"
+                          type="text"
+                          name="term"
+                          value={term}
+                          placeholder={"Term " + (index + 1)}
+                          onChange={(event) => {
+                            handleTermsChange(event, index);
+                          }}
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col className="form-admin-button-col" lg={2}>
+                      <Button
+                        onClick={addTerms}
+                        className="admin-dashboard-form-button"
+                      >
+                        +
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          removeTerms(index);
                         }}
                         className="admin-dashboard-form-button"
                       >
