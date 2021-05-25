@@ -61,7 +61,7 @@ function AddPackage() {
       setMaxAltitude(value);
     } else if (name === "trekDistance") {
       setTrekDistance(value);
-    } else if(name==="bestTime") {
+    } else if (name === "bestTime") {
       setBestTime(value);
     }
   };
@@ -434,6 +434,9 @@ function AddPackage() {
                 packageType: packageType,
                 rapid: rapid,
                 majorattraction: majorattraction,
+                terms: terms,
+                thingsToCarry: thingsToCarry,
+                bestTime: bestTime,
               })
               .then((docRef) => {
                 db.collection(packageType)

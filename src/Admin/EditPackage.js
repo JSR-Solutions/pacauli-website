@@ -105,7 +105,7 @@ function EditPackage(props) {
       setMaxAltitude(value);
     } else if (name === "trekDistance") {
       setTrekDistance(value);
-    } else if(name==="bestTime") {
+    } else if (name === "bestTime") {
       setBestTime(value);
     }
   };
@@ -313,7 +313,6 @@ function EditPackage(props) {
     setTerms(values);
   };
 
-
   //Cancellation dynamic part
   const handleCancellationChange = (e, index) => {
     e.preventDefault();
@@ -506,6 +505,9 @@ function EditPackage(props) {
                 packageType: packageType,
                 rapid: rapid,
                 majorattraction: majorattraction,
+                terms: terms,
+                thingsToCarry: thingsToCarry,
+                bestTime: bestTime,
               })
               .then((docRef) => {
                 setAdded(true);
