@@ -17,6 +17,8 @@ import t2 from "../Assets/Team/t2.jpeg";
 import t3 from "../Assets/Team/t3.jpeg";
 import t4 from "../Assets/Team/t4.jpeg";
 import t5 from "../Assets/Team/t5.jpeg";
+import Payment from "../Components/Payment";
+import { Button} from "react-bootstrap";
 
 const Aboutus = () => {
   useEffect(() => {
@@ -25,6 +27,7 @@ const Aboutus = () => {
     });
   }, []);
 
+  const [modalShow, setModalShow] = React.useState(false);
   return (
     <div>
       <Header />
@@ -689,6 +692,16 @@ const Aboutus = () => {
               </Col>
             </Row>
           </div>
+        </div>
+        <div>
+        <Button variant="primary" onClick={() => setModalShow(true)}>
+        Book Now
+      </Button>
+
+      <Payment
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
