@@ -30,9 +30,8 @@ function AddPackage() {
   const [detailedItinerary, setDetailedItinerary] = useState([
     { day: "", title: "", desc: "" },
   ]);
-  const [pricing, setPricing] = useState([{ type: "", cost: 0 }]);
-  const [reviews, setReviews] = useState([
-    { customerName: "", customerReview: "" },
+  const [pricing, setPricing] = useState([
+    { type: "", cost: 0, receivableAmount: 0 },
   ]);
   const [packageImage, setPackageImage] = useState(null);
   const types = ["image/png", "image/jpeg", "image/jpg"];
@@ -370,6 +369,8 @@ function AddPackage() {
       values[index].type = value;
     } else if (name === "cost") {
       values[index].cost = value;
+    } else if (name === "receivableAmount") {
+      values[index].receivableAmount = value;
     }
     setPricing(values);
   };
@@ -377,7 +378,7 @@ function AddPackage() {
   const addPricing = (e) => {
     e.preventDefault();
     setPricing((prev) => {
-      return [...prev, { type: "", cost: 0 }];
+      return [...prev, { type: "", cost: 0, receivableAmount: 0 }];
     });
   };
 
@@ -735,6 +736,7 @@ function AddPackage() {
                 <div className="admin-dashboard-form-group">
                   <Row>
                     <Col lg={10}>
+                      <p className="label-text">Day Number</p>
                       <Form.Group>
                         <Form.Control
                           className="admin-dashboard-form-input"
@@ -747,6 +749,7 @@ function AddPackage() {
                           }}
                         />
                       </Form.Group>
+                      <p className="label-text">Title</p>
                       <Form.Group>
                         <Form.Control
                           className="admin-dashboard-form-input"
@@ -759,6 +762,7 @@ function AddPackage() {
                           }}
                         />
                       </Form.Group>
+                      <p className="label-text">Description</p>
                       <Form.Group>
                         <Form.Control
                           className="admin-dashboard-form-input"
@@ -800,6 +804,7 @@ function AddPackage() {
                 <div className="admin-dashboard-form-group">
                   <Row>
                     <Col lg={10}>
+                      <p className="label-text">Day Number</p>
                       <Form.Group>
                         <Form.Control
                           className="admin-dashboard-form-input"
@@ -812,6 +817,7 @@ function AddPackage() {
                           }}
                         />
                       </Form.Group>
+                      <p className="label-text">Title</p>
                       <Form.Group>
                         <Form.Control
                           className="admin-dashboard-form-input"
@@ -824,6 +830,7 @@ function AddPackage() {
                           }}
                         />
                       </Form.Group>
+                      <p className="label-text">Description</p>
                       <Form.Group>
                         <Form.Control
                           className="admin-dashboard-form-input"
@@ -865,6 +872,7 @@ function AddPackage() {
                 <div className="admin-dashboard-form-group">
                   <Row>
                     <Col lg={10}>
+                      <p className="label-text">Package Type Title</p>
                       <Form.Group>
                         <Form.Control
                           className="admin-dashboard-form-input"
@@ -877,6 +885,7 @@ function AddPackage() {
                           }}
                         />
                       </Form.Group>
+                      <p className="label-text">Total Amount</p>
                       <Form.Group>
                         <Form.Control
                           className="admin-dashboard-form-input"
@@ -884,6 +893,19 @@ function AddPackage() {
                           name="cost"
                           value={price.cost}
                           placeholder={"Cost " + (index + 1)}
+                          onChange={(event) => {
+                            handlePricingChange(event, index);
+                          }}
+                        />
+                      </Form.Group>
+                      <p className="label-text">Receivable Amount</p>
+                      <Form.Group>
+                        <Form.Control
+                          className="admin-dashboard-form-input"
+                          type="number"
+                          name="receivableAmount"
+                          value={price.receivableAmount}
+                          placeholder={"Receivable Amount " + (index + 1)}
                           onChange={(event) => {
                             handlePricingChange(event, index);
                           }}

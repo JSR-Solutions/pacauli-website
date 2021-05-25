@@ -30,7 +30,9 @@ function EditPackage(props) {
   const [detailedItinerary, setDetailedItinerary] = useState([
     { day: "", title: "", desc: "" },
   ]);
-  const [pricing, setPricing] = useState([{ type: "", cost: 0 }]);
+  const [pricing, setPricing] = useState([
+    { type: "", cost: 0, receivableAmount: 0 },
+  ]);
   const [reviews, setReviews] = useState([
     { customerName: "", customerReview: "" },
   ]);
@@ -412,6 +414,8 @@ function EditPackage(props) {
       values[index].type = value;
     } else if (name === "cost") {
       values[index].cost = value;
+    } else if (name === "receivableAmount") {
+      values[index].receivableAmount = value;
     }
     setPricing(values);
   };
@@ -419,7 +423,7 @@ function EditPackage(props) {
   const addPricing = (e) => {
     e.preventDefault();
     setPricing((prev) => {
-      return [...prev, { type: "", cost: 0 }];
+      return [...prev, { type: "", cost: 0, receivableAmount: 0 }];
     });
   };
 
@@ -806,6 +810,7 @@ function EditPackage(props) {
                 <div className="admin-dashboard-form-group">
                   <Row>
                     <Col lg={10}>
+                      <p className="label-text">Day Number</p>
                       <Form.Group>
                         <Form.Control
                           required
@@ -819,6 +824,7 @@ function EditPackage(props) {
                           }}
                         />
                       </Form.Group>
+                      <p className="label-text">Title</p>
                       <Form.Group>
                         <Form.Control
                           className="admin-dashboard-form-input"
@@ -832,6 +838,7 @@ function EditPackage(props) {
                           }}
                         />
                       </Form.Group>
+                      <p className="label-text">Description</p>
                       <Form.Group>
                         <Form.Control
                           className="admin-dashboard-form-input"
@@ -874,6 +881,7 @@ function EditPackage(props) {
                 <div className="admin-dashboard-form-group">
                   <Row>
                     <Col lg={10}>
+                      <p className="label-text">Day Number</p>
                       <Form.Group>
                         <Form.Control
                           className="admin-dashboard-form-input"
@@ -887,6 +895,7 @@ function EditPackage(props) {
                           }}
                         />
                       </Form.Group>
+                      <p className="label-text">Title</p>
                       <Form.Group>
                         <Form.Control
                           className="admin-dashboard-form-input"
@@ -900,6 +909,7 @@ function EditPackage(props) {
                           }}
                         />
                       </Form.Group>
+                      <p className="label-text">Description</p>
                       <Form.Group>
                         <Form.Control
                           className="admin-dashboard-form-input"
@@ -942,6 +952,7 @@ function EditPackage(props) {
                 <div className="admin-dashboard-form-group">
                   <Row>
                     <Col lg={10}>
+                      <p className="label-text">Pricing Type Title</p>
                       <Form.Group>
                         <Form.Control
                           required
@@ -955,6 +966,7 @@ function EditPackage(props) {
                           }}
                         />
                       </Form.Group>
+                      <p className="label-text">Total Amount</p>
                       <Form.Group>
                         <Form.Control
                           className="admin-dashboard-form-input"
@@ -963,6 +975,20 @@ function EditPackage(props) {
                           name="cost"
                           value={price.cost}
                           placeholder={"Cost " + (index + 1)}
+                          onChange={(event) => {
+                            handlePricingChange(event, index);
+                          }}
+                        />
+                      </Form.Group>
+                      <p className="label-text">Receivable Amount</p>
+                      <Form.Group>
+                        <Form.Control
+                          className="admin-dashboard-form-input"
+                          type="number"
+                          required
+                          name="receivableAmount"
+                          value={price.receivableAmount}
+                          placeholder={"Receivable Amount " + (index + 1)}
                           onChange={(event) => {
                             handlePricingChange(event, index);
                           }}
