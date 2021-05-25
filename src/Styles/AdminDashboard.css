@@ -78,3 +78,9 @@
     background-color: transparent !important;
     color: var(--primary) !important;
 }
+
+.label-text {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: rgba(0, 0, 0, 0.65);
+}
