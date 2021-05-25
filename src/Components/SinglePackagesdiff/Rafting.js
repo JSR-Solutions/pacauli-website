@@ -248,24 +248,19 @@ const Singlepackage = (props) => {
                                 <p>Overview</p>
                               </a>
                             </div>
-                            <div className="single-pack-nav-item">
-                              <a href="#reviews">
-                                <p>Reviews</p>
+                            <div className="single-pack-nav-item nav-time-active">
+                              <a href="#detailedItinerary">
+                                <p>Detailed_Itinerary</p>
                               </a>
                             </div>
-                            {/* <div className="single-pack-nav-item">
-                              <a href="#map">
-                                <p>Map</p>
-                              </a>
-                          </div> */}
                             <div className="single-pack-nav-item">
-                              <a href="#cancellation">
+                              <a href="#majorattraction">
+                                <p>Major_Attraction</p>
+                              </a>
+                            </div>
+                            <div className="single-pack-nav-item">
+                              <a href="#rapids">
                                 <p>Rapids</p>
-                              </a>
-                            </div>
-                            <div className="single-pack-nav-item">
-                              <a href="#major">
-                                <p>Major Attraction</p>
                               </a>
                             </div>
                             <div className="single-pack-nav-item">
@@ -276,6 +271,41 @@ const Singlepackage = (props) => {
                             <div className="single-pack-nav-item ">
                               <a href="#exclusion">
                                 <p>Exclusions</p>
+                              </a>
+                            </div>
+                            <div className="single-pack-nav-item ">
+                              <a href="#price">
+                                <p>Price</p>
+                              </a>
+                            </div>
+                            <div className="single-pack-nav-item ">
+                              <a href="#gallery">
+                                <p>Gallery</p>
+                              </a>
+                            </div>
+                            <div className="single-pack-nav-item ">
+                              <a href="#seatavialable">
+                                <p>Seat_Avialable</p>
+                              </a>
+                            </div>
+                            <div className="single-pack-nav-item">
+                              <a href="#reviews">
+                                <p>Reviews</p>
+                              </a>
+                            </div>
+                            <div className="single-pack-nav-item">
+                              <a href="#map">
+                                <p>Location</p>
+                              </a>
+                            </div>
+                            <div className="single-pack-nav-item">
+                              <a href="#termsandconditions">
+                                <p>Terms_&_Conditions</p>
+                              </a>
+                            </div>
+                            <div className="single-pack-nav-item">
+                              <a href="#cancellation">
+                                <p>Cancellation_&_Refund</p>
                               </a>
                             </div>
                           </div>
@@ -419,15 +449,15 @@ const Singlepackage = (props) => {
                                     style={
                                       l.seats === "0"
                                         ? {
-                                            backgroundColor:
-                                              "rgba(255, 0, 0, 0.75)",
-                                          }
+                                          backgroundColor:
+                                            "rgba(255, 0, 0, 0.75)",
+                                        }
                                         : l.seats > 2
-                                        ? {
+                                          ? {
                                             backgroundColor:
                                               "rgba(0, 128, 0,0.75)",
                                           }
-                                        : { backgroundColor: "#ff8303" }
+                                          : { backgroundColor: "#ff8303" }
                                     }
                                     key={k}
                                     className="sng-date"
