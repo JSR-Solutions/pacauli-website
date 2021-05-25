@@ -20,6 +20,7 @@ import { Redirect } from "react-router-dom";
 import LoadingScreen from "../LoadingScreen";
 import { FaRupeeSign } from "react-icons/fa";
 
+
 const Singlepackage = (props) => {
   const [pack, setpack] = useState("");
   const [mapi, setmap] = useState("");
@@ -29,6 +30,7 @@ const Singlepackage = (props) => {
   const [redirectLogin, setRedirectLogin] = useState(false);
   const [seatavail, seatavailablity] = useState([]);
   const [isFetching, setFetching] = useState(false);
+
 
   // useEffect(() => {
   //   $(document).ready(function () {
@@ -182,6 +184,7 @@ const Singlepackage = (props) => {
             </Carousel>
           </div>
         </div>
+       
 
         <div className="single-package-lower">
           {pack && (
