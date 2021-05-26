@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Form.css";
 import Modal from "react-bootstrap/Modal";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import call from "../../Assets/call.svg";
 import whatsapp from "../../Assets/whatsapp.svg";
 import { FaRupeeSign } from "react-icons/fa";
+import Payment from "../Payment";
 
 const Pricecard = (props) => {
   const [modalShow, setModalShow] = useState(false);
+
+  useEffect(() => {
+    console.log("props in pricecard");
+    console.log(props);
+  });
 
   function MyVerticallyCenteredModal(prps) {
     return (
@@ -88,10 +94,23 @@ const Pricecard = (props) => {
         <div className="price-card2">
           <button onClick={() => setModalShow(true)}>Book Now</button>
         </div>
-        <MyVerticallyCenteredModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-        />
+        {props.seats && props.price && (
+          <Payment
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            seats={props.seats}
+            pricing={props.price}
+            priceIndex={props.priceIndex}
+            setPriceIndex={props.setPriceIndex}
+            dateIndex={props.dateIndex}
+            setDateIndex={props.setDateIndex}
+            numberOfSeats={props.numberOfSeats}
+            setNumberOfSeats={props.setNumberOfSeats}
+            setTotalCost={props.setTotalCost}
+            setTotalPaid={props.setTotalPaid}
+            completeBooking={props.completeBooking}
+          />
+        )}
       </div>
     </div>
   );

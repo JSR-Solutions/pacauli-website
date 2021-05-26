@@ -9,7 +9,7 @@ import "../Styles/dateupload.css";
 
 function DateUpload(props) {
   const [dates, setDates] = useState([{ sDate: "", seats: "" }]);
-  const [prevDates, setPrevDates] = useState([{}]);
+  const [prevDates, setPrevDates] = useState([]);
   const [packageDates, setPackageDates] = useState([]);
   const [finalDates, setFinalDates] = useState([{ sDate: "", seats: "" }]);
   const [added, setAdded] = useState(false);
@@ -27,7 +27,7 @@ function DateUpload(props) {
       .doc("dates")
       .get()
       .then((snapshot) => {
-        if (snapshot) {
+        if (snapshot.data()) {
           setPrevDates(snapshot.data().dates);
           if (prevDates != null) {
           }
@@ -49,6 +49,7 @@ function DateUpload(props) {
     values.splice(index, 1);
     setDates(values);
   }
+
   function handleTareekChange(index, event) {
     const values = [...tareek];
     const fulldate = [...dates];
@@ -66,14 +67,15 @@ function DateUpload(props) {
       setDates(fulldate);
     }
   }
+
   function handleDateChange(index, event) {
     const values = [...dates];
     if (event) {
       const { name, value } = event.target;
-      if (name == "seats") {
+      if (name === "seats") {
         values[index].seats = value;
       }
-      if (name == "sDate") {
+      if (name === "sDate") {
         values[index].sDate = value;
       }
     }
@@ -86,7 +88,7 @@ function DateUpload(props) {
       prevDates.push(date);
     });
 
-    if (finalDates != []) {
+    if (finalDates !== []) {
       db.collection(props.match.params.packageType)
         .doc(props.match.params.packageId)
         .collection("Dates")

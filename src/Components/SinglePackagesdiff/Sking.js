@@ -3,10 +3,7 @@ import { Row, Col, Container, Carousel } from "react-bootstrap";
 import "./Singlepackage.css";
 import Pricecard from "../Singlepackagescreen/Pricecard";
 import Formcomp from "../Singlepackagescreen/Form";
-import {
-  AiOutlineSafetyCertificate,
-  AiOutlineFieldTime,
-} from "react-icons/ai";
+import { AiOutlineFieldTime } from "react-icons/ai";
 import { RiCheckboxCircleFill } from "react-icons/ri";
 import { IoLocateSharp, IoAlertCircleSharp } from "react-icons/io5";
 import { FaTimesCircle } from "react-icons/fa";
@@ -22,6 +19,7 @@ import { Redirect } from "react-router-dom";
 import LoadingScreen from "../LoadingScreen";
 import { FaRupeeSign } from "react-icons/fa";
 import { GiNetworkBars } from "react-icons/gi";
+import { toast, ToastContainer } from "react-toastify";
 
 const Singlepackage = (props) => {
   const [pack, setpack] = useState("");
@@ -29,19 +27,78 @@ const Singlepackage = (props) => {
   const [reviews, setReviews] = useState([]);
   const [newreview, setNewreview] = React.useState("");
   const [reviewsFetched, setReviewsFetched] = useState(false);
+  const [fetchingDates, setFetchingDates] = useState(false);
   const [redirectLogin, setRedirectLogin] = useState(false);
-  const [seatavail, seatavailablity] = useState([]);
+  const [seats, setSeats] = useState([]);
   const [isFetching, setFetching] = useState(false);
-
-  // useEffect(() => {
-  //   $(document).ready(function () {
-  //     $(this).scrollTop(0);
-  //   });
-  // }, []);
-
+  const [selectedPricingIndex, setSelectedPricingIndex] = useState(0);
+  const [selectedDateIndex, setSelectedDateIndex] = useState(0);
+  const [numberOfSeats, setNumberOfSeats] = useState(1);
+  const [totalCost, setTotalCost] = useState(0);
+  const [totalPaid, setTotalPaid] = useState(0);
   const db = firebase.firestore();
   const auth = firebase.auth();
 
+  useEffect(() => {
+    getPackage();
+  }, []);
+
+  useEffect(() => {
+    var header = document.getElementById("sing-pack-nav");
+    if (header) {
+      var btns = header.getElementsByClassName("single-pack-nav-item");
+      if (btns) {
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("nav-time-active");
+            current[0].className = current[0].className.replace(
+              " nav-time-active",
+              ""
+            );
+            this.className += " nav-time-active";
+          });
+        }
+      }
+    }
+  }, []);
+
+  //Function to get package data
+  const getPackage = () => {
+    setFetching(true);
+    setFetchingDates(true);
+    db.collection("Skiing")
+      .doc(props.match.params.packageId)
+      .get()
+      .then((ress) => {
+        if (ress.data()) {
+          setpack(ress.data());
+          setSeats([]);
+          db.collection("Skiing")
+            .doc(props.match.params.packageId)
+            .collection("Dates")
+            .doc("dates")
+            .get()
+            .then((ress) => {
+              if (ress.data()) {
+                setSeats(ress.data().dates);
+              } else {
+                setSeats([]);
+              }
+              setFetchingDates(false);
+              getReviews();
+            });
+          if (ress.data().map === "") {
+            setmap("https://maps.google.com/maps?q=India&output=embed");
+          } else {
+            setmap(ress.data().map);
+          }
+        } else {
+          setpack();
+        }
+      });
+  };
+
+  // Function to get package reviews
   const getReviews = () => {
     setReviews([]);
     db.collection("Skiing")
@@ -81,49 +138,12 @@ const Singlepackage = (props) => {
       });
   };
 
-  useEffect(() => {
-    setFetching(true);
-    db.collection("Skiing")
-      .doc(props.match.params.packageId)
-      .get()
-      .then((ress) => {
-        if (ress.data()) {
-          setpack(ress.data());
-          getReviews();
-          if (ress.data().map == "") {
-            setmap("https://maps.google.com/maps?q=India&output=embed");
-          } else {
-            setmap(ress.data().map);
-          }
-        } else {
-          setpack("");
-        }
-      });
-  }, []);
-
-  useEffect(() => {
-    var header = document.getElementById("sing-pack-nav");
-    if (header) {
-      var btns = header.getElementsByClassName("single-pack-nav-item");
-      if (btns) {
-        for (var i = 0; i < btns.length; i++) {
-          btns[i].addEventListener("click", function () {
-            var current = document.getElementsByClassName("nav-time-active");
-            current[0].className = current[0].className.replace(
-              " nav-time-active",
-              ""
-            );
-            this.className += " nav-time-active";
-          });
-        }
-      }
-    }
-  }, []);
-
+  //Function to handle review text change
   function handleNewreview(event) {
     setNewreview(event.target.value);
   }
 
+  //Function to add new review
   function addNewreview(event) {
     event.preventDefault();
     auth.onAuthStateChanged((user) => {
@@ -148,28 +168,66 @@ const Singlepackage = (props) => {
     });
   }
 
-  useEffect(() => {
-    seatavailablity([]);
-    db.collection("Skiing")
-      .doc(props.match.params.packageId)
-      .collection("Dates")
-      .doc("dates")
-      .get()
-      .then((ress) => {
-        if (ress.data()) {
-          seatavailablity(ress.data().dates);
-        } else {
-          seatavailablity([]);
-        }
-      });
-  }, []);
+  //Function to store booking details
+  const completeBooking = () => {
+    auth.onAuthStateChanged((userCredentials) => {
+      if (userCredentials) {
+        const uid = userCredentials.uid;
+        db.collection("Bookings")
+          .add({
+            packageId: props.match.params.packageId,
+            userId: uid,
+            date: seats[selectedDateIndex].sDate,
+            numberOfSeats: numberOfSeats,
+            totalCost: totalCost,
+            totalPaid: totalPaid,
+          })
+          .then((docRef) => {
+            const bookingId = docRef.id;
+            db.collection("Bookings")
+              .doc(docRef.id)
+              .update({
+                bookingId: docRef.id,
+              })
+              .then(() => {
+                const s = [...seats];
+                s[selectedDateIndex].seats =
+                  s[selectedDateIndex].seats - numberOfSeats;
+                setSeats(s);
+                db.collection("Skiing")
+                  .doc(props.match.params.packageId)
+                  .collection("Dates")
+                  .doc("dates")
+                  .update({
+                    dates: seats,
+                  })
+                  .then(() => {
+                    db.collection("Users")
+                      .doc(uid)
+                      .update({
+                        bookings:
+                          firebase.firestore.FieldValue.arrayUnion(bookingId),
+                      })
+                      .then(() => {
+                        setSelectedDateIndex(0);
+                        setSelectedPricingIndex(0);
+                        setNumberOfSeats(1);
+                        toast.success("Booking done!");
+                      });
+                  });
+              });
+          });
+      }
+    });
+  };
 
-  if (isFetching) {
+  if (isFetching || !reviewsFetched || fetchingDates) {
     return <LoadingScreen />;
   } else {
     return (
       <div className="single-package-main">
         {redirectLogin && <Redirect to="/signin" />}
+        <ToastContainer />
         <Header />
 
         <div className="img-carou">
@@ -197,32 +255,32 @@ const Singlepackage = (props) => {
                         <div className="single-pack-side-design"></div>
                         <h3>{pack.name}</h3>
                         <hr />
-                        {pack.grade != "" && (
+                        {pack.grade !== "" && (
                           <h5>
                             <GiNetworkBars className="single-pck-1-row-icon" />
                             Level - {pack.grade}
                           </h5>
                         )}
-                        {pack.maxAltitude != "" && (
+                        {pack.maxAltitude !== "" && (
                           <h5>
                             <GiNetworkBars className="single-pck-1-row-icon" />
                             Altitude Range - {pack.maxAltitude}
                           </h5>
                         )}
 
-                        {pack.duration != "" && (
+                        {pack.duration !== "" && (
                           <h5>
                             <AiOutlineFieldTime className="single-pck-1-row-icon" />
                             Duration - {pack.duration}
                           </h5>
                         )}
-                        {pack.region != "" && (
+                        {pack.region !== "" && (
                           <h5>
                             <AiOutlineFieldTime className="single-pck-1-row-icon" />
                             Region - {pack.region}
                           </h5>
                         )}
-                        {pack.bestTime != "" && (
+                        {pack.bestTime !== "" && (
                           <h5>
                             <AiOutlineFieldTime className="single-pck-1-row-icon" />
                             Best Time - {pack.bestTime}
@@ -338,7 +396,7 @@ const Singlepackage = (props) => {
                         </div>
                       </div>
                       {/* BRIEF ITINERARY */}
-                      <div className="sngl-pack-short-itn" id="briefItinerary" >
+                      <div className="sngl-pack-short-itn" id="briefItinerary">
                         <div className="single-pck-2-row">
                           <div className="single-pack-side-design"></div>
                           <h4>Brief Itinerary</h4>
@@ -357,7 +415,10 @@ const Singlepackage = (props) => {
                         </div>
                       </div>
                       {/* DETAILED ITINERARY */}
-                      <div className="sngl-pack-short-itn" id="detailedItinerary">
+                      <div
+                        className="sngl-pack-short-itn"
+                        id="detailedItinerary"
+                      >
                         <div className="single-pck-2-row">
                           <div className="single-pack-side-design"></div>
                           <h4>Detailed Itinerary</h4>
@@ -397,7 +458,8 @@ const Singlepackage = (props) => {
                           <div className="single-pack-side-design"></div>
                           <h4>Things to Carry</h4>
                           <hr />
-                          {pack && pack.thingsToCarry &&
+                          {pack &&
+                            pack.thingsToCarry &&
                             pack.thingsToCarry.map((l, k) => (
                               <p key={k}>
                                 <RiCheckboxCircleFill
@@ -418,7 +480,8 @@ const Singlepackage = (props) => {
                           <div className="single-pack-side-design"></div>
                           <h4>Inclusions</h4>
                           <hr />
-                          {pack && pack.inclusions &&
+                          {pack &&
+                            pack.inclusions &&
                             pack.inclusions.map((l, k) => (
                               <p key={k}>
                                 <RiCheckboxCircleFill
@@ -548,22 +611,22 @@ const Singlepackage = (props) => {
                           </Row>
 
                           <Row>
-                            {seatavail &&
-                              seatavail.map((l, k) => (
+                            {seats &&
+                              seats.map((l, k) => (
                                 <Col lg={2} md={2} xs={2}>
                                   <div
                                     style={
-                                      l.seats === "0"
+                                      l.seats === 0
                                         ? {
-                                          backgroundColor:
-                                            "rgba(255, 0, 0, 0.75)",
-                                        }
+                                            backgroundColor:
+                                              "rgba(255, 0, 0, 0.75)",
+                                          }
                                         : l.seats > 2
-                                          ? {
+                                        ? {
                                             backgroundColor:
                                               "rgba(0, 128, 0,0.75)",
                                           }
-                                          : { backgroundColor: "#ff8303" }
+                                        : { backgroundColor: "#ff8303" }
                                     }
                                     key={k}
                                     className="sng-date"
@@ -634,17 +697,22 @@ const Singlepackage = (props) => {
                               height="450"
                               frameborder="0"
                               allowfullscreen
+                              title="map"
                             ></iframe>
                           )}
                         </div>
                       </div>
                       {/* Terms and condition */}
-                      <div className="sngl-pack-short-itn" id="termsandconditions">
+                      <div
+                        className="sngl-pack-short-itn"
+                        id="termsandconditions"
+                      >
                         <div className="single-pck-2-row">
                           <div className="single-pack-side-design"></div>
                           <h4>Terms and Condition</h4>
                           <hr />
-                          {pack && pack.terms &&
+                          {pack &&
+                            pack.terms &&
                             pack.terms.map((l, k) => (
                               <p key={k}>
                                 <RiCheckboxCircleFill
@@ -665,7 +733,8 @@ const Singlepackage = (props) => {
                           <div className="single-pack-side-design"></div>
                           <h4>Cancellation & Refund</h4>
                           <hr />
-                          {pack && pack.cancellation &&
+                          {pack &&
+                            pack.cancellation &&
                             pack.cancellation.map((l, k) => (
                               <p key={k}>
                                 <FaTimesCircle
@@ -685,7 +754,21 @@ const Singlepackage = (props) => {
                 </Col>
                 <Col md={4}>
                   <div className="single-package-right">
-                    <Pricecard price={pack.pricing} />
+                    {seats && pack.pricing && (
+                      <Pricecard
+                        price={pack.pricing}
+                        seats={seats}
+                        priceIndex={selectedPricingIndex}
+                        setPriceIndex={setSelectedPricingIndex}
+                        dateIndex={selectedDateIndex}
+                        setDateIndex={setSelectedDateIndex}
+                        numberOfSeats={numberOfSeats}
+                        setNumberOfSeats={setNumberOfSeats}
+                        setTotalCost={setTotalCost}
+                        setTotalPaid={setTotalPaid}
+                        completeBooking={completeBooking}
+                      />
+                    )}
                     <Formcomp />
                     <div className="skska">
                       <StickyContainer>
@@ -697,7 +780,21 @@ const Singlepackage = (props) => {
                                 marginTop: isSticky ? "66px" : "0px",
                               }}
                             >
-                              <Pricecard price={pack.pricing} />
+                              {seats && pack.pricing && (
+                                <Pricecard
+                                  price={pack.pricing}
+                                  seats={seats}
+                                  priceIndex={selectedPricingIndex}
+                                  setPriceIndex={setSelectedPricingIndex}
+                                  dateIndex={selectedDateIndex}
+                                  setDateIndex={setSelectedDateIndex}
+                                  numberOfSeats={numberOfSeats}
+                                  setNumberOfSeats={setNumberOfSeats}
+                                  setTotalCost={setTotalCost}
+                                  setTotalPaid={setTotalPaid}
+                                  completeBooking={completeBooking}
+                                />
+                              )}
                             </div>
                           )}
                         </Sticky>

@@ -17,7 +17,7 @@ function SinglePackageDashboard(props) {
 
   useEffect(() => {
     getPackage(packageType);
-  });
+  }, []);
 
   function getPackage(packageType) {
     db.collection(packageType)
@@ -27,6 +27,7 @@ function SinglePackageDashboard(props) {
         setName(snapshot.data().name);
       });
   }
+  
   const deletePackage = (e) => {
     e.preventDefault();
     db.collection(packageType)
