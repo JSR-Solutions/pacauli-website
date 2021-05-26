@@ -23,7 +23,6 @@ import EditPackage from "./Admin/EditPackage";
 import DateUpload from "./Admin/dateUpload";
 import EditDate from "./Admin/editDate";
 
-import Singlepackage from "./Components/Singlepackagescreen/Singlepackage";
 import SinglePackageDashboard from "./Admin/SinglePackageDashboard";
 import UpdateGalleryImages from "./Admin/UpdateGalleryImages";
 import UserDashboard from "./Core/UserDashboard";
@@ -41,6 +40,11 @@ import Skiing from './Components/SinglePackagesdiff/Sking'
 import Raft from './Components/SinglePackagesdiff/Rafting'
 import Camping from './Components/SinglePackagesdiff/Camping'
 import Snowboarding from './Components/SinglePackagesdiff/Snowboarding'
+import Cycling from './Components/SinglePackagesdiff/Cycling'
+import Biking from './Components/SinglePackagesdiff/Biking'
+import Expedition from './Components/SinglePackagesdiff/Expedition'
+import Spiritualtour from './Components/SinglePackagesdiff/Spiritualtour'
+import Trekking from './Components/SinglePackagesdiff/Trekking'
 
 function App() {
   return (
@@ -59,9 +63,29 @@ function App() {
             component={SingleCategory}
           />
           <Route
-            path="/package/:categoryName/:packageId"
+            path="/packages/Cycling/:packageId"
             exact
-            component={Singlepackage}
+            component={Cycling}
+          />
+          <Route
+            path="/packages/Bike Trips/:packageId"
+            exact
+            component={Biking}
+          />
+          <Route
+            path="/packages/Spiritual Tours/:packageId"
+            exact
+            component={Spiritualtour}
+          />
+          <Route
+            path="/packages/Expediton/:packageId"
+            exact
+            component={Expedition}
+          />
+          <Route
+            path="/packages/Trekking/:packageId"
+            exact
+            component={Trekking}
           />
           <Route
             path="/packages/Rafting/:packageId"
