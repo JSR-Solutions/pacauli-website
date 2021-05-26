@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Row,
   Col,
@@ -6,6 +6,7 @@ import {
   Modal,
   Dropdown,
   DropdownButton,
+  Form,
 } from "react-bootstrap";
 import { BsPlus } from "react-icons/bs";
 import { BiMinus } from "react-icons/bi";
@@ -13,32 +14,65 @@ import "../Styles/Payment.css";
 import logo from "../Assets/logo.png";
 
 const Payment = (props) => {
-  const [date, setDate] = React.useState("SELECT DATE");
-  const [pkgtype, setPkgtype] = React.useState("SELECT PACKAGE TYPE");
-  const [val, setVal] = React.useState(1);
-  let pckgCost = 1000;
+  const [pckgCost, setPckgCost] = useState(0);
   const [totalcost, setTotalcost] = React.useState(pckgCost);
- 
+
+  useEffect(() => {
+    console.log(props);
+    setPckgCost(parseInt(props.pricing[props.priceIndex].receivableAmount));
+    setTotalcost(() => {
+      return (
+        parseInt(props.pricing[props.priceIndex].receivableAmount) *
+        props.numberOfSeats
+      );
+    });
+  }, []);
 
   function handleadd() {
-    if (val < 10) {
-      let value = val;
+    if (props.numberOfSeats < props.seats[props.dateIndex].seats) {
+      let value = props.numberOfSeats;
       value++;
-      setVal(value);
+      props.setNumberOfSeats(value);
       let fvalue = value * pckgCost;
       console.log(fvalue);
       setTotalcost(fvalue);
+      props.setTotalCost(props.pricing[props.priceIndex].cost*value);
+      props.setTotalPaid(fvalue);
     }
   }
+
   function handlesub() {
-    if (val > 1) {
-      let value = val;
+    if (props.numberOfSeats > 1) {
+      let value = props.numberOfSeats;
       value--;
-      setVal(value);
+      props.setNumberOfSeats(value);
       let fvalue = value * pckgCost;
       console.log(fvalue);
       setTotalcost(fvalue);
+      props.setTotalCost(props.pricing[props.priceIndex].cost*value);
+      props.setTotalPaid(fvalue);
     }
+  }
+
+  const handleDateChange = (event, index) => {
+    event.preventDefault();
+    props.setDateIndex(index);
+    setTotalcost(pckgCost);
+    props.setNumberOfSeats(1);
+  };
+
+  const handlePricingChange = (event, index) => {
+    event.preventDefault();
+    props.setPriceIndex(index);
+    props.setNumberOfSeats(1);
+    setTotalcost(parseInt(props.pricing[index].receivableAmount));
+    setPckgCost(parseInt(props.pricing[index].receivableAmount));
+  };
+
+  const handleBooking = (event) => {
+    event.preventDefault();
+    props.onHide();
+    props.completeBooking();
   }
 
   return (
@@ -54,73 +88,97 @@ const Payment = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <div className="img-pay">
-          <img className="logo-pay" src={logo} alt="logo" />
-        </div>
-
-        <h4>Package Name</h4>
-        <div className="dates-dropdown">
-          <DropdownButton
-            id="dropdown-basic-button"
-            title={date}
-            className="pay-btn"
-          >
-            <Dropdown.Item href="#/action-1">Date1</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Date2</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Date3</Dropdown.Item>
-          </DropdownButton>
-        </div>
-        <div className="pkgtype-dropdown">
-          <DropdownButton
-            id="dropdown-basic-button"
-            title={pkgtype}
-            className="pay-btn"
-          >
-            <Dropdown.Item href="#/action-1">Type1</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Type2</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Type3</Dropdown.Item>
-          </DropdownButton>
-        </div>
-        <div className="no-of-seats">
-          <Row>
-            <Col md={6} lg={4} sm={4}>
-              <h5>Please select the number of seats-</h5>
-            </Col>
-            <Col md={3} lg={4} sm={4} className="seats-col">
-              <h5>Cost</h5>
-            </Col>
-            <Col md={3} lg={4} sm={4}>
-              <div className="plus-minus">
-                <BsPlus
-                  className="pm"
-                  onClick={() => {
-                    handleadd();
-                  }}
-                />
-                <p>{val}</p>
-                <BiMinus
-                  className="pm"
-                  onClick={() => {
-                    handlesub();
-                  }}
-                />
-              </div>
-            </Col>
-          </Row>
-        </div>
-        <div className="total-cost">
-          <Row>
-            <Col className="total-col">
-              <h4>The total cost is:-</h4>
-            </Col>
-            <Col className="total-col">
-              <h3>{totalcost}</h3>
-            </Col>
-          </Row>
-        </div>
-        <div className="payment-btn">
-          <Button className="btn-payment">Pay</Button>
-        </div>
+        <React.Fragment>
+          <div className="img-pay">
+            <img className="logo-pay" src={logo} alt="logo" />
+          </div>
+          <div className="dates-dropdown">
+            {props.seats && (
+              <DropdownButton
+                id="dropdown-basic-button"
+                title={props.seats && props.seats[props.dateIndex].sDate}
+                className="pay-btn"
+              >
+                {props.seats &&
+                  props.seats.map((seat, index) => {
+                    if (seat.seats > 0) {
+                      return (
+                        <Dropdown.Item
+                          onClick={(e) => {
+                            handleDateChange(e, index);
+                          }}
+                        >
+                          {seat.sDate}
+                        </Dropdown.Item>
+                      );
+                    }
+                  })}
+              </DropdownButton>
+            )}
+          </div>
+          <div className="pkgtype-dropdown">
+            <DropdownButton
+              id="dropdown-basic-button"
+              title={props.pricing[props.priceIndex].type}
+              className="pay-btn"
+            >
+              {props.pricing &&
+                props.pricing.map((price, index) => {
+                  return (
+                    <Dropdown.Item
+                      onClick={(e) => {
+                        handlePricingChange(e, index);
+                      }}
+                    >
+                      {price.type}
+                    </Dropdown.Item>
+                  );
+                })}
+            </DropdownButton>
+          </div>
+          <div className="no-of-seats">
+            <Row>
+              <Col md={6} lg={4} sm={4}>
+                <h5>Please select the number of seats-</h5>
+              </Col>
+              <Col md={3} lg={4} sm={4} className="seats-col">
+                <h5>Cost</h5>
+              </Col>
+              <Col md={3} lg={4} sm={4}>
+                <div className="plus-minus">
+                  <BsPlus
+                    className="pm"
+                    onClick={() => {
+                      handleadd();
+                    }}
+                  />
+                  <p>{props.numberOfSeats}</p>
+                  <BiMinus
+                    className="pm"
+                    onClick={() => {
+                      handlesub();
+                    }}
+                  />
+                </div>
+              </Col>
+            </Row>
+          </div>
+          <div className="total-cost">
+            <Row>
+              <Col className="total-col">
+                <h4>The total cost is:-</h4>
+              </Col>
+              <Col className="total-col">
+                <h3>{totalcost}</h3>
+              </Col>
+            </Row>
+          </div>
+          <div className="payment-btn">
+            <Button onClick={handleBooking} className="btn-payment">
+              Pay
+            </Button>
+          </div>
+        </React.Fragment>
       </Modal.Body>
       <Modal.Footer>
         <Button className="close-btn" onClick={props.onHide}>
