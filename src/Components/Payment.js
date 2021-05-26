@@ -6,7 +6,6 @@ import {
   Modal,
   Dropdown,
   DropdownButton,
-  Form,
 } from "react-bootstrap";
 import { BsPlus } from "react-icons/bs";
 import { BiMinus } from "react-icons/bi";
@@ -84,14 +83,13 @@ const Payment = (props) => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Book This Package
+          <div className="img-pay">
+            <img className="logo-pay" src={logo} alt="logo" />
+          </div>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <React.Fragment>
-          <div className="img-pay">
-            <img className="logo-pay" src={logo} alt="logo" />
-          </div>
           <div className="dates-dropdown">
             {props.seats && (
               <DropdownButton
