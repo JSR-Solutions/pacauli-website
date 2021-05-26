@@ -205,16 +205,22 @@ const Singlepackage = (props) => {
                             Level - {pack.grade}
                           </h5>
                         )}
+                        {pack.duration != "" && (
+                          <h5>
+                            <AiOutlineFieldTime className="single-pck-1-row-icon" />
+                            Duration - {pack.duration}
+                          </h5>
+                        )}
                         {pack.region != "" && (
                           <h5>
                             <AiOutlineFieldTime className="single-pck-1-row-icon" />
                             Region - {pack.region}
                           </h5>
                         )}
-                        {pack.packageType != "" && (
+                        {pack.bestTime != "" && (
                           <h5>
-                            <AiOutlineSafetyCertificate className="single-pck-1-row-icon" />
-                            Package Type - {pack.packageType}
+                            <AiOutlineFieldTime className="single-pck-1-row-icon" />
+                            Best Time - {pack.bestTime}
                           </h5>
                         )}
                         <hr />
@@ -243,20 +249,10 @@ const Singlepackage = (props) => {
                               </a>
                             </div>
                             <div className="single-pack-nav-item">
-                              <a href="#major">
-                                <p>Major Attraction</p>
+                              <a href="#majorattraction">
+                                <p>Major_Attraction</p>
                               </a>
                             </div>
-                            <div className="single-pack-nav-item">
-                              <a href="#reviews">
-                                <p>Reviews</p>
-                              </a>
-                            </div>
-                            {/* <div className="single-pack-nav-item">
-                              <a href="#map">
-                                <p>Map</p>
-                              </a>
-                          </div>*/}
                             <div className="single-pack-nav-item">
                               <a href="#inclusion">
                                 <p>Inclusions</p>
@@ -265,6 +261,41 @@ const Singlepackage = (props) => {
                             <div className="single-pack-nav-item ">
                               <a href="#exclusion">
                                 <p>Exclusions</p>
+                              </a>
+                            </div>
+                            <div className="single-pack-nav-item ">
+                              <a href="#price">
+                                <p>Price</p>
+                              </a>
+                            </div>
+                            <div className="single-pack-nav-item ">
+                              <a href="#gallery">
+                                <p>Gallery</p>
+                              </a>
+                            </div>
+                            <div className="single-pack-nav-item ">
+                              <a href="#seatavialable">
+                                <p>Seat_Avialable</p>
+                              </a>
+                            </div>
+                            <div className="single-pack-nav-item">
+                              <a href="#reviews">
+                                <p>Reviews</p>
+                              </a>
+                            </div>
+                            <div className="single-pack-nav-item">
+                              <a href="#map">
+                                <p>Location</p>
+                              </a>
+                            </div>
+                            <div className="single-pack-nav-item">
+                              <a href="#termsandconditions">
+                                <p>Terms_&_Conditions</p>
+                              </a>
+                            </div>
+                            <div className="single-pack-nav-item">
+                              <a href="#cancellation">
+                                <p>Cancellation_&_Refund</p>
                               </a>
                             </div>
                           </div>
@@ -302,8 +333,50 @@ const Singlepackage = (props) => {
                             ))}
                         </div>
                       </div>
+                      {/* INCLUSIONS */}
+                      <div className="sngl-pack-short-itn" id="inclusion">
+                        <div className="single-pck-2-row">
+                          <div className="single-pack-side-design"></div>
+                          <h4>Inclusions</h4>
+                          <hr />
+                          {pack &&
+                            pack.inclusions.map((l, k) => (
+                              <p key={k}>
+                                <RiCheckboxCircleFill
+                                  className="single-pck-2-row-icon"
+                                  style={{
+                                    color: "green",
+                                    fontSize: "19px",
+                                  }}
+                                />
+                                {l}
+                              </p>
+                            ))}
+                        </div>
+                      </div>
+                      {/* EXCLUSIONS */}
+                      <div className="sngl-pack-short-itn" id="exclusion">
+                        <div className="single-pck-2-row">
+                          <div className="single-pack-side-design"></div>
+                          <h4>Exclusions</h4>
+                          <hr />
+                          {pack &&
+                            pack.exclusions.map((l, k) => (
+                              <p key={k}>
+                                <FaTimesCircle
+                                  className="single-pck-2-row-icon"
+                                  style={{
+                                    color: "red",
+                                    fontSize: "17px",
+                                  }}
+                                />
+                                {l}
+                              </p>
+                            ))}
+                        </div>
+                      </div>
                       {/* PACKAGE PRICING */}
-                      <div className="sngl-pack-short-itn">
+                      <div className="sngl-pack-short-itn" id="price">
                         <div className="single-pck-2-row">
                           <div className="single-pack-side-design"></div>
                           <h4>Package Options</h4>
@@ -340,8 +413,20 @@ const Singlepackage = (props) => {
                             ))}
                         </div>
                       </div>
+                      {/* GALLERY */}
+                      <div className="sngl-pack-short-itn" id="gallery">
+                        <div className="single-pck-2-row">
+                          <div className="single-pack-side-design"></div>
+                          <h4>Gallery</h4>
+                          <hr />
+
+                          {pack && pack.imgUrl && (
+                            <Imagess imgUrl={pack.imgUrl} />
+                          )}
+                        </div>
+                      </div>
                       {/* BATCH AVAILABILITY */}
-                      <div className="sngl-pack-short-itn">
+                      <div className="sngl-pack-short-itn" id="seatavialable">
                         <div className="single-pck-2-row">
                           <div className="single-pack-side-design"></div>
                           <h4>Seat Availability</h4>
@@ -391,15 +476,15 @@ const Singlepackage = (props) => {
                                     style={
                                       l.seats === "0"
                                         ? {
-                                            backgroundColor:
-                                              "rgba(255, 0, 0, 0.75)",
-                                          }
+                                          backgroundColor:
+                                            "rgba(255, 0, 0, 0.75)",
+                                        }
                                         : l.seats > 2
-                                        ? {
+                                          ? {
                                             backgroundColor:
                                               "rgba(0, 128, 0,0.75)",
                                           }
-                                        : { backgroundColor: "#ff8303" }
+                                          : { backgroundColor: "#ff8303" }
                                     }
                                     key={k}
                                     className="sng-date"
@@ -457,26 +542,31 @@ const Singlepackage = (props) => {
                           </Button>
                         </div>
                       </div>
-                      {/* GALLERY */}
-                      <div className="sngl-pack-short-itn" id="gallery">
+                      {/* LOCATION */}
+                      <div className="sngl-pack-short-itn" id="map">
                         <div className="single-pck-2-row">
                           <div className="single-pack-side-design"></div>
-                          <h4>Gallery</h4>
+                          <h4>Location</h4>
                           <hr />
-
-                          {pack && pack.imgUrl && (
-                            <Imagess imgUrl={pack.imgUrl} />
+                          {pack && mapi && (
+                            <iframe
+                              src={mapi}
+                              width="100%"
+                              height="450"
+                              frameborder="0"
+                              allowfullscreen
+                            ></iframe>
                           )}
                         </div>
                       </div>
-                      {/* INCLUSIONS */}
-                      <div className="sngl-pack-short-itn" id="inclusion">
+                      {/* Terms and condition */}
+                      <div className="sngl-pack-short-itn" id="termsandconditions">
                         <div className="single-pck-2-row">
                           <div className="single-pack-side-design"></div>
-                          <h4>Inclusions</h4>
+                          <h4>Terms and Condition</h4>
                           <hr />
-                          {pack &&
-                            pack.inclusions.map((l, k) => (
+                          {pack && pack.terms &&
+                            pack.terms.map((l, k) => (
                               <p key={k}>
                                 <RiCheckboxCircleFill
                                   className="single-pck-2-row-icon"
@@ -490,14 +580,14 @@ const Singlepackage = (props) => {
                             ))}
                         </div>
                       </div>
-                      {/* EXCLUSIONS */}
-                      <div className="sngl-pack-short-itn" id="exclusion">
+                      {/* Cancellation Refund */}
+                      <div className="sngl-pack-short-itn" id="cancellation">
                         <div className="single-pck-2-row">
                           <div className="single-pack-side-design"></div>
-                          <h4>Exclusions</h4>
+                          <h4>Cancellation & Refund</h4>
                           <hr />
-                          {pack &&
-                            pack.exclusions.map((l, k) => (
+                          {pack && pack.cancellation &&
+                            pack.cancellation.map((l, k) => (
                               <p key={k}>
                                 <FaTimesCircle
                                   className="single-pck-2-row-icon"
