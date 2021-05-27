@@ -209,10 +209,11 @@ const Singlepackage = (props) => {
                           firebase.firestore.FieldValue.arrayUnion(bookingId),
                       })
                       .then(() => {
+                        toast.success("Booking done!");
                         setSelectedDateIndex(0);
                         setSelectedPricingIndex(0);
                         setNumberOfSeats(1);
-                        toast.success("Booking done!");
+                        getPackage();
                       });
                   });
               });
@@ -767,6 +768,7 @@ const Singlepackage = (props) => {
                         setTotalCost={setTotalCost}
                         setTotalPaid={setTotalPaid}
                         completeBooking={completeBooking}
+                        totalCost={totalCost}
                       />
                     )}
                     <Formcomp />
@@ -793,6 +795,7 @@ const Singlepackage = (props) => {
                                   setTotalCost={setTotalCost}
                                   setTotalPaid={setTotalPaid}
                                   completeBooking={completeBooking}
+                                  totalCost={totalCost}
                                 />
                               )}
                             </div>

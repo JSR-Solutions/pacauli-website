@@ -1,4 +1,4 @@
-.dates-dropdown {
+/* .dates-dropdown {
   padding-top: 100px;
   display: flex !important;
   align-items: center !important;
@@ -6,10 +6,7 @@
   position: absolute;
   top: -50px;
   left: -80px;
-}
-.main-row {
-  padding-bottom: 100px !important;
-}
+} */
 
 .img-pay {
   display: flex !important;
@@ -20,7 +17,13 @@
   height: 50px;
   width: 50px;
 }
-.pkgtype-dropdown {
+
+.pay-pckg-title {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+/* .pkgtype-dropdown {
   position: absolute;
   top: -50px;
   left: -120px;
@@ -28,7 +31,7 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-}
+} */
 .col-col {
   display: flex !important;
   align-items: center !important;
@@ -43,13 +46,23 @@
 }
 .total-cost {
   padding-bottom: 50px;
-  padding-top: 150px;
+  padding-top: 50px;
 }
-.total-col {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+.total-col h5{
+  text-align: left;
 }
+.total-col1 h5 {
+  text-align: right;
+}
+
+.line {
+  width: 100%;
+}
+
+.total-col h5, .total-col1 h5 {
+  font-size: 16px;
+}
+
 .seats-col {
   display: flex !important;
   align-items: center !important;
@@ -91,9 +104,6 @@
 }
 
 .plus-minus {
-  position: absolute;
-  top: 50px;
-  left: -35px;
   display: flex;
   font-size: 1.2rem;
 }
@@ -117,14 +127,9 @@
   .plus-minus {
     padding-top: 50px;
     display: flex;
-    position: relative;
-    left: -50px;
-    top: 40px;
     font-size: 1.2rem;
   }
   .pm {
-    position: relative;
-    top: 3px;
     margin-left: 1px;
     margin-right: 1px;
   }
@@ -163,17 +168,44 @@
   .plus-minus {
     padding-top: 50px;
     display: flex;
-    position: relative;
-    left: -50px;
     font-size: 1.2rem;
   }
   .pkgtype-dropdown {
-    position: absolute;
-    top: -50px;
-    left: -110px !important;
   }
   .total-cost {
     padding-bottom: 50px;
     padding-top: 50px !important;
   }
+}
+
+/* Booked css */
+
+.booked-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.booked-div img {
+  width: 60%;
+  margin-bottom: 40px;
+}
+
+.booked-div h4 {
+  font-size: 32px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.booked-div p {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.booked-link {
+  color: var(--primary);
+  text-decoration: none !important;
+}
+
+.booked-link:hover{
+  color: var(--secondary);
 }
