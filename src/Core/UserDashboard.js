@@ -20,6 +20,7 @@ function UserDashboard() {
   const [Address, setAddress] = useState("");
   const [Email, setEmail] = useState("");
   const [imgUrl, setImgUrl] = useState("");
+  const [userId,setUserId]=useState("");
   const [loggedOut, setLoggedOut] = useState(false);
   const [isFetching, setFetching] = useState(false);
 
@@ -30,12 +31,14 @@ function UserDashboard() {
   function getUser() {
     setFetching(true);
     auth.onAuthStateChanged((user) => {
+      setUserId(user.uid);
       db.collection("Users")
         .doc(user.uid)
         .get()
         .then((doc) => {
           const userData = doc.data();
           if (userData) {
+            
             setName(userData.name);
             setAddress(userData.city);
             setPhoneNo(userData.phone);
@@ -99,9 +102,9 @@ function UserDashboard() {
                 <div className="user_buttons">
                   <Row>
                     <Col>
-                      <Link to="/edituserdetails">
+                      <Link to={`/${userId}/bookings`}>
                         {" "}
-                        <Button className="user_button">Edit Details</Button>
+                        <Button className="user_button">Bookings</Button>
                       </Link>
                     </Col>
                     <Col>
