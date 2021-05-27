@@ -45,6 +45,7 @@ import Biking from './Components/SinglePackagesdiff/Biking'
 import Expedition from './Components/SinglePackagesdiff/Expedition'
 import Spiritualtour from './Components/SinglePackagesdiff/Spiritualtour'
 import Trekking from './Components/SinglePackagesdiff/Trekking'
+import AllBookings from "./Admin/AllBookings";
 
 function App() {
   return (
@@ -162,6 +163,7 @@ function App() {
             component={ContactRequests}
           />
           <PrivateRoute path="/admin/getintouch" exact component={GetInTouch} />
+          <PrivateRoute path="/admin/bookings" exact component={AllBookings} />
           <PrivateRoute
             path="/admin/package/:packageType/:packageId"
             exact
