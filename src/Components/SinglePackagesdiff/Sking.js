@@ -3,9 +3,9 @@ import { Row, Col, Container, Carousel } from "react-bootstrap";
 import "./Singlepackage.css";
 import Pricecard from "../Singlepackagescreen/Pricecard";
 import Formcomp from "../Singlepackagescreen/Form";
-import { AiOutlineFieldTime } from "react-icons/ai";
+import { AiOutlineFieldTime, AiOutlineColumnHeight } from "react-icons/ai";
 import { RiCheckboxCircleFill } from "react-icons/ri";
-import { IoLocateSharp, IoAlertCircleSharp } from "react-icons/io5";
+import {  IoAlertCircleSharp } from "react-icons/io5";
 import { FaTimesCircle } from "react-icons/fa";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
@@ -19,7 +19,10 @@ import { Redirect } from "react-router-dom";
 import LoadingScreen from "../LoadingScreen";
 import { FaRupeeSign } from "react-icons/fa";
 import { GiNetworkBars } from "react-icons/gi";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import {FcDownRight} from "react-icons/fc";
+import {GoLocation} from "react-icons/go";
+import {TiTickOutline} from "react-icons/ti";
 
 const Singlepackage = (props) => {
   const [pack, setpack] = useState("");
@@ -205,7 +208,7 @@ const Singlepackage = (props) => {
                         )}
                         {pack.maxAltitude !== "" && (
                           <h5>
-                            <GiNetworkBars className="single-pck-1-row-icon" />
+                            <AiOutlineColumnHeight className="single-pck-1-row-icon" />
                             Altitude Range - {pack.maxAltitude}
                           </h5>
                         )}
@@ -218,13 +221,13 @@ const Singlepackage = (props) => {
                         )}
                         {pack.region !== "" && (
                           <h5>
-                            <AiOutlineFieldTime className="single-pck-1-row-icon" />
+                            <GoLocation className="single-pck-1-row-icon" />
                             Region - {pack.region}
                           </h5>
                         )}
                         {pack.bestTime !== "" && (
                           <h5>
-                            <AiOutlineFieldTime className="single-pck-1-row-icon" />
+                            <TiTickOutline className="single-pck-1-row-icon" />
                             Best Time - {pack.bestTime}
                           </h5>
                         )}
@@ -331,7 +334,7 @@ const Singlepackage = (props) => {
                           {pack &&
                             pack.overviews.map((l, k) => (
                               <p key={k}>
-                                <IoLocateSharp className="single-pck-2-row-icon" />
+                                <FcDownRight className="single-pck-2-row-icon" />
                                 {l}
                               </p>
                             ))}
@@ -348,7 +351,7 @@ const Singlepackage = (props) => {
                               <div key={k} className="single-pack-itn">
                                 <h5>{l.day}</h5>
                                 <h6>
-                                  <IoLocateSharp className="single-pck-2-row-icon" />
+                                  <FcDownRight className="single-pck-2-row-icon" />
                                   {l.title}
                                 </h6>
                                 <p>{l.desc}</p>
@@ -370,7 +373,7 @@ const Singlepackage = (props) => {
                               <div key={k} className="single-pack-itn">
                                 <h5>{l.day}</h5>
                                 <h6>
-                                  <IoLocateSharp className="single-pck-2-row-icon" />
+                                  <FcDownRight className="single-pck-2-row-icon" />
                                   {l.title}
                                 </h6>
                                 <p>{l.desc}</p>
@@ -388,7 +391,7 @@ const Singlepackage = (props) => {
                             pack.majorattraction &&
                             pack.majorattraction.map((l, k) => (
                               <p key={k}>
-                                <IoLocateSharp className="single-pck-2-row-icon" />
+                                <FcDownRight className="single-pck-2-row-icon" />
                                 {l}
                               </p>
                             ))}

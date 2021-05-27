@@ -160,8 +160,8 @@ const ContactUs = () => {
                     className="contact-info-icon"
                   />
                   <p>
-                    <a className="contact-us-link" href="tel:919557212758">
-                      +91-9557212758
+                    <a className="contact-us-link" href="tel:917906114905">
+                      +91-7906114905
                     </a>
                   </p>
                 </div>

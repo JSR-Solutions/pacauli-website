@@ -96,9 +96,9 @@ function Footer() {
             <div className="footer-contact-section">
               <h3 className="footer-section-title">Connect With Us</h3>
               <div className="footer-section-content-div">
-                <a href="tel:+919557212758">
+                <a href="tel:+917906114905">
                   <p className="footer-section-content">
-                    Phone : +91-9557212758
+                    Phone : +91-7906114905
                   </p>
                 </a>
                 <a href="mailto:info@pacauli.com">

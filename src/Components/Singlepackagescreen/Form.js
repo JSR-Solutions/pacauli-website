@@ -236,7 +236,7 @@ const Form = () => {
             queries for this tour.
           </p>
           <HiPhone style={{ color: "violet", fontSize: "19px" }} />
-          <a href="tel:+918077985660">+918077985660</a>
+          <a href="tel:+917906114905">+91-7906114905</a>
           <h6>10:30 AM - 8:00 PM (Mon to Sat)</h6>
         </div>
       </div>
@@ -247,29 +247,29 @@ const Form = () => {
           <div className="last-why-pac-ak">
             <p className="l-main-pac-p">
               <HiCheck className="icon-bahar-ak" />
-              Verified Reviews
+              10+ Years Of Experience
             </p>
-            <p>25000+ Pictures and Reviews on the platform.</p>
+            <p>We are working in the field for more than 10 Years.</p>
           </div>
           <div className="last-why-pac-ak">
             <p className="l-main-pac-p">
               <HiCheck className="icon-bahar-ak" />
-              No Booking Fee! Price Guarantee
+              Expert Knowledge
             </p>
             <p>
-              We have a minimum price guarantee. If you get the same product at
-              cheaper price we will refund the difference.
+              We have the core team of experts that are working in this field
+              for over a decade.
             </p>
           </div>
           <div className="last-why-pac-ak">
             <p className="l-main-pac-p">
               {" "}
               <HiCheck className="icon-bahar-ak" />
-              10000+ Tours and Activities
+              Local and Traditional Knowledge
             </p>
             <p>
-              We have activities across 17 countries, across every category so
-              that you never miss best things to do anywhere.
+              We value our tradition and knowledge of localism as for us these
+              mountains are our home.
             </p>
           </div>
           <div className="last-why-pac-ak">
