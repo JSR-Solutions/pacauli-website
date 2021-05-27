@@ -15,6 +15,7 @@ import CustomPackage from "./Core/CustomPackage";
 import ContactRequests from "./Admin/ContactRequests";
 import GetInTouch from "./Admin/GetInTouch";
 import EditUser from "./Auth/editUserDetails";
+import Bookings from "./Components/Bookings"
 
 import Aboutus from "./Core/Aboutus";
 
@@ -63,6 +64,10 @@ function App() {
             exact
             component={SingleCategory}
           />
+          <Route 
+            path="/:userId/bookings"
+            exact
+            component={Bookings}/>
           <Route
             path="/packages/Cycling/:packageId"
             exact
