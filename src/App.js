@@ -15,6 +15,7 @@ import CustomPackage from "./Core/CustomPackage";
 import ContactRequests from "./Admin/ContactRequests";
 import GetInTouch from "./Admin/GetInTouch";
 import EditUser from "./Auth/editUserDetails";
+import Bookings from "./Components/Bookings"
 
 import Aboutus from "./Core/Aboutus";
 
@@ -45,6 +46,7 @@ import Biking from './Components/SinglePackagesdiff/Biking'
 import Expedition from './Components/SinglePackagesdiff/Expedition'
 import Spiritualtour from './Components/SinglePackagesdiff/Spiritualtour'
 import Trekking from './Components/SinglePackagesdiff/Trekking'
+import AllBookings from "./Admin/AllBookings";
 
 function App() {
   return (
@@ -62,6 +64,10 @@ function App() {
             exact
             component={SingleCategory}
           />
+          <Route 
+            path="/:userId/bookings"
+            exact
+            component={Bookings}/>
           <Route
             path="/packages/Cycling/:packageId"
             exact
@@ -162,6 +168,7 @@ function App() {
             component={ContactRequests}
           />
           <PrivateRoute path="/admin/getintouch" exact component={GetInTouch} />
+          <PrivateRoute path="/admin/bookings" exact component={AllBookings} />
           <PrivateRoute
             path="/admin/package/:packageType/:packageId"
             exact

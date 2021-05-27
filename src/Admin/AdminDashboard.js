@@ -65,6 +65,15 @@ function AdminDashboard() {
                 </Card>
               </Link>
             </Col>
+            <Col lg={4} md={6} sm={12}>
+              <Link className="admin-dashboard-link" to="/admin/bookings">
+                <Card className="admin-dashboard-card">
+                  <Card.Body className="admin-dashboard-card-body">
+                    <h3>All Bookings</h3>
+                  </Card.Body>
+                </Card>
+              </Link>
+            </Col>
           </Row>
         </Col>
       </Row>
