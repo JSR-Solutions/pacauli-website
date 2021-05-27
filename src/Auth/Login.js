@@ -5,7 +5,7 @@ import firebase from "firebase";
 import { toast, ToastContainer } from "react-toastify";
 
 import logo from "../Assets/logo.png";
-import "./Login.css";
+import "./Loginnew.css";
 
 function Login() {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -49,46 +49,82 @@ function Login() {
   }
 
   return (
-    <div className="auth-main">
+    // <div className="auth-main">
+    //   <ToastContainer />
+    //   {redirectRegistration ? <Redirect to="/user/register" /> : null}
+    //   {redirectHome ? <Redirect to="/" /> : null}
+    //   <img src={logo} className="logo-auth" alt="logo" />
+    //   <div className="auth-card-div">
+    //     <Card className="auth-card">
+    //       <h3 className="auth-title">Login</h3>
+    //       <Form className="auth-form">
+    //         <Form.Group>
+    //           <Form.Control
+    //             className="auth-input"
+    //             type="text"
+    //             name="email"
+    //             placeholder="Email Address"
+    //             value={credentials.email}
+    //             onChange={handleChange}
+    //           />
+    //         </Form.Group>
+    //         <Form.Group>
+    //           <Form.Control
+    //             className="auth-input"
+    //             type="password"
+    //             name="password"
+    //             placeholder="Password"
+    //             value={credentials.password}
+    //             onChange={handleChange}
+    //           />
+    //         </Form.Group>
+    //         <Button onClick={handleSignin} className="auth-button">
+    //           Login
+    //         </Button>
+    //       </Form>
+    //       <p className="auth-bottom-text">
+    //         New here?{" "}
+    //         <Link className="auth-link" to="/signup">
+    //           Sign Up
+    //         </Link>
+    //       </p>
+    //     </Card>
+    //   </div>
+    // </div>
+    <div>
       <ToastContainer />
       {redirectRegistration ? <Redirect to="/user/register" /> : null}
       {redirectHome ? <Redirect to="/" /> : null}
-      <img src={logo} className="logo-auth" alt="logo" />
-      <div className="auth-card-div">
-        <Card className="auth-card">
-          <h3 className="auth-title">Login</h3>
-          <Form className="auth-form">
-            <Form.Group>
-              <Form.Control
-                className="auth-input"
-                type="text"
-                name="email"
-                placeholder="Email Address"
-                value={credentials.email}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                className="auth-input"
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={credentials.password}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            <Button onClick={handleSignin} className="auth-button">
-              Login
-            </Button>
-          </Form>
-          <p className="auth-bottom-text">
-            New here?{" "}
-            <Link className="auth-link" to="/signup">
-              Sign Up
-            </Link>
-          </p>
-        </Card>
+      <div className="section-log" id="contact">
+        <div className="form-container">
+          <img src={logo} className="form-img" alt="login" />
+          <form onSubmit={handleSignin} className="contact-form">
+            <h3>LOGIN</h3>
+            <input
+              type="email"
+              placeholder="Email"
+              name="email"
+              value={credentials.email}
+              onChange={handleChange}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={credentials.password}
+              onChange={handleChange}
+            />
+            <p className="forgot">
+              Forgot password? <Link to="/forgotpassword">Click Here</Link>{" "}
+            </p>
+            <input type="submit" value="Login" />
+            <p>
+              New here? No issue, kindly <Link to="/signup">Register here</Link>
+            </p>
+            <br />
+            <hr className="line-bro" />
+          </form>
+        </div>
       </div>
     </div>
   );
