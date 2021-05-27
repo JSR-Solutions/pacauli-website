@@ -100,16 +100,9 @@ const Pricecard = (props) => {
             onHide={() => setModalShow(false)}
             seats={props.seats}
             pricing={props.price}
-            priceIndex={props.priceIndex}
-            setPriceIndex={props.setPriceIndex}
-            dateIndex={props.dateIndex}
-            setDateIndex={props.setDateIndex}
-            numberOfSeats={props.numberOfSeats}
-            setNumberOfSeats={props.setNumberOfSeats}
-            setTotalCost={props.setTotalCost}
-            setTotalPaid={props.setTotalPaid}
-            completeBooking={props.completeBooking}
-            totalCost={props.totalCost}
+            packageType={props.packageType}
+            packageId={props.packageId}
+            packageName={props.packageName}
           />
         )}
       </div>

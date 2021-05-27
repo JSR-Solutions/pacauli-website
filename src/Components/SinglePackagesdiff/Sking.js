@@ -31,11 +31,6 @@ const Singlepackage = (props) => {
   const [redirectLogin, setRedirectLogin] = useState(false);
   const [seats, setSeats] = useState([]);
   const [isFetching, setFetching] = useState(false);
-  const [selectedPricingIndex, setSelectedPricingIndex] = useState(0);
-  const [selectedDateIndex, setSelectedDateIndex] = useState(0);
-  const [numberOfSeats, setNumberOfSeats] = useState(1);
-  const [totalCost, setTotalCost] = useState(0);
-  const [totalPaid, setTotalPaid] = useState(0);
   const db = firebase.firestore();
   const auth = firebase.auth();
 
@@ -167,60 +162,6 @@ const Singlepackage = (props) => {
       }
     });
   }
-
-  //Function to store booking details
-  const completeBooking = () => {
-    auth.onAuthStateChanged((userCredentials) => {
-      if (userCredentials) {
-        const uid = userCredentials.uid;
-        db.collection("Bookings")
-          .add({
-            packageId: props.match.params.packageId,
-            userId: uid,
-            date: seats[selectedDateIndex].sDate,
-            numberOfSeats: numberOfSeats,
-            totalCost: totalCost,
-            totalPaid: totalPaid,
-          })
-          .then((docRef) => {
-            const bookingId = docRef.id;
-            db.collection("Bookings")
-              .doc(docRef.id)
-              .update({
-                bookingId: docRef.id,
-              })
-              .then(() => {
-                const s = [...seats];
-                s[selectedDateIndex].seats =
-                  s[selectedDateIndex].seats - numberOfSeats;
-                setSeats(s);
-                db.collection("Skiing")
-                  .doc(props.match.params.packageId)
-                  .collection("Dates")
-                  .doc("dates")
-                  .update({
-                    dates: seats,
-                  })
-                  .then(() => {
-                    db.collection("Users")
-                      .doc(uid)
-                      .update({
-                        bookings:
-                          firebase.firestore.FieldValue.arrayUnion(bookingId),
-                      })
-                      .then(() => {
-                        toast.success("Booking done!");
-                        setSelectedDateIndex(0);
-                        setSelectedPricingIndex(0);
-                        setNumberOfSeats(1);
-                        getPackage();
-                      });
-                  });
-              });
-          });
-      }
-    });
-  };
 
   if (isFetching || !reviewsFetched || fetchingDates) {
     return <LoadingScreen />;
@@ -759,16 +700,9 @@ const Singlepackage = (props) => {
                       <Pricecard
                         price={pack.pricing}
                         seats={seats}
-                        priceIndex={selectedPricingIndex}
-                        setPriceIndex={setSelectedPricingIndex}
-                        dateIndex={selectedDateIndex}
-                        setDateIndex={setSelectedDateIndex}
-                        numberOfSeats={numberOfSeats}
-                        setNumberOfSeats={setNumberOfSeats}
-                        setTotalCost={setTotalCost}
-                        setTotalPaid={setTotalPaid}
-                        completeBooking={completeBooking}
-                        totalCost={totalCost}
+                        packageType="Skiing"
+                        packageId={props.match.params.packageId}
+                        packageName={pack.name}
                       />
                     )}
                     <Formcomp />
@@ -786,16 +720,9 @@ const Singlepackage = (props) => {
                                 <Pricecard
                                   price={pack.pricing}
                                   seats={seats}
-                                  priceIndex={selectedPricingIndex}
-                                  setPriceIndex={setSelectedPricingIndex}
-                                  dateIndex={selectedDateIndex}
-                                  setDateIndex={setSelectedDateIndex}
-                                  numberOfSeats={numberOfSeats}
-                                  setNumberOfSeats={setNumberOfSeats}
-                                  setTotalCost={setTotalCost}
-                                  setTotalPaid={setTotalPaid}
-                                  completeBooking={completeBooking}
-                                  totalCost={totalCost}
+                                  packageType="Skiing"
+                                  packageId={props.match.params.packageId}
+                                  packageName={pack.name}
                                 />
                               )}
                             </div>
