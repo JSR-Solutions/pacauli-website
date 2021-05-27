@@ -115,7 +115,7 @@ const Payment = (props) => {
   };
 
   // Function to store booking details
-  const completeBooking = () => {
+  const completeBooking = (transactionId) => {
     auth.onAuthStateChanged((userCredentials) => {
       if (userCredentials) {
         const uid = userCredentials.uid;
@@ -129,7 +129,8 @@ const Payment = (props) => {
             totalPaid: payableAmount,
             totalAdvance: advancePayment,
             gst: gst,
-            dateOfBooking: new Date().toDateString()
+            dateOfBooking: new Date().toDateString(),
+            transactionId: transactionId
           })
           .then((docRef) => {
             const bookingId = docRef.id;
@@ -168,6 +169,55 @@ const Payment = (props) => {
       }
     });
   };
+
+
+  const generateTokenRazor = (payableAmount) => {
+    return fetch(`http://localhost:8080/api/payment/details`, {
+      method: 'Post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ amount: payableAmount })
+    }).then(response => {
+      return response.json();
+    }).catch(err => {
+      console.log(err);
+    })
+  }
+
+  const paymentHandler = async () => {
+    if (payableAmount) {
+      const getToken = (payableAmount) => {
+        generateTokenRazor(payableAmount)
+          .then(data => {
+            const options = {
+              key: "rzp_test_LaNsBNnS3xzG7o",
+              name: "MusafirRana",
+              description: "Thank You for shopping with us.",
+              currency: "INR",
+              order_id: data.id,
+              handler: async (response) => {
+                console.log('payment done', response.razorpay_payment_id)
+                // processPayment(userId, token, response, data.amount);
+                completeBooking(response.razorpay_payment_id)
+              },
+              theme: {
+                color: "#f1bc19",
+              }
+            };
+            const rzp1 = new window.Razorpay(options);
+            rzp1.open();
+          })
+      }
+
+      await getToken(payableAmount)
+
+    } else {
+      toast.error('Please select package first !!!')
+    }
+  }
+
 
   return (
     <Modal
@@ -370,7 +420,7 @@ const Payment = (props) => {
       </Modal.Body>
       <Modal.Footer>
         {availability && (
-          <Button onClick={completeBooking} className="btn-payment">
+          <Button onClick={paymentHandler} className="btn-payment">
             Pay
           </Button>
         )}

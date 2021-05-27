@@ -5,7 +5,7 @@ import Pricecard from "../Singlepackagescreen/Pricecard";
 import Formcomp from "../Singlepackagescreen/Form";
 import { AiOutlineFieldTime, AiOutlineColumnHeight } from "react-icons/ai";
 import { RiCheckboxCircleFill } from "react-icons/ri";
-import {  IoAlertCircleSharp } from "react-icons/io5";
+import { IoAlertCircleSharp } from "react-icons/io5";
 import { FaTimesCircle } from "react-icons/fa";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
@@ -19,10 +19,10 @@ import { Redirect } from "react-router-dom";
 import LoadingScreen from "../LoadingScreen";
 import { FaRupeeSign } from "react-icons/fa";
 import { GiNetworkBars } from "react-icons/gi";
-import { ToastContainer } from "react-toastify";
-import {FcDownRight} from "react-icons/fc";
-import {GoLocation} from "react-icons/go";
-import {TiTickOutline} from "react-icons/ti";
+import { ToastContainer, toast } from "react-toastify";
+import { FcDownRight } from "react-icons/fc";
+import { GoLocation } from "react-icons/go";
+import { TiTickOutline } from "react-icons/ti";
 
 const Singlepackage = (props) => {
   const [pack, setpack] = useState("");
@@ -165,6 +165,8 @@ const Singlepackage = (props) => {
       }
     });
   }
+
+
 
   if (isFetching || !reviewsFetched || fetchingDates) {
     return <LoadingScreen />;
@@ -563,15 +565,15 @@ const Singlepackage = (props) => {
                                     style={
                                       l.seats === 0
                                         ? {
-                                            backgroundColor:
-                                              "rgba(255, 0, 0, 0.75)",
-                                          }
+                                          backgroundColor:
+                                            "rgba(255, 0, 0, 0.75)",
+                                        }
                                         : l.seats > 2
-                                        ? {
+                                          ? {
                                             backgroundColor:
                                               "rgba(0, 128, 0,0.75)",
                                           }
-                                        : { backgroundColor: "#ff8303" }
+                                          : { backgroundColor: "#ff8303" }
                                     }
                                     key={k}
                                     className="sng-date"
