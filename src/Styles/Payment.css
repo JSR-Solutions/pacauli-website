@@ -1,50 +1,49 @@
 .dates-dropdown {
-  padding-top: 50px;
-  padding-bottom: 20px;
+  padding-top: 100px;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  position: absolute;
+  top: -50px;
+  left: -80px;
 }
+.main-row {
+  padding-bottom: 100px !important;
+}
+
 .img-pay {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding-bottom: 20px;
 }
 .logo-pay {
-  height: 150px;
-  width: 150px;
+  height: 50px;
+  width: 50px;
 }
 .pkgtype-dropdown {
-  padding-top: 10px;
-  padding-bottom: 80px;
+  position: absolute;
+  top: -50px;
+  left: -120px;
+  padding-top: 100px;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
 }
-
-.plus-minus {
-  display: flex;
-  position: relative;
-  left: 90px;
-  font-size: 1.2rem;
-}
-.pm {
-  position: relative;
-  top: 3px;
-  margin-left: 1px;
-  margin-right: 1px;
+.col-col {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 #dropdown-basic-button {
   background-color: transparent !important;
   color: black !important;
   border-color: black !important;
-  width: 300px !important;
+  width: 160px !important;
 }
 .total-cost {
   padding-bottom: 50px;
-  padding-top: 50px;
+  padding-top: 150px;
 }
 .total-col {
   display: flex !important;
@@ -65,7 +64,7 @@
   background-color: transparent !important;
   color: black !important;
   border-color: black !important;
-  width: 150px !important;
+  width: 100px !important;
   transition: all 0.4s ease;
 }
 
@@ -73,7 +72,7 @@
   background-color: rgb(158, 240, 35) !important;
   color: black !important;
   border-color: transparent !important;
-  width: 150px !important;
+  width: 100px !important;
 }
 
 .close-btn {
@@ -85,8 +84,96 @@
 }
 
 .close-btn:hover {
-    background-color: red!important;
-    color: white !important;
-    border-color: transparent !important;
-    width: 100px !important;
+  background-color: red !important;
+  color: white !important;
+  border-color: transparent !important;
+  width: 100px !important;
+}
+
+.plus-minus {
+  position: absolute;
+  top: 50px;
+  left: -35px;
+  display: flex;
+  font-size: 1.2rem;
+}
+.pm {
+  position: relative;
+  top: 3px;
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+}
+/* .row-1{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+} */
+.c-col {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+@media screen and (max-width: 990px) {
+  .plus-minus {
+    padding-top: 50px;
+    display: flex;
+    position: relative;
+    left: -50px;
+    top: 40px;
+    font-size: 1.2rem;
   }
+  .pm {
+    position: relative;
+    top: 3px;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+  .dates {
+    padding-bottom: 50px;
+    padding-left: 235px !important;
+  }
+  .types {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .seats {
+    padding-top: 20px;
+    padding-bottom: 50px;
+    padding-left: 70px !important;
+  }
+  .total-cost {
+    padding-bottom: 50px;
+    padding-top: 50px !important;
+  }
+}
+@media screen and (max-width: 760px) {
+  .dates {
+    padding-bottom: 50px;
+    padding-left: 10px !important;
+  }
+  .types {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .seats {
+    padding-top: 20px;
+    padding-bottom: 50px;
+    padding-left: 70px !important;
+  }
+  .plus-minus {
+    padding-top: 50px;
+    display: flex;
+    position: relative;
+    left: -50px;
+    font-size: 1.2rem;
+  }
+  .pkgtype-dropdown {
+    position: absolute;
+    top: -50px;
+    left: -110px !important;
+  }
+  .total-cost {
+    padding-bottom: 50px;
+    padding-top: 50px !important;
+  }
+}
