@@ -109,6 +109,7 @@ const Pricecard = (props) => {
             setTotalCost={props.setTotalCost}
             setTotalPaid={props.setTotalPaid}
             completeBooking={props.completeBooking}
+            totalCost={props.totalCost}
           />
         )}
       </div>
