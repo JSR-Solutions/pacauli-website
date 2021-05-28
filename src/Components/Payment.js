@@ -131,7 +131,7 @@ const Payment = (props) => {
             gst: gst,
             dateOfBooking: new Date().toDateString(),
             transactionId: transactionId,
-            packageType: props.packageType
+            packageType: props.packageType,
           })
           .then((docRef) => {
             const bookingId = docRef.id;

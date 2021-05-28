@@ -1,0 +1,25 @@
+.h_bookingdiv{
+    height:600px;
+
+}
+.firstTrip{
+    margin-top: 100px;
+    height:500px;
+    font-size: 70px;
+    font-weight: 600;
+
+}
+.firstTripDiv{
+    padding-top: 100px;
+    height: 400px;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px;
+    border-color: rgb(54, 54, 54);
+}
+.bookingsButton{
+    background-color: rgb(31, 29, 29)!important;
+    color: white!important;
+    border:0!important;
+}
