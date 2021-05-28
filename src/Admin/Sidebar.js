@@ -12,7 +12,7 @@ import "../Styles/Sidebar.css";
 import { MdDashboard, MdTouchApp } from "react-icons/md";
 import { VscPackage } from "react-icons/vsc";
 import { RiCustomerService2Fill } from "react-icons/ri";
-import { AiFillFileAdd } from "react-icons/ai";
+import { AiFillFileAdd, AiOutlineFileDone } from "react-icons/ai";
 import "../Styles/Sidebar.scss";
 import { GoPackage } from "react-icons/go";
 import { FiPhoneCall } from "react-icons/fi";
@@ -38,6 +38,9 @@ function Sidebar() {
             </MenuItem> */}
           <MenuItem icon={<AiFillFileAdd />} className="sidebar-menu-item">
             <Link to="/admin/addpackage">Add Package</Link>{" "}
+          </MenuItem>
+          <MenuItem icon={<AiOutlineFileDone />} className="sidebar-menu-item">
+            <Link to="/admin/allbookings">All Bookings</Link>{" "}
           </MenuItem>
           <MenuItem icon={<GoPackage />} className="sidebar-menu-item">
             <Link to="/admin/customrequests">Custom Package</Link>{" "}
