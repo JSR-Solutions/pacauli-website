@@ -85,6 +85,7 @@ function AllBookings() {
           setLoading(false);
         }
       });
+      console.log(bookings);
   }
 
   const rows = bookings.map((booking) => {

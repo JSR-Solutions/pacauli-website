@@ -23,3 +23,11 @@
     color: white!important;
     border:0!important;
 }
+.cardDiv1{
+    width:1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height:100%;
+}
