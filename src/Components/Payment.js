@@ -132,10 +132,11 @@ const Payment = (props) => {
             dateOfBooking: new Date().toDateString(),
             transactionId: transactionId,
             packageType: props.packageType,
+            pricingType: props.pricing[typeIndex].type,
           })
           .then((docRef) => {
             const bookingId = docRef.id;
-            console.log('adsjkfashdjkfh DONE')
+            console.log("adsjkfashdjkfh DONE");
             db.collection("Bookings")
               .doc(docRef.id)
               .update({
@@ -172,54 +173,52 @@ const Payment = (props) => {
     });
   };
 
-
   const generateTokenRazor = (payableAmount) => {
     return fetch(`http://localhost:8080/api/payment/details`, {
-      method: 'Post',
+      method: "Post",
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ amount: payableAmount })
-    }).then(response => {
-      return response.json();
-    }).catch(err => {
-      console.log(err);
+      body: JSON.stringify({ amount: payableAmount }),
     })
-  }
+      .then((response) => {
+        return response.json();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const paymentHandler = async () => {
     if (payableAmount) {
       const getToken = (payableAmount) => {
-        generateTokenRazor(payableAmount)
-          .then(data => {
-            const options = {
-              key: "rzp_test_LaNsBNnS3xzG7o",
-              name: "MusafirRana",
-              description: "Thank You for shopping with us.",
-              currency: "INR",
-              order_id: data.id,
-              handler: async (response) => {               
-                 await completeBooking(response.razorpay_payment_id);
-                console.log('payment done', response.razorpay_payment_id);
-                // processPayment(userId, token, response, data.amount);
-              },
-              theme: {
-                color: "#f1bc19",
-              }
-            };
-            const rzp1 = new window.Razorpay(options);
-            rzp1.open();
-          })
-      }
+        generateTokenRazor(payableAmount).then((data) => {
+          const options = {
+            key: "rzp_test_LaNsBNnS3xzG7o",
+            name: "PacAuli",
+            description: "Thank You for shopping with us.",
+            currency: "INR",
+            order_id: data.id,
+            handler: async (response) => {
+              await completeBooking(response.razorpay_payment_id);
+              console.log("payment done", response.razorpay_payment_id);
+              // processPayment(userId, token, response, data.amount);
+            },
+            theme: {
+              color: "#f1bc19",
+            },
+          };
+          const rzp1 = new window.Razorpay(options);
+          rzp1.open();
+        });
+      };
 
-      await getToken(payableAmount)
-
+      await getToken(payableAmount);
     } else {
-      toast.error('Please select package first !!!')
+      toast.error("Please select package first !!!");
     }
-  }
-
+  };
 
   return (
     <Modal
