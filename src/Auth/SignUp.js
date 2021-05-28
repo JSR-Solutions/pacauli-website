@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import { Card, Form, Button } from "react-bootstrap";
 import firebase from "firebase";
 import { toast, ToastContainer } from "react-toastify";
-import "./Loginnew.css";
-
+import "../Styles/Loginnew.css";
 import logo from "../Assets/logo.png";
 function SignUp() {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -87,10 +86,10 @@ function SignUp() {
     <div>
       <ToastContainer />
       {redirect && <Redirect to="/signin" />}
-      <div className="section-log" id="contact">
-        <div className="form-container">
-          <img src={logo} className="form-img" alt="signup" />
-          <form onSubmit={handleSignup}  className="contact-form">
+      <div className="section-log-a" id="contact">
+        <div className="form-container-a">
+          <img src={logo} className="form-img-a" alt="signup" />
+          <form onSubmit={handleSignup}  className="contact-form-a">
             <h3>SIGN UP</h3>
             <input
               type="email"

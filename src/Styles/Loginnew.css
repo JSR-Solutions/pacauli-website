@@ -1,4 +1,4 @@
-.section-log {
+.section-log-a {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -7,7 +7,7 @@
     align-items: center;
   }
   
-  .form-container {
+  .form-container-a {
     width: 80%;
     height: 40%;
     display: flex;
@@ -27,7 +27,7 @@
     border: none !important;
   }
   
-  .form-img {
+  .form-img-a {
     width: 40rem;
     background-color: transparent;
     padding: 5rem;
@@ -39,30 +39,30 @@
     transition: all 0.5s;
   }
   
-  .form-img:hover {
+  .form-img-a:hover {
     transform: translateY(-2rem) rotateY(10deg);
     -webkit-filter: drop-shadow(5px 5px 5px #222);
     filter: drop-shadow(5px 5px 5px #222);
   }
   
-  .contact-form {
+  .contact-form-a {
     width: 45rem;
     background-color: rgba(128, 231, 195, 0.3);
     display: flex;
     flex-direction: column;
     padding: 3rem;
     border-radius: 0.5rem;
-    box-shadow: 3rem 3rem 4rem #80e7c3;
+    /* box-shadow: 3rem 3rem 4rem #80e7c3; */
     transform: rotateY(-20deg);
     transition: all 0.5s;
   }
   
-  .contact-form:hover {
+  .contact-form-a:hover {
     transform: translateY(-2rem) rotateY(-10deg);
-    box-shadow: 5rem 5rem 7rem #80e7c3;
+    /* box-shadow: 5rem 5rem 7rem #80e7c3; */
   }
   
-  .contact-form input {
+  .contact-form-a input {
     margin: 1rem;
     padding: 1rem;
     font-size: 1rem;
@@ -72,7 +72,7 @@
       inset -0.01rem -0.01rem 0.02rem #222;
   }
   
-  .contact-form input[type="submit"] {
+  .contact-form-a input[type="submit"] {
     background-color: black;
     color: #fff;
     font-weight: bolder;
@@ -80,15 +80,15 @@
     transition: background-color 0.5s;
   }
   
-  .contact-form input[type="submit"]:hover {
+  .contact-form-a input[type="submit"]:hover {
     background-color: black;
   }
   
-  .contact-form h3 {
+  .contact-form-a h3 {
     text-align: center;
   }
   
-  .contact-form p {
+  .contact-form-a p {
     text-align: center;
   }
   
@@ -113,15 +113,6 @@
     padding-top: 20px !important;
   }
   
-  /* .contact-form input[type="file"]{
-    margin: 1rem;
-    padding: 1rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 0rem;
-    box-shadow: inset 0.0rem 0.0rem 0.0rem #222,
-      inset -0.0rem -0.0rem 0.0rem #222 !important;
-  } */
   
   @media (max-width: 1400px) {
     .form-container {
@@ -132,11 +123,11 @@
       display: none;
     }
   
-    .contact-form {
+    .contact-form-a {
       transform: translateY(0);
     }
   
-    .contact-form:hover {
+    .contact-form-a:hover {
       transform: translateY(-1rem);
     }
   }
@@ -151,11 +142,11 @@
       box-shadow: none;
     }
   
-    .contact-form {
+    .contact-form-a {
       box-shadow: 1rem 1rem 2rem #aaa;
     }
   
-    .contact-form:hover {
+    .contact-form-a:hover {
       box-shadow: 2rem 2rem 3rem #aaa;
     }
   }
