@@ -8,28 +8,71 @@ import "../Styles/bookingPage.css";
 import firebase from "firebase";
 
 function Bookings(props){
-    const [userId,setUserId]=useState(props.match.params.userId);
+    const [userIdd,setUserIdd]=useState(props.match.params.userId);
     const db=firebase.firestore();
     const [bookings,setBookings]=useState([]);
-
-    const bookingId="TiO64qalgPXJSu4Lh6qV";
+    const [isLoading, setLoading] = useState(false);
+   
     useEffect(()=>{
-        console.log(userId);
-        getBookings();
+        
+        getEnquiries();
         
     },[]);
+    
 
-    const getBookings=()=>{
-        db.collection("Users")
-        .doc(userId)
-        .get()
-        .then((querySnapshot)=>{
-            console.log(querySnapshot.data().bookings);
-            setBookings(querySnapshot.data().bookings);
-            
-        });
-        
-    }
+    
+
+    function getEnquiries() {
+        console.log(userIdd);
+        const db = firebase.firestore();
+        setBookings([]);
+        setLoading(true);
+        db.collection("Bookings")
+          .get()
+          .then((querySnapshot) => {
+            if (querySnapshot.docs.length) {
+              querySnapshot.docs.forEach((doc) => {
+                const bookingData = doc.data();
+                const packageId = bookingData.packageId;
+                const packageType = bookingData.packageType;
+                const userId = bookingData.userId;
+                if(userId==userIdd){
+                db.collection(packageType)
+                  .doc(packageId)
+                  .get()
+                  .then((snapshot) => {
+                    const packageData = snapshot.data();
+                    db.collection("Users")
+                      .doc(userId)
+                      .get()
+                      .then((snap) => {
+                        const userData = snap.data();
+                        if (userData) {
+                          setBookings((prev) => {
+                            return [
+                              ...prev,
+                              {
+                                bookingData: bookingData,
+                                packageData: packageData,
+                                userData: userData,
+                              },
+                            ];
+                          });
+                          setLoading(false);
+                        }
+                      });
+                  });}
+              });
+            } else {
+              setLoading(false);
+            }
+          });
+          console.log(bookings);
+      }
+    
+
+     
+    
     
 
     return(
@@ -39,19 +82,24 @@ function Bookings(props){
             <h2>Your Bookings</h2>
             <h2>Your Bookings</h2>
           </div>
-        <div>
-         <Bookingcardd bookingId={bookings[0]}/>
+          {bookings.length==0 && 
+            (<div className="firstTrip">
+            <div className="firstTripDiv">
+                Book your first Trip<br></br>
+                <Link to="/categories"><Button className="bookingsButton">Book here</Button></Link>
+                </div>
+             </div>   
+                )
+            }
+        <div className="cardDiv1">
+        {!isLoading && bookings &&bookings.map((booking)=>{
+            <Bookingcardd />
+        })
+        }
+        <Bookingcardd />
         </div>
         
-        {!bookings &&
-        (<div className="firstTrip">
-        <div className="firstTripDiv">
-            Book your first Trip<br></br>
-            <Link to="/categories"><Button className="bookingsButton">Book here</Button></Link>
-            </div>
-         </div>   
-            )
-        }
+        
         <Footer/>
         </div>
     );

@@ -68,8 +68,10 @@ function App() {
               exact
               component={SingleCategory}
             />
+            
+
             <Route
-              path="/:userId/bookings"
+              path="/bookings/:userId"
               exact
               component={Bookings} />
             <Route
@@ -144,6 +146,11 @@ function App() {
               path="/admin/package/:packageType/:packageId/date"
               exact
               component={DateUpload}
+            />
+            <PrivateRoute
+              path="/admin/allbookings"
+              exact
+              component={AllBookings}
             />
             <PrivateRoute
               path="/admin/package/:packageType/:packageId/editdate"

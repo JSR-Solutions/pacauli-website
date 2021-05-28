@@ -102,7 +102,7 @@ function UserDashboard() {
                 <div className="user_buttons">
                   <Row>
                     <Col>
-                      <Link to={`/${userId}/bookings`}>
+                      <Link to={`/bookings/${userId}`}>
                         {" "}
                         <Button className="user_button">Bookings</Button>
                       </Link>
