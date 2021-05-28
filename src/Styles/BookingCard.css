@@ -1,5 +1,12 @@
 .h_bookingRow{
     height: 300px;
     width:900px;
-    
+
+}
+.h_cardDiv{
+    height:300px
+}
+.h_bookingCol{
+    height:300px;
+    color:black;
 }
