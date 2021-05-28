@@ -1,15 +1,18 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import {Row,Col} from "react-bootstrap";
-import "../Styles/BookingCard.css"
+import "../Styles/BookingCard.css";
+import firebase from "firebase";
 
-function BookingCard(props){
+const BookingCard=(props)=>{
+    
+    
+     
     return(
-        <div>
-        <Row ClassName="h_bookingRow">
-        <Col ClassName="h_bookingCol"></Col>
-        <Col ClassName="h_bookingCol"></Col>
+        <div className="h_cardDiv" >
+        <Row>
+        <Col ClassName="h_bookingCol"><h1>{props.bookingId}</h1></Col>
+        <Col ClassName="h_bookingCol"><h1>HEllo</h1></Col>
         </Row>
-        
         
         </div>
     );
