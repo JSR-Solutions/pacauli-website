@@ -108,7 +108,7 @@ function UserRegistration() {
                 className="auth-input"
                 type="text"
                 name="city"
-                placeholder="City"
+                placeholder="Address"
                 value={userDetails.city}
                 onChange={handleChange}
               />
