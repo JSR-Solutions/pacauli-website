@@ -74,6 +74,10 @@ function MyVerticallyCenteredModal(props) {
                 </Col>
                 <Col>
                   <p>
+                    <strong>Package Type :</strong>{" "}
+                    {props.selectedBooking.bookingData.pricingType}
+                  </p>
+                  <p>
                     <strong>Total Cost :</strong>{" "}
                     {props.selectedBooking.bookingData.totalCost}
                   </p>
