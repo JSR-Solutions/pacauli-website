@@ -135,6 +135,7 @@ const Payment = (props) => {
           })
           .then((docRef) => {
             const bookingId = docRef.id;
+            console.log('adsjkfashdjkfh DONE')
             db.collection("Bookings")
               .doc(docRef.id)
               .update({
@@ -198,10 +199,10 @@ const Payment = (props) => {
               description: "Thank You for shopping with us.",
               currency: "INR",
               order_id: data.id,
-              handler: async (response) => {
-                console.log('payment done', response.razorpay_payment_id)
+              handler: async (response) => {               
+                 await completeBooking(response.razorpay_payment_id);
+                console.log('payment done', response.razorpay_payment_id);
                 // processPayment(userId, token, response, data.amount);
-                completeBooking(response.razorpay_payment_id)
               },
               theme: {
                 color: "#f1bc19",
