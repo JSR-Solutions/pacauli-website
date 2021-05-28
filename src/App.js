@@ -172,7 +172,7 @@ function App() {
               component={ContactRequests}
             />
             <PrivateRoute path="/admin/getintouch" exact component={GetInTouch} />
-            <PrivateRoute path="/admin/bookings" exact component={AllBookings} />
+            <PrivateRoute path="/admin/allbookings" exact component={AllBookings} />
             <PrivateRoute
               path="/admin/package/:packageType/:packageId"
               exact

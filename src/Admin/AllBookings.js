@@ -1,19 +1,126 @@
 import React, { useState, useEffect } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Button, Card } from "react-bootstrap";
 import Sidebar from "./Sidebar";
 import "../Styles/AdminDashboard.css";
 import { DataGrid } from "@material-ui/data-grid";
 import firebase from "firebase";
 import "../Styles/CustomRequests.css";
+import Modal from "react-bootstrap/Modal";
+
+function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="xl"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      className="admin-booking-modal"
+    >
+      <Modal.Body>
+        <Card className="admin-booking-card">
+          <Row>
+            <Col lg={4}>
+              <img
+                src={props.selectedBooking.packageData.imageUrl}
+                alt={props.selectedBooking.packageData.name}
+              />
+            </Col>
+            <Col lg={8}>
+              <Row>
+                <Col>
+                  <p>
+                    <strong>Customer Name :</strong>{" "}
+                    {props.selectedBooking.userData.name}
+                  </p>
+                  <p>
+                    <strong>Phone Number :</strong>{" "}
+                    <a href={`tel:${props.selectedBooking.userData.phone}`}>
+                      {props.selectedBooking.userData.phone}
+                    </a>
+                  </p>
+                  <p>
+                    <strong>Email :</strong>{" "}
+                    <a href={`mailto:${props.selectedBooking.userData.email}`}>
+                      {props.selectedBooking.userData.email}
+                    </a>
+                  </p>
+                  <p>
+                    <strong>Address :</strong>{" "}
+                      {props.selectedBooking.userData.city}
+                  </p>
+                  <p>
+                    <strong>Package Category :</strong>{" "}
+                    {props.selectedBooking.bookingData.packageType}
+                  </p>
+                  <p>
+                    <strong>Package Name :</strong>{" "}
+                    {props.selectedBooking.packageData.name}
+                  </p>
+                  <p>
+                    <strong>Booking Date :</strong>{" "}
+                    {props.selectedBooking.bookingData.dateOfBooking.substring(
+                      4,
+                      props.selectedBooking.bookingData.dateOfBooking.length
+                    )}
+                  </p>
+                  <p>
+                    <strong>Travel Date :</strong>{" "}
+                    {props.selectedBooking.bookingData.bookingDate}
+                  </p>
+                  <p>
+                    <strong>Number Of Seats :</strong>{" "}
+                    {props.selectedBooking.bookingData.numberOfSeats}
+                  </p>
+                </Col>
+                <Col>
+                  <p>
+                    <strong>Total Cost :</strong>{" "}
+                    {props.selectedBooking.bookingData.totalCost}
+                  </p>
+                  <p>
+                    <strong>Total Paid :</strong>{" "}
+                    {props.selectedBooking.bookingData.totalPaid}
+                  </p>
+                  <p>
+                    <strong>Advance :</strong>{" "}
+                    {props.selectedBooking.bookingData.totalAdvance}
+                  </p>
+                  <p>
+                    <strong>GST Paid :</strong>{" "}
+                    {props.selectedBooking.bookingData.gst}
+                  </p>
+                  <p>
+                    <strong>Total Pending :</strong>{" "}
+                    {props.selectedBooking.bookingData.totalCost -
+                      props.selectedBooking.bookingData.totalAdvance} + GST @ 18%
+                  </p>
+                  <p>
+                    <strong>Booking ID :</strong>{" "}
+                    {props.selectedBooking.bookingData.bookingId}
+                  </p>
+                  <p>
+                    <strong>Transaction ID :</strong>{" "}
+                    {props.selectedBooking.bookingData.transactionId}
+                  </p>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Card>
+      </Modal.Body>
+    </Modal>
+  );
+}
 
 function AllBookings() {
   const [bookings, setBookings] = useState([]);
+  const [selectedBooking, setSelectedBooking] = useState();
+  const [modalShow, setModalShow] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     getEnquiries();
   }, []);
-
-  const [isLoading, setLoading] = useState(false);
 
   const columns = [
     { field: "id", headerName: "Booking ID", width: 225 },
@@ -104,9 +211,15 @@ function AllBookings() {
         booking.bookingData.totalCost - booking.bookingData.totalAdvance,
       bookingData: booking.bookingData,
       userData: booking.userData,
-      packageData: booking.packageDataF,
+      packageData: booking.packageData,
     };
   });
+
+  const showBooking = (row) => {
+    console.log(row.data);
+    setSelectedBooking(row.data);
+    setModalShow(true);
+  };
 
   return (
     <div>
@@ -126,7 +239,15 @@ function AllBookings() {
                 rows={rows}
                 columns={columns}
                 pageSize={10}
+                onRowSelected={showBooking}
               />
+              {selectedBooking && (
+                <MyVerticallyCenteredModal
+                  show={modalShow}
+                  selectedBooking={selectedBooking}
+                  onHide={() => setModalShow(false)}
+                />
+              )}
             </div>
           )}
         </Col>
