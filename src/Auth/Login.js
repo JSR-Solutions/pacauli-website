@@ -5,7 +5,7 @@ import firebase from "firebase";
 import { toast, ToastContainer } from "react-toastify";
 
 import logo from "../Assets/logo.png";
-import "./Loginnew.css";
+import "../Styles/Loginnew.css"; 
 
 function Login() {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -95,10 +95,10 @@ function Login() {
       <ToastContainer />
       {redirectRegistration ? <Redirect to="/user/register" /> : null}
       {redirectHome ? <Redirect to="/" /> : null}
-      <div className="section-log" id="contact">
-        <div className="form-container">
-          <img src={logo} className="form-img" alt="login" />
-          <form onSubmit={handleSignin} className="contact-form">
+      <div className="section-log-a" id="contact">
+        <div className="form-container-a">
+          <img src={logo} className="form-img-a" alt="login" />
+          <form onSubmit={handleSignin} className="contact-form-a">
             <h3>LOGIN</h3>
             <input
               type="email"
@@ -114,9 +114,9 @@ function Login() {
               value={credentials.password}
               onChange={handleChange}
             />
-            <p className="forgot">
+            {/* <p className="forgot">
               Forgot password? <Link to="/forgotpassword">Click Here</Link>{" "}
-            </p>
+            </p> */}
             <input type="submit" value="Login" />
             <p>
               New here? No issue, kindly <Link to="/signup">Register here</Link>
