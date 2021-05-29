@@ -13,7 +13,7 @@ import { BiMinus } from "react-icons/bi";
 import "../Styles/Payment.css";
 import Booked from "../Assets/booked.svg";
 import logo from "../Assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import firebase from "firebase";
 import { toast } from "react-toastify";
 
@@ -21,6 +21,8 @@ const Payment = (props) => {
   const [dateIndex, setDateIndex] = useState(0);
   const [typeIndex, setTypeIndex] = useState(0);
   const [donation, setDonation] = useState(0);
+  const [bookingId, setBookingId] = useState();
+  const [redirectToPdf, setRedirectToPdf] = useState(false);
   const [totalCost, setTotalCost] = React.useState(
     parseInt(props.pricing[typeIndex].cost)
   );
@@ -141,6 +143,7 @@ const Payment = (props) => {
           })
           .then((docRef) => {
             const bookingId = docRef.id;
+            setBookingId(docRef.id);
             console.log("adsjkfashdjkfh DONE");
             db.collection("Bookings")
               .doc(docRef.id)
@@ -169,6 +172,7 @@ const Payment = (props) => {
                         setDateIndex(0);
                         setTypeIndex(0);
                         setNumberOfSeats(1);
+                        setRedirectToPdf(true);
                         props.onHide();
                       });
                   });
@@ -242,6 +246,7 @@ const Payment = (props) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
+      {redirectToPdf && <Redirect to={`/pdf/${bookingId}`} />}
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           <div className="img-pay">
