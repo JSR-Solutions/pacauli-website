@@ -15,7 +15,7 @@ import CustomPackage from "./Core/CustomPackage";
 import ContactRequests from "./Admin/ContactRequests";
 import GetInTouch from "./Admin/GetInTouch";
 import EditUser from "./Auth/editUserDetails";
-import Bookings from "./Components/Bookings"
+import Bookings from "./Components/Bookings";
 
 import Aboutus from "./Core/Aboutus";
 
@@ -36,20 +36,20 @@ import SinglePackageReviews from "./Admin/SinglePackageReviews";
 import LoadingScreen from "./Components/LoadingScreen";
 
 //DiffSinglePackageScreens
-import Rock from './Components/SinglePackagesdiff/Rockclimb'
-import Skiing from './Components/SinglePackagesdiff/Sking'
-import Raft from './Components/SinglePackagesdiff/Rafting'
-import Camping from './Components/SinglePackagesdiff/Camping'
-import Snowboarding from './Components/SinglePackagesdiff/Snowboarding'
-import Cycling from './Components/SinglePackagesdiff/Cycling'
-import Biking from './Components/SinglePackagesdiff/Biking'
-import Expedition from './Components/SinglePackagesdiff/Expedition'
-import Spiritualtour from './Components/SinglePackagesdiff/Spiritualtour'
-import Trekking from './Components/SinglePackagesdiff/Trekking'
+import Rock from "./Components/SinglePackagesdiff/Rockclimb";
+import Skiing from "./Components/SinglePackagesdiff/Sking";
+import Raft from "./Components/SinglePackagesdiff/Rafting";
+import Camping from "./Components/SinglePackagesdiff/Camping";
+import Snowboarding from "./Components/SinglePackagesdiff/Snowboarding";
+import Cycling from "./Components/SinglePackagesdiff/Cycling";
+import Biking from "./Components/SinglePackagesdiff/Biking";
+import Expedition from "./Components/SinglePackagesdiff/Expedition";
+import Spiritualtour from "./Components/SinglePackagesdiff/Spiritualtour";
+import Trekking from "./Components/SinglePackagesdiff/Trekking";
 import AllBookings from "./Admin/AllBookings";
 
-import { AuthContextProvider } from './utils/auth-hook'
-
+import { AuthContextProvider } from "./utils/auth-hook";
+import MyDocument from "./Components/PDF/Pdf";
 
 function App() {
   return (
@@ -63,17 +63,14 @@ function App() {
             <Route path="/categories" exact component={Categroies} />
             <Route path="/aboutus" exact component={Aboutus} />
             <Route path="/custompackage" exact component={CustomPackage} />
+            <Route path="/pdf/:bookingId" exact component={MyDocument} />
             <Route
               path="/categories/:categoryName"
               exact
               component={SingleCategory}
             />
-            
 
-            <Route
-              path="/bookings/:userId"
-              exact
-              component={Bookings} />
+            <Route path="/bookings/:userId" exact component={Bookings} />
             <Route
               path="/packages/Cycling/:packageId"
               exact
@@ -99,11 +96,7 @@ function App() {
               exact
               component={Trekking}
             />
-            <Route
-              path="/packages/Rafting/:packageId"
-              exact
-              component={Raft}
-            />
+            <Route path="/packages/Rafting/:packageId" exact component={Raft} />
             <Route
               path="/packages/Camping/:packageId"
               exact
@@ -162,7 +155,11 @@ function App() {
               exact
               component={AllPackages}
             />
-            <PrivateRoute path="/admin/addpackage" exact component={AddPackage} />
+            <PrivateRoute
+              path="/admin/addpackage"
+              exact
+              component={AddPackage}
+            />
             <PrivateRoute
               path="/admin/customrequests"
               exact
@@ -178,8 +175,16 @@ function App() {
               exact
               component={ContactRequests}
             />
-            <PrivateRoute path="/admin/getintouch" exact component={GetInTouch} />
-            <PrivateRoute path="/admin/allbookings" exact component={AllBookings} />
+            <PrivateRoute
+              path="/admin/getintouch"
+              exact
+              component={GetInTouch}
+            />
+            <PrivateRoute
+              path="/admin/allbookings"
+              exact
+              component={AllBookings}
+            />
             <PrivateRoute
               path="/admin/package/:packageType/:packageId"
               exact
