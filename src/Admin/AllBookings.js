@@ -45,6 +45,14 @@ function MyVerticallyCenteredModal(props) {
                     </a>
                   </p>
                   <p>
+                    <strong>Age :</strong>{" "}
+                      {props.selectedBooking.userData.age}
+                  </p>
+                  <p>
+                    <strong>Gender :</strong>{" "}
+                      {props.selectedBooking.userData.gender}
+                  </p>
+                  <p>
                     <strong>Address :</strong>{" "}
                       {props.selectedBooking.userData.city}
                   </p>

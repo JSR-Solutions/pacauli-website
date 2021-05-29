@@ -12,6 +12,8 @@ function UserRegistration() {
     phone: "+91",
     city: "",
     email: "",
+    age: "",
+    gender: "",
   });
   const [profileImage, setProfileImage] = useState(null);
   const types = ["image/png", "image/jpeg", "image/jpg"];
@@ -66,6 +68,8 @@ function UserRegistration() {
                   city: userDetails.city,
                   email: userDetails.email,
                   imageUrl: imageUrl,
+                  age: userDetails.age,
+                  gender: userDetails.gender
                 })
                 .then(() => {
                   setRegistered(true);
@@ -92,6 +96,30 @@ function UserRegistration() {
                 value={userDetails.name}
                 onChange={handleChange}
               />
+            </Form.Group>
+            <Form.Group>
+              <Form.Control
+                className="auth-input"
+                type="text"
+                name="age"
+                placeholder="Age"
+                value={userDetails.age}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Control
+                onChange={handleChange}
+                className="auth-input"
+                as="select"
+                name="gender"
+                required
+                value={userDetails.gender}
+              >
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </Form.Control>
             </Form.Group>
             <Form.Group>
               <Form.Control
