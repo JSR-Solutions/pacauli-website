@@ -165,6 +165,19 @@
     padding-bottom: 50px;
     padding-top: 50px !important;
   }
+
+  .col-type1 {
+    text-align: left !important;
+  }
+  
+  .col-type2 {
+    text-align: right !important;
+  }
+  .col-col {
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+  }
 }
 
 @media screen and (max-width: 760px) {

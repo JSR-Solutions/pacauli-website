@@ -260,7 +260,7 @@ const Payment = (props) => {
                 md={{ span: 4, order: 1 }}
                 sm={{ span: 6, order: 1 }}
                 xs={{ span: 6, order: 1 }}
-                className="col-col dates"
+                className="col-col dates col-type1"
               >
                 Dates
               </Col>
@@ -270,7 +270,7 @@ const Payment = (props) => {
                 md={{ span: 4, order: 3 }}
                 sm={{ span: 6, order: 3 }}
                 xs={{ span: 6, order: 3 }}
-                className="col-col dates"
+                className="col-col dates col-type1"
               >
                 Package Type
               </Col>
@@ -280,7 +280,7 @@ const Payment = (props) => {
                 md={{ span: 4, order: 5 }}
                 sm={{ span: 6, order: 5 }}
                 xs={{ span: 6, order: 5 }}
-                className="col-col dates"
+                className="col-col dates col-type1"
               >
                 Number Of Seats
               </Col>
@@ -290,7 +290,7 @@ const Payment = (props) => {
                 md={{ span: 4, order: 2 }}
                 sm={{ span: 6, order: 2 }}
                 xs={{ span: 6, order: 2 }}
-                className="col-col dates"
+                className="col-col dates col-type2"
               >
                 <div className="dates-dropdown">
                   {props.seats && (
@@ -323,7 +323,7 @@ const Payment = (props) => {
                 md={{ span: 4, order: 4 }}
                 sm={{ span: 6, order: 4 }}
                 xs={{ span: 6, order: 4 }}
-                className="col-col dates"
+                className="col-col dates col-type2"
               >
                 <div className="pkgtype-dropdown">
                   <DropdownButton
@@ -352,7 +352,7 @@ const Payment = (props) => {
                 md={{ span: 4, order: 6 }}
                 sm={{ span: 6, order: 6 }}
                 xs={{ span: 6, order: 6 }}
-                className="col-col dates"
+                className="col-col dates col-type2"
               >
                 <div className="no-of-seats">
                   <Row>
@@ -461,7 +461,7 @@ const Payment = (props) => {
 
             <div className="total-cost">
               <Row>
-                <Col lg={8} className="total-col">
+                <Col lg={8} md={8} sm={8} xs={8} className="total-col">
                   <h5>Total Cost</h5>
                 </Col>
                 <Col className="total-col1">
@@ -469,7 +469,7 @@ const Payment = (props) => {
                 </Col>
               </Row>
               <Row>
-                <Col lg={8} className="total-col">
+                <Col lg={8} md={8} sm={8} xs={8} className="total-col">
                   <h5>Advance Payment</h5>
                 </Col>
                 <Col className="total-col1">
@@ -477,7 +477,7 @@ const Payment = (props) => {
                 </Col>
               </Row>
               <Row>
-                <Col lg={8} className="total-col">
+                <Col lg={8} md={8} sm={8} xs={8} className="total-col">
                   <h5>GST @ 18%</h5>
                 </Col>
                 <Col className="total-col1">
@@ -485,7 +485,7 @@ const Payment = (props) => {
                 </Col>
               </Row>
               <Row>
-                <Col lg={8} className="total-col">
+                <Col lg={8} md={8} sm={8} xs={8} className="total-col">
                   <h5>Donation for Cuddle The Himalayas Foundation</h5>
                 </Col>
                 <Col className="total-col1">
@@ -494,7 +494,7 @@ const Payment = (props) => {
               </Row>
               <hr className="line"></hr>
               <Row>
-                <Col lg={8} className="total-col">
+                <Col lg={8} md={8} sm={8} xs={8} className="total-col">
                   <h5>Total Payable At The Time Of Booking</h5>
                 </Col>
                 <Col className="total-col1">
