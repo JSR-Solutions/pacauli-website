@@ -6,6 +6,7 @@ import {
   Modal,
   Dropdown,
   DropdownButton,
+  Form,
 } from "react-bootstrap";
 import { BsPlus } from "react-icons/bs";
 import { BiMinus } from "react-icons/bi";
@@ -19,6 +20,7 @@ import { toast } from "react-toastify";
 const Payment = (props) => {
   const [dateIndex, setDateIndex] = useState(0);
   const [typeIndex, setTypeIndex] = useState(0);
+  const [donation, setDonation] = useState(0);
   const [totalCost, setTotalCost] = React.useState(
     parseInt(props.pricing[typeIndex].cost)
   );
@@ -27,12 +29,13 @@ const Payment = (props) => {
   );
   const [numberOfSeats, setNumberOfSeats] = useState(1);
   const [payableAmount, setPayableAmount] = React.useState(
-    1.18 * advancePayment
+    1.18 * advancePayment + parseInt(donation)
   );
   const [gst, setGst] = React.useState(0.18 * advancePayment);
   const [availability, setAvailability] = useState(false);
   const db = firebase.firestore();
   const auth = firebase.auth();
+  const [agreed, setAgreed] = useState(false);
 
   //Use effect function
   useEffect(() => {
@@ -45,7 +48,7 @@ const Payment = (props) => {
     if (numberOfSeats < props.seats[dateIndex].seats) {
       let value = numberOfSeats;
       value++;
-      resetValues(value, typeIndex);
+      resetValues(value, typeIndex, donation);
     }
   }
 
@@ -54,7 +57,7 @@ const Payment = (props) => {
     if (numberOfSeats > 1) {
       let value = numberOfSeats;
       value--;
-      resetValues(value, typeIndex);
+      resetValues(value, typeIndex, donation);
     }
   }
 
@@ -62,14 +65,14 @@ const Payment = (props) => {
   const handleDateChange = (event, index) => {
     event.preventDefault();
     setDateIndex(index);
-    resetValues(1, typeIndex);
+    resetValues(1, typeIndex, donation);
   };
 
   //Function to handle price type change
   const handlePricingChange = (event, index) => {
     event.preventDefault();
     setTypeIndex(index);
-    resetValues(1, index);
+    resetValues(1, index, donation);
   };
 
   //Function to check availability, if any
@@ -81,14 +84,14 @@ const Payment = (props) => {
           setAvailability(true);
           found = true;
           setDateIndex(index);
-          resetValues(1, typeIndex);
+          resetValues(1, typeIndex, donation);
         }
       }
     });
   };
 
   //Function to reset values
-  const resetValues = (numberOfSeats, typeIndex) => {
+  const resetValues = (numberOfSeats, typeIndex, donation) => {
     setNumberOfSeats(numberOfSeats);
     setTotalCost(() => {
       return numberOfSeats * parseInt(props.pricing[typeIndex].cost);
@@ -108,8 +111,9 @@ const Payment = (props) => {
     setPayableAmount(() => {
       return (
         numberOfSeats *
-        parseInt(props.pricing[typeIndex].receivableAmount) *
-        1.18
+          parseInt(props.pricing[typeIndex].receivableAmount) *
+          1.18 +
+        parseInt(donation)
       );
     });
   };
@@ -133,6 +137,7 @@ const Payment = (props) => {
             transactionId: transactionId,
             packageType: props.packageType,
             pricingType: props.pricing[typeIndex].type,
+            donation: parseInt(donation),
           })
           .then((docRef) => {
             const bookingId = docRef.id;
@@ -174,7 +179,7 @@ const Payment = (props) => {
   };
 
   const generateTokenRazor = (payableAmount) => {
-    return fetch(`http://localhost:8080/api/payment/details`, {
+    return fetch(`https://pacauli.herokuapp.com/api/payment/details`, {
       method: "Post",
       headers: {
         Accept: "application/json",
@@ -218,6 +223,16 @@ const Payment = (props) => {
     } else {
       toast.error("Please select package first !!!");
     }
+  };
+
+  const handleChange = (event) => {
+    console.log("updating state");
+    setAgreed((prev) => !prev);
+  };
+
+  const handleDonationChange = (event) => {
+    setDonation(event.target.value);
+    resetValues(numberOfSeats, typeIndex, event.target.value);
   };
 
   return (
@@ -362,9 +377,91 @@ const Payment = (props) => {
                 </div>
               </Col>
             </Row>
+            <div className="donation-div">
+              <h5>Contribute to Cuddle The Himalayas Foundation</h5>
+              <p>
+                Pacauli has funded and worked with Cuddle The Himalaya
+                Foundation. As it’s high time for people to get it that crushing
+                environment will devastate our presence. Together, we require to
+                assist nature in reorganizing the environment harmed by people.
+                Instead of searching for another home, we have to be work
+                together to keep planet conditions favorable for up-and-coming
+                eras by sparing the environment.
+              </p>
+              <p>
+                Working in fields of Afforestation, Positive Climate Change,
+                Mountains Cleanup Campaigns, Tree Plantation and Sustainable
+                development. This scale of work, projects requires some funding.
+                It would be great if you could help with a contribution How much
+                you would like to donate?
+              </p>
+              <Row>
+                <Col className="radio-col" xl={2} lg={2} md={4} sm={4} xs={4}>
+                  <input
+                    className="donation-radio-btn"
+                    onChange={handleDonationChange}
+                    type="radio"
+                    name="donation"
+                    value={0}
+                  />{" "}
+                  Rs. 0
+                </Col>
+                <Col className="radio-col" xl={2} lg={2} md={4} sm={4} xs={4}>
+                  <input
+                    className="donation-radio-btn"
+                    onChange={handleDonationChange}
+                    type="radio"
+                    name="donation"
+                    value={50}
+                  />{" "}
+                  Rs. 50
+                </Col>
+                <Col className="radio-col" xl={2} lg={2} md={4} sm={4} xs={4}>
+                  <input
+                    className="donation-radio-btn"
+                    onChange={handleDonationChange}
+                    type="radio"
+                    name="donation"
+                    value={100}
+                  />{" "}
+                  Rs. 100
+                </Col>
+                <Col className="radio-col" xl={2} lg={2} md={4} sm={4} xs={4}>
+                  <input
+                    className="donation-radio-btn"
+                    onChange={handleDonationChange}
+                    type="radio"
+                    name="donation"
+                    value={200}
+                  />{" "}
+                  Rs. 200
+                </Col>
+                <Col className="radio-col" xl={2} lg={2} md={4} sm={4} xs={4}>
+                  <input
+                    className="donation-radio-btn"
+                    onChange={handleDonationChange}
+                    type="radio"
+                    name="donation"
+                    value={400}
+                  />{" "}
+                  Rs. 400
+                </Col>
+                <Col className="radio-col" xl={2} lg={2} md={4} sm={4} xs={4}>
+                  <input
+                    className="donation-radio-btn"
+                    onChange={handleDonationChange}
+                    type="radio"
+                    name="donation"
+                    value={500}
+                  />{" "}
+                  Rs. 500
+                </Col>
+              </Row>
+            </div>
+
             <div className="total-cost">
               <Row>
-                <Col className="total-col">
+                <Col lg={8} className="total-col">
                   <h5>Total Cost</h5>
                 </Col>
                 <Col className="total-col1">
@@ -372,7 +469,7 @@ const Payment = (props) => {
                 </Col>
               </Row>
               <Row>
-                <Col className="total-col">
+                <Col lg={8} className="total-col">
                   <h5>Advance Payment</h5>
                 </Col>
                 <Col className="total-col1">
@@ -380,16 +477,24 @@ const Payment = (props) => {
                 </Col>
               </Row>
               <Row>
-                <Col className="total-col">
+                <Col lg={8} className="total-col">
                   <h5>GST @ 18%</h5>
                 </Col>
                 <Col className="total-col1">
                   <h5>{gst}</h5>
                 </Col>
               </Row>
+              <Row>
+                <Col lg={8} className="total-col">
+                  <h5>Donation for Cuddle The Himalayas Foundation</h5>
+                </Col>
+                <Col className="total-col1">
+                  <h5>{donation}</h5>
+                </Col>
+              </Row>
               <hr className="line"></hr>
               <Row>
-                <Col className="total-col">
+                <Col lg={8} className="total-col">
                   <h5>Total Payable At The Time Of Booking</h5>
                 </Col>
                 <Col className="total-col1">
@@ -397,6 +502,14 @@ const Payment = (props) => {
                 </Col>
               </Row>
             </div>
+            <Form.Group controlId="formBasicCheckbox">
+              <Form.Check
+                checked={agreed}
+                onChange={handleChange}
+                type="checkbox"
+                label="By clicking on this, you agree to all the Terms & Conditions."
+              />
+            </Form.Group>
             {/* <div className="payment-btn">
             <Button onClick={handleBooking} className="btn-payment">
               Pay
@@ -421,7 +534,11 @@ const Payment = (props) => {
       </Modal.Body>
       <Modal.Footer>
         {availability && (
-          <Button onClick={paymentHandler} className="btn-payment">
+          <Button
+            disabled={!agreed}
+            onClick={paymentHandler}
+            className="btn-payment"
+          >
             Pay
           </Button>
         )}
