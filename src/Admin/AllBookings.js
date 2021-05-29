@@ -90,6 +90,10 @@ function MyVerticallyCenteredModal(props) {
                     {props.selectedBooking.bookingData.totalAdvance}
                   </p>
                   <p>
+                    <strong>Donation :</strong>{" "}
+                    {props.selectedBooking.bookingData.donation}
+                  </p>
+                  <p>
                     <strong>GST Paid :</strong>{" "}
                     {props.selectedBooking.bookingData.gst}
                   </p>
