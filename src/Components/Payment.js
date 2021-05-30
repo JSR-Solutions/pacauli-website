@@ -16,6 +16,8 @@ import logo from "../Assets/logo.png";
 import { Link, Redirect } from "react-router-dom";
 import firebase from "firebase";
 import { toast } from "react-toastify";
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
 
 const Payment = (props) => {
   const [dateIndex, setDateIndex] = useState(0);
@@ -38,6 +40,497 @@ const Payment = (props) => {
   const db = firebase.firestore();
   const auth = firebase.auth();
   const [agreed, setAgreed] = useState(false);
+
+  pdfMake.vfs = pdfFonts.pdfMake.vfs;
+  const createPdf = (booking) => {
+    console.log("Creating pdf");
+    toDataURL(logo, function (dataUrl) {
+      var docDefinition = {
+        content: [
+          {
+            image: dataUrl,
+            width: 120,
+            alignment: "center",
+            margin: [5, 0, 5, 30],
+          },
+          {
+            columns: [
+              {
+                // auto-sized columns have their widths based on their content
+                width: "*",
+                text: "INVOICE",
+                fontSize: 36,
+                color: "#29bb89",
+                bold: true,
+              },
+              {
+                // star-sized columns fill the remaining space
+                // if there's more than one star-column, available width is divided equally
+                width: "*",
+                stack: [
+                  {
+                    columns: [
+                      { width: "*", text: "Booking Date :", fontSize: 10 },
+                      {
+                        width: "*",
+                        fontSize: 10,
+                        text: booking.bookingData.dateOfBooking.substring(
+                          4,
+                          booking.bookingData.dateOfBooking.length
+                        ),
+                      },
+                    ],
+                  },
+                  {
+                    columns: [
+                      { width: "*", text: "Booking ID :", fontSize: 10 },
+                      {
+                        width: "*",
+                        text: booking.bookingData.bookingId,
+                        fontSize: 10,
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+            margin: [0, 10],
+          },
+          {
+            columns: [
+              {
+                // star-sized columns fill the remaining space
+                // if there's more than one star-column, available width is divided equally
+                width: "*",
+                stack: [
+                  {
+                    text: booking.userData.name,
+                    fontSize: 24,
+                    bold: true,
+                    margin: [0, 0, 0, 10],
+                  },
+                  {
+                    columns: [
+                      { width: "auto", text: "Phone : " },
+                      {
+                        width: "*",
+                        text: booking.userData.phone,
+                        margin: [4, 0, 0, 0],
+                      },
+                    ],
+                  },
+                  {
+                    columns: [
+                      { width: "auto", text: "Address : " },
+                      {
+                        width: "*",
+                        text: booking.userData.city,
+                        margin: [4, 0, 0, 0],
+                      },
+                    ],
+                  },
+                  {
+                    columns: [
+                      { width: "auto", text: "Email : " },
+                      {
+                        width: "*",
+                        text: booking.userData.email,
+                        margin: [4, 0, 0, 0],
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                // star-sized columns fill the remaining space
+                // if there's more than one star-column, available width is divided equally
+                width: "*",
+                stack: [
+                  {
+                    text: "Booking Details",
+                    fontSize: 20,
+                    bold: true,
+                  },
+                  {
+                    text: "----------------------------------------------------------------------------",
+                    margin: [0, 0, 0, 14],
+                  },
+                  {
+                    columns: [
+                      { width: "*", text: "Travel Date :" },
+                      { width: "*", text: booking.bookingData.bookingDate },
+                    ],
+                  },
+                  {
+                    columns: [
+                      { width: "*", text: "Transaction ID :" },
+                      { width: "*", text: booking.bookingData.transactionId },
+                    ],
+                  },
+                ],
+              },
+            ],
+            margin: [0, 10],
+          },
+          {
+            stack: [
+              {
+                columns: [
+                  {
+                    columns: [
+                      {
+                        width: "*",
+                        text: "Package Name",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                      {
+                        width: "*",
+                        text: "Package Type",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                      {
+                        width: "*",
+                        text: "Number Of Seats",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                      {
+                        width: "*",
+                        text: "Cost Per Seat",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                      {
+                        width: "*",
+                        text: "Advance Per Seat",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                      {
+                        width: "*",
+                        text: "Total Advance",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "-----------------------------------------------------------------------------------------------------------------------------------------------------------",
+              },
+              {
+                columns: [
+                  {
+                    columns: [
+                      {
+                        width: "*",
+                        text: booking.packageData.name,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: booking.bookingData.pricingType,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: booking.bookingData.numberOfSeats,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text:
+                          booking.bookingData.totalCost /
+                          booking.bookingData.numberOfSeats,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text:
+                          booking.bookingData.totalAdvance /
+                          booking.bookingData.numberOfSeats,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: booking.bookingData.totalAdvance,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                    ],
+                  },
+                ],
+                margin: [0, 10],
+              },
+              {
+                text: "-----------------------------------------------------------------------------------------------------------------------------------------------------------",
+              },
+              {
+                columns: [
+                  {
+                    columns: [
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "Total Advance",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: `Rs. ${booking.bookingData.totalAdvance}`,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                    ],
+                  },
+                ],
+                margin: [0, 0],
+              },
+              {
+                columns: [
+                  {
+                    columns: [
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "Total GST",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: `Rs. ${booking.bookingData.gst}`,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                    ],
+                  },
+                ],
+                margin: [0, 0],
+              },
+              {
+                columns: [
+                  {
+                    columns: [
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "Donation",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: `Rs. ${booking.bookingData.donation}`,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                    ],
+                  },
+                ],
+                margin: [0, 0],
+              },
+              {
+                text: "----------------------------------------------------",
+                margin: [340, 0, 0, 0],
+              },
+              {
+                columns: [
+                  {
+                    columns: [
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "Total Paid",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                      {
+                        width: "*",
+                        text: `Rs. ${booking.bookingData.totalPaid}`,
+                        fontSize: 12,
+                        bold: true,
+                      },
+                    ],
+                  },
+                ],
+                margin: [0, 0],
+              },
+              {
+                columns: [
+                  {
+                    columns: [
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "Total Pending",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                      {
+                        width: "*",
+                        text: `Rs. ${
+                          booking.bookingData.totalCost -
+                          booking.bookingData.totalAdvance
+                        } + GST @18%`,
+                        fontSize: 12,
+                        bold: 28000,
+                      },
+                    ],
+                  },
+                ],
+                margin: [0, 0],
+              },
+              {
+                text: "----------------------------------------------------",
+                margin: [340, 0, 0, 0],
+              },
+            ],
+            margin: [0, 30, 0, 0],
+          },
+        ],
+      };
+      pdfMake.createPdf(docDefinition).download();
+    });
+  };
+
+  function toDataURL(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        callback(reader.result);
+      };
+      reader.readAsDataURL(xhr.response);
+    };
+    xhr.open("GET", url);
+    xhr.responseType = "blob";
+    xhr.send();
+  }
 
   //Use effect function
   useEffect(() => {
@@ -151,6 +644,22 @@ const Payment = (props) => {
                 bookingId: docRef.id,
               })
               .then(() => {
+                const bookingData = {
+                  packageId: props.packageId,
+                  userId: uid,
+                  bookingDate: props.seats[dateIndex].sDate,
+                  numberOfSeats: numberOfSeats,
+                  totalCost: totalCost,
+                  totalPaid: payableAmount,
+                  totalAdvance: advancePayment,
+                  gst: gst,
+                  dateOfBooking: new Date().toDateString(),
+                  transactionId: transactionId,
+                  packageType: props.packageType,
+                  pricingType: props.pricing[typeIndex].type,
+                  donation: parseInt(donation),
+                  bookingId: docRef.id,
+                };
                 const s = [...props.seats];
                 s[dateIndex].seats = s[dateIndex].seats - numberOfSeats;
                 db.collection(props.packageType)
@@ -169,11 +678,32 @@ const Payment = (props) => {
                       })
                       .then(() => {
                         toast.success("Booking done!");
-                        setDateIndex(0);
-                        setTypeIndex(0);
-                        setNumberOfSeats(1);
-                        setRedirectToPdf(true);
-                        props.onHide();
+                        db.collection("Users")
+                          .doc(uid)
+                          .get()
+                          .then((user) => {
+                            if (user.data()) {
+                              const userData = user.data();
+                              db.collection(props.packageType)
+                                .doc(props.packageId)
+                                .get()
+                                .then((packagedata) => {
+                                  if (packagedata.data()) {
+                                    const packageData = packagedata.data();
+                                    setDateIndex(0);
+                                    setTypeIndex(0);
+                                    setNumberOfSeats(1);
+                                    setAgreed(false);
+                                    createPdf({
+                                      bookingData: bookingData,
+                                      packageData: packageData,
+                                      userData: userData,
+                                    });
+                                    props.onHide();
+                                  }
+                                });
+                            }
+                          });
                       });
                   });
               });
@@ -246,7 +776,6 @@ const Payment = (props) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      {redirectToPdf && <Redirect to={`/pdf/${bookingId}`} />}
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           <div className="img-pay">
