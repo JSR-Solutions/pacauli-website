@@ -109,6 +109,9 @@ function Bookings(props){
             noOfSeats={booking.bookingData.numberOfSeats}
             transId={booking.bookingData.transactionId}
             packImg={booking.packageData.imageUrl}
+            packageId={booking.packageData.packageId}
+            packageType={booking.packageData.packageType}
+            booking={booking}
             />)
         })
         }
