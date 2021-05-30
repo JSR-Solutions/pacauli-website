@@ -17,6 +17,7 @@
     "formik": "^2.2.6",
     "jquery": "^3.6.0",
     "moment": "^2.29.1",
+    "pdfmake": "^0.1.71",
     "popper.js": "^1.16.1",
     "react": "^17.0.1",
     "react-alice-carousel": "^2.4.0",
