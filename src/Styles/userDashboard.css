@@ -159,12 +159,17 @@
     justify-content: center;
   }
   .user_image{
-      width:220px;
-      height:220px;
-      border-radius: 110px;
-      margin-top: 65px;
+      width:240px;
+      height:240px;
+      border-radius: 120px;
+      margin-top: 110px;
      
       
+    }
+    .edit_div{
+      position: relative;
+      margin-right: 0;
+
     }
     .user_buttons1{
         display: none;
@@ -214,6 +219,16 @@
   .contact-form345 {
     background-color: var(--primary);
     position: relative;
+    text-align: right;
+   
+  }
+  .edit_div_button{
+    margin-top: 5px;
+    margin-right: 5px;
+    background-color: white;
+    padding-bottom: 4px;
+    border-radius: 4px;
+    border:1px;
   }
   
   .circle {
