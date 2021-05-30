@@ -1,5 +1,43 @@
 .h_bookingRow{
-    height: 300px;
-    width:900px;
+    height:350px;
+    border-radius:10px!important;
+    margin-bottom: 50px ;
+
+}
+.h_cardDivv{
+    height:350px;
+    width: 100%;
+    margin-bottom:50px ;
+}
+
+.h_bookingCol{
+    height:350px!important;
+    color:black;
+    padding-left: 0!important;
+    padding-right: 0!important;
+    border-radius:0 10px 10px 0!important;
+    background-color: rgb(201, 201, 201);
     
+}
+.h_bookingCol h2{
+    margin-top: 20px;
+    font-weight: 600;
+    color: rgb(49, 48, 48);
+}
+.packImg{
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px 0 0 10px;
+}
+.h_bookingdetail{
+    padding-left: 30px!important;
+    text-align: left!important;
+    padding-right: 0!important;
+    line-height: 17px;
+}
+.h_bookingdetail p{
+    font-size: 18px;
+
 }

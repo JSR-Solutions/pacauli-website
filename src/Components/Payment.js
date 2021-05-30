@@ -6,19 +6,25 @@ import {
   Modal,
   Dropdown,
   DropdownButton,
+  Form,
 } from "react-bootstrap";
 import { BsPlus } from "react-icons/bs";
 import { BiMinus } from "react-icons/bi";
 import "../Styles/Payment.css";
 import Booked from "../Assets/booked.svg";
 import logo from "../Assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import firebase from "firebase";
 import { toast } from "react-toastify";
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
 
 const Payment = (props) => {
   const [dateIndex, setDateIndex] = useState(0);
   const [typeIndex, setTypeIndex] = useState(0);
+  const [donation, setDonation] = useState(0);
+  const [bookingId, setBookingId] = useState();
+  const [redirectToPdf, setRedirectToPdf] = useState(false);
   const [totalCost, setTotalCost] = React.useState(
     parseInt(props.pricing[typeIndex].cost)
   );
@@ -27,12 +33,504 @@ const Payment = (props) => {
   );
   const [numberOfSeats, setNumberOfSeats] = useState(1);
   const [payableAmount, setPayableAmount] = React.useState(
-    1.18 * advancePayment
+    1.18 * advancePayment + parseInt(donation)
   );
   const [gst, setGst] = React.useState(0.18 * advancePayment);
   const [availability, setAvailability] = useState(false);
   const db = firebase.firestore();
   const auth = firebase.auth();
+  const [agreed, setAgreed] = useState(false);
+
+  pdfMake.vfs = pdfFonts.pdfMake.vfs;
+  const createPdf = (booking) => {
+    console.log("Creating pdf");
+    toDataURL(logo, function (dataUrl) {
+      var docDefinition = {
+        content: [
+          {
+            image: dataUrl,
+            width: 120,
+            alignment: "center",
+            margin: [5, 0, 5, 30],
+          },
+          {
+            columns: [
+              {
+                // auto-sized columns have their widths based on their content
+                width: "*",
+                text: "INVOICE",
+                fontSize: 36,
+                color: "#29bb89",
+                bold: true,
+              },
+              {
+                // star-sized columns fill the remaining space
+                // if there's more than one star-column, available width is divided equally
+                width: "*",
+                stack: [
+                  {
+                    columns: [
+                      { width: "*", text: "Booking Date :", fontSize: 10 },
+                      {
+                        width: "*",
+                        fontSize: 10,
+                        text: booking.bookingData.dateOfBooking.substring(
+                          4,
+                          booking.bookingData.dateOfBooking.length
+                        ),
+                      },
+                    ],
+                  },
+                  {
+                    columns: [
+                      { width: "*", text: "Booking ID :", fontSize: 10 },
+                      {
+                        width: "*",
+                        text: booking.bookingData.bookingId,
+                        fontSize: 10,
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+            margin: [0, 10],
+          },
+          {
+            columns: [
+              {
+                // star-sized columns fill the remaining space
+                // if there's more than one star-column, available width is divided equally
+                width: "*",
+                stack: [
+                  {
+                    text: booking.userData.name,
+                    fontSize: 24,
+                    bold: true,
+                    margin: [0, 0, 0, 10],
+                  },
+                  {
+                    columns: [
+                      { width: "auto", text: "Phone : " },
+                      {
+                        width: "*",
+                        text: booking.userData.phone,
+                        margin: [4, 0, 0, 0],
+                      },
+                    ],
+                  },
+                  {
+                    columns: [
+                      { width: "auto", text: "Address : " },
+                      {
+                        width: "*",
+                        text: booking.userData.city,
+                        margin: [4, 0, 0, 0],
+                      },
+                    ],
+                  },
+                  {
+                    columns: [
+                      { width: "auto", text: "Email : " },
+                      {
+                        width: "*",
+                        text: booking.userData.email,
+                        margin: [4, 0, 0, 0],
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                // star-sized columns fill the remaining space
+                // if there's more than one star-column, available width is divided equally
+                width: "*",
+                stack: [
+                  {
+                    text: "Booking Details",
+                    fontSize: 20,
+                    bold: true,
+                  },
+                  {
+                    text: "----------------------------------------------------------------------------",
+                    margin: [0, 0, 0, 14],
+                  },
+                  {
+                    columns: [
+                      { width: "*", text: "Travel Date :" },
+                      { width: "*", text: booking.bookingData.bookingDate },
+                    ],
+                  },
+                  {
+                    columns: [
+                      { width: "*", text: "Transaction ID :" },
+                      { width: "*", text: booking.bookingData.transactionId },
+                    ],
+                  },
+                ],
+              },
+            ],
+            margin: [0, 10],
+          },
+          {
+            stack: [
+              {
+                columns: [
+                  {
+                    columns: [
+                      {
+                        width: "*",
+                        text: "Package Name",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                      {
+                        width: "*",
+                        text: "Package Type",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                      {
+                        width: "*",
+                        text: "Number Of Seats",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                      {
+                        width: "*",
+                        text: "Cost Per Seat",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                      {
+                        width: "*",
+                        text: "Advance Per Seat",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                      {
+                        width: "*",
+                        text: "Total Advance",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "-----------------------------------------------------------------------------------------------------------------------------------------------------------",
+              },
+              {
+                columns: [
+                  {
+                    columns: [
+                      {
+                        width: "*",
+                        text: booking.packageData.name,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: booking.bookingData.pricingType,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: booking.bookingData.numberOfSeats,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text:
+                          booking.bookingData.totalCost /
+                          booking.bookingData.numberOfSeats,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text:
+                          booking.bookingData.totalAdvance /
+                          booking.bookingData.numberOfSeats,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: booking.bookingData.totalAdvance,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                    ],
+                  },
+                ],
+                margin: [0, 10],
+              },
+              {
+                text: "-----------------------------------------------------------------------------------------------------------------------------------------------------------",
+              },
+              {
+                columns: [
+                  {
+                    columns: [
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "Total Advance",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: `Rs. ${booking.bookingData.totalAdvance}`,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                    ],
+                  },
+                ],
+                margin: [0, 0],
+              },
+              {
+                columns: [
+                  {
+                    columns: [
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "Total GST",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: `Rs. ${booking.bookingData.gst}`,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                    ],
+                  },
+                ],
+                margin: [0, 0],
+              },
+              {
+                columns: [
+                  {
+                    columns: [
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "Donation",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: `Rs. ${booking.bookingData.donation}`,
+                        fontSize: 10,
+                        bold: false,
+                      },
+                    ],
+                  },
+                ],
+                margin: [0, 0],
+              },
+              {
+                text: "----------------------------------------------------",
+                margin: [340, 0, 0, 0],
+              },
+              {
+                columns: [
+                  {
+                    columns: [
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "Total Paid",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                      {
+                        width: "*",
+                        text: `Rs. ${booking.bookingData.totalPaid}`,
+                        fontSize: 12,
+                        bold: true,
+                      },
+                    ],
+                  },
+                ],
+                margin: [0, 0],
+              },
+              {
+                columns: [
+                  {
+                    columns: [
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "",
+                        fontSize: 10,
+                        bold: false,
+                      },
+                      {
+                        width: "*",
+                        text: "Total Pending",
+                        fontSize: 12,
+                        bold: true,
+                      },
+                      {
+                        width: "*",
+                        text: `Rs. ${
+                          booking.bookingData.totalCost -
+                          booking.bookingData.totalAdvance
+                        } + GST @18%`,
+                        fontSize: 12,
+                        bold: 28000,
+                      },
+                    ],
+                  },
+                ],
+                margin: [0, 0],
+              },
+              {
+                text: "----------------------------------------------------",
+                margin: [340, 0, 0, 0],
+              },
+            ],
+            margin: [0, 30, 0, 0],
+          },
+        ],
+      };
+      pdfMake.createPdf(docDefinition).download();
+    });
+  };
+
+  function toDataURL(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        callback(reader.result);
+      };
+      reader.readAsDataURL(xhr.response);
+    };
+    xhr.open("GET", url);
+    xhr.responseType = "blob";
+    xhr.send();
+  }
 
   //Use effect function
   useEffect(() => {
@@ -45,7 +543,7 @@ const Payment = (props) => {
     if (numberOfSeats < props.seats[dateIndex].seats) {
       let value = numberOfSeats;
       value++;
-      resetValues(value, typeIndex);
+      resetValues(value, typeIndex, donation);
     }
   }
 
@@ -54,7 +552,7 @@ const Payment = (props) => {
     if (numberOfSeats > 1) {
       let value = numberOfSeats;
       value--;
-      resetValues(value, typeIndex);
+      resetValues(value, typeIndex, donation);
     }
   }
 
@@ -62,14 +560,14 @@ const Payment = (props) => {
   const handleDateChange = (event, index) => {
     event.preventDefault();
     setDateIndex(index);
-    resetValues(1, typeIndex);
+    resetValues(1, typeIndex, donation);
   };
 
   //Function to handle price type change
   const handlePricingChange = (event, index) => {
     event.preventDefault();
     setTypeIndex(index);
-    resetValues(1, index);
+    resetValues(1, index, donation);
   };
 
   //Function to check availability, if any
@@ -81,14 +579,14 @@ const Payment = (props) => {
           setAvailability(true);
           found = true;
           setDateIndex(index);
-          resetValues(1, typeIndex);
+          resetValues(1, typeIndex, donation);
         }
       }
     });
   };
 
   //Function to reset values
-  const resetValues = (numberOfSeats, typeIndex) => {
+  const resetValues = (numberOfSeats, typeIndex, donation) => {
     setNumberOfSeats(numberOfSeats);
     setTotalCost(() => {
       return numberOfSeats * parseInt(props.pricing[typeIndex].cost);
@@ -108,8 +606,9 @@ const Payment = (props) => {
     setPayableAmount(() => {
       return (
         numberOfSeats *
-        parseInt(props.pricing[typeIndex].receivableAmount) *
-        1.18
+          parseInt(props.pricing[typeIndex].receivableAmount) *
+          1.18 +
+        parseInt(donation)
       );
     });
   };
@@ -132,15 +631,35 @@ const Payment = (props) => {
             dateOfBooking: new Date().toDateString(),
             transactionId: transactionId,
             packageType: props.packageType,
+            pricingType: props.pricing[typeIndex].type,
+            donation: parseInt(donation),
           })
           .then((docRef) => {
             const bookingId = docRef.id;
+            setBookingId(docRef.id);
+            console.log("adsjkfashdjkfh DONE");
             db.collection("Bookings")
               .doc(docRef.id)
               .update({
                 bookingId: docRef.id,
               })
               .then(() => {
+                const bookingData = {
+                  packageId: props.packageId,
+                  userId: uid,
+                  bookingDate: props.seats[dateIndex].sDate,
+                  numberOfSeats: numberOfSeats,
+                  totalCost: totalCost,
+                  totalPaid: payableAmount,
+                  totalAdvance: advancePayment,
+                  gst: gst,
+                  dateOfBooking: new Date().toDateString(),
+                  transactionId: transactionId,
+                  packageType: props.packageType,
+                  pricingType: props.pricing[typeIndex].type,
+                  donation: parseInt(donation),
+                  bookingId: docRef.id,
+                };
                 const s = [...props.seats];
                 s[dateIndex].seats = s[dateIndex].seats - numberOfSeats;
                 db.collection(props.packageType)
@@ -159,10 +678,32 @@ const Payment = (props) => {
                       })
                       .then(() => {
                         toast.success("Booking done!");
-                        setDateIndex(0);
-                        setTypeIndex(0);
-                        setNumberOfSeats(1);
-                        props.onHide();
+                        db.collection("Users")
+                          .doc(uid)
+                          .get()
+                          .then((user) => {
+                            if (user.data()) {
+                              const userData = user.data();
+                              db.collection(props.packageType)
+                                .doc(props.packageId)
+                                .get()
+                                .then((packagedata) => {
+                                  if (packagedata.data()) {
+                                    const packageData = packagedata.data();
+                                    setDateIndex(0);
+                                    setTypeIndex(0);
+                                    setNumberOfSeats(1);
+                                    setAgreed(false);
+                                    createPdf({
+                                      bookingData: bookingData,
+                                      packageData: packageData,
+                                      userData: userData,
+                                    });
+                                    props.onHide();
+                                  }
+                                });
+                            }
+                          });
                       });
                   });
               });
@@ -171,54 +712,62 @@ const Payment = (props) => {
     });
   };
 
-
   const generateTokenRazor = (payableAmount) => {
-    return fetch(`http://localhost:8080/api/payment/details`, {
-      method: 'Post',
+    return fetch(`https://pacauli.herokuapp.com/api/payment/details`, {
+      method: "Post",
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ amount: payableAmount })
-    }).then(response => {
-      return response.json();
-    }).catch(err => {
-      console.log(err);
+      body: JSON.stringify({ amount: payableAmount }),
     })
-  }
+      .then((response) => {
+        return response.json();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const paymentHandler = async () => {
     if (payableAmount) {
       const getToken = (payableAmount) => {
-        generateTokenRazor(payableAmount)
-          .then(data => {
-            const options = {
-              key: "rzp_test_LaNsBNnS3xzG7o",
-              name: "MusafirRana",
-              description: "Thank You for shopping with us.",
-              currency: "INR",
-              order_id: data.id,
-              handler: async (response) => {
-                console.log('payment done', response.razorpay_payment_id)
-                // processPayment(userId, token, response, data.amount);
-                completeBooking(response.razorpay_payment_id)
-              },
-              theme: {
-                color: "#f1bc19",
-              }
-            };
-            const rzp1 = new window.Razorpay(options);
-            rzp1.open();
-          })
-      }
+        generateTokenRazor(payableAmount).then((data) => {
+          const options = {
+            key: "rzp_test_LaNsBNnS3xzG7o",
+            name: "PacAuli",
+            description: "Thank You for shopping with us.",
+            currency: "INR",
+            order_id: data.id,
+            handler: async (response) => {
+              await completeBooking(response.razorpay_payment_id);
+              console.log("payment done", response.razorpay_payment_id);
+              // processPayment(userId, token, response, data.amount);
+            },
+            theme: {
+              color: "#f1bc19",
+            },
+          };
+          const rzp1 = new window.Razorpay(options);
+          rzp1.open();
+        });
+      };
 
-      await getToken(payableAmount)
-
+      await getToken(payableAmount);
     } else {
-      toast.error('Please select package first !!!')
+      toast.error("Please select package first !!!");
     }
-  }
+  };
 
+  const handleChange = (event) => {
+    console.log("updating state");
+    setAgreed((prev) => !prev);
+  };
+
+  const handleDonationChange = (event) => {
+    setDonation(event.target.value);
+    resetValues(numberOfSeats, typeIndex, event.target.value);
+  };
 
   return (
     <Modal
@@ -245,7 +794,7 @@ const Payment = (props) => {
                 md={{ span: 4, order: 1 }}
                 sm={{ span: 6, order: 1 }}
                 xs={{ span: 6, order: 1 }}
-                className="col-col dates"
+                className="col-col dates col-type1"
               >
                 Dates
               </Col>
@@ -255,7 +804,7 @@ const Payment = (props) => {
                 md={{ span: 4, order: 3 }}
                 sm={{ span: 6, order: 3 }}
                 xs={{ span: 6, order: 3 }}
-                className="col-col dates"
+                className="col-col dates col-type1"
               >
                 Package Type
               </Col>
@@ -265,7 +814,7 @@ const Payment = (props) => {
                 md={{ span: 4, order: 5 }}
                 sm={{ span: 6, order: 5 }}
                 xs={{ span: 6, order: 5 }}
-                className="col-col dates"
+                className="col-col dates col-type1"
               >
                 Number Of Seats
               </Col>
@@ -275,7 +824,7 @@ const Payment = (props) => {
                 md={{ span: 4, order: 2 }}
                 sm={{ span: 6, order: 2 }}
                 xs={{ span: 6, order: 2 }}
-                className="col-col dates"
+                className="col-col dates col-type2"
               >
                 <div className="dates-dropdown">
                   {props.seats && (
@@ -308,7 +857,7 @@ const Payment = (props) => {
                 md={{ span: 4, order: 4 }}
                 sm={{ span: 6, order: 4 }}
                 xs={{ span: 6, order: 4 }}
-                className="col-col dates"
+                className="col-col dates col-type2"
               >
                 <div className="pkgtype-dropdown">
                   <DropdownButton
@@ -337,7 +886,7 @@ const Payment = (props) => {
                 md={{ span: 4, order: 6 }}
                 sm={{ span: 6, order: 6 }}
                 xs={{ span: 6, order: 6 }}
-                className="col-col dates"
+                className="col-col dates col-type2"
               >
                 <div className="no-of-seats">
                   <Row>
@@ -362,9 +911,91 @@ const Payment = (props) => {
                 </div>
               </Col>
             </Row>
+            <div className="donation-div">
+              <h5>Contribute to Cuddle The Himalayas Foundation</h5>
+              <p>
+                Pacauli has funded and worked with Cuddle The Himalaya
+                Foundation. As it’s high time for people to get it that crushing
+                environment will devastate our presence. Together, we require to
+                assist nature in reorganizing the environment harmed by people.
+                Instead of searching for another home, we have to be work
+                together to keep planet conditions favorable for up-and-coming
+                eras by sparing the environment.
+              </p>
+              <p>
+                Working in fields of Afforestation, Positive Climate Change,
+                Mountains Cleanup Campaigns, Tree Plantation and Sustainable
+                development. This scale of work, projects requires some funding.
+                It would be great if you could help with a contribution How much
+                you would like to donate?
+              </p>
+              <Row>
+                <Col className="radio-col" xl={2} lg={2} md={4} sm={4} xs={4}>
+                  <input
+                    className="donation-radio-btn"
+                    onChange={handleDonationChange}
+                    type="radio"
+                    name="donation"
+                    value={0}
+                  />{" "}
+                  Rs. 0
+                </Col>
+                <Col className="radio-col" xl={2} lg={2} md={4} sm={4} xs={4}>
+                  <input
+                    className="donation-radio-btn"
+                    onChange={handleDonationChange}
+                    type="radio"
+                    name="donation"
+                    value={50}
+                  />{" "}
+                  Rs. 50
+                </Col>
+                <Col className="radio-col" xl={2} lg={2} md={4} sm={4} xs={4}>
+                  <input
+                    className="donation-radio-btn"
+                    onChange={handleDonationChange}
+                    type="radio"
+                    name="donation"
+                    value={100}
+                  />{" "}
+                  Rs. 100
+                </Col>
+                <Col className="radio-col" xl={2} lg={2} md={4} sm={4} xs={4}>
+                  <input
+                    className="donation-radio-btn"
+                    onChange={handleDonationChange}
+                    type="radio"
+                    name="donation"
+                    value={200}
+                  />{" "}
+                  Rs. 200
+                </Col>
+                <Col className="radio-col" xl={2} lg={2} md={4} sm={4} xs={4}>
+                  <input
+                    className="donation-radio-btn"
+                    onChange={handleDonationChange}
+                    type="radio"
+                    name="donation"
+                    value={400}
+                  />{" "}
+                  Rs. 400
+                </Col>
+                <Col className="radio-col" xl={2} lg={2} md={4} sm={4} xs={4}>
+                  <input
+                    className="donation-radio-btn"
+                    onChange={handleDonationChange}
+                    type="radio"
+                    name="donation"
+                    value={500}
+                  />{" "}
+                  Rs. 500
+                </Col>
+              </Row>
+            </div>
+
             <div className="total-cost">
               <Row>
-                <Col className="total-col">
+                <Col lg={8} md={8} sm={8} xs={8} className="total-col">
                   <h5>Total Cost</h5>
                 </Col>
                 <Col className="total-col1">
@@ -372,7 +1003,7 @@ const Payment = (props) => {
                 </Col>
               </Row>
               <Row>
-                <Col className="total-col">
+                <Col lg={8} md={8} sm={8} xs={8} className="total-col">
                   <h5>Advance Payment</h5>
                 </Col>
                 <Col className="total-col1">
@@ -380,16 +1011,24 @@ const Payment = (props) => {
                 </Col>
               </Row>
               <Row>
-                <Col className="total-col">
+                <Col lg={8} md={8} sm={8} xs={8} className="total-col">
                   <h5>GST @ 18%</h5>
                 </Col>
                 <Col className="total-col1">
                   <h5>{gst}</h5>
                 </Col>
               </Row>
+              <Row>
+                <Col lg={8} md={8} sm={8} xs={8} className="total-col">
+                  <h5>Donation for Cuddle The Himalayas Foundation</h5>
+                </Col>
+                <Col className="total-col1">
+                  <h5>{donation}</h5>
+                </Col>
+              </Row>
               <hr className="line"></hr>
               <Row>
-                <Col className="total-col">
+                <Col lg={8} md={8} sm={8} xs={8} className="total-col">
                   <h5>Total Payable At The Time Of Booking</h5>
                 </Col>
                 <Col className="total-col1">
@@ -397,6 +1036,14 @@ const Payment = (props) => {
                 </Col>
               </Row>
             </div>
+            <Form.Group controlId="formBasicCheckbox">
+              <Form.Check
+                checked={agreed}
+                onChange={handleChange}
+                type="checkbox"
+                label="By clicking on this, you agree to all the Terms & Conditions."
+              />
+            </Form.Group>
             {/* <div className="payment-btn">
             <Button onClick={handleBooking} className="btn-payment">
               Pay
@@ -421,7 +1068,11 @@ const Payment = (props) => {
       </Modal.Body>
       <Modal.Footer>
         {availability && (
-          <Button onClick={paymentHandler} className="btn-payment">
+          <Button
+            disabled={!agreed}
+            onClick={paymentHandler}
+            className="btn-payment"
+          >
             Pay
           </Button>
         )}

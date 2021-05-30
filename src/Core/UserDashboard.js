@@ -4,6 +4,13 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import shape from "../Assets/shape.png";
 import "../Styles/userDashboard.css";
+import Gender from "../Assets/gender-symbols.png";
+import Namee from "../Assets/man-userr.png";
+import Age from "../Assets/cake.png";
+import Phone from "../Assets/calll.png";
+import Emaill from "../Assets/emaill.png";
+import Addresss from "../Assets/homee.png";
+import Edit from "../Assets/edit.png"; 
 
 import { Row, Col, Button } from "react-bootstrap";
 import { Redirect, Link } from "react-router-dom";
@@ -21,6 +28,8 @@ function UserDashboard() {
   const [Email, setEmail] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [userId,setUserId]=useState("");
+  const [age,setAge]=useState(0);
+  const [gender,setGender]=useState("");
   const [loggedOut, setLoggedOut] = useState(false);
   const [isFetching, setFetching] = useState(false);
 
@@ -44,6 +53,8 @@ function UserDashboard() {
             setPhoneNo(userData.phone);
             setEmail(userData.email);
             setImgUrl(userData.imageUrl);
+            setAge(userData.age);
+            setGender(userData.gender);
             setFetching(false);
             setUser((prev) => {
               return { ...prev, userData };
@@ -84,25 +95,34 @@ function UserDashboard() {
               <div className="contact-info1">
                 <h2 className="contact-info-title-h2">Your Details</h2>
                 <br></br>
-                <h3 className="contact-info-title-h3 ">Name:&nbsp; {Name}</h3>
+                <h3 className="contact-info-title-h3 "><img src={Namee}/>&nbsp;:&nbsp; {Name}</h3>
                 <br></br>
                 <br></br>
                 <h3 className="contact-info-title-h3">
-                  City: &nbsp; {Address}
+                  <img src={Addresss}/>&nbsp;:&nbsp; {Address}
                 </h3>
                 <br></br>
                 <br></br>
-                <h3 className="contact-info-title-h3">Email: &nbsp; {Email}</h3>
+                <h3 className="contact-info-title-h3">
+                  <img src={Age}/>&nbsp;:&nbsp; {age}
+                </h3>
+                <br></br> <br></br>
+                <h3 className="contact-info-title-h3"><img src={Emaill}/>&nbsp;:&nbsp; {Email}</h3>
                 <br></br>
                 <br></br>
                 <h3 className="contact-info-title-h3">
-                  Phone No:&nbsp; {PhoneNo}
+                  <img src={Phone}/>&nbsp;:&nbsp; {PhoneNo}
+                </h3>
+                <br></br> <br></br>
+                
+                <h3 className="contact-info-title-h3">
+                  <img src={Gender}></img>&nbsp;:&nbsp; {gender}
                 </h3>
                 <br></br> <br></br>
                 <div className="user_buttons">
                   <Row>
                     <Col>
-                      <Link to={`/${userId}/bookings`}>
+                      <Link to={`/bookings/${userId}`}>
                         {" "}
                         <Button className="user_button">Bookings</Button>
                       </Link>
@@ -118,13 +138,16 @@ function UserDashboard() {
               <div className="contact-form345">
                 <span className="circle one"></span>
                 <span className="circle two"></span>
+                <div className="edit_div">
+                <Link to="/edituserdetails"><button className="edit_div_button"><img src={Edit}/></button></Link>
+                </div>
                 <div className="user_image_div">
                   <img className="user_image" src={imgUrl} alt={Name} />
                 </div>
                 <br></br>
                 <div className="user_buttons1">
-                  <Link to="/edituserdetails">
-                    <Button className="user_button1">Edit Details</Button>
+                  <Link to={`/bookings/${userId}`}>
+                    <Button className="user_button1">Bookings</Button>
                   </Link>
                 </div>
                 <div className="user_buttons1">
