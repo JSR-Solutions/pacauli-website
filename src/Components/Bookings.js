@@ -27,16 +27,19 @@ function Bookings(props){
         const db = firebase.firestore();
         setBookings([]);
         setLoading(true);
+
+
         db.collection("Bookings")
-          .get()
-          .then((querySnapshot) => {
+        .where("userId","==",props.match.params.userId)
+        .get()
+        .then((querySnapshot)=>{
+        
             if (querySnapshot.docs.length) {
               querySnapshot.docs.forEach((doc) => {
                 const bookingData = doc.data();
                 const packageId = bookingData.packageId;
                 const packageType = bookingData.packageType;
                 const userId = bookingData.userId;
-                if(userId==userIdd){
                 db.collection(packageType)
                   .doc(packageId)
                   .get()
@@ -61,7 +64,7 @@ function Bookings(props){
                           setLoading(false);
                         }
                       });
-                  });}
+                  });
               });
             } else {
               setLoading(false);
@@ -92,11 +95,24 @@ function Bookings(props){
                 )
             }
         <div className="cardDiv1">
-        {!isLoading && bookings &&bookings.map((booking)=>{
-            <Bookingcardd />
+        {bookings && bookings.map((booking)=>{
+          return(  
+            <Bookingcardd
+            bookingId={booking.bookingData.bookingId}
+            packName={booking.packageData.name}
+            bookedFor={booking.bookingData.bookingDate}
+            bookedOn={booking.bookingData.dateOfBooking}
+            gst={booking.bookingData.gst}
+            totalAdv={booking.bookingData.totalAdvance}
+            totalCost={booking.bookingData.totalCost}
+            totalPaid={booking.bookingData.totalPaid}
+            noOfSeats={booking.bookingData.numberOfSeats}
+            transId={booking.bookingData.transactionId}
+            packImg={booking.packageData.imageUrl}
+            />)
         })
         }
-        <Bookingcardd />
+        
         </div>
         
         

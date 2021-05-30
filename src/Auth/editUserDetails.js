@@ -19,6 +19,8 @@ function EditUser() {
   const [phoneno, setPhoneNo] = useState("");
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
+  const [age,setAge]=useState(0);
+  const [gender,setGender]=useState("");
   const [updatestate, setupdateState] = useState(false);
   const [profileImage, setProfileImage] = useState(null);
   const [showrofile, setShowProfile] = useState(null);
@@ -40,6 +42,13 @@ function EditUser() {
     } else if (name === "address") {
       setAddress(value);
     }
+    else if (name === "age") {
+      setAge(value);
+    }
+    else if (name === "gender") {
+      setGender(value);
+    }
+
   }
 
   function handleProfileImageChange(event) {
@@ -64,6 +73,8 @@ function EditUser() {
             setName(data.name);
             setPhoneNo(data.phone);
             setEmail(data.email);
+            setAge(data.age);
+            setGender(data.gender);
             setShowProfile(data.imageUrl);
             setFetching(false);
           });
@@ -146,12 +157,16 @@ function EditUser() {
                     name: name,
                     phone: phoneno,
                     email: email,
+                    age:age,
+                    gender:gender,
                     imageUrl: imageUrl,
                   })
                   .then(() => {
                     setAddress("");
                     setName("");
                     setPhoneNo("");
+                    setAge(0);
+                    setGender("");
                     setupdateState(true);
                   });
               });
@@ -205,6 +220,26 @@ function EditUser() {
                       value={name}
                     />
                     <span className="uyit">Name</span>
+                  </div>
+                  <div className="contact-form-input-container">
+                    <input
+                      type="text"
+                      name="age"
+                      className="contact-input"
+                      onChange={handleChange}
+                      value={age}
+                    />
+                    <span className="uyit">Age</span>
+                  </div>
+                  <div className="contact-form-input-container">
+                    <input
+                      type="text"
+                      name="gender"
+                      className="contact-input"
+                      onChange={handleChange}
+                      value={gender}
+                    />
+                    <span className="uyit">Gender</span>
                   </div>
                   <div className="contact-form-input-container">
                     <input
