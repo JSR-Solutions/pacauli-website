@@ -25,10 +25,16 @@
     margin-right: 30px;
 }
 .cardDiv1{
-    width:1000px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    height:100%;
+    padding: 48px;
+}
+
+@media screen and (max-width : 992px) {
+    .cardDiv1 {
+        padding: 16px;
+    }
+}
+@media screen and (max-width : 358px) {
+    .cardDiv1 {
+        padding: 8px;
+    }
 }

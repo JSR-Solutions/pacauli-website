@@ -1,15 +1,15 @@
-import React,{useState,useEffect} from "react";
-import {Row,Col,Button} from "react-bootstrap";
+import React from "react";
+import { Row, Col, Card } from "react-bootstrap";
 import "../Styles/BookingCard.css";
-import Bg from "../Assets/bg-contactus.jpg";
-import {Link} from "react-router-dom";
-import firebase from "firebase";
 import pdfMake from "pdfmake/build/pdfmake";
 import logo from "../Assets/logo.png";
 import pdfFonts from "pdfmake/build/vfs_fonts";
+import { VscFilePdf } from "react-icons/vsc";
+import { GoLinkExternal } from "react-icons/go";
+import { Link } from "react-router-dom";
 
-const BookingCard=(props)=>{
-    pdfMake.vfs = pdfFonts.pdfMake.vfs;
+const BookingCard = (props) => {
+  pdfMake.vfs = pdfFonts.pdfMake.vfs;
   const createPdf = (booking) => {
     console.log("Creating pdf");
     toDataURL(logo, function (dataUrl) {
@@ -82,7 +82,7 @@ const BookingCard=(props)=>{
                       { width: "auto", text: "Phone : " },
                       {
                         width: "*",
-                        text:  booking.userData.phone,
+                        text: booking.userData.phone,
                         margin: [4, 0, 0, 0],
                       },
                     ],
@@ -90,7 +90,11 @@ const BookingCard=(props)=>{
                   {
                     columns: [
                       { width: "auto", text: "Address : " },
-                      { width: "*", text:  booking.userData.city, margin: [4, 0, 0, 0] },
+                      {
+                        width: "*",
+                        text: booking.userData.city,
+                        margin: [4, 0, 0, 0],
+                      },
                     ],
                   },
                   {
@@ -122,13 +126,13 @@ const BookingCard=(props)=>{
                   {
                     columns: [
                       { width: "*", text: "Travel Date :" },
-                      { width: "*", text:  booking.bookingData.bookingDate },
+                      { width: "*", text: booking.bookingData.bookingDate },
                     ],
                   },
                   {
                     columns: [
                       { width: "*", text: "Transaction ID :" },
-                      { width: "*", text:  booking.bookingData.transactionId },
+                      { width: "*", text: booking.bookingData.transactionId },
                     ],
                   },
                 ],
@@ -203,19 +207,23 @@ const BookingCard=(props)=>{
                       },
                       {
                         width: "*",
-                        text:  booking.bookingData.numberOfSeats,
+                        text: booking.bookingData.numberOfSeats,
                         fontSize: 10,
                         bold: false,
                       },
                       {
                         width: "*",
-                        text: booking.bookingData.totalCost/booking.bookingData.numberOfSeats,
+                        text:
+                          booking.bookingData.totalCost /
+                          booking.bookingData.numberOfSeats,
                         fontSize: 10,
                         bold: false,
                       },
                       {
                         width: "*",
-                        text:  booking.bookingData.totalAdvance/booking.bookingData.numberOfSeats,
+                        text:
+                          booking.bookingData.totalAdvance /
+                          booking.bookingData.numberOfSeats,
                         fontSize: 10,
                         bold: false,
                       },
@@ -453,7 +461,10 @@ const BookingCard=(props)=>{
                       },
                       {
                         width: "*",
-                        text: `Rs. ${booking.bookingData.totalCost - booking.bookingData.totalAdvance} + GST @18%`,
+                        text: `Rs. ${
+                          booking.bookingData.totalCost -
+                          booking.bookingData.totalAdvance
+                        } + GST @18%`,
                         fontSize: 12,
                         bold: 28000,
                       },
@@ -488,47 +499,140 @@ const BookingCard=(props)=>{
     xhr.responseType = "blob";
     xhr.send();
   }
-    
-    
-     
-    return(
-        <div className="h_cardDivv" >
-        <Row>
-        <Col className="h_bookingCol" lg={4}>
-        <img className="packImg" src={props.packImg}/>
-        </Col>
-        <Col className="h_bookingCol"lg={8}><h2>Details</h2>
-        <br></br>
-        <Row>
-        <Col className="h_bookingdetail">
-        <p>Package Name: {props.packName}</p>
-        <p>Booked for: {props.bookedFor}</p>
-        <p>Booked On: {props.bookedOn}</p>
-        <p>No. of seats: {props.noOfSeats}</p>
-        <p>Booking Id: {props.bookingId}</p>
-        
-        </Col>
 
-        <Col className="h_bookingdetail">
-        <p>Total Cost: {props.totalCost}</p>
-        <p>Total Advance: {props.totalAdv}</p>
-        <p>Total Paid: {props.totalPaid}</p>
-        <p>GST: {props.gst}</p>
-        <p>Transaction Id: {props.transId}</p>
-
-        </Col>
+  return (
+    <div className="booking-card-main-div">
+      <Card className="booking-card">
+        <Row className="booking-card-row">
+          <Col lg={4}>
+            <img
+              src={props.packImg}
+              className="booking-card-image"
+              alt={props.packName}
+            />
+          </Col>
+          <Col className="details-col" lg={8}>
+            <h4>{props.packName}</h4>
+            <h6>{props.packageType}</h6>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                createPdf(props.booking);
+              }}
+              className="booking-card-btn btn-1"
+            >
+              <VscFilePdf />
+            </button>
+            <button className="booking-card-btn btn-2">
+              <Link to={`/packages/${props.packageType}/${props.packageId}`}><GoLinkExternal /></Link>
+            </button>
+            <hr />
+            <Row>
+              <Col lg={6} md={12} className="main-details-col">
+                <Row>
+                  <Col lg={4} md={4} sm={4} xs={4}>
+                    <p>Booking Date</p>
+                  </Col>
+                  <Col>
+                    <p>{props.bookedOn.substring(4, props.bookedOn.length)}</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col lg={4} md={4} sm={4} xs={4}>
+                    <p>Travel Date</p>
+                  </Col>
+                  <Col>
+                    <p>{props.bookedFor}</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col lg={4} md={4} sm={4} xs={4}>
+                    <p>Booking ID</p>
+                  </Col>
+                  <Col>
+                    <p>{props.bookingId}</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col lg={4} md={4} sm={4} xs={4}>
+                    <p>Transaction ID</p>
+                  </Col>
+                  <Col>
+                    <p>{props.transId}</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col lg={4} md={4} sm={4} xs={4}>
+                    <p>Number Of Seats</p>
+                  </Col>
+                  <Col>
+                    <p>{props.noOfSeats}</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col lg={4} md={4} sm={4} xs={4}>
+                    <p>Package Type</p>
+                  </Col>
+                  <Col>
+                    <p>{props.pricingType}</p>
+                  </Col>
+                </Row>
+              </Col>
+              <Col lg={6} md={12}>
+                <Row>
+                  <Col lg={4} md={4} sm={4} xs={4}>
+                    <p>Total Cost</p>
+                  </Col>
+                  <Col>
+                    <p>Rs. {props.totalCost}</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col lg={4} md={4} sm={4} xs={4}>
+                    <p>Total Advance</p>
+                  </Col>
+                  <Col>
+                    <p>Rs. {props.totalAdv}</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col lg={4} md={4} sm={4} xs={4}>
+                    <p>GST</p>
+                  </Col>
+                  <Col>
+                    <p>Rs. {props.gst}</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col lg={4} md={4} sm={4} xs={4}>
+                    <p>Donation</p>
+                  </Col>
+                  <Col>
+                    <p>Rs. {props.donation}</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col lg={4} md={4} sm={4} xs={4}>
+                    <p>Total Paid</p>
+                  </Col>
+                  <Col>
+                    <p>Rs. {props.totalPaid}</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col lg={4} md={4} sm={4} xs={4}>
+                    <p>Total Pending</p>
+                  </Col>
+                  <Col lg={8} md={8} sm={8} xs={8}>
+                    <p>Rs. {props.totalCost - props.totalAdv} + GST @ 18%</p>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Col>
         </Row>
-        <br></br>
-        <Link to={`/packages/${props.packageType}/${props.packageId}`}><Button className="bookingsButton"> Go to Package</Button></Link>
-        <Button onClick={(event) => {
-            event.preventDefault();
-            createPdf(props.booking);
-          }} className="bookingsButton"> Download Invoice</Button>
-        </Col>
-        
-        </Row>
-        
-        </div>
-    );
-}
+      </Card>
+    </div>
+  );
+};
 export default BookingCard;
