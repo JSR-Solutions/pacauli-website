@@ -61,6 +61,10 @@
     font-size: 20px;
 }
 
+.pdf-invisible {
+    display: none !important;
+}
+
 .details-col p {
     margin-bottom: 6px;
 }

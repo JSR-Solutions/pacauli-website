@@ -5,7 +5,9 @@ import "../Styles/AdminDashboard.css";
 import { DataGrid } from "@material-ui/data-grid";
 import firebase from "firebase";
 import "../Styles/CustomRequests.css";
+import "../Styles/Pdf.css";
 import Modal from "react-bootstrap/Modal";
+import { Link } from "react-router-dom";
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -45,16 +47,15 @@ function MyVerticallyCenteredModal(props) {
                     </a>
                   </p>
                   <p>
-                    <strong>Age :</strong>{" "}
-                      {props.selectedBooking.userData.age}
+                    <strong>Age :</strong> {props.selectedBooking.userData.age}
                   </p>
                   <p>
                     <strong>Gender :</strong>{" "}
-                      {props.selectedBooking.userData.gender}
+                    {props.selectedBooking.userData.gender}
                   </p>
                   <p>
                     <strong>Address :</strong>{" "}
-                      {props.selectedBooking.userData.city}
+                    {props.selectedBooking.userData.city}
                   </p>
                   <p>
                     <strong>Package Category :</strong>{" "}
@@ -108,7 +109,8 @@ function MyVerticallyCenteredModal(props) {
                   <p>
                     <strong>Total Pending :</strong>{" "}
                     {props.selectedBooking.bookingData.totalCost -
-                      props.selectedBooking.bookingData.totalAdvance} + GST @ 18%
+                      props.selectedBooking.bookingData.totalAdvance}{" "}
+                    + GST @ 18%
                   </p>
                   <p>
                     <strong>Booking ID :</strong>{" "}
@@ -118,6 +120,11 @@ function MyVerticallyCenteredModal(props) {
                     <strong>Transaction ID :</strong>{" "}
                     {props.selectedBooking.bookingData.transactionId}
                   </p>
+                  <Link
+                    to={`/pdf/${props.selectedBooking.bookingData.bookingId}`}
+                  >
+                    <Button>Download Invoice</Button>
+                  </Link>
                 </Col>
               </Row>
             </Col>
@@ -208,7 +215,7 @@ function AllBookings() {
           setLoading(false);
         }
       });
-      console.log(bookings);
+    console.log(bookings);
   }
 
   const rows = bookings.map((booking) => {

@@ -108,3 +108,7 @@
     font-size: 14px;
     text-align: justify !important;
 }
+
+.pdf-invisible {
+    display: none !important;
+}
