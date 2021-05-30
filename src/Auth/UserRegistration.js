@@ -3,8 +3,10 @@ import { Card, Form, Button } from "react-bootstrap";
 import firebase from "firebase";
 
 import "./Login.css";
+import "../Styles/Loginnew2.css";
 import logo from "../Assets/logo.png";
 import { Redirect } from "react-router-dom";
+import Imageupload from "./Imageupload";
 
 function UserRegistration() {
   const [userDetails, setUserDetails] = useState({
@@ -12,6 +14,8 @@ function UserRegistration() {
     phone: "+91",
     city: "",
     email: "",
+    age: "",
+    gender: "",
   });
   const [profileImage, setProfileImage] = useState(null);
   const types = ["image/png", "image/jpeg", "image/jpg"];
@@ -66,6 +70,8 @@ function UserRegistration() {
                   city: userDetails.city,
                   email: userDetails.email,
                   imageUrl: imageUrl,
+                  age: userDetails.age,
+                  gender: userDetails.gender
                 })
                 .then(() => {
                   setRegistered(true);
@@ -77,64 +83,73 @@ function UserRegistration() {
   };
 
   return (
-    <div className="auth-main">
+    
+    <div className="mainn">
       {registered && <Redirect to="/" />}
-      <div className="auth-card-div">
-        <Card className="auth-card">
-          <h3 className="auth-title">Create Your Profile</h3>
-          <Form className="auth-form">
-            <Form.Group>
-              <Form.Control
-                className="auth-input"
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                value={userDetails.name}
+      <div className="section-log-ax" id="contact">
+        <div className="form-container-ax">
+          <img src={logo} className="form-img-ax" alt="login" />
+          <form onSubmit={registerUser} className="contact-form-ax">
+          <h3>USER REGISTRATION</h3>
+          <Imageupload center="true" setData={setUserDetails}/>
+            <input
+              type="text"
+              placeholder="Full Name"
+              name="name"
+              value={userDetails.name}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              name="age"
+              placeholder="Age"
+              value={userDetails.age}
+              onChange={handleChange}
+            />
+            
+              <select
                 onChange={handleChange}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
                 className="auth-input"
-                type="text"
-                name="phone"
-                placeholder="Phone Number"
-                value={userDetails.phone}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                className="auth-input"
-                type="text"
-                name="city"
-                placeholder="City"
-                value={userDetails.city}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                className="auth-input"
-                type="text"
-                name="email"
-                placeholder="Email Address"
-                value={userDetails.email}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            <Form.Group style={{ textAlign: "left" }}>
-              <Form.File
-                id="userImage"
-                label="Profile Picture"
-                onChange={handleProfileImageChange}
-              />
-            </Form.Group>
-            <Button onClick={registerUser} className="auth-button">
-              Register
-            </Button>
-          </Form>
-        </Card>
+                name="gender"
+                required
+                value={userDetails.gender}
+              >
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            
+            <input
+              type="text"
+              placeholder="Phone Number"
+              name="phone"
+              value={userDetails.phone}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              name="city"
+              placeholder="City"
+              value={userDetails.city}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              name="email"
+              placeholder="Email Address"
+              value={userDetails.email}
+              onChange={handleChange}
+            />
+            {/* <Form.Group style={{ textAlign: "left" }}>
+               <Form.File
+                 id="userImage"
+                 label="Profile Picture"
+                 onChange={handleProfileImageChange}
+               />
+             </Form.Group> */}
+            <input type="submit" value="Register" />
+          </form>
+        </div>
       </div>
     </div>
   );
