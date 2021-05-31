@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Bookingcardd from "./BookingCard";
-import { Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import "../Styles/bookingPage.css";
 import firebase from "firebase";
+import LoadingScreen from "./LoadingScreen";
+import nobookings from "../Assets/nobookings.svg";
 
 function Bookings(props) {
   const [userIdd, setUserIdd] = useState(props.match.params.userId);
@@ -66,51 +67,54 @@ function Bookings(props) {
     console.log(bookings);
   }
 
-  return (
-    <div>
-      <Header />
-      <div className="heading-alt-4">
-        <h2>Your Bookings</h2>
-        <h2>Your Bookings</h2>
-      </div>
-      {bookings.length === 0 && (
-        <div className="firstTrip">
-          <div className="firstTripDiv">
-            Book your first Trip<br></br>
-            <Link to="/categories">
-              <Button className="bookingsButton">Book here</Button>
-            </Link>
-          </div>
+  if (isLoading) {
+    return <LoadingScreen />;
+  } else {
+    return (
+      <div>
+        <Header />
+        <div className="heading-alt-4">
+          <h2>Your Bookings</h2>
+          <h2>Your Bookings</h2>
         </div>
-      )}
-      <div className="cardDiv1">
-        {bookings &&
-          bookings.map((booking) => {
-            return (
-              <Bookingcardd
-                bookingId={booking.bookingData.bookingId}
-                packName={booking.packageData.name}
-                bookedFor={booking.bookingData.bookingDate}
-                bookedOn={booking.bookingData.dateOfBooking}
-                gst={booking.bookingData.gst}
-                totalAdv={booking.bookingData.totalAdvance}
-                totalCost={booking.bookingData.totalCost}
-                totalPaid={booking.bookingData.totalPaid}
-                noOfSeats={booking.bookingData.numberOfSeats}
-                transId={booking.bookingData.transactionId}
-                packImg={booking.packageData.imageUrl}
-                packageId={booking.packageData.packageId}
-                packageType={booking.packageData.packageType}
-                pricingType={booking.bookingData.pricingType}
-                donation={booking.bookingData.donation}
-                booking={booking}
-              />
-            );
-          })}
-      </div>
+        {bookings.length === 0 && (
+          <div className="no-bookings">
+            <img src={nobookings} alt="No bookings" />
+            <h4>
+              No bookings to show! Book your first trip,{" "}
+              <Link to="/categories">explore</Link> our trip packages
+            </h4>
+          </div>
+        )}
+        <div className="cardDiv1">
+          {bookings &&
+            bookings.map((booking) => {
+              return (
+                <Bookingcardd
+                  bookingId={booking.bookingData.bookingId}
+                  packName={booking.packageData.name}
+                  bookedFor={booking.bookingData.bookingDate}
+                  bookedOn={booking.bookingData.dateOfBooking}
+                  gst={booking.bookingData.gst}
+                  totalAdv={booking.bookingData.totalAdvance}
+                  totalCost={booking.bookingData.totalCost}
+                  totalPaid={booking.bookingData.totalPaid}
+                  noOfSeats={booking.bookingData.numberOfSeats}
+                  transId={booking.bookingData.transactionId}
+                  packImg={booking.packageData.imageUrl}
+                  packageId={booking.packageData.packageId}
+                  packageType={booking.packageData.packageType}
+                  pricingType={booking.bookingData.pricingType}
+                  donation={booking.bookingData.donation}
+                  booking={booking}
+                />
+              );
+            })}
+        </div>
 
-      <Footer />
-    </div>
-  );
+        <Footer />
+      </div>
+    );
+  }
 }
 export default Bookings;
