@@ -19,7 +19,26 @@ const BookingCard = (props) => {
             image: dataUrl,
             width: 120,
             alignment: "center",
-            margin: [5, 0, 5, 30],
+            margin: [5, 0, 5, 10],
+          },
+          {
+            text: "Auli Road, Joshimath, Uttarakhand",
+            bold: false,
+            alignment: "center",
+            fontSize: 10,
+          },
+          {
+            text: "Phone : +91-9557212758 , +91-7906114905",
+            bold: false,
+            alignment: "center",
+            fontSize: 10,
+          },
+          {
+            text: "Email : info@pacauli.com",
+            bold: false,
+            alignment: "center",
+            fontSize: 10,
+            margin: [0, 0, 0, 25],
           },
           {
             columns: [
@@ -478,7 +497,27 @@ const BookingCard = (props) => {
                 margin: [340, 0, 0, 0],
               },
             ],
-            margin: [0, 30, 0, 0],
+            margin: [0, 10, 0, 0],
+          },
+          {
+            text: "Notes : ",
+            margin: [0, 100, 0, 5],
+          },
+          {
+            ol: [
+              "Our team will get in touch with you shortly.",
+              "You will recieve all other necessary information and updates regarding your trip via email.",
+              "If you have any emergency concern, kindly contact us via contact methods mentioned above.",
+            ],
+          },
+          {
+            text: "-----------------------------------------------------------------------------------------------------------------------------------------------------------",
+            margin: [0, 10, 0, 0],
+          },
+          {
+            text: "This is a computer generated invoice and does not need any signatures.",
+            fontSize: 10,
+            alignment: "center",
           },
         ],
       };
