@@ -22,7 +22,26 @@ function MyVerticallyCenteredModal(props) {
             image: dataUrl,
             width: 120,
             alignment: "center",
-            margin: [5, 0, 5, 30],
+            margin: [0, 5, 0, 10],
+          },
+          {
+            text: "Auli Road, Joshimath, Uttarakhand",
+            bold: false,
+            alignment: "center",
+            fontSize: 10,
+          },
+          {
+            text: "Phone : +91-9557212758 , +91-7906114905",
+            bold: false,
+            alignment: "center",
+            fontSize: 10,
+          },
+          {
+            text: "Email : info@pacauli.com",
+            bold: false,
+            alignment: "center",
+            fontSize: 10,
+            margin: [0, 0, 0, 25],
           },
           {
             columns: [
@@ -85,7 +104,7 @@ function MyVerticallyCenteredModal(props) {
                       { width: "auto", text: "Phone : " },
                       {
                         width: "*",
-                        text:  booking.userData.phone,
+                        text: booking.userData.phone,
                         margin: [4, 0, 0, 0],
                       },
                     ],
@@ -93,7 +112,11 @@ function MyVerticallyCenteredModal(props) {
                   {
                     columns: [
                       { width: "auto", text: "Address : " },
-                      { width: "*", text:  booking.userData.city, margin: [4, 0, 0, 0] },
+                      {
+                        width: "*",
+                        text: booking.userData.city,
+                        margin: [4, 0, 0, 0],
+                      },
                     ],
                   },
                   {
@@ -125,13 +148,13 @@ function MyVerticallyCenteredModal(props) {
                   {
                     columns: [
                       { width: "*", text: "Travel Date :" },
-                      { width: "*", text:  booking.bookingData.bookingDate },
+                      { width: "*", text: booking.bookingData.bookingDate },
                     ],
                   },
                   {
                     columns: [
                       { width: "*", text: "Transaction ID :" },
-                      { width: "*", text:  booking.bookingData.transactionId },
+                      { width: "*", text: booking.bookingData.transactionId },
                     ],
                   },
                 ],
@@ -206,19 +229,23 @@ function MyVerticallyCenteredModal(props) {
                       },
                       {
                         width: "*",
-                        text:  booking.bookingData.numberOfSeats,
+                        text: booking.bookingData.numberOfSeats,
                         fontSize: 10,
                         bold: false,
                       },
                       {
                         width: "*",
-                        text: booking.bookingData.totalCost/booking.bookingData.numberOfSeats,
+                        text:
+                          booking.bookingData.totalCost /
+                          booking.bookingData.numberOfSeats,
                         fontSize: 10,
                         bold: false,
                       },
                       {
                         width: "*",
-                        text:  booking.bookingData.totalAdvance/booking.bookingData.numberOfSeats,
+                        text:
+                          booking.bookingData.totalAdvance /
+                          booking.bookingData.numberOfSeats,
                         fontSize: 10,
                         bold: false,
                       },
@@ -456,7 +483,10 @@ function MyVerticallyCenteredModal(props) {
                       },
                       {
                         width: "*",
-                        text: `Rs. ${booking.bookingData.totalCost - booking.bookingData.totalAdvance} + GST @18%`,
+                        text: `Rs. ${
+                          booking.bookingData.totalCost -
+                          booking.bookingData.totalAdvance
+                        } + GST @18%`,
                         fontSize: 12,
                         bold: 28000,
                       },
@@ -471,6 +501,26 @@ function MyVerticallyCenteredModal(props) {
               },
             ],
             margin: [0, 30, 0, 0],
+          },
+          {
+            text: "Notes : ",
+            margin: [0, 100, 0, 5],
+          },
+          {
+            ol: [
+              "Our team will get in touch with you shortly.",
+              "You will recieve all other necessary information and updates regarding your trip via email.",
+              "If you have any emergency concern, kindly contact us via contact methods mentioned above.",
+            ],
+          },
+          {
+            text: "-----------------------------------------------------------------------------------------------------------------------------------------------------------",
+            margin: [0, 10, 0, 0],
+          },
+          {
+            text: "This is a computer generated invoice and does not need any signatures.",
+            fontSize: 10,
+            alignment: "center",
           },
         ],
       };
