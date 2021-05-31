@@ -1,31 +1,41 @@
-.h_bookingdiv{
-    height:600px;
+.h_bookingdiv {
+    height: 600px;
 
 }
-.firstTrip{
-    margin-top: 100px;
-    height:500px;
-    font-size: 70px;
-    font-weight: 600;
 
-}
-.firstTripDiv{
-    padding-top: 100px;
-    height: 400px;
-    width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 2px;
-    border-color: rgb(54, 54, 54);
-}
-.bookingsButton{
-    background-color: rgb(31, 29, 29)!important;
-    color: white!important;
-    border:0!important;
+.bookingsButton {
+    background-color: rgb(31, 29, 29) !important;
+    color: white !important;
+    border: 0 !important;
     margin-right: 30px;
 }
-.cardDiv1{
+
+.cardDiv1 {
     padding: 48px;
+}
+
+.no-bookings {
+    padding: 100px;
+}
+
+.no-bookings img {
+    height: 400px;
+    margin-bottom: 48px;
+}
+
+.no-bookings h4 {
+    font-size: 28px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.no-bookings a {
+    color: var(--primary);
+    text-decoration: none !important;
+    transition: 0.25s ease-in;
+}
+
+.no-bookings a:hover {
+    color: var(--secondary);
 }
 
 @media screen and (max-width : 992px) {
@@ -33,8 +43,69 @@
         padding: 16px;
     }
 }
+
 @media screen and (max-width : 358px) {
     .cardDiv1 {
         padding: 8px;
+    }
+}
+
+@media screen and (max-width : 672px) {
+    .no-bookings {
+        padding: 60px;
+    }
+
+    .no-bookings img {
+        height: 320px;
+        margin-bottom: 36px;
+    }
+
+    .no-bookings h4 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width : 520px) {
+    .no-bookings {
+        padding: 60px;
+    }
+
+    .no-bookings img {
+        height: 280px;
+        margin-bottom: 36px;
+    }
+
+    .no-bookings h4 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width : 458px) {
+    .no-bookings {
+        padding: 36px;
+    }
+
+    .no-bookings img {
+        height: 240px;
+        margin-bottom: 36px;
+    }
+
+    .no-bookings h4 {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width : 458px) {
+    .no-bookings {
+        padding: 36px;
+    }
+
+    .no-bookings img {
+        height: 200px;
+        margin-bottom: 36px;
+    }
+
+    .no-bookings h4 {
+        font-size: 16px;
     }
 }
