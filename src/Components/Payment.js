@@ -774,7 +774,7 @@ const Payment = (props) => {
           const options = {
             key: "rzp_test_LaNsBNnS3xzG7o",
             name: "PacAuli",
-            description: "Thank You for shopping with us.",
+            description: "Thank You for choosing us.",
             currency: "INR",
             order_id: data.id,
             handler: async (response) => {
