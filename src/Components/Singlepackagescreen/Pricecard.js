@@ -10,11 +10,6 @@ import Payment from "../Payment";
 const Pricecard = (props) => {
   const [modalShow, setModalShow] = useState(false);
 
-  useEffect(() => {
-    console.log("props in pricecard");
-    console.log(props);
-  });
-
   function MyVerticallyCenteredModal(prps) {
     return (
       <Modal

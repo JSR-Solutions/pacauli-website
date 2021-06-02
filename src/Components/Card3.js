@@ -10,15 +10,15 @@ function Card3(props) {
 
   if (props.categoryName) {
     if (
-      props.categoryName == "Rafting" ||
-      props.categoryName == "Skiing" ||
-      props.categoryName == "Camping" ||
-      props.categoryName == "Snow Boarding" ||
-      props.categoryName == "Rock Climbing"
+      props.categoryName === "Rafting" ||
+      props.categoryName === "Skiing" ||
+      props.categoryName === "Camping" ||
+      props.categoryName === "Snow Boarding" ||
+      props.categoryName === "Rock Climbing"
     ) {
       redirect = `/packages/${props.categoryName}/${props.package.packageId}`;
     } else {
-      redirect = `/package/${props.categoryName}/${props.package.packageId}`;
+      redirect = `/packages/${props.categoryName}/${props.package.packageId}`;
     }
   }
 
@@ -39,7 +39,7 @@ function Card3(props) {
               {props.packageName}
             </h4>
             <h6>
-              {props.duration != "" && <AiFillClockCircle id="clocki" />}
+              {props.duration !== "" && <AiFillClockCircle id="clocki" />}
               {props.duration} <BiRupee id="rpe" />
               {props.costing}
             </h6>
