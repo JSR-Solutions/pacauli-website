@@ -44,7 +44,7 @@ const Singlepackage = (props) => {
 
   const getReviews = () => {
     setReviews([]);
-    db.collection("Snow Boarding")
+    db.collection("Snowboarding")
       .doc(props.match.params.packageId)
       .collection("Reviews")
       .get()
@@ -83,7 +83,7 @@ const Singlepackage = (props) => {
 
   useEffect(() => {
     setFetching(true);
-    db.collection("Snow Boarding")
+    db.collection("Snowboarding")
       .doc(props.match.params.packageId)
       .get()
       .then((ress) => {
@@ -130,7 +130,7 @@ const Singlepackage = (props) => {
       if (user) {
         const uid = user.uid;
         if (uid) {
-          db.collection("Snow Boarding")
+          db.collection("Snowboarding")
             .doc(props.match.params.packageId)
             .collection("Reviews")
             .add({
@@ -150,7 +150,7 @@ const Singlepackage = (props) => {
 
   useEffect(() => {
     seatavailablity([]);
-    db.collection("Snow Boarding")
+    db.collection("Snowboarding")
       .doc(props.match.params.packageId)
       .collection("Dates")
       .doc("dates")

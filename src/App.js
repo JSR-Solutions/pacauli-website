@@ -103,7 +103,7 @@ function App() {
               component={Camping}
             />
             <Route
-              path="/packages/Snow Boarding/:packageId"
+              path="/packages/Snowboarding/:packageId"
               exact
               component={Snowboarding}
             />
