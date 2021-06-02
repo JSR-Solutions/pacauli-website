@@ -89,6 +89,24 @@ const Pricecard = (props) => {
         <div className="price-card2">
           <button onClick={() => setModalShow(true)}>Book Now</button>
         </div>
+        <div className="price-card2">
+          <button style={{ marginTop: "14px" }}>
+            <a className="link-pay" href="tel:+91-7906114905">
+              Call Support
+            </a>
+          </button>
+        </div>
+        <div className="price-card2">
+          <button style={{ marginTop: "14px" }}>
+            <a
+              className="link-pay"
+              href={`https://api.whatsapp.com/send?phone=919557212758&text=I'm%20interested%20in%20your%20tourism%20package%20`}
+              target="_blank"
+            >
+              WhatsApp Support
+            </a>
+          </button>
+        </div>
         {props.seats && props.price && (
           <Payment
             show={modalShow}

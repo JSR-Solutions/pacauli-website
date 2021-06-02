@@ -3,7 +3,7 @@ import { Row, Col, Container, Carousel } from "react-bootstrap";
 import "./Singlepackage.css";
 import Pricecard from "../Singlepackagescreen/Pricecard";
 import Formcomp from "../Singlepackagescreen/Form";
-import { AiOutlineSafetyCertificate, AiOutlineFieldTime } from "react-icons/ai";
+import { AiOutlineFieldTime } from "react-icons/ai";
 import { RiCheckboxCircleFill } from "react-icons/ri";
 import { IoLocateSharp, IoAlertCircleSharp } from "react-icons/io5";
 import { FaTimesCircle } from "react-icons/fa";
