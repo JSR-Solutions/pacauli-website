@@ -100,7 +100,7 @@ const Pricecard = (props) => {
           <button style={{ marginTop: "14px" }}>
             <a
               className="link-pay"
-              href={`https://api.whatsapp.com/send?phone=919557212758&text=I'm%20interested%20in%20your%20tourism%20package%20`}
+              href={`https://api.whatsapp.com/send?phone=917906114905&text=I'm%20interested%20in%20your%20tourism%20package%20`}
               target="_blank"
             >
               WhatsApp Support
