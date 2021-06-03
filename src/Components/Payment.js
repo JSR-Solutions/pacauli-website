@@ -1100,6 +1100,12 @@ const Payment = (props) => {
                 </Link>{" "}
                 them!
               </p>
+              <p>
+                Or you can customize your trip by contacting us on{" "}
+                <a href="tel:+917906114905" className="booked-link">
+                  +91-7906114905
+                </a>
+              </p>
             </div>
           </React.Fragment>
         )}
