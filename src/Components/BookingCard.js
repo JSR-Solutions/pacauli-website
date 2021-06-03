@@ -501,7 +501,7 @@ const BookingCard = (props) => {
           },
           {
             text: "Notes : ",
-            margin: [0, 100, 0, 5],
+            margin: [0, 80, 0, 5],
           },
           {
             ol: [

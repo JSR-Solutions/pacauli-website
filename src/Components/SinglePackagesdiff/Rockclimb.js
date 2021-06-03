@@ -476,15 +476,15 @@ const Singlepackage = (props) => {
                                     style={
                                       l.seats === "0"
                                         ? {
-                                          backgroundColor:
-                                            "rgba(255, 0, 0, 0.75)",
-                                        }
+                                            backgroundColor:
+                                              "rgba(255, 0, 0, 0.75)",
+                                          }
                                         : l.seats > 2
-                                          ? {
+                                        ? {
                                             backgroundColor:
                                               "rgba(0, 128, 0,0.75)",
                                           }
-                                          : { backgroundColor: "#ff8303" }
+                                        : { backgroundColor: "#ff8303" }
                                     }
                                     key={k}
                                     className="sng-date"
@@ -560,12 +560,16 @@ const Singlepackage = (props) => {
                         </div>
                       </div>
                       {/* Terms and condition */}
-                      <div className="sngl-pack-short-itn" id="termsandconditions">
+                      <div
+                        className="sngl-pack-short-itn"
+                        id="termsandconditions"
+                      >
                         <div className="single-pck-2-row">
                           <div className="single-pack-side-design"></div>
                           <h4>Terms and Condition</h4>
                           <hr />
-                          {pack && pack.terms &&
+                          {pack &&
+                            pack.terms &&
                             pack.terms.map((l, k) => (
                               <p key={k}>
                                 <RiCheckboxCircleFill
@@ -586,7 +590,8 @@ const Singlepackage = (props) => {
                           <div className="single-pack-side-design"></div>
                           <h4>Cancellation & Refund</h4>
                           <hr />
-                          {pack && pack.cancellation &&
+                          {pack &&
+                            pack.cancellation &&
                             pack.cancellation.map((l, k) => (
                               <p key={k}>
                                 <FaTimesCircle
@@ -606,7 +611,15 @@ const Singlepackage = (props) => {
                 </Col>
                 <Col md={4}>
                   <div className="single-package-right">
-                    <Pricecard price={pack.pricing} />
+                    {seatavail && pack.pricing && (
+                      <Pricecard
+                        price={pack.pricing}
+                        seats={seatavail}
+                        packageType="Rock Climbing"
+                        packageId={props.match.params.packageId}
+                        packageName={pack.name}
+                      />
+                    )}
                     <Formcomp />
                     <div className="skska">
                       <StickyContainer>
@@ -618,7 +631,15 @@ const Singlepackage = (props) => {
                                 marginTop: isSticky ? "66px" : "0px",
                               }}
                             >
-                              <Pricecard price={pack.pricing} />
+                              {seatavail && pack.pricing && (
+                                <Pricecard
+                                  price={pack.pricing}
+                                  seats={seatavail}
+                                  packageType="Rock Climbing"
+                                  packageId={props.match.params.packageId}
+                                  packageName={pack.name}
+                                />
+                              )}
                             </div>
                           )}
                         </Sticky>
