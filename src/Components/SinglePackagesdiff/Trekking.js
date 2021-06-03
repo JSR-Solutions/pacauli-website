@@ -228,6 +228,12 @@ const Singlepackage = (props) => {
                             Best Time - {pack.bestTime}
                           </h5>
                         )}
+                        {pack.trekDistance != "" && (
+                          <h5>
+                            <AiOutlineFieldTime className="single-pck-1-row-icon" />
+                            Trek Distance - {pack.trekDistance} km
+                          </h5>
+                        )}
                         <hr />
                         {pack.quote && (
                           <center>
@@ -330,6 +336,21 @@ const Singlepackage = (props) => {
                           <hr />
                           {pack &&
                             pack.overviews.map((l, k) => (
+                              <p key={k}>
+                                <IoLocateSharp className="single-pck-2-row-icon" />
+                                {l}
+                              </p>
+                            ))}
+                        </div>
+                      </div>
+                      {/* HISTORY */}
+                      <div className="sngl-pack-short-itn">
+                        <div className="single-pck-2-row">
+                          <div className="single-pack-side-design"></div>
+                          <h4>History</h4>
+                          <hr />
+                          {pack &&
+                            pack.histories.map((l, k) => (
                               <p key={k}>
                                 <IoLocateSharp className="single-pck-2-row-icon" />
                                 {l}

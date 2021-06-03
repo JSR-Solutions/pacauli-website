@@ -336,6 +336,21 @@ const Singlepackage = (props) => {
                             ))}
                         </div>
                       </div>
+                      {/* HISTORY */}
+                      <div className="sngl-pack-short-itn">
+                        <div className="single-pck-2-row">
+                          <div className="single-pack-side-design"></div>
+                          <h4>History</h4>
+                          <hr />
+                          {pack &&
+                            pack.histories.map((l, k) => (
+                              <p key={k}>
+                                <IoLocateSharp className="single-pck-2-row-icon" />
+                                {l}
+                              </p>
+                            ))}
+                        </div>
+                      </div>
                       {/* BRIEF ITINERARY */}
                       <div className="sngl-pack-short-itn" id="briefItinerary">
                         <div className="single-pck-2-row">
