@@ -673,7 +673,15 @@ const Singlepackage = (props) => {
                 </Col>
                 <Col md={4}>
                   <div className="single-package-right">
-                    <Pricecard price={pack.pricing} />
+                    {seatavail && pack.pricing && (
+                      <Pricecard
+                        price={pack.pricing}
+                        seats={seatavail}
+                        packageType="Rafting"
+                        packageId={props.match.params.packageId}
+                        packageName={pack.name}
+                      />
+                    )}
                     <Formcomp />
                     <div className="skska">
                       <StickyContainer>
@@ -685,7 +693,15 @@ const Singlepackage = (props) => {
                                 marginTop: isSticky ? "66px" : "0px",
                               }}
                             >
-                              <Pricecard price={pack.pricing} />
+                              {seatavail && pack.pricing && (
+                                <Pricecard
+                                  price={pack.pricing}
+                                  seats={seatavail}
+                                  packageType="Rafting"
+                                  packageId={props.match.params.packageId}
+                                  packageName={pack.name}
+                                />
+                              )}
                             </div>
                           )}
                         </Sticky>

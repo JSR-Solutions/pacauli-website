@@ -89,26 +89,33 @@ function Bookings(props) {
         <div className="cardDiv1">
           {bookings &&
             bookings.map((booking) => {
-              return (
-                <Bookingcardd
-                  bookingId={booking.bookingData.bookingId}
-                  packName={booking.packageData.name}
-                  bookedFor={booking.bookingData.bookingDate}
-                  bookedOn={booking.bookingData.dateOfBooking}
-                  gst={booking.bookingData.gst}
-                  totalAdv={booking.bookingData.totalAdvance}
-                  totalCost={booking.bookingData.totalCost}
-                  totalPaid={booking.bookingData.totalPaid}
-                  noOfSeats={booking.bookingData.numberOfSeats}
-                  transId={booking.bookingData.transactionId}
-                  packImg={booking.packageData.imageUrl}
-                  packageId={booking.packageData.packageId}
-                  packageType={booking.packageData.packageType}
-                  pricingType={booking.bookingData.pricingType}
-                  donation={booking.bookingData.donation}
-                  booking={booking}
-                />
-              );
+              if (
+                booking &&
+                booking.packageData &&
+                booking.userData &&
+                booking.bookingData
+              ) {
+                return (
+                  <Bookingcardd
+                    bookingId={booking.bookingData.bookingId}
+                    packName={booking.packageData.name}
+                    bookedFor={booking.bookingData.bookingDate}
+                    bookedOn={booking.bookingData.dateOfBooking}
+                    gst={booking.bookingData.gst}
+                    totalAdv={booking.bookingData.totalAdvance}
+                    totalCost={booking.bookingData.totalCost}
+                    totalPaid={booking.bookingData.totalPaid}
+                    noOfSeats={booking.bookingData.numberOfSeats}
+                    transId={booking.bookingData.transactionId}
+                    packImg={booking.packageData.imageUrl}
+                    packageId={booking.packageData.packageId}
+                    packageType={booking.packageData.packageType}
+                    pricingType={booking.bookingData.pricingType}
+                    donation={booking.bookingData.donation}
+                    booking={booking}
+                  />
+                );
+              }
             })}
         </div>
 

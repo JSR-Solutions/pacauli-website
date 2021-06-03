@@ -3,10 +3,7 @@ import { Row, Col, Container, Carousel } from "react-bootstrap";
 import "./Singlepackage.css";
 import Pricecard from "../Singlepackagescreen/Pricecard";
 import Formcomp from "../Singlepackagescreen/Form";
-import {
-  AiOutlineSafetyCertificate,
-  AiOutlineFieldTime,
-} from "react-icons/ai";
+import { AiOutlineSafetyCertificate, AiOutlineFieldTime } from "react-icons/ai";
 import { RiCheckboxCircleFill } from "react-icons/ri";
 import { IoLocateSharp, IoAlertCircleSharp } from "react-icons/io5";
 import { FaTimesCircle } from "react-icons/fa";
@@ -338,7 +335,7 @@ const Singlepackage = (props) => {
                         </div>
                       </div>
                       {/* BRIEF ITINERARY */}
-                      <div className="sngl-pack-short-itn" id="briefItinerary" >
+                      <div className="sngl-pack-short-itn" id="briefItinerary">
                         <div className="single-pck-2-row">
                           <div className="single-pack-side-design"></div>
                           <h4>Brief Itinerary</h4>
@@ -357,7 +354,10 @@ const Singlepackage = (props) => {
                         </div>
                       </div>
                       {/* DETAILED ITINERARY */}
-                      <div className="sngl-pack-short-itn" id="detailedItinerary">
+                      <div
+                        className="sngl-pack-short-itn"
+                        id="detailedItinerary"
+                      >
                         <div className="single-pck-2-row">
                           <div className="single-pack-side-design"></div>
                           <h4>Detailed Itinerary</h4>
@@ -397,7 +397,8 @@ const Singlepackage = (props) => {
                           <div className="single-pack-side-design"></div>
                           <h4>Things to Carry</h4>
                           <hr />
-                          {pack && pack.thingsToCarry &&
+                          {pack &&
+                            pack.thingsToCarry &&
                             pack.thingsToCarry.map((l, k) => (
                               <p key={k}>
                                 <RiCheckboxCircleFill
@@ -418,7 +419,8 @@ const Singlepackage = (props) => {
                           <div className="single-pack-side-design"></div>
                           <h4>Inclusions</h4>
                           <hr />
-                          {pack && pack.inclusions &&
+                          {pack &&
+                            pack.inclusions &&
                             pack.inclusions.map((l, k) => (
                               <p key={k}>
                                 <RiCheckboxCircleFill
@@ -555,15 +557,15 @@ const Singlepackage = (props) => {
                                     style={
                                       l.seats === "0"
                                         ? {
-                                          backgroundColor:
-                                            "rgba(255, 0, 0, 0.75)",
-                                        }
+                                            backgroundColor:
+                                              "rgba(255, 0, 0, 0.75)",
+                                          }
                                         : l.seats > 2
-                                          ? {
+                                        ? {
                                             backgroundColor:
                                               "rgba(0, 128, 0,0.75)",
                                           }
-                                          : { backgroundColor: "#ff8303" }
+                                        : { backgroundColor: "#ff8303" }
                                     }
                                     key={k}
                                     className="sng-date"
@@ -639,12 +641,16 @@ const Singlepackage = (props) => {
                         </div>
                       </div>
                       {/* Terms and condition */}
-                      <div className="sngl-pack-short-itn" id="termsandconditions">
+                      <div
+                        className="sngl-pack-short-itn"
+                        id="termsandconditions"
+                      >
                         <div className="single-pck-2-row">
                           <div className="single-pack-side-design"></div>
                           <h4>Terms and Condition</h4>
                           <hr />
-                          {pack && pack.terms &&
+                          {pack &&
+                            pack.terms &&
                             pack.terms.map((l, k) => (
                               <p key={k}>
                                 <RiCheckboxCircleFill
@@ -665,7 +671,8 @@ const Singlepackage = (props) => {
                           <div className="single-pack-side-design"></div>
                           <h4>Cancellation & Refund</h4>
                           <hr />
-                          {pack && pack.cancellation &&
+                          {pack &&
+                            pack.cancellation &&
                             pack.cancellation.map((l, k) => (
                               <p key={k}>
                                 <FaTimesCircle
@@ -685,7 +692,15 @@ const Singlepackage = (props) => {
                 </Col>
                 <Col md={4}>
                   <div className="single-package-right">
-                    <Pricecard price={pack.pricing} />
+                    {seatavail && pack.pricing && (
+                      <Pricecard
+                        price={pack.pricing}
+                        seats={seatavail}
+                        packageType="Expedition"
+                        packageId={props.match.params.packageId}
+                        packageName={pack.name}
+                      />
+                    )}
                     <Formcomp />
                     <div className="skska">
                       <StickyContainer>
@@ -697,7 +712,15 @@ const Singlepackage = (props) => {
                                 marginTop: isSticky ? "66px" : "0px",
                               }}
                             >
-                              <Pricecard price={pack.pricing} />
+                              {seatavail && pack.pricing && (
+                                <Pricecard
+                                  price={pack.pricing}
+                                  seats={seatavail}
+                                  packageType="Expedition"
+                                  packageId={props.match.params.packageId}
+                                  packageName={pack.name}
+                                />
+                              )}
                             </div>
                           )}
                         </Sticky>
