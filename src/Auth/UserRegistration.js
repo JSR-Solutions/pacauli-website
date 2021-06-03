@@ -15,7 +15,7 @@ function UserRegistration() {
     city: "",
     email: "",
     age: "",
-    gender: "",
+    gender: "Male",
   });
   const [profileImage, setProfileImage] = useState(null);
   const types = ["image/png", "image/jpeg", "image/jpg"];
@@ -24,14 +24,16 @@ function UserRegistration() {
   const storage = firebase.storage();
   const [registered, setRegistered] = useState(false);
 
-  function handleProfileImageChange(event) {
-    let selectedFile = event.target.files[0];
-    if (selectedFile && types.includes(selectedFile.type)) {
-      setProfileImage(selectedFile);
-    } else {
-      setProfileImage(null);
-    }
-  }
+  // function handleProfileImageChange(event) {
+  //   let selectedFile = event.target.files[0];
+  //   if (selectedFile && types.includes(selectedFile.type)) {
+  //     setProfileImage(selectedFile);
+  //   } else {
+  //     setProfileImage(null);
+  //   }
+  // }
+
+  
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -45,7 +47,7 @@ function UserRegistration() {
     event.preventDefault();
     auth.onAuthStateChanged((userCredentials) => {
       const uid = userCredentials.uid;
-      const uploadTask = storage.ref("Users/" + uid).put(profileImage);
+      const uploadTask = storage.ref("Users/" + uid).put(userDetails.image);
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -71,7 +73,7 @@ function UserRegistration() {
                   email: userDetails.email,
                   imageUrl: imageUrl,
                   age: userDetails.age,
-                  gender: userDetails.gender
+                  gender: userDetails.gender,
                 })
                 .then(() => {
                   setRegistered(true);
@@ -112,6 +114,7 @@ function UserRegistration() {
                 className="auth-input"
                 name="gender"
                 value={userDetails.gender}
+
               >
                 <option>Male</option>
                 <option>Female</option>
