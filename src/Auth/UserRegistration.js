@@ -111,7 +111,6 @@ function UserRegistration() {
                 onChange={handleChange}
                 className="auth-input"
                 name="gender"
-                required
                 value={userDetails.gender}
               >
                 <option>Male</option>
