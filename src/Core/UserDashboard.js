@@ -93,6 +93,9 @@ function UserDashboard() {
             <img src={shape} className="square" alt=""></img>
             <div className="contact-us-form1">
               <div className="contact-info1">
+              <div className="edit_div2">
+                <Link to="/edituserdetails"><button className="edit_div_button2"><img src={Edit}/></button></Link>
+                </div>
                 <h2 className="contact-info-title-h2">Your Details</h2>
                 <br></br>
                 <h3 className="contact-info-title-h3 "><img src={Namee}/>&nbsp;:&nbsp; {Name}</h3>

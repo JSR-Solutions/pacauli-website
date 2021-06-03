@@ -171,6 +171,29 @@
       margin-right: 0;
 
     }
+    .edit_div_button{
+      margin-top: 5px;
+      margin-right: 5px;
+      background-color: white;
+      padding-bottom: 4px;
+      border-radius: 4px;
+      border:1px;
+    }
+    .edit_div2{
+      position: relative;
+      text-align: right!important;
+
+    }
+    .edit_div_button2{
+      margin-top: 5px;
+      margin-right: 5px;
+      background-color: white;
+      padding-bottom: 4px;
+      border-radius: 4px;
+      border:2px;
+      border-color: #29bb89!important;
+      opacity:0;
+    }
     .user_buttons1{
         display: none;
     }
@@ -221,14 +244,6 @@
     position: relative;
     text-align: right;
    
-  }
-  .edit_div_button{
-    margin-top: 5px;
-    margin-right: 5px;
-    background-color: white;
-    padding-bottom: 4px;
-    border-radius: 4px;
-    border:1px;
   }
   
   .circle {
@@ -390,7 +405,7 @@
   /**************************************************** CONTACT INFO SIDE ****************************************************/
   
   .contact-info1 {
-    padding: 2.3rem 0rem 2.3rem 2rem;
+    padding: 0rem 1rem 2.3rem 2rem;
     position: relative;
     text-align: left;
   }
@@ -515,6 +530,16 @@
       right: 65px;
       transform: scale(0.95);
     }
+  .edit_div_button2{
+    
+    opacity:1;
+  }
+  .edit_div_button{
+    display: none;
+  }
+  .contact-info1{
+    padding:0 0 2.3rem 2rem;
+  }
   
     .contact-form345:before {
       top: -13px;
@@ -557,7 +582,7 @@
   
   @media (max-width: 480px) {
     .contact-us-container {
-      padding: 1.5rem;
+      padding:  1.5rem;
     }
   
     .contact-info1:before {
@@ -581,10 +606,13 @@
     .big-circle {
       display: none;
     }
+    .edit_div_button2{
+      margin-right: 25px;
+    }
   
     form,
     .contact-info1 {
-      padding: 1.7rem 1.6rem;
+      padding: 0rem 1.6rem;
     }
   
     .contact-info-text,
@@ -616,7 +644,7 @@
     }
     .contact-info1{
         width:400px;
-        padding: 2.3rem 1rem;
+        padding: 0rem 1rem;
 
     }
     .contact-form345{
