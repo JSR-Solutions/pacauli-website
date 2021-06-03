@@ -15,7 +15,7 @@ function UserRegistration() {
     city: "",
     email: "",
     age: "",
-    gender: "",
+    gender: "Male",
   });
   const [profileImage, setProfileImage] = useState(null);
   const types = ["image/png", "image/jpeg", "image/jpg"];
@@ -114,6 +114,7 @@ function UserRegistration() {
                 className="auth-input"
                 name="gender"
                 value={userDetails.gender}
+
               >
                 <option>Male</option>
                 <option>Female</option>
