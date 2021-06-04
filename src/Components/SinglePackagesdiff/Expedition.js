@@ -41,7 +41,7 @@ const Singlepackage = (props) => {
 
   const getReviews = () => {
     setReviews([]);
-    db.collection("Expediton")
+    db.collection("Expedition")
       .doc(props.match.params.packageId)
       .collection("Reviews")
       .get()
@@ -80,7 +80,7 @@ const Singlepackage = (props) => {
 
   useEffect(() => {
     setFetching(true);
-    db.collection("Expediton")
+    db.collection("Expedition")
       .doc(props.match.params.packageId)
       .get()
       .then((ress) => {
@@ -127,7 +127,7 @@ const Singlepackage = (props) => {
       if (user) {
         const uid = user.uid;
         if (uid) {
-          db.collection("Expediton")
+          db.collection("Expedition")
             .doc(props.match.params.packageId)
             .collection("Reviews")
             .add({
@@ -147,7 +147,7 @@ const Singlepackage = (props) => {
 
   useEffect(() => {
     seatavailablity([]);
-    db.collection("Expediton")
+    db.collection("Expedition")
       .doc(props.match.params.packageId)
       .collection("Dates")
       .doc("dates")
