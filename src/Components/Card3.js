@@ -24,16 +24,17 @@ function Card3(props) {
               <MdLocationOn className="loci" />
               {props.packageName}
             </h4>
-            <h6>
-              {props.duration !== "" && <AiFillClockCircle id="clocki" />}
-              {props.duration} <BiRupee id="rpe" />
-              {props.costing}
-            </h6>
+           
             {/* <p className="rev-card3">
               <AiFillStar style={{ color: "gold" }} />{" "}
               {props.rating} (20 reviews)
             </p> */}
           </div>
+          <h6 className = "apun">
+          {props.duration !== "" && <AiFillClockCircle id="clocki" />}
+          {props.duration} <BiRupee id="rpe" />
+          {props.costing}
+        </h6>
         </div>
       </Link>
     </div>
