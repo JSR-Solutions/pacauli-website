@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Card, Form, Button } from "react-bootstrap";
 import firebase from "firebase";
 
@@ -7,6 +7,7 @@ import "../Styles/Loginnew2.css";
 import logo from "../Assets/logo.png";
 import { Redirect } from "react-router-dom";
 import Imageupload from "./Imageupload";
+import authContext from '../utils/auth-hook'
 
 function UserRegistration() {
   const [userDetails, setUserDetails] = useState({
@@ -23,6 +24,7 @@ function UserRegistration() {
   const db = firebase.firestore();
   const storage = firebase.storage();
   const [registered, setRegistered] = useState(false);
+  const authData = useContext(authContext)
 
   // function handleProfileImageChange(event) {
   //   let selectedFile = event.target.files[0];
@@ -77,6 +79,7 @@ function UserRegistration() {
                 })
                 .then(() => {
                   setRegistered(true);
+                  authData.authTriggered()
                 });
             });
         }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import firebase from "firebase";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -15,6 +15,7 @@ import Edit from "../Assets/edit.png";
 import { Row, Col, Button } from "react-bootstrap";
 import { Redirect, Link } from "react-router-dom";
 import LoadingScreen from "../Components/LoadingScreen";
+import authContext from '../utils/auth-hook'
 
 function UserDashboard() {
   const auth = firebase.auth();
@@ -32,6 +33,7 @@ function UserDashboard() {
   const [gender,setGender]=useState("");
   const [loggedOut, setLoggedOut] = useState(false);
   const [isFetching, setFetching] = useState(false);
+  const authData = useContext(authContext)
 
   useEffect(() => {
     getUser();
@@ -69,6 +71,7 @@ function UserDashboard() {
       .signOut()
       .then(() => {
         setLoggedOut(true);
+        authData.authTriggered()
       });
   };
 
