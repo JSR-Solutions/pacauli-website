@@ -1,11 +1,12 @@
 import { Link, Redirect } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Card, Form, Button } from "react-bootstrap";
 import firebase from "firebase";
 import { toast, ToastContainer } from "react-toastify";
 
 import logo from "../Assets/logo.png";
-import "../Styles/Loginnew.css"; 
+import "../Styles/Loginnew.css";
+import authContext from '../utils/auth-hook'
 
 function Login() {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -13,6 +14,7 @@ function Login() {
   const db = firebase.firestore();
   const [redirectHome, setRedirectHome] = useState(false);
   const [redirectRegistration, setRedirectRegistration] = useState(false);
+  const authData = useContext(authContext)
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -35,6 +37,7 @@ function Login() {
             .then((snapshot) => {
               if (snapshot.exists) {
                 setRedirectHome(true);
+                authData.authTriggered()
               } else {
                 setRedirectRegistration(true);
               }
