@@ -87,7 +87,7 @@ function App() {
               component={Spiritualtour}
             />
             <Route
-              path="/packages/Expediton/:packageId"
+              path="/packages/Expedition/:packageId"
               exact
               component={Expedition}
             />
