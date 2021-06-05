@@ -69,7 +69,6 @@ function App() {
               exact
               component={SingleCategory}
             />
-
             <Route path="/bookings/:userId" exact component={Bookings} />
             <Route
               path="/packages/Cycling/:packageId"
