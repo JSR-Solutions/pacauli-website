@@ -26,7 +26,7 @@ const category = [
     icon: trekking,
   },
   {
-    Name: "Expediton",
+    Name: "Expedition",
     img: Expedition,
     quote: "“Life is either a daring adventure or nothing.”",
     icon: expedition,

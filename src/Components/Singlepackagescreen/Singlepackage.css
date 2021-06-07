@@ -19,6 +19,8 @@
 .single-package-upper img{
     width: 100%;
     max-height: 94vh;
+    object-fit: cover;
+    object-position: center;
 }
 /* .img-carou1{
     width: 20%;

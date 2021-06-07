@@ -32,6 +32,7 @@ function SingleCatScreen(props) {
   }, [props]);
 
   const getPackages = () => {
+    console.log("Fetching " + category[props.index].Name);
     setPackages([]);
     setFetching(true);
     db.collection(category[props.index].Name)

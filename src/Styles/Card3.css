@@ -37,7 +37,8 @@
 
 .card3-text {
     grid-area: text;
-    margin: 25px;
+    margin: 15px;
+    margin-top: -15px;
 }
 
 .card3-text h4 {
@@ -45,7 +46,7 @@
     font-size: 20px;
     color: white;
     text-align: left;
-    margin-top: -9px;
+    
 }
 
 /* .card3-stats{
@@ -109,11 +110,6 @@
     margin-right: 2px;
 }
 
-.card3-text h6 {
-    margin-top: 39px;
-    font-size: 14px;
-    text-align: left;
-}
 
 .card3-ro {
     text-align: left;
@@ -137,4 +133,12 @@
 #rpe {
     font-size: 17px;
     margin-right: -3px;
+}
+
+.apun{
+
+    font-size: 14px;
+    text-align: left;
+    margin-top: -49px;
+    margin-left: 10px;
 }

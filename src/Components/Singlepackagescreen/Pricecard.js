@@ -1,68 +1,74 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import "./Form.css";
-import Modal from "react-bootstrap/Modal";
-import { Button, Card, Col, Row } from "react-bootstrap";
-import call from "../../Assets/call.svg";
-import whatsapp from "../../Assets/whatsapp.svg";
+// import Modal from "react-bootstrap/Modal";
+// import { Button, Card, Col, Row } from "react-bootstrap";
+// import call from "../../Assets/call.svg";
+// import whatsapp from "../../Assets/whatsapp.svg";
 import { FaRupeeSign } from "react-icons/fa";
 import Payment from "../Payment";
-
+import authContext from '../../utils/auth-hook'
+import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 const Pricecard = (props) => {
   const [modalShow, setModalShow] = useState(false);
+  const history = useHistory();
 
-  function MyVerticallyCenteredModal(prps) {
-    return (
-      <Modal
-        {...prps}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Book your trip
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Row>
-            <Col>
-              <a className="modal-link" href="tel:919557212758">
-                <Card className="modal-card">
-                  <Card.Body>
-                    <img className="modal-card-img" src={call} alt="call" />
-                    <p>Call</p>
-                  </Card.Body>
-                </Card>
-              </a>
-            </Col>
-            <Col>
-              <a
-                className="modal-link"
-                href={`https://api.whatsapp.com/send?phone=919557212758&text=I'm%20interested%20in%20your%20tourism%20package%20`}
-                target="_blank"
-              >
-                <Card className="modal-card">
-                  <Card.Body>
-                    <img
-                      className="modal-card-img"
-                      src={whatsapp}
-                      alt="whatsapp"
-                    />
-                    <p>WhatsApp</p>
-                  </Card.Body>
-                </Card>
-              </a>
-            </Col>
-          </Row>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button className="modal-button" onClick={prps.onHide}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
+  const authData = useContext(authContext)
+
+  console.log(authData)
+  // function MyVerticallyCenteredModal(prps) {
+  //   return (
+  //     <Modal
+  //       {...prps}
+  //       size="lg"
+  //       aria-labelledby="contained-modal-title-vcenter"
+  //       centered
+  //     >
+  //       <Modal.Header closeButton>
+  //         <Modal.Title id="contained-modal-title-vcenter">
+  //           Book your trip
+  //         </Modal.Title>
+  //       </Modal.Header>
+  //       <Modal.Body>
+  //         <Row>
+  //           <Col>
+  //             <a className="modal-link" href="tel:919557212758">
+  //               <Card className="modal-card">
+  //                 <Card.Body>
+  //                   <img className="modal-card-img" src={call} alt="call" />
+  //                   <p>Call</p>
+  //                 </Card.Body>
+  //               </Card>
+  //             </a>
+  //           </Col>
+  //           <Col>
+  //             <a
+  //               className="modal-link"
+  //               href={`https://api.whatsapp.com/send?phone=919557212758&text=I'm%20interested%20in%20your%20tourism%20package%20`}
+  //               target="_blank"
+  //             >
+  //               <Card className="modal-card">
+  //                 <Card.Body>
+  //                   <img
+  //                     className="modal-card-img"
+  //                     src={whatsapp}
+  //                     alt="whatsapp"
+  //                   />
+  //                   <p>WhatsApp</p>
+  //                 </Card.Body>
+  //               </Card>
+  //             </a>
+  //           </Col>
+  //         </Row>
+  //       </Modal.Body>
+  //       <Modal.Footer>
+  //         <Button className="modal-button" onClick={prps.onHide}>
+  //           Close
+  //         </Button>
+  //       </Modal.Footer>
+  //     </Modal>
+  //   );
+  // }
 
   return (
     <div className="price-card-main">
@@ -87,7 +93,14 @@ const Pricecard = (props) => {
         </div>
         <hr />
         <div className="price-card2">
+        {
+          authData && authData.isAuth && authData.isAuth 
+          ?
           <button onClick={() => setModalShow(true)}>Book Now</button>
+          :
+          <button onClick={() => history.push("/signin")}>Book Now</button>
+        }
+          
         </div>
         <div className="price-card2">
           <button style={{ marginTop: "14px" }}>

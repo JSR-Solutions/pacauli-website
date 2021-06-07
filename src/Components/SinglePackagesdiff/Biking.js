@@ -19,6 +19,7 @@ import { Redirect } from "react-router-dom";
 import LoadingScreen from "../LoadingScreen";
 import { FaRupeeSign } from "react-icons/fa";
 import { GiNetworkBars } from "react-icons/gi";
+import {GoCalendar} from "react-icons/go";
 
 const Singlepackage = (props) => {
   const [pack, setpack] = useState("");
@@ -223,7 +224,7 @@ const Singlepackage = (props) => {
                         )}
                         {pack.bestTime != "" && (
                           <h5>
-                            <AiOutlineFieldTime className="single-pck-1-row-icon" />
+                            <GoCalendar className="single-pck-1-row-icon" />
                             Best Time - {pack.bestTime}
                           </h5>
                         )}
