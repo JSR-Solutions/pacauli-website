@@ -27,9 +27,9 @@ const isActive = (history, path) => {
 const ValidateForm = (empData) => {
   const errors = {};
 
-  if (!empData.fullName) {
+  if (!empData.name) {
     errors.name = "Please Enter Your Name";
-  } else if (empData.fullName.length > 20) {
+  } else if (empData.name.length > 20) {
     errors.name = "Name Should Not Exeed 20 Characters";
   }
 
