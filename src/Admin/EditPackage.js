@@ -78,6 +78,9 @@ function EditPackage(props) {
           setDuration(snapshot.data().duration);
           setMaxAltitude(snapshot.data().maxAltitude);
           setTrekDistance(snapshot.data().trekDistance);
+          setBestTime(snapshot.data().bestTime);
+          setThingsToCarry(snapshot.data().thingsToCarry);
+          setTerms(snapshot.data().terms);
           setBriefItinerary(snapshot.data().briefItinerary);
           setDetailedItinerary(snapshot.data().detailedItinerary);
           setQuote(snapshot.data().quote);
