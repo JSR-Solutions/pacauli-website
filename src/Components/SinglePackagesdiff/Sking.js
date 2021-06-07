@@ -23,6 +23,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { FcDownRight } from "react-icons/fc";
 import { GoLocation } from "react-icons/go";
 import { TiTickOutline } from "react-icons/ti";
+import {GoCalendar} from "react-icons/go";
 
 const Singlepackage = (props) => {
   const [pack, setpack] = useState("");
@@ -229,7 +230,7 @@ const Singlepackage = (props) => {
                         )}
                         {pack.bestTime !== "" && (
                           <h5>
-                            <TiTickOutline className="single-pck-1-row-icon" />
+                            <GoCalendar className="single-pck-1-row-icon" />
                             Best Time - {pack.bestTime}
                           </h5>
                         )}

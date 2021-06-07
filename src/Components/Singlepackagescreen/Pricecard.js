@@ -8,8 +8,10 @@ import { FaRupeeSign } from "react-icons/fa";
 import Payment from "../Payment";
 import authContext from '../../utils/auth-hook'
 import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 const Pricecard = (props) => {
   const [modalShow, setModalShow] = useState(false);
+  const history = useHistory();
 
   const authData = useContext(authContext)
 
@@ -96,7 +98,7 @@ const Pricecard = (props) => {
           ?
           <button onClick={() => setModalShow(true)}>Book Now</button>
           :
-          <button onClick={() => toast.error('Please Login First')}>Book Now</button>
+          <button onClick={() => history.push("/signin")}>Book Now</button>
         }
           
         </div>

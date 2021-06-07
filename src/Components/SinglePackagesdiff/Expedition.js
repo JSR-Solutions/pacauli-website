@@ -18,6 +18,7 @@ import { Button, Form } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import LoadingScreen from "../LoadingScreen";
 import { FaRupeeSign } from "react-icons/fa";
+import { GoCalendar} from "react-icons/go";
 import { GiNetworkBars } from "react-icons/gi";
 
 const Singlepackage = (props) => {
@@ -221,7 +222,7 @@ const Singlepackage = (props) => {
                         )}
                         {pack.bestTime != "" && (
                           <h5>
-                            <AiOutlineFieldTime className="single-pck-1-row-icon" />
+                            <GoCalendar className="single-pck-1-row-icon" />
                             Best Time - {pack.bestTime}
                           </h5>
                         )}
