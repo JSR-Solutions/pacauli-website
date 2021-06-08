@@ -3,10 +3,6 @@ import { Row, Col, Container, Carousel } from "react-bootstrap";
 import "./Singlepackage.css";
 import Pricecard from "../Singlepackagescreen/Pricecard";
 import Formcomp from "../Singlepackagescreen/Form";
-import { AiOutlineFieldTime, AiOutlineColumnHeight } from "react-icons/ai";
-import { RiCheckboxCircleFill } from "react-icons/ri";
-import { IoAlertCircleSharp } from "react-icons/io5";
-import { FaTimesCircle } from "react-icons/fa";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import firebase from "firebase";
@@ -17,13 +13,18 @@ import SingleReview from "../SingleReview";
 import { Button, Form } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import LoadingScreen from "../LoadingScreen";
-import { FaRupeeSign } from "react-icons/fa";
-import { GiNetworkBars } from "react-icons/gi";
 import { ToastContainer, toast } from "react-toastify";
-import { FcDownRight } from "react-icons/fc";
-import { GoLocation } from "react-icons/go";
-import { TiTickOutline } from "react-icons/ti";
-import {GoCalendar} from "react-icons/go";
+//icons
+import { FaRupeeSign, FaFlag } from "react-icons/fa";
+import { GiNetworkBars, GiPathDistance } from "react-icons/gi";
+import {BiCalendar} from 'react-icons/bi'
+import {TiTime} from 'react-icons/ti'
+import { AiOutlineFieldTime } from "react-icons/ai";
+import { RiCheckboxCircleFill } from "react-icons/ri";
+import {IoMdCheckmarkCircleOutline} from 'react-icons/io'
+import { IoLocateSharp, IoAlertCircleSharp, IoLocation } from "react-icons/io5";
+import {HiOutlineChevronDoubleRight, HiOutlineSun} from 'react-icons/hi'
+import { FaTimesCircle } from "react-icons/fa";
 
 const Singlepackage = (props) => {
   const [pack, setpack] = useState("");
@@ -205,32 +206,32 @@ const Singlepackage = (props) => {
                         <hr />
                         {pack.grade !== "" && (
                           <h5>
-                            <GiNetworkBars className="single-pck-1-row-icon" />
+                            <FaFlag className="single-pck-1-row-icon" />
                             Level - {pack.grade}
                           </h5>
                         )}
                         {pack.maxAltitude !== "" && (
                           <h5>
-                            <AiOutlineColumnHeight className="single-pck-1-row-icon" />
+                            <GiNetworkBars className="single-pck-1-row-icon" />
                             Altitude Range - {pack.maxAltitude}
                           </h5>
                         )}
 
                         {pack.duration !== "" && (
                           <h5>
-                            <AiOutlineFieldTime className="single-pck-1-row-icon" />
+                            <TiTime className="single-pck-1-row-icon" />
                             Duration - {pack.duration}
                           </h5>
                         )}
                         {pack.region !== "" && (
                           <h5>
-                            <GoLocation className="single-pck-1-row-icon" />
+                            <IoLocation className="single-pck-1-row-icon" />
                             Region - {pack.region}
                           </h5>
                         )}
                         {pack.bestTime !== "" && (
                           <h5>
-                            <GoCalendar className="single-pck-1-row-icon" />
+                            <BiCalendar className="single-pck-1-row-icon" />
                             Best Time - {pack.bestTime}
                           </h5>
                         )}
@@ -337,7 +338,7 @@ const Singlepackage = (props) => {
                           {pack &&
                             pack.overviews.map((l, k) => (
                               <p key={k}>
-                                <FcDownRight className="single-pck-2-row-icon" />
+                                <IoLocateSharp className="single-pck-2-row-icon" />
                                 {l}
                               </p>
                             ))}
@@ -354,7 +355,7 @@ const Singlepackage = (props) => {
                               <div key={k} className="single-pack-itn">
                                 <h5>{l.day}</h5>
                                 <h6>
-                                  <FcDownRight className="single-pck-2-row-icon" />
+                                  <IoLocateSharp className="single-pck-2-row-icon" />
                                   {l.title}
                                 </h6>
                                 <p>{l.desc}</p>
@@ -376,7 +377,7 @@ const Singlepackage = (props) => {
                               <div key={k} className="single-pack-itn">
                                 <h5>{l.day}</h5>
                                 <h6>
-                                  <FcDownRight className="single-pck-2-row-icon" />
+                                  <IoLocateSharp className="single-pck-2-row-icon" />
                                   {l.title}
                                 </h6>
                                 <p>{l.desc}</p>
@@ -394,7 +395,7 @@ const Singlepackage = (props) => {
                             pack.majorattraction &&
                             pack.majorattraction.map((l, k) => (
                               <p key={k}>
-                                <FcDownRight className="single-pck-2-row-icon" />
+                                <HiOutlineSun style={{color:'orangered'}} className="single-pck-2-row-icon" />
                                 {l}
                               </p>
                             ))}
@@ -410,7 +411,7 @@ const Singlepackage = (props) => {
                             pack.thingsToCarry &&
                             pack.thingsToCarry.map((l, k) => (
                               <p key={k}>
-                                <RiCheckboxCircleFill
+                                <IoMdCheckmarkCircleOutline
                                   className="single-pck-2-row-icon"
                                   style={{
                                     color: "green",
@@ -685,10 +686,10 @@ const Singlepackage = (props) => {
                             pack.cancellation &&
                             pack.cancellation.map((l, k) => (
                               <p key={k}>
-                                <FaTimesCircle
+                                <HiOutlineChevronDoubleRight
                                   className="single-pck-2-row-icon"
                                   style={{
-                                    color: "red",
+                                    color: "black",
                                     fontSize: "17px",
                                   }}
                                 />
