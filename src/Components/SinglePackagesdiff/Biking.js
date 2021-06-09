@@ -254,27 +254,27 @@ const Singlepackage = (props) => {
                           >
                             <div className="single-pack-nav-item">
                               <a href="#overview">
-                                <p>Overview</p>
+                                <p>About</p>
                               </a>
                             </div>
                             <div className="single-pack-nav-item">
                               <a href="#briefItinerary">
-                                <p>Brief_Itinerary</p>
+                                <p>Short Itinerary</p>
                               </a>
                             </div>
                             <div className="single-pack-nav-item nav-time-active">
                               <a href="#detailedItinerary">
-                                <p>Detailed_Itinerary</p>
+                                <p>Detailed Itinerary</p>
                               </a>
                             </div>
                             <div className="single-pack-nav-item">
                               <a href="#majorattraction">
-                                <p>Major_Attraction</p>
+                                <p>Major Attractions</p>
                               </a>
                             </div>
                             <div className="single-pack-nav-item">
                               <a href="#thingstocarry">
-                                <p>Things_to_carry</p>
+                                <p>Things To Carry</p>
                               </a>
                             </div>
                             <div className="single-pack-nav-item">
@@ -299,7 +299,7 @@ const Singlepackage = (props) => {
                             </div>
                             <div className="single-pack-nav-item ">
                               <a href="#seatavialable">
-                                <p>Seat_Avialable</p>
+                                <p>Seat Availability</p>
                               </a>
                             </div>
                             <div className="single-pack-nav-item">
@@ -314,12 +314,12 @@ const Singlepackage = (props) => {
                             </div>
                             <div className="single-pack-nav-item">
                               <a href="#termsandconditions">
-                                <p>Terms_&_Conditions</p>
+                                <p>Terms & Conditions</p>
                               </a>
                             </div>
                             <div className="single-pack-nav-item">
                               <a href="#cancellation">
-                                <p>Cancellation_&_Refund</p>
+                                <p>Cancellation & Refund</p>
                               </a>
                             </div>
                           </div>
@@ -330,7 +330,7 @@ const Singlepackage = (props) => {
                       <div className="sngl-pack-short-itn" id="overview">
                         <div className="single-pck-2-row">
                           <div className="single-pack-side-design"></div>
-                          <h4>Overview</h4>
+                          <h4>About</h4>
                           <hr />
                           {pack &&
                             pack.overviews.map((l, k) => (
@@ -360,7 +360,7 @@ const Singlepackage = (props) => {
                       <div className="sngl-pack-short-itn" id="briefItinerary">
                         <div className="single-pck-2-row">
                           <div className="single-pack-side-design"></div>
-                          <h4>Brief Itinerary</h4>
+                          <h4>Short Itinerary</h4>
                           <hr />
                           {pack &&
                             pack.briefItinerary.map((l, k) => (
