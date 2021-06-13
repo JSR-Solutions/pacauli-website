@@ -772,7 +772,7 @@ const Payment = (props) => {
       const getToken = (payableAmount) => {
         generateTokenRazor(payableAmount).then((data) => {
           const options = {
-            key: "rzp_test_LaNsBNnS3xzG7o",
+            key: "rzp_live_9dMckzPAc6LgF6",
             name: "PacAuli",
             description: "Thank You for choosing us.",
             currency: "INR",
