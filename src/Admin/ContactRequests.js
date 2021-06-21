@@ -43,7 +43,7 @@ function ContactRequests() {
           querySnapshot.docs.forEach((doc) => {
             if (doc.data) {
               setRequests((prev) => {
-                return [...prev, doc.data()];
+                return [...prev, {data:doc.data(), id:doc.id}];
               });
               setLoading(false);
             }
@@ -57,10 +57,10 @@ function ContactRequests() {
   const rows = requests.map((customRequest) => {
     return {
       id: customRequest.id,
-      customerName: customRequest.name,
-      message: customRequest.message,
-      customerPhone: customRequest.phNo,
-      email: customRequest.email,
+      customerName: customRequest.data.name,
+      message: customRequest.data.message,
+      customerPhone: customRequest.data.phNo,
+      email: customRequest.data.email,
     };
   });
 

@@ -30,7 +30,7 @@ function AllEnquiries() {
     {
       field: "email",
       headerName: "Customer Email",
-      width: 250,
+      width: 300,
     },
   ];
 
@@ -45,7 +45,7 @@ function AllEnquiries() {
           querySnapshot.docs.forEach((doc) => {
             if (doc.data) {
               setEnquiries((prev) => {
-                return [...prev, doc.data()];
+                return [...prev, {id: doc.id, data: doc.data()}];
               });
               setLoading(false);
             }
@@ -59,12 +59,12 @@ function AllEnquiries() {
   const rows = enquiries.map((enquiry) => {
     return {
       id: enquiry.id,
-      customerName: enquiry.fullName,
-      destination: enquiry.destination,
-      customerPhone: enquiry.phNo,
-      email: enquiry.email,
-      budget: enquiry.budget,
-      noOfPeople: enquiry.noOfPeople,
+      customerName: enquiry.data.name,
+      destination: enquiry.data.destination,
+      customerPhone: enquiry.data.phNo,
+      email: enquiry.data.email,
+      budget: enquiry.data.budget,
+      noOfPeople: enquiry.data.noOfPeople,
     };
   });
 
