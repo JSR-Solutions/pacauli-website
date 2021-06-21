@@ -85,6 +85,7 @@ const ContactUs = () => {
     db.collection("Enquiries")
       .add(formik.values)
       .then((docRef) => {
+        db.collection("Enquiries").doc(docRef.id).update({ id: docRef.id });
         emailjs
           .send(
             "service_bamc2hz",
@@ -92,11 +93,10 @@ const ContactUs = () => {
             formik.values,
             "user_VBg8xCBfb5y3PPweXPV0B"
           )
-          .then((response) => {
+          .then(() => {
             toast.success(
               "Your request has been successfully submitted, we will contact you shortly."
             );
-            db.collection("Enquiries").doc(docRef.id).update({ id: docRef.id });
           });
       });
   };

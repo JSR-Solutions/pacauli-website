@@ -67,6 +67,7 @@ const Form = () => {
       .add(formik.values)
 
       .then((docRef) => {
+        db.collection("GetInTouch").doc(docRef.id).update({ id: docRef.id });
         emailjs
           .send(
             "service_bamc2hz",
@@ -74,13 +75,10 @@ const Form = () => {
             formik.values,
             "user_VBg8xCBfb5y3PPweXPV0B"
           )
-          .then((response) => {
+          .then(() => {
             toast.success(
               "Your request has been successfully submitted, we will contact you shortly."
             );
-            db.collection("GetInTouch")
-              .doc(docRef.id)
-              .update({ id: docRef.id });
           });
       });
   };

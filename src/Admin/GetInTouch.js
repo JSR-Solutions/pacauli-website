@@ -17,12 +17,11 @@ function GetInTouch() {
 
   const columns = [
     { field: "id", headerName: "Request ID", width: 225 },
-    { field: "customerName", headerName: "Customer name", width: 250 },
-    { field: "date", headerName: "Date", width: 250 },
+    { field: "customerName", headerName: "Customer name", width: 200 },
     {
       field: "noOfPeople",
       headerName: "Number of people",
-      width: 150,
+      width: 200,
       type: "number",
     },
     {
@@ -49,7 +48,7 @@ function GetInTouch() {
           querySnapshot.docs.forEach((doc) => {
             if (doc.data) {
               setRequests((prev) => {
-                return [...prev, doc.data()];
+                return [...prev, {data:doc.data(), id:doc.id}];
               });
               setLoading(false);
             }
@@ -63,11 +62,10 @@ function GetInTouch() {
   const rows = requests.map((customRequest) => {
     return {
       id: customRequest.id,
-      customerName: customRequest.name,
-      date: customRequest.Date,
-      noOfPeople: customRequest.noOfPeople,
-      customerPhone: customRequest.phNo,
-      email: customRequest.email,
+      customerName: customRequest.data.name,
+      noOfPeople: customRequest.data.noOfPeople,
+      customerPhone: customRequest.data.phNo,
+      email: customRequest.data.email,
     };
   });
   return (
