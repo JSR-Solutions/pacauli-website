@@ -34,7 +34,7 @@ const Payment = (props) => {
   const [payableAmount, setPayableAmount] = React.useState(
     1.18 * advancePayment + parseInt(donation)
   );
-  const [gst, setGst] = React.useState(0.18 * advancePayment);
+  const [gst, setGst] = React.useState(0);
   const [availability, setAvailability] = useState(false);
   const db = firebase.firestore();
   const auth = firebase.auth();
@@ -511,10 +511,9 @@ const Payment = (props) => {
                       },
                       {
                         width: "*",
-                        text: `Rs. ${
-                          booking.bookingData.totalCost -
+                        text: `Rs. ${booking.bookingData.totalCost -
                           booking.bookingData.totalAdvance
-                        } + GST @18%`,
+                          } + GST @18%`,
                         fontSize: 12,
                         bold: 28000,
                       },
@@ -634,18 +633,11 @@ const Payment = (props) => {
         numberOfSeats * parseInt(props.pricing[typeIndex].receivableAmount)
       );
     });
-    setGst(() => {
-      return (
-        numberOfSeats *
-        parseInt(props.pricing[typeIndex].receivableAmount) *
-        0.18
-      );
-    });
+    setGst(0);
     setPayableAmount(() => {
       return (
         numberOfSeats *
-          parseInt(props.pricing[typeIndex].receivableAmount) *
-          1.18 +
+        parseInt(props.pricing[typeIndex].receivableAmount) +
         parseInt(donation)
       );
     });
@@ -760,6 +752,7 @@ const Payment = (props) => {
       body: JSON.stringify({ amount: payableAmount }),
     })
       .then((response) => {
+        console.log(response)
         return response.json();
       })
       .catch((err) => {
@@ -769,6 +762,7 @@ const Payment = (props) => {
 
   const paymentHandler = async () => {
     if (payableAmount) {
+
       const getToken = (payableAmount) => {
         generateTokenRazor(payableAmount).then((data) => {
           const options = {

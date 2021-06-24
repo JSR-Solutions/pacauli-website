@@ -16,13 +16,13 @@ import LoadingScreen from "../LoadingScreen";
 //icons
 import { FaRupeeSign, FaFlag } from "react-icons/fa";
 import { GiNetworkBars, GiPathDistance } from "react-icons/gi";
-import {BiCalendar} from 'react-icons/bi'
-import {TiTime} from 'react-icons/ti'
+import { BiCalendar } from 'react-icons/bi'
+import { TiTime } from 'react-icons/ti'
 import { AiOutlineFieldTime } from "react-icons/ai";
 import { RiCheckboxCircleFill } from "react-icons/ri";
-import {IoMdCheckmarkCircleOutline} from 'react-icons/io'
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
 import { IoLocateSharp, IoAlertCircleSharp, IoLocation } from "react-icons/io5";
-import {HiOutlineChevronDoubleRight, HiOutlineSun} from 'react-icons/hi'
+import { HiOutlineChevronDoubleRight, HiOutlineSun } from 'react-icons/hi'
 import { FaTimesCircle } from "react-icons/fa";
 
 
@@ -412,7 +412,7 @@ const Singlepackage = (props) => {
                             pack.majorattraction &&
                             pack.majorattraction.map((l, k) => (
                               <p key={k}>
-                                <HiOutlineSun style={{color:'orangered'}} className="single-pck-2-row-icon" />
+                                <HiOutlineSun style={{ color: 'orangered' }} className="single-pck-2-row-icon" />
                                 {l}
                               </p>
                             ))}
@@ -584,15 +584,15 @@ const Singlepackage = (props) => {
                                     style={
                                       l.seats === "0"
                                         ? {
-                                            backgroundColor:
-                                              "rgba(255, 0, 0, 0.75)",
-                                          }
+                                          backgroundColor:
+                                            "rgba(255, 0, 0, 0.75)",
+                                        }
                                         : l.seats > 2
-                                        ? {
+                                          ? {
                                             backgroundColor:
                                               "rgba(0, 128, 0,0.75)",
                                           }
-                                        : { backgroundColor: "#ff8303" }
+                                          : { backgroundColor: "#ff8303" }
                                     }
                                     key={k}
                                     className="sng-date"
@@ -680,11 +680,11 @@ const Singlepackage = (props) => {
                             pack.terms &&
                             pack.terms.map((l, k) => (
                               <p key={k}>
-                                <RiCheckboxCircleFill
+                                <HiOutlineChevronDoubleRight
                                   className="single-pck-2-row-icon"
                                   style={{
-                                    color: "green",
-                                    fontSize: "19px",
+                                    color: "black",
+                                    fontSize: "17px",
                                   }}
                                 />
                                 {l}
