@@ -661,13 +661,13 @@ const Singlepackage = (props) => {
                             pack.terms &&
                             pack.terms.map((l, k) => (
                               <p key={k}>
-                                <RiCheckboxCircleFill
-                                  className="single-pck-2-row-icon"
-                                  style={{
-                                    color: "green",
-                                    fontSize: "19px",
-                                  }}
-                                />
+                              <HiOutlineChevronDoubleRight
+                              className="single-pck-2-row-icon"
+                              style={{
+                                color: "black",
+                                fontSize: "17px",
+                              }}
+                            />
                                 {l}
                               </p>
                             ))}
