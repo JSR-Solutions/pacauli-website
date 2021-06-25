@@ -541,7 +541,7 @@ const Singlepackage = (props) => {
                                             backgroundColor:
                                               "rgba(255, 0, 0, 0.75)",
                                           }
-                                        : l.seats > 2
+                                        : l.seats > 10
                                         ? {
                                             backgroundColor:
                                               "rgba(0, 128, 0,0.75)",

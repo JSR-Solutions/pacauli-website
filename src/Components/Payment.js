@@ -1042,14 +1042,14 @@ const Payment = (props) => {
                   <h5>{advancePayment}</h5>
                 </Col>
               </Row>
-              <Row>
+              {/* <Row>
                 <Col lg={8} md={8} sm={8} xs={8} className="total-col">
                   <h5>GST @ 18%</h5>
                 </Col>
                 <Col className="total-col1">
                   <h5>{gst}</h5>
                 </Col>
-              </Row>
+              </Row> */}
               <Row>
                 <Col lg={8} md={8} sm={8} xs={8} className="total-col">
                   <h5>Donation for Cuddle The Himalayas Foundation</h5>
