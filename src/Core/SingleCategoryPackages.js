@@ -3,6 +3,8 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import SingleCategoryPage from "../Components/SingleCategoryPage";
 import $ from "jquery";
+import { Helmet } from 'react-helmet'
+
 
 const SingleCategoryPackages = (props) => {
   const x = props.match.params.categoryName;

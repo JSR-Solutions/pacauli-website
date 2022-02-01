@@ -5,6 +5,8 @@ import "../Styles/categoryPage.css";
 import category from "../helper/categoryData";
 import CatStrip from "../Components/CategoryStrip";
 import $ from "jquery";
+import { Helmet } from 'react-helmet'
+
 const Categories = () => {
   useEffect(() => {
     $(document).ready(function () {

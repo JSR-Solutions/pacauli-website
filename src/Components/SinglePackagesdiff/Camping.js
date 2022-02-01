@@ -16,14 +16,15 @@ import LoadingScreen from "../LoadingScreen";
 //icons
 import { FaRupeeSign, FaFlag } from "react-icons/fa";
 import { GiNetworkBars, GiPathDistance } from "react-icons/gi";
-import {BiCalendar} from 'react-icons/bi'
-import {TiTime} from 'react-icons/ti'
+import { BiCalendar } from 'react-icons/bi'
+import { TiTime } from 'react-icons/ti'
 import { AiOutlineFieldTime } from "react-icons/ai";
 import { RiCheckboxCircleFill } from "react-icons/ri";
-import {IoMdCheckmarkCircleOutline} from 'react-icons/io'
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
 import { IoLocateSharp, IoAlertCircleSharp, IoLocation } from "react-icons/io5";
-import {HiOutlineChevronDoubleRight, HiOutlineSun} from 'react-icons/hi'
+import { HiOutlineChevronDoubleRight, HiOutlineSun } from 'react-icons/hi'
 import { FaTimesCircle } from "react-icons/fa";
+import { Helmet } from 'react-helmet'
 
 const Singlepackage = (props) => {
   const [pack, setpack] = useState("");
@@ -173,7 +174,30 @@ const Singlepackage = (props) => {
       <div className="single-package-main">
         {redirectLogin && <Redirect to="/signin" />}
         <Header />
+        <Helmet>
+          <title>{pack && pack.name}</title>
+          <meta name="title" content={pack && pack.name} />
+          <meta name="description" content={pack.overviews && pack.overviews[0] && pack.overviews[0].substring(0, 140)} />
+          <meta name="keywords" content={
+            pack &&
+            pack.briefItinerary &&
+            pack.briefItinerary.map(as => `${as && as.title && as.title.toLowerCase()} `)
+          } />
 
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content={pack && pack.name} />
+          <meta property="og:description"
+            content={pack.overviews && pack.overviews[0] && pack.overviews[0].substring(0, 140)} />
+          <meta property="og:image"
+            content={pack.imgUrl && pack.imgUrl[0] && pack.imgUrl[0]} />
+
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:title" content={pack && pack.name} />
+          <meta property="twitter:description"
+            content={pack.overviews && pack.overviews[0] && pack.overviews[0].substring(0, 140)} />
+          <meta property="twitter:image"
+            content={pack.imgUrl && pack.imgUrl[0] && pack.imgUrl[0]} />
+        </Helmet>
         <div className="img-carou">
           <div className="single-package-upper">
             <Carousel>
@@ -354,7 +378,7 @@ const Singlepackage = (props) => {
                             pack.majorattraction &&
                             pack.majorattraction.map((l, k) => (
                               <p key={k}>
-                                <HiOutlineSun style={{color:'orangered'}} className="single-pck-2-row-icon" />
+                                <HiOutlineSun style={{ color: 'orangered' }} className="single-pck-2-row-icon" />
                                 {l}
                               </p>
                             ))}
@@ -504,15 +528,15 @@ const Singlepackage = (props) => {
                                     style={
                                       l.seats === "0"
                                         ? {
-                                            backgroundColor:
-                                              "rgba(255, 0, 0, 0.75)",
-                                          }
+                                          backgroundColor:
+                                            "rgba(255, 0, 0, 0.75)",
+                                        }
                                         : l.seats > 10
-                                        ? {
+                                          ? {
                                             backgroundColor:
                                               "rgba(0, 128, 0,0.75)",
                                           }
-                                        : { backgroundColor: "#ff8303" }
+                                          : { backgroundColor: "#ff8303" }
                                     }
                                     key={k}
                                     className="sng-date"
@@ -600,13 +624,13 @@ const Singlepackage = (props) => {
                             pack.terms &&
                             pack.terms.map((l, k) => (
                               <p key={k}>
-                              <HiOutlineChevronDoubleRight
-                              className="single-pck-2-row-icon"
-                              style={{
-                                color: "black",
-                                fontSize: "17px",
-                              }}
-                            />
+                                <HiOutlineChevronDoubleRight
+                                  className="single-pck-2-row-icon"
+                                  style={{
+                                    color: "black",
+                                    fontSize: "17px",
+                                  }}
+                                />
                                 {l}
                               </p>
                             ))}

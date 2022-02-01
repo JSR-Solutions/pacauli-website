@@ -24,7 +24,7 @@ import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
 import { IoLocateSharp, IoAlertCircleSharp, IoLocation } from "react-icons/io5";
 import { HiOutlineChevronDoubleRight, HiOutlineSun } from 'react-icons/hi'
 import { FaTimesCircle } from "react-icons/fa";
-
+import { Helmet } from 'react-helmet'
 
 const Singlepackage = (props) => {
   const [pack, setpack] = useState("");
@@ -174,7 +174,30 @@ const Singlepackage = (props) => {
       <div className="single-package-main">
         {redirectLogin && <Redirect to="/signin" />}
         <Header />
+        <Helmet>
+          <title>{pack && pack.name}</title>
+          <meta name="title" content={pack && pack.name} />
+          <meta name="description" content={pack.overviews && pack.overviews[0] && pack.overviews[0].substring(0, 140)} />
+          <meta name="keywords" content={
+            pack &&
+            pack.briefItinerary &&
+            pack.briefItinerary.map(as => `${as && as.title && as.title.toLowerCase()} `)
+          } />
 
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content={pack && pack.name} />
+          <meta property="og:description"
+            content={pack.overviews && pack.overviews[0] && pack.overviews[0].substring(0, 140)} />
+          <meta property="og:image"
+            content={pack.imgUrl && pack.imgUrl[0] && pack.imgUrl[0]} />
+
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:title" content={pack && pack.name} />
+          <meta property="twitter:description"
+            content={pack.overviews && pack.overviews[0] && pack.overviews[0].substring(0, 140)} />
+          <meta property="twitter:image"
+            content={pack.imgUrl && pack.imgUrl[0] && pack.imgUrl[0]} />
+        </Helmet>
         <div className="img-carou">
           <div className="single-package-upper">
             <Carousel>

@@ -11,13 +11,13 @@ import placeholder from "../Assets/placeholder.png";
 import experience from "../Assets/experience.png";
 
 import TeamSocials from "../Components/TeamSocials";
-
+import Am from "../Assets/bg-about.jpg"
 import t1 from "../Assets/Team/t1.jpeg";
 import t2 from "../Assets/Team/t2.jpeg";
 import t3 from "../Assets/Team/t3.jpeg";
 import t4 from "../Assets/Team/t4.jpeg";
 import t5 from "../Assets/Team/t5.jpeg";
-import { Button } from "react-bootstrap";
+import { Helmet } from 'react-helmet'
 
 const Aboutus = () => {
   useEffect(() => {
@@ -29,9 +29,26 @@ const Aboutus = () => {
   return (
     <div>
       <Header />
-      {/* <div class="main-heading">
-        <h1>Heading</h1>
-      </div> */}
+      <Helmet>
+        <title>About PacAuli (Pangarchulla Adventure Camps)</title>
+        <meta name="title" content="About PacAuli (Pangarchulla Adventure Camps)" />
+        <meta name="description" content="Pac Auli's adventure began with two intrepid explorers hoping to trek and conquer all of the world's most exciting locations. They realized that people who enjoy trekking and bag packing need proper guidance during their journey of exploring various destinations, so they decided to form PAC AULI(Pangarchulla Adventure Camps),which they named after a Himalayan Peak Mt Pangarchulla.As one of the founders have sheer memories with this peak." />
+        <meta name="keywords" content="About PacAuli (Pangarchulla Adventure Camps)" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="About PacAuli (Pangarchulla Adventure Camps)" />
+        <meta property="og:description"
+          content="Pac Auli's adventure began with two intrepid explorers hoping to trek and conquer all of the world's most exciting locations. They realized that people who enjoy trekking and bag packing need proper guidance during their journey of exploring various destinations, so they decided to form PAC AULI(Pangarchulla Adventure Camps),which they named after a Himalayan Peak Mt Pangarchulla.As one of the founders have sheer memories with this peak." />
+        <meta property="og:image"
+          content={Am} />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="About PacAuli (Pangarchulla Adventure Camps)" />
+        <meta property="twitter:description"
+          content="Pac Auli's adventure began with two intrepid explorers hoping to trek and conquer all of the world's most exciting locations. They realized that people who enjoy trekking and bag packing need proper guidance during their journey of exploring various destinations, so they decided to form PAC AULI(Pangarchulla Adventure Camps),which they named after a Himalayan Peak Mt Pangarchulla.As one of the founders have sheer memories with this peak." />
+        <meta property="twitter:image"
+          content={Am} />
+      </Helmet>
 
       <div>
         {/* <div className="heading-about">
@@ -148,7 +165,7 @@ const Aboutus = () => {
 
                     <p className="about-founder">
                       <em>
-                      Anshuman’s curiosity to endeavor the Himalayas started at a very young age. His passion for trekking and delving into one of the most famous adventure sports, ‘skiing,’ started when he was 10 years old. How did this happen? What made him so inquisitive to explore this mountain range? Like any other adrenaline junkie, he went on different treks with his cousins and their trekking groups from India and people from other continents. One day when he went for his first peak summit of Mt Pangarchulla at the age of 12. This was a game-changing moment for him, and then he never looked back. He realized that his love for the mountains could not be replaced; hence he started his own trekking company at 16. Anshuman was a different person altogether; wanted to do something different and break the barriers. A rank holder in academics but,’ he wanted to take the road less traveled and embark on the thrilling journey.  He has brought a lot of accolades in skiing and competed at the highest level. He still participates in skiing competitions due to his immense love for this sport. Apart from being adventurous, Anshuman is a fun-loving and welcoming person as he believes in the philosophy of ‘Vasudhaiva Katumbakam’ that every living being is a part of our family.
+                        Anshuman’s curiosity to endeavor the Himalayas started at a very young age. His passion for trekking and delving into one of the most famous adventure sports, ‘skiing,’ started when he was 10 years old. How did this happen? What made him so inquisitive to explore this mountain range? Like any other adrenaline junkie, he went on different treks with his cousins and their trekking groups from India and people from other continents. One day when he went for his first peak summit of Mt Pangarchulla at the age of 12. This was a game-changing moment for him, and then he never looked back. He realized that his love for the mountains could not be replaced; hence he started his own trekking company at 16. Anshuman was a different person altogether; wanted to do something different and break the barriers. A rank holder in academics but,’ he wanted to take the road less traveled and embark on the thrilling journey.  He has brought a lot of accolades in skiing and competed at the highest level. He still participates in skiing competitions due to his immense love for this sport. Apart from being adventurous, Anshuman is a fun-loving and welcoming person as he believes in the philosophy of ‘Vasudhaiva Katumbakam’ that every living being is a part of our family.
                       </em>
                     </p>
                   </div>
