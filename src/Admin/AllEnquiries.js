@@ -33,6 +33,23 @@ function AllEnquiries() {
       headerName: "Customer Email",
       width: 300,
     },
+    {
+      field: "Delete",
+      headerName: "Delete",
+      width: 200,
+      renderCell: (params) => {
+        return (
+          <div onClick={() => {
+            firebase.firestore().collection("QuickEnquiries").doc(params.row.id)
+              .delete()
+              .then((res) => {
+                getEnquiries()
+              })
+          }} style={{height:'30px', backgroundColor:'tomato', cursor:'pointer', 
+          lineHeight:'30px', padding:'0 5px', borderRadius:'5px', color: 'white'}} >Delete</div>
+        )
+      }
+    }
   ];
 
   function getEnquiries() {
@@ -40,14 +57,14 @@ function AllEnquiries() {
     setEnquiries([]);
     setLoading(true);
     db.collection("QuickEnquiries")
-    .orderBy("timeStamp", "desc")
+      .orderBy("timeStamp", "desc")
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.docs.length) {
           querySnapshot.docs.forEach((doc) => {
             if (doc.data) {
               setEnquiries((prev) => {
-                return [...prev, {id: doc.id, data: doc.data()}];
+                return [...prev, { id: doc.id, data: doc.data() }];
               });
               setLoading(false);
             }
@@ -61,7 +78,7 @@ function AllEnquiries() {
   const rows = enquiries.map((enquiry) => {
     return {
       id: enquiry.id,
-      timestamp: enquiry.data && enquiry.data.timeStamp && new Date(JSON.stringify(enquiry.data.timeStamp).slice(3,13)).toDateString(),
+      timestamp: enquiry.data && enquiry.data.timeStamp && new Date(JSON.stringify(enquiry.data.timeStamp).slice(3, 13)).toDateString(),
       customerName: enquiry.data.name,
       destination: enquiry.data.destination,
       customerPhone: enquiry.data.phNo,

@@ -32,6 +32,25 @@ function CustomPackage() {
       width: 350,
     },
     { field: "destination", headerName: "Destination", width: 450 },
+    {
+      field: "Delete",
+      headerName: "Delete",
+      width: 200,
+      renderCell: (params) => {
+        return (
+          <div onClick={() => {
+            firebase.firestore().collection("CustomPackages").doc(params.row.id)
+              .delete()
+              .then((res) => {
+                getRequests()
+              })
+          }} style={{
+            height: '30px', backgroundColor: 'tomato', cursor: 'pointer',
+            lineHeight: '30px', padding: '0 5px', borderRadius: '5px', color: 'white'
+          }} >Delete</div>
+        )
+      }
+    }
   ];
 
   function getRequests() {
@@ -39,7 +58,7 @@ function CustomPackage() {
     setRequests([]);
     setLoading(true);
     db.collection("CustomPackages")
-    .orderBy("timeStamp", "desc")
+      .orderBy("timeStamp", "desc")
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.docs.length) {
@@ -60,7 +79,7 @@ function CustomPackage() {
   const rows = requests.map((customRequest) => {
     return {
       id: customRequest.id,
-      timestamp: customRequest && customRequest.timeStamp && new Date(JSON.stringify(customRequest.timeStamp).slice(3,13)).toDateString(),
+      timestamp: customRequest && customRequest.timeStamp && new Date(JSON.stringify(customRequest.timeStamp).slice(3, 13)).toDateString(),
       customerName: customRequest.name,
       destination: customRequest.destination,
       budget: customRequest.budget,

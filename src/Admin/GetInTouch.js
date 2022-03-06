@@ -36,6 +36,25 @@ function GetInTouch() {
       headerName: "Customer Email",
       width: 250,
     },
+    {
+      field: "Delete",
+      headerName: "Delete",
+      width: 200,
+      renderCell: (params) => {
+        return (
+          <div onClick={() => {
+            firebase.firestore().collection("GetInTouch").doc(params.row.id)
+              .delete()
+              .then((res) => {
+                getRequests()
+              })
+          }} style={{
+            height: '30px', backgroundColor: 'tomato', cursor: 'pointer',
+            lineHeight: '30px', padding: '0 5px', borderRadius: '5px', color: 'white'
+          }} >Delete</div>
+        )
+      }
+    }
   ];
 
   function getRequests() {
