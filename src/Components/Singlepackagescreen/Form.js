@@ -52,6 +52,7 @@ const Form = () => {
       message: "",
       destination: "",
       budget: "",
+      timeStamp: JSON.stringify(new Date())
     },
     validate: ValidateForm,
     onSubmit: (values, { resetForm }) => {

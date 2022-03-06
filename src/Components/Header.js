@@ -138,6 +138,7 @@ const Header = ({ history }) => {
       budget: "",
       noOfPeople: "",
       destination: "",
+      timeStamp: JSON.stringify(new Date())
     },
     validate: ValidateForm,
     onSubmit: (values) => {

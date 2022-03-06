@@ -17,15 +17,16 @@ function AllEnquiries() {
 
   const columns = [
     { field: "id", headerName: "Enquiry ID", width: 225 },
+    { field: "timestamp", headerName: "Date & Time", width: 355 },
     { field: "customerName", headerName: "Customer name", width: 240 },
-    { field: "destination", headerName: "Destination", width: 240 },
+    { field: "destination", headerName: "Destination", width: 300 },
     { field: "budget", headerName: "Budget", type: "number", width: 240 },
     { field: "noOfPeople", headerName: "Number Of People", width: 240 },
     {
       field: "customerPhone",
       headerName: "Customer Number",
       sortable: true,
-      width: 205,
+      width: 300,
     },
     {
       field: "email",
@@ -39,6 +40,7 @@ function AllEnquiries() {
     setEnquiries([]);
     setLoading(true);
     db.collection("QuickEnquiries")
+    .orderBy("timeStamp", "desc")
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.docs.length) {
@@ -59,6 +61,7 @@ function AllEnquiries() {
   const rows = enquiries.map((enquiry) => {
     return {
       id: enquiry.id,
+      timestamp: enquiry.data && enquiry.data.timeStamp && new Date(JSON.stringify(enquiry.data.timeStamp).slice(3,13)).toDateString(),
       customerName: enquiry.data.name,
       destination: enquiry.data.destination,
       customerPhone: enquiry.data.phNo,

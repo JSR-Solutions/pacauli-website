@@ -17,6 +17,7 @@ function GetInTouch() {
 
   const columns = [
     { field: "id", headerName: "Request ID", width: 225 },
+    { field: "timestamp", headerName: "Date & Time", width: 355 },
     { field: "customerName", headerName: "Customer name", width: 200 },
     {
       field: "noOfPeople",
@@ -42,13 +43,14 @@ function GetInTouch() {
     setRequests([]);
     setLoading(true);
     db.collection("GetInTouch")
+      .orderBy("timeStamp", "desc")
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.docs.length) {
           querySnapshot.docs.forEach((doc) => {
             if (doc.data) {
               setRequests((prev) => {
-                return [...prev, {data:doc.data(), id:doc.id}];
+                return [...prev, { data: doc.data(), id: doc.id }];
               });
               setLoading(false);
             }
@@ -62,6 +64,7 @@ function GetInTouch() {
   const rows = requests.map((customRequest) => {
     return {
       id: customRequest.id,
+      timestamp: customRequest.data && customRequest.data.timeStamp && new Date(JSON.stringify(customRequest.data.timeStamp).slice(3, 13)).toDateString(),
       customerName: customRequest.data.name,
       noOfPeople: customRequest.data.noOfPeople,
       customerPhone: customRequest.data.phNo,

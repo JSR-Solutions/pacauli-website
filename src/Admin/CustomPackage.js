@@ -17,20 +17,21 @@ function CustomPackage() {
 
   const columns = [
     { field: "id", headerName: "Request ID", width: 225 },
+    { field: "timestamp", headerName: "Date & Time", width: 355 },
     { field: "customerName", headerName: "Customer name", width: 250 },
-    { field: "destination", headerName: "Destination", width: 250 },
-    { field: "budget", headerName: "Budget", width: 150, type: "number" },
+    { field: "budget", headerName: "Budget", width: 200, type: "number" },
     {
       field: "customerPhone",
       headerName: "Customer Number",
       sortable: true,
-      width: 225,
+      width: 250,
     },
     {
       field: "email",
       headerName: "Customer Email",
-      width: 250,
+      width: 350,
     },
+    { field: "destination", headerName: "Destination", width: 450 },
   ];
 
   function getRequests() {
@@ -38,6 +39,7 @@ function CustomPackage() {
     setRequests([]);
     setLoading(true);
     db.collection("CustomPackages")
+    .orderBy("timeStamp", "desc")
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.docs.length) {
@@ -58,6 +60,7 @@ function CustomPackage() {
   const rows = requests.map((customRequest) => {
     return {
       id: customRequest.id,
+      timestamp: customRequest && customRequest.timeStamp && new Date(JSON.stringify(customRequest.timeStamp).slice(3,13)).toDateString(),
       customerName: customRequest.name,
       destination: customRequest.destination,
       budget: customRequest.budget,

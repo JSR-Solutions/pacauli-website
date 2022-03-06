@@ -73,6 +73,7 @@ const ContactUs = () => {
       phNo: "",
       email: "",
       message: "",
+      timeStamp: JSON.stringify(new Date())
     },
     validate: ValidateForm,
     onSubmit: (values, { resetForm }) => {

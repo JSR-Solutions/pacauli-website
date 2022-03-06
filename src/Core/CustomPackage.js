@@ -77,6 +77,7 @@ const ContactUs = () => {
       destination: "",
       message: "",
       noOfPeople: "",
+      timeStamp: JSON.stringify(new Date())
     },
     validate: ValidateForm,
     onSubmit: (values, { resetForm }) => {

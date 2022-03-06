@@ -27,6 +27,7 @@ function ContactRequests() {
 
   const columns = [
     { field: "id", headerName: "Request ID", width: 225 },
+    { field: "timestamp", headerName: "Date & Time", width: 355 },
     { field: "customerName", headerName: "Customer name", width: 240 },
     { field: "message", headerName: "Message", width: 240 },
     {
@@ -47,6 +48,7 @@ function ContactRequests() {
     setRequests([]);
     setLoading(true);
     db.collection("Enquiries")
+    .orderBy("timeStamp", "desc")
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.docs.length) {
@@ -67,6 +69,7 @@ function ContactRequests() {
   const rows = requests.map((customRequest) => {
     return {
       id: customRequest.id,
+      timestamp: customRequest.data && customRequest.data.timeStamp && new Date(JSON.stringify(customRequest.data.timeStamp).slice(3,13)).toDateString(),
       customerName: customRequest.data.name,
       message: customRequest.data.message,
       customerPhone: customRequest.data.phNo,
