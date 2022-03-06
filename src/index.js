@@ -1,5 +1,5 @@
 import React from 'react';
-import {hydrate, render} from 'react-dom';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import firebase from "firebase";
@@ -24,10 +24,7 @@ firebase.analytics();
 
 AOS.init({duration: 1500});
 
-const rootElemt = document.getElementById('root');
-
-if(rootElemt.hasChildNodes()){
-  hydrate(<App />, rootElemt);
-}else{
-  hydrate(<App />, rootElemt);
-}
+ReactDOM.render(
+    <App />,
+  document.getElementById('root')
+);
