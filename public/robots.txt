@@ -1,3 +1,16 @@
 # https://www.robotstxt.org/robotstxt.html
+
 User-agent: *
-Disallow:
+Allow: /
+
+# cart
+User-agent: *
+Disallow: /admin
+Disallow: /admin/login
+
+
+# Host
+Host: https://www.pacauli.com/
+
+# Sitemaps
+Sitemap: https://www.pacauli.com/my-sitemap

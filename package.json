@@ -33,6 +33,7 @@
     "react-pro-sidebar": "^0.6.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-snap": "^1.23.0",
     "react-sticky": "^6.0.3",
     "react-to-pdf": "0.0.14",
     "react-toastify": "^7.0.3",
