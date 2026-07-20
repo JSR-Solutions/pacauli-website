@@ -175,13 +175,6 @@ const Aboutus = () => {
                     <hr className="achievements-divider" />
                     <ul className="achievements-list">
                       <li>
-                        2013 First Position in Junior National Championship Auli
-                      </li>
-                      <li>
-                        2014 Participation in National Skiing Championship Auli
-                      </li>
-                      <li>2018 First ever to cover the Winter Malari Trial</li>
-                      <li>
                         2018 Youngest ever to board down from Pangarchulla base
                       </li>
                       <li>2019 Only skier to Ski down from Tungnath Temple.</li>
